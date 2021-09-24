@@ -19,7 +19,7 @@ function firstSection() {
                     <p id="registerText">You can register for free!</p>
                     <div className="searchBar">
                         <p id="searchText">Search bar</p>
-                        <FiSearch />
+                        <p id="searchIcon"><FiSearch /></p>
                     </div>
                 </div>
                 <img id="homeImage" src={landingHome} alt="Home page home"/>

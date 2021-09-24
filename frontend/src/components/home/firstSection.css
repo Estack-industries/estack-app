@@ -1,4 +1,5 @@
 .sectionWrapper {
+    background-color: linear-gradient(260.28deg, #FD3801 0%, #F75452 96.58%);
     justify-content: center;
 }
 
@@ -49,7 +50,7 @@
 }
 
 #registerText {
-    font-family: DM Sans;
+    font-family: "DM Sans", sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
@@ -57,15 +58,23 @@
 }
 
 #searchText {
-    font-family: Open Sans;
+    font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 33px;
+    color: #7B6F6F;
+}
+
+#searchIcon {
+    color: #000000;
+    line-height: 33px;
+    font-size: 28px;
+
 }
 
 #linkText {
-    font-family: Open Sans;
+    font-family: "Open Sans", sans-serif;
     font-size: 24px;
     font-style: normal;
     font-weight: 700;
@@ -76,7 +85,7 @@
 }
 
 #stackText {
-    font-family: Actor;
+    font-family: "Actor", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 38px;
