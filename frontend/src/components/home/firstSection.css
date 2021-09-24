@@ -1,0 +1,84 @@
+.sectionWrapper {
+    justify-content: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navLinks {
+    display: flex;
+}
+
+.content {
+    display: flex;
+}
+
+.navBox {
+    width: 134px;
+    height: 55px;
+    left: calc(50% - 134px/2 + 418px);
+    top: calc(50% - 55px/2 - 1794.5px);
+
+    background: #F4A523;
+    border: 2px solid #F4A523;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    width: 486px;
+    height: 82px;
+    left: 30px;
+    top: 317px;
+
+    background: #FFFFFF;
+    border: 1px solid #8A8A8A;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+#homeImage {
+    width: 923px;
+    height: 557px;
+}
+
+#registerText {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 47px;
+}
+
+#searchText {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+#linkText {
+    font-family: Open Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 33px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+#stackText {
+    font-family: Actor;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 38px;
+    line-height: 46px;
+}
