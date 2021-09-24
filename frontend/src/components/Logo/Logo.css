@@ -1,0 +1,14 @@
+.Logo {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  width: 38px;
+  min-height: 100%;
+}
+
+.line {
+  height: auto;
+  width: auto;
+  border: 2px solid black;
+}
