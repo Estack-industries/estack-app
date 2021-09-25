@@ -38,18 +38,24 @@
 }
 
 #searchText {
+    display: flex;
+    width: 300px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+
+    align-items: center;
     font-family: "Open Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 33px;
+    margin-right: 100px;
     color: #7B6F6F;
-    padding-top: 14px;
-    padding-left: 16px;
 }
 
 #searchIcon {
-    color: #000000;
     line-height: 33px;
     font-size: 36px;
     padding-top: 12px;
