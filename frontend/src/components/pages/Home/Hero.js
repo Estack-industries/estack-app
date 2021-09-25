@@ -1,9 +1,9 @@
 import React from 'react'
-import './firstSection.css'
+import './Hero.css'
 import landingHome from './pictures/image 30.png'
 import { FiSearch } from "react-icons/fi";
 
-function firstSection() {
+function Hero() {
   return (
     <div className="sectionWrapper">
       <div className="content">
@@ -20,4 +20,4 @@ function firstSection() {
   )
 }
 
-export default firstSection
+export default Hero

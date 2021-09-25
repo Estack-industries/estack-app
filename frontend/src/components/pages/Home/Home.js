@@ -1,10 +1,13 @@
 import React from 'react'
-import FirstSection from './firstSection'
+import './Home.css'
+import Hero from './Hero'
+import SecondSection from './secondSection'
 
 function Home() {
     return (
-        <div>
-            <FirstSection />
+        <div className="homeContainer">
+            <Hero />
+            <SecondSection />
         </div>
     )
 }
