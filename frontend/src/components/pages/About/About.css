@@ -1,0 +1,25 @@
+.wrapper {
+  position: relative;
+  min-height: 70vh;
+  background: linear-gradient(260.28deg, #0193FD 0%, #3F51F4 96.58%);
+}
+
+.custom-shape-divider-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom svg {
+  position: relative;
+  display: block;
+  aspect-ratio: 1200/400;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+  fill: #FFFFFF;
+}
