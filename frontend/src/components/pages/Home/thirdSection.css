@@ -1,0 +1,158 @@
+.sectionContainer {
+    margin-top: 200px;
+}
+
+.section {
+    margin-top: 120px;
+}
+
+.mainText {
+    text-align: center;
+
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 62px;
+
+    color: #2073F9;
+}
+
+.firstSectionContainer {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 64px;
+}
+
+.chooseBox {
+    width: 310px;
+    height: 297px;
+
+    background: #FFFFFF;
+    border: 1px solid #9E9393;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+.boxImg {
+    padding-top: 10%;
+}
+
+.boxText {
+    width: 190px;
+    height: 90px;
+
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 5%;
+
+    color: #000000;
+}
+
+.secondSectionContainer {
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 64px;
+}
+
+.listingBox {
+    width: 336px;
+    height: 417px;
+    
+    background: #FFFFFF;
+    border: 1px solid #A4D7FC;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.listingTitle {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.427179px;
+    
+    color: #000000;
+
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listingPrice {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.427179px;
+    
+    color: #000000;
+
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listingInfo {
+    display: flex;
+    justify-content: space-between;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listingInfoText {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 22px;
+    letter-spacing: -0.427179px;
+
+    color: #000000;
+}
+
+.ratingBox {
+    display: flex;
+
+    width: 334px;
+    height: 186px;
+
+    background: #FFFFFF;
+    border: 1px solid #97D2FC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+.firstColumn {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.secondColumn {
+    text-align: center;
+}

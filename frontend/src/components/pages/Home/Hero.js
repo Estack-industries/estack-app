@@ -1,6 +1,6 @@
 import React from 'react'
 import './Hero.css'
-import landingHome from './pictures/image 30.png'
+import landingHome from './pictures/house.png'
 import { FiSearch } from "react-icons/fi";
 
 function Hero() {

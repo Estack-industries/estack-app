@@ -14,7 +14,7 @@ function Navbar() {
           </Link>
           {/* Navbar Menu Items */}
           <ul className="nav-menu">
-            <NavButton buttonStyle='btn--dropdown' to='/about'>About US</NavButton>
+            <NavButton buttonStyle='btn--dropdown' to='/about'>About Us</NavButton>
             <NavButton>Log In</NavButton>
             <NavButton>Register</NavButton>
           </ul>
