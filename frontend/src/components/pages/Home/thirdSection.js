@@ -44,26 +44,30 @@ function thirdSection() {
             <div className="section">
                 <p className="mainText">Top Listings</p>
                 <div className="secondSectionContainer">
-                <div className="listingBox">
-                        <p className="listingImg"><img src={Listing1} alt="First Listing" /></p>
-                        <p className="listingTitle">
-                            Ventura St. 3892, St Louis
-                        </p>
-                        <div className="listingStats">
-                            <p className="listingPrice">600.000$</p>
-                            <p className="listingDivider"><img src={ListingDivider} alt="divider"></img></p>
-                            <p className="listingStatus">New</p>
+                    <div className="listingBox">
+                        <div className="listingTop">
+                            <p className="listingImg"><img src={Listing1} alt="First Listing" /></p>
                         </div>
-                        <div className="listingInfo">
-                            <ul className="listingInfoText">
-                                <p className="listingIcon"><IoIosBed /></p> 4
-                            </ul>
-                            <ul className="listingInfoText">
-                                <p className="listingIcon"><FaBath /></p> 2
-                            </ul>
-                            <ul className="listingInfoText">
-                                <p className="listingIcon"><FiGrid /></p> 2
-                            </ul>
+                        <div className="listingBottom">
+                            <p className="listingTitle">
+                                Ventura St. 3892, St Louis
+                            </p>
+                            <div className="listingStats">
+                                <p className="listingPrice">600.000$</p>
+                                <p className="listingDivider"><img src={ListingDivider} alt="divider"></img></p>
+                                <p className="listingStatus">New</p>
+                            </div>
+                            <div className="listingInfo">
+                                <ul className="listingInfoText">
+                                    <p className="listingIcon"><IoIosBed /></p> 4
+                                </ul>
+                                <ul className="listingInfoText">
+                                    <p className="listingIcon"><FaBath /></p> 2
+                                </ul>
+                                <ul className="listingInfoText">
+                                    <p className="listingIcon"><FiGrid /></p> 2
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div className="listingBox">

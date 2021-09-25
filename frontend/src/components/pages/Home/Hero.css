@@ -19,6 +19,7 @@
     border-radius: 20px;
 
     margin-top: 100px;
+    margin-left: 30px;
 }
 
 #homeImage {
@@ -33,7 +34,7 @@
     font-size: 36px;
     line-height: 47px;
     margin-top: 100px;
-    padding-left: 20px;
+    margin-left: 55px;
 }
 
 #searchText {

@@ -1,8 +1,6 @@
 .missionContainer {
     width: 1281px;
     height: 228px;
-    left: 134px;
-    top: 753px;
 
     background: #98D4FF;
     border-radius: 25px;
@@ -10,7 +8,8 @@
     display: flex;
 
     margin-top: 200px;
-    margin-left: 120px;
+    margin-left: 134px;
+    margin-right: 25px;
 }
 
 .missionText {
@@ -44,67 +43,19 @@
     display: flex;
     justify-content: space-between;
 
-    max-width: 1260px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 
     margin-top: 180px;
 }
 
-.SRBBox {
+.sellRentBuyimg {
     width: 308px;
     height: 274px;
-    left: 0px;
-    top: 0px;
-
-    border-radius: 30px;
-
-    text-align: center;
-    padding-top: 10%;
-
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 38px;
-
-    color: #FFFFFF;
-
-    -webkit-text-stroke: 2px #A4D7FC;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
-#sell {
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('./pictures/sell.png');
-}
-
-#rent {
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('./pictures/rent.png');
-}
-
-#buy {
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('./pictures/buy.png');
-}
-
-.ellipseOne {
-    width: 89px;
-    height: 93.59px;
-    position: absolute;
-    margin-top: -470px;
-    margin-left: 160px;
-}
-
-.ellipseTwo {
-    width: 123px;
-    height: 129.34px;
-    position: absolute;
-    margin-top: -272px;
-    margin-left: 1350px;
-}
-
-.ellipseThree {
-    width: 123px;
-    height: 129.34px;
-    position: absolute;
-    margin-top: 27px;
-    margin-left: -5px;
+.sellRentBuyimg:hover {
+    width: 344px;
+    height: 306px;
 }

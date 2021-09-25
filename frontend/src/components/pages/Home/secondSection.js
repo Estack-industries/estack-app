@@ -1,7 +1,9 @@
 import React from 'react'
 import './secondSection.css'
 import Mission from './pictures/mission.png'
-import Ellipse from './pictures/ellipse.png'
+import Sell from './pictures/sell.png'
+import Rent from './pictures/rent.png'
+import Buy from './pictures/buy.png'
 
 function secondSection() {
     return (
@@ -14,13 +16,10 @@ function secondSection() {
                 <p className="missionPic"><img src={Mission} alt="Mission Pic" /></p>
             </div>
             <div className="SRBContainer">
-                <ul className="SRBBox" id="sell">Sell</ul>
-                <ul className="SRBBox" id="rent">Rent</ul>
-                <ul className="SRBBox" id="buy">Buy</ul>
+                <img className="sellRentBuyimg" src={Sell} alt="Sell"/>
+                <img className="sellRentBuyimg" src={Rent} alt="Rent"/>
+                <img className="sellRentBuyimg" src={Buy} alt="Buy"/>
             </div>
-            <img className="ellipseOne" src={Ellipse} alt="Ellipse One" />
-            <img className="ellipseTwo" src={Ellipse} alt="Ellipse Two" />
-            <img className="ellipseThree" src={Ellipse} alt="Ellipse Three" />
         </div>
     )
 }
