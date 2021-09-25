@@ -10,15 +10,15 @@
     display: flex;
     justify-content: space-between;
     width: 486px;
-    height: 82px;
-    left: 30px;
-    top: 317px;
+    height: 66px;
 
     background: #FFFFFF;
     border: 1px solid #8A8A8A;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
+
+    margin-top: 100px;
 }
 
 #homeImage {
@@ -32,6 +32,8 @@
     font-weight: 500;
     font-size: 36px;
     line-height: 47px;
+    margin-top: 100px;
+    padding-left: 20px;
 }
 
 #searchText {
@@ -41,11 +43,14 @@
     font-size: 24px;
     line-height: 33px;
     color: #7B6F6F;
+    padding-top: 14px;
+    padding-left: 16px;
 }
 
 #searchIcon {
     color: #000000;
     line-height: 33px;
-    font-size: 28px;
-
+    font-size: 36px;
+    padding-top: 12px;
+    padding-right: 16px;
 }

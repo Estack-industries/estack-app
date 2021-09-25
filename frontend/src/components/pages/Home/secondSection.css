@@ -84,3 +84,27 @@
 #buy {
     background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('./pictures/buy.png');
 }
+
+.ellipseOne {
+    width: 89px;
+    height: 93.59px;
+    position: absolute;
+    margin-top: -470px;
+    margin-left: 160px;
+}
+
+.ellipseTwo {
+    width: 123px;
+    height: 129.34px;
+    position: absolute;
+    margin-top: -272px;
+    margin-left: 1350px;
+}
+
+.ellipseThree {
+    width: 123px;
+    height: 129.34px;
+    position: absolute;
+    margin-top: 27px;
+    margin-left: -5px;
+}
