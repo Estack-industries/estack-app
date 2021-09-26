@@ -1,12 +1,20 @@
+:root {
+  --primary: #F4A523;
+  --text: white;
+  --transparent: rgba(0,0,0,0);
+}
+
 .navbar {
-  background: linear-gradient(260.28deg, #0193FD 0%, #3F51F4 96.58%);
+  background: var(--transparent);
+  position: absolute;
   height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
   font-family: 'Actor', sans-serif;
   font-size: 1.2rem;
 }
