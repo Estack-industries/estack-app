@@ -1,5 +1,5 @@
 .sectionContainer {
-    margin-top: 200px;
+    margin-top: 550px;
 }
 
 .section {
@@ -66,7 +66,7 @@
     display: flex;
     justify-content: space-between;
 
-    max-width: 1280px;
+    width: 1280px;
     margin-left: auto;
     margin-right: auto;
 
@@ -86,6 +86,11 @@
 
 .listingBox:hover {
     border: 4px solid #FFD700;
+}
+
+.listingImg {
+    width: 335px;
+    height: 271px;
 }
 
 .listingTitle {
@@ -165,16 +170,21 @@
     padding-top: 1px;
 }
 
+.thirdSectionContainer {
+    display: flex;
+    justify-content: space-between;
+
+    width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 64px;
+}
+
 .ratingBox {
     display: flex;
     width: 310px;
     height: 186px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
 
     background: #FFFFFF;
     border: 1px solid #97D2FC;
@@ -228,7 +238,6 @@
 
 .stars {
     margin-top: 13px;
-    padding-left: 10px;
 }
 
 #secondRatingText {

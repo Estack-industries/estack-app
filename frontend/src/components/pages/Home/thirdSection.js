@@ -118,7 +118,7 @@ function thirdSection() {
             </div>
             <div className="section">
                 <p className="mainText">What people say about us</p>
-                <div className="secondSectionContainer">
+                <div className="thirdSectionContainer">
                     <div className="ratingBox">
                         <div className="firstColumn">
                             <img src={Rating1} alt="First Rating Pic"></img>
