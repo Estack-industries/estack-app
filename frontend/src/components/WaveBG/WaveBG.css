@@ -1,8 +1,9 @@
 .wrapper {
   position: relative;
-  height: 90vh;
+  min-height: 90vh;
   max-width: 100%;
   overflow: hidden;
+
   background: linear-gradient(260.28deg, #0193FD 0%, #3F51F4 96.58%);
   padding-bottom: 5px;
   text-align: center;
@@ -21,8 +22,6 @@
 }
 
 .custom-shape-divider-bottom svg {
-  position: relative;
-  display: block;
   aspect-ratio: 1200/400;
 }
 
@@ -30,32 +29,31 @@
   fill: #FFFFFF;
 }
 
-.heroImage {
+.heroImage--center {
   position: absolute; 
-  left: 0; 
-  right: 0; 
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin-left: auto; 
   margin-right: auto;
-  margin-top: 100px;
-}
-
-.heroImage--start {
-  position: absolute; 
-  left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto;
-  margin-top: 100px;
+  margin-bottom: -10vh;
+  z-index: 2;
+  width: 80%;
 }
 
 .heroImage--end {
   position: absolute;
   left: 1;
   right: 0;
+  bottom: 0;
   margin-left: auto; 
   margin-right: auto;
-  margin-top: 100px;
+  margin-bottom: 10vh;
   z-index: 2;
+}
+
+@media (min-width:961px) {
+  
 }
 
 .title {
@@ -65,7 +63,7 @@
   margin-left: auto; 
   margin-right: auto;
   margin-top: 100px;
-  z-index: 1;
+  z-index: 4;
 
   font-family: DM Sans;
   font-style: normal;
