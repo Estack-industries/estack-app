@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeroBG } from '../../HeroBG/HeroBG'
+import { WaveBG } from '../../WaveBG/WaveBG'
 import landingHome from './assets/image 136.svg'
 import ThirdSection from '../Home/thirdSection'
 import './About.css'
@@ -7,7 +7,7 @@ import './About.css'
 function About() {
   return (
     <>
-      <HeroBG src={landingHome} title="About Us"></HeroBG>
+      <WaveBG src={landingHome} title="About Us"></WaveBG>
       <ThirdSection />
     </>
   )

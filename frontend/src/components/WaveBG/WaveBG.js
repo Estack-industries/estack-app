@@ -1,12 +1,18 @@
 import React from 'react';
-import './HeroBG.css';
+import './WaveBG.css';
 
-export const HeroBG = ({
+const POSITION = ['center', 'start', 'end'];
+
+export const WaveBG = ({
+  position,
   src,
-  alt,
   title,
   children,
 }) => {
+  const checkBGImagePos = POSITION.includes(position)
+    ? 'heroImage--' + position
+    : 'heroImage--' + POSITION[0];
+
   return (
     <div className="wrapper">
       <div className="custom-shape-divider-bottom">
@@ -17,7 +23,7 @@ export const HeroBG = ({
           {/* <path opacity="1" fill="#FFF" d="m1.40352,0.00001l-1.40352,392.12508c55.31063,-127.80076 186.8738,-189.27555 253.69872,-195.61224c66.82492,-6.33669 89.23652,9.47135 152.62565,-33.77773c63.38914,-43.24909 107.15536,-120.2968 153.56095,-128.28423c46.4056,-7.98743 69.15658,0.8434 135.68614,26.39611c66.52956,25.55272 82.92668,14.26957 128.54506,1.86287c45.61838,-12.4067 103.64713,-41.40798 191.64822,-33.3089c88.00109,8.09909 121.58266,39.64278 184.23517,114.73616l0,-144.13713l-1198.59639,0c0,0 0,0.00001 0,0.00001z" /> */}
         </svg>
       </div>
-      <img class="heroImage" src={src} alt={alt} />
+      <img class={checkBGImagePos} src={src} alt="Wave Background" />
       <div class="title">{title}</div>
       {children}
     </div>

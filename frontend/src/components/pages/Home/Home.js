@@ -5,13 +5,13 @@ import SecondSection from './secondSection'
 import ThirdSection from './thirdSection'
 
 function Home() {
-    return (
-        <div className="homeContainer">
-            <Hero />
-            <SecondSection />
-            <ThirdSection />
-        </div>
-    )
+  return (
+    <div className="homeContainer">
+      <Hero />
+      <SecondSection />
+      <ThirdSection />
+    </div>
+  )
 }
 
 export default Home
