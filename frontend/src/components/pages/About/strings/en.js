@@ -4,3 +4,5 @@ export const SECTION2_TITLE = "HOW CAN WE HELP YOU?";
 export const SECTION2_CARD1 = "Find an Agent";
 export const SECTION2_CARD2 = "Help Sell Home";
 export const SECTION2_CARD3 = "Find Apartments";
+export const SECTION3_HEADER = "Explore  Our Options";
+export const SECTION3_PARAGRAPH = "Enter your address to get an free estimation";

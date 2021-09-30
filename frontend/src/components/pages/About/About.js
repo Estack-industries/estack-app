@@ -3,6 +3,7 @@ import { WaveBG } from '../../WaveBG/WaveBG';
 import image136 from './assets/image 136.svg';
 import Section1 from '../About/Section1';
 import Section2 from '../About/Section2';
+import Section3 from '../About/Section3';
 import './About.css';
 
 function About() {
@@ -11,6 +12,7 @@ function About() {
       <WaveBG src={image136} title="About Us"></WaveBG>
       <Section1 />
       <Section2 />
+      <Section3 />
     </>
   )
 }

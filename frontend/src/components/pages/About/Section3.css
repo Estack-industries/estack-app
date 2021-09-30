@@ -1,0 +1,50 @@
+:root {
+  --primary: #F4A523;
+  --text-color: black;
+  --wrapper-border-radius: 15px;
+  --wrapper-grey-transparent: rgba(0, 0, 0, 0.4);
+  --section-title-size: 38px;
+  --section-header-size: 48px;
+  --section-title-style: normal;
+  --section-title-weight: bold;
+  --paragraph-title-size: 30px;
+  --paragraph-size: 24px;
+  --paragraph-style: normal;
+  --paragraph-weight: 500;
+}
+
+/* Options Section */
+.section3-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.options-header {
+  justify-self: center;
+  align-self: center;
+  margin: 0rem 4rem 0rem 4rem;
+
+  font-size: var(--section-header-size);
+  font-style: var(--section-title-style);
+  font-weight: var(--section-title-weight);
+}
+
+.options-wrapper {
+  display: flex;
+  flex-direction: column;
+  background: url('./assets/image 45.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--wrapper-border-radius);
+  justify-content: center;
+  align-items: center;
+  margin: 4rem;
+  height: 45rem;
+}
+
+.options-paragraph {
+  font-size: var(--paragraph-title-size);
+  font-style: var(--paragraph-style);
+  font-weight: var(--paragraph-weight);
+}
