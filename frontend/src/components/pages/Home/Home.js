@@ -3,6 +3,7 @@ import './Home.css'
 import Hero from './Hero'
 import SecondSection from './secondSection'
 import ThirdSection from './thirdSection'
+import Footer from '../../Footer/Footer';
 
 function Home() {
   return (
@@ -10,6 +11,7 @@ function Home() {
       <Hero />
       <SecondSection />
       <ThirdSection />
+      <Footer />
     </div>
   )
 }

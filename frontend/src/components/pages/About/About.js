@@ -1,14 +1,16 @@
-import React from 'react'
-import { WaveBG } from '../../WaveBG/WaveBG'
-import landingHome from './assets/image 136.svg'
-import ThirdSection from '../Home/thirdSection'
-import './About.css'
+import React from 'react';
+import { WaveBG } from '../../WaveBG/WaveBG';
+import image136 from './assets/image 136.svg';
+import Section1 from '../About/Section1';
+import Section2 from '../About/Section2';
+import './About.css';
 
 function About() {
   return (
     <>
-      <WaveBG src={landingHome} title="About Us"></WaveBG>
-      <ThirdSection />
+      <WaveBG src={image136} title="About Us"></WaveBG>
+      <Section1 />
+      <Section2 />
     </>
   )
 }

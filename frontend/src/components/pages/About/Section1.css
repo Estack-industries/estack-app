@@ -1,0 +1,67 @@
+:root {
+  --primary: #F4A523;
+  --text: black;
+  --transparent: rgba(0,0,0,0);
+  --border: 20px;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+.section1-container  {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: black;
+}
+
+/* why-grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  justify-content: center;
+  align-items: center;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  gap: 4rem;
+}
+
+.why-info h2 {
+  display: block;
+  justify-self: center;
+  align-self: center;
+  place-self: center;
+}
+
+.why-info p {
+  white-space: pre-line;
+  margin: 2rem 0 2rem 0;
+}
+
+.why-image {
+  width: 100%;
+  height: auto;
+}
+
+/* divider-grid */
+.section1-container .divider-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding-right: 4rem;
+  padding-left: 4rem;
+  gap: 4rem;
+}
+
+.section1-container .divider {
+  background: var(--primary);
+  border: 2px solid var(--primary);
+  border-radius: 15px;
+  height: 11px;
+  width: 80%;
+}
+
+.section1-container .divider-image {
+  width: 100%;
+  height: auto;
+  margin: 1rem 2rem 1rem 2rem;
+}
