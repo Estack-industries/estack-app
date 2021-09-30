@@ -9,7 +9,7 @@
 .btn {
   font-family: "Open Sans", sans-serif;
   font-style: normal;
-  padding: 8px 20px;
+  padding: 0.5em 1.25em;
   outline: none;
   border: none;
   box-sizing: border-box;
@@ -19,7 +19,8 @@
   box-shadow: 0px 4px 4px var(--shadow);
   text-decoration: none;
   font-weight: bold;
-  letter-spacing: 0em;
+  white-space: nowrap;
+  letter-spacing: 0rem;
   color: var(--text);
 }
 
@@ -31,22 +32,22 @@
 .btn--dropdown {
   background-color: var(--primary);
   border: 2px solid var(--primary);
-  margin-right: 100px;
+  margin-right: 3em;
 }
 
 .btn--small {
-  padding: 6px 16px;
-  font-size: 18px;
+  padding: 0.375em 1em;
+  font-size: 1.125rem;
 }
 
 .btn--medium {
-  padding: 8px 20px;
-  font-size: 20px;
+  padding: 0.5em 1.25em;
+  font-size: 1.25rem;
 }
 
 .btn--large {
-  padding: 10px 24px;
-  font-size: 22px;
+  padding: 0.5em 1.0em;
+  font-size: 1.5rem;
 }
 
 .btn--small:hover,

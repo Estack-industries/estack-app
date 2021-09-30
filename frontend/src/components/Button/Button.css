@@ -17,7 +17,7 @@
   border: 1px solid var(--primary);
 }
 
-.btn--menudropdown {
+.btn--dropdown {
   background-color: var(--primary);
   color: #242424;
   border: 1px solid var(--primary);

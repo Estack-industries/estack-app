@@ -7,7 +7,6 @@
 .navbar {
   background: var(--transparent);
   position: absolute;
-  height: 80px;
   top: 0;
   left: 0;
   right: 0;
@@ -22,14 +21,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 80px;
+  height: 5em;
   width: 100%;
 }
 
 .navbar-logo {
   display: flex;
   align-items: center;
-  padding: 0 2rem 0 2rem;
+  padding: 0 1em 0 1em;
   cursor: pointer;
 
   font-family: "Actor", sans-serif;
@@ -43,10 +42,10 @@
 
 .nav-menu {
   display: flex;
-  gap: 20px;
+  gap: 1.25em;
   list-style: none;
   text-align: center;
   width: 100%;
   justify-content: flex-end;
-  margin-right: 4rem;
+  margin-right: 3em;
 }
