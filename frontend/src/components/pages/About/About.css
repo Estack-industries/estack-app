@@ -2,3 +2,7 @@
   --menu_height: 80px;
 }
 
+.aboutContainer {
+  display: flex;
+  flex-direction: column;
+}

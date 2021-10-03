@@ -3,9 +3,7 @@
   min-height: 90vh;
   max-width: 100%;
   overflow: hidden;
-
   background: linear-gradient(260.28deg, #0193FD 0%, #3F51F4 96.58%);
-  padding-bottom: 5px;
   text-align: center;
 }
 
@@ -52,22 +50,18 @@
   z-index: 2;
 }
 
-@media (min-width:961px) {
-  
-}
-
 .title {
   position: absolute;
   left: 0; 
   right: 0; 
   margin-left: auto; 
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 2.2em;
   z-index: 4;
 
-  font-family: DM Sans;
+  font-family: 'DM Sans';
   font-style: normal;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 3rem;
   color: white;
 }

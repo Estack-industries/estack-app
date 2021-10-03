@@ -10,27 +10,52 @@
   --paragraph-size: 24px;
   --paragraph-style: normal;
   --paragraph-weight: 500;
+  --page-padding: 4em;
 }
 
-.section1-container  {
+.section1-container {
+  position: relative;
+  margin-top: -15em;
+  z-index: 10;
+
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   overflow: hidden;
   color: black;
+  padding: var(--page-padding);
+  gap: var(--page-padding);
+}
+
+
+@media only screen and (max-width: 1100px) {
+  .section1-container {
+    flex-direction: column-reverse;
+  }
 }
 
 /* why-grid */
-.why-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.estimate-wrapper, .info-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-left: 4rem;
-  padding-right: 4rem;
-  gap: 4rem;
+  gap: 2em;
 }
 
-.why-info h2 {
+.section1-container .email-input, .info-wrapper {
+  border: 1px solid #000000;
+  border-radius: 1em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: white;
+}
+
+.info-wrapper {
+  padding: 3em;
+}
+
+.info-wrapper h2 {
   display: block;
   justify-self: center;
   align-self: center;
@@ -40,49 +65,23 @@
   font-weight: var(--section-title-weight);
 }
 
-.why-info p {
+.info-wrapper p, .estimate-wrapper .email-input {
   white-space: pre-line;
-  margin: 2rem 0 2rem 0;
   font-size: var(--paragraph-size);
   font-style: var(--paragraph-style);
   font-weight: var(--paragraph-weight);
-}
-
-.why-image {
+  height: 100%;
   width: 100%;
-  height: auto;
+  padding: 1em;
 }
 
-@media only screen and (max-width: 1100px) {
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-  .why-image {
-    display: none;
-  }
+.estimate-wrapper .email-input {
+  outline: none;
+  text-align: center;
 }
 
-/* divider-grid */
-.section1-container .divider-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  justify-items: center;
-  align-items: center;
-  padding-right: 4rem;
-  padding-left: 4rem;
-  gap: 4rem;
-}
-
-.section1-container .divider {
-  background: var(--primary);
-  border: 2px solid var(--primary);
-  border-radius: 15px;
-  height: 11px;
-  width: 80%;
-}
-
-.section1-container .divider-image {
-  width: 100%;
-  height: auto;
-  margin: 1rem 2rem 1rem 2rem;
+.estimate-wrapper h3 {
+  font-size: var(--paragraph-size);
+  font-style: var(--paragraph-style);
+  font-weight: var(--paragraph-weight);
 }
