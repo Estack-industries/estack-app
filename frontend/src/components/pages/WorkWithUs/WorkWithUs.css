@@ -1,0 +1,10 @@
+.one {
+  background-color: chartreuse;
+  height: 50vh;
+  width: 100%;
+}
+
+.two {
+  background-color: red;
+  height: 50vh;
+}
