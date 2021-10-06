@@ -1,8 +1,4 @@
-:root {
-  --menu_height: 80px;
-}
-
-.aboutContainer {
+.about-container {
   display: flex;
   flex-direction: column;
 }

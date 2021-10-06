@@ -1,3 +1,6 @@
+// temporary guideline
+// use custom properties, implement theme provider,
+// or add modern UI library later
 const COLORS = {
   gray: {
     100: "#F2F4FD",

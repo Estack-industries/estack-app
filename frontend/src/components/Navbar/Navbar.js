@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavButton } from '../NavButton/NavButton'
+import { NavButton } from '../NavButton/NavButton';
+import { Container } from '../Container/Container';
 import './Navbar.css';
 
 function Navbar() {
   return (
     <>
       <nav className="navbar">
-        <div className="navbar-container">
+        <Container d="container--row">
           {/* Logo */}
           <Link to="/" className="navbar-logo">
             -Stack
@@ -18,7 +19,7 @@ function Navbar() {
             <NavButton>Log In</NavButton>
             <NavButton>Register</NavButton>
           </ul>
-        </div>
+        </Container>
       </nav>
     </>
   )

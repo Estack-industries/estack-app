@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from '../../Container/Container';
 import { WaveBG } from '../../WaveBG/WaveBG';
 import image136 from './assets/image 136.svg';
 import Section1 from './Section1';
@@ -9,12 +10,14 @@ import './About.css';
 
 function About() {
   return (
-    <div className="aboutContainer">
+    <div className="about-container">
       <WaveBG src={image136} title="About Us" />
-      <Section1 className="about-section1" />
-      <Section2 />
-      <Section3 />
-      <Section4 />
+      <Container>
+        <Section1 className="about-section1" />
+        <Section2 />
+        <Section3 />
+        <Section4 />
+      </Container>
     </div>
   )
 }

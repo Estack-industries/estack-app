@@ -15,15 +15,17 @@
   align-items: center;
   font-family: 'Actor', sans-serif;
   font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.navbar-container {
+/* .navbar-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 5em;
   width: 100%;
-}
+} */
 
 .navbar-logo {
   display: flex;

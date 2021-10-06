@@ -16,6 +16,7 @@
 .section2-container  {
   display: flex;
   flex-direction: column;
+  width: 100%;
   overflow: hidden;
   color: black;
 }
@@ -26,8 +27,6 @@
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  padding-left: var(--page-padding);
-  padding-right: var(--page-padding);
   gap: var(--page-padding);
 }
 
@@ -69,8 +68,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   align-items: center;
-  padding-right: 4em;
-  padding-left: 4em;
   gap: 4em;
 }
 

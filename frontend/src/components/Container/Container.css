@@ -1,15 +1,24 @@
 :root {
-  --container-width: 80rem;
+  --container-width: 90rem;
   --padding: 1rem;
 }
 
 .container-wrapper {
   display: flex;
-  flex-direction: column;
   width: 100%;
   max-width: var(--container-width);
   margin-left: auto;
   margin-right: auto;
   padding-left: var(--padding);
-  /* align-items: center; */
+  padding-right: var(--padding);
+  align-items: center;
+  gap: 5em;
+}
+
+.container--column {
+  flex-direction: column;
+}
+
+.container--row {
+  flex-direction: row;
 }
