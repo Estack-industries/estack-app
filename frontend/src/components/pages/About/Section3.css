@@ -24,8 +24,8 @@
 .how-wrapper {
   display: flex;
   flex-direction: column;
-  margin-right: var(--page-padding);
-  margin-left: var(--page-padding);
+  /* margin-right: var(--page-padding);
+  margin-left: var(--page-padding); */
   background: url('./assets/image 49.png') var(--wrapper-grey-transparent);
   background-repeat: no-repeat;
   background-position: center;

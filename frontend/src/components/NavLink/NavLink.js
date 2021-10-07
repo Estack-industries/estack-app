@@ -1,14 +1,16 @@
 import React from 'react';
-import './NavButton.css';
+import { Link } from 'react-router-dom';
+import './NavLink.css';
 
 const MENUSTYLES = ['btn--primary', 'btn--dropdown'];
 const SIZES = ['btn--large', 'btn--medium', 'btn--small'];
+const DEFAULT_URL = ['#'];
 
-export const NavButton = ({
+export const NavLink = ({
   children,
   buttonStyle,
   buttonSize,
-  onModalToggle,
+  to,
 }) => {
   const checkButtonStyle = MENUSTYLES.includes(buttonStyle)
     ? buttonStyle
@@ -16,19 +18,18 @@ export const NavButton = ({
   const checkButtonSize = SIZES.includes(buttonSize)
     ? buttonSize
     : SIZES[0];
-
-  function openAuthModal() {
-    onModalToggle(true);
-  }
+  const checkURL = to
+    ? to
+    : DEFAULT_URL[0];
 
   return (
     <li>
-      <button
-        onClick={openAuthModal}
+      <Link
+        to={`${checkURL}`}
         className={`btn ${checkButtonStyle} ${checkButtonSize}`}
       >
         {children}
-      </button>
+      </Link>
     </li>
   );
 };

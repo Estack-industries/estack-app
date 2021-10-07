@@ -10,12 +10,12 @@ import { MdSearch } from 'react-icons/md';
 function Section4() {
   return (
     <div className='section4-container'>
-      <h1 className='header'>{SECTION4_HEADER}</h1>
+      <h1 className='options-header'>{SECTION4_HEADER}</h1>
       <div className='options-wrapper'>
-        <h2 className='paragraph'>{SECTION4_PARAGRAPH}</h2>
+        <h2 className='options-paragraph'>{SECTION4_PARAGRAPH}</h2>
         <div className='options-search-wrapper'>
-          <input className="searchBar" type="text" placeholder={SECTION4_SEARCH} />
-          <button className="searchButton" type="submit">
+          <input className="options-searchBar" type="text" placeholder={SECTION4_SEARCH} />
+          <button className="options-searchButton" type="submit">
             <MdSearch size={40} />
           </button>
         </div>

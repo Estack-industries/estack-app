@@ -1,0 +1,59 @@
+:root {
+  --primary: #F4A523;
+  --text: white;
+  --transparent: rgba(0,0,0,0);
+  --border: 20px;
+  --shadow: rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  padding: 0.5em 1.25em;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
+  border-radius: var(--border);
+  cursor: pointer;
+
+  box-shadow: 0px 4px 4px var(--shadow);
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+  letter-spacing: 0rem;
+  color: var(--text);
+}
+
+.btn--primary {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn--dropdown {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  margin-right: 3em;
+}
+
+.btn--small {
+  padding: 0.375em 1em;
+  font-size: 1.125rem;
+}
+
+.btn--medium {
+  padding: 0.5em 1.25em;
+  font-size: 1.25rem;
+}
+
+.btn--large {
+  padding: 0.5em 1.0em;
+  font-size: 1.5rem;
+}
+
+.btn--small:hover,
+.btn--large:hover,
+.btn--medium:hover {
+  transition: all 0.3s ease-out;
+  background: var(--transparent);
+  transition: 250ms;
+}

@@ -17,6 +17,7 @@
   position: relative;
   width: 100%;
   margin-top: -15em;
+  margin-bottom: var(--page-padding);
   z-index: 10;
 
   display: grid;
