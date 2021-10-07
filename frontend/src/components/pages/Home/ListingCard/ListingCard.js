@@ -19,7 +19,7 @@ export const ListingCard = ({
         <>
             <Link to="/" className="listingBoxContainer">
                 <div className="listingBox">
-                    <img src={src} className="cardImg" />
+                    <img src={src} className="cardImg" alt="Listing"/>
                     <div className="listingBottom">
                         <p className="listingTitle">{address}</p>
                         <div className="listingStats">

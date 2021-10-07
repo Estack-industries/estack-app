@@ -1,6 +1,6 @@
 export const AUTH_BG_TITLE = "Welcome to\n\nE-Stack";
-export const AUTH_SIGNIN_TITLE = "Sign In";
-export const AUTH_REGISTER_TITLE = "New Account";
+export const AUTH_SIGNIN_TITLE = "Sign in";
+export const AUTH_REGISTER_TITLE = "New account";
 export const AUTH_EMAIL = "Enter your Email Address";
 export const AUTH_PASSWORD = "Enter your password";
 export const AUTH_SIGNIN_RESET = "forgot your password?";

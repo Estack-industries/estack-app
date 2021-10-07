@@ -11,7 +11,7 @@ export const RatingCard = ({
         <>
             <div className="ratingBox">
                 <div className="firstColumn">
-                    <img src={src}></img>
+                    <img src={src} alt="Rating"></img>
                     <p className="ratingName">{name}</p>
                 </div>
                 <div className="secondColumn">

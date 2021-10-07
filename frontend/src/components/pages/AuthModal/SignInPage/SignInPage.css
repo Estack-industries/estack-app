@@ -1,0 +1,29 @@
+hr {
+    color: #bfbfbf;
+    margin: 0;
+}
+
+.topTab {
+    margin-top: 10px;
+    border-top: 2px solid #bfbfbf;
+    display: flex;
+}
+
+.topTabText {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 47px;
+
+    color: #000000;
+}
+
+#signInText {
+    padding-top: 12px;
+    margin-right: 40px;
+}
+
+#newAccountText {
+    padding-top: 12px;
+}

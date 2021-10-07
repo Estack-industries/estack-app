@@ -9,6 +9,8 @@ export const NavButton = ({
   buttonStyle,
   buttonSize,
   onModalToggle,
+  onSignInToggle,
+  onRegisterToggle
 }) => {
   const checkButtonStyle = MENUSTYLES.includes(buttonStyle)
     ? buttonStyle

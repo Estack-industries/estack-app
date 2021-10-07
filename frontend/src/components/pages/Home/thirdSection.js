@@ -10,7 +10,7 @@ import Listing3 from './pictures/listing3.png'
 import Rating1 from './pictures/rating1.png'
 import Rating2 from './pictures/rating2.png'
 import Rating3 from './pictures/rating3.png'
-import Star from './pictures/star.png'
+import ChatIcon from './pictures/chatIcon.png'
 import {
     WHY_CHOOSE_FIRST,
     WHY_CHOOSE_SECOND,
@@ -19,6 +19,7 @@ import {
     LISTING_PRICE,
     RATING_TEXT_ONE,
     RATING_TEXT_TWO,
+    WHAT_PEOPLE_SAY
 } from './strings/en.js';
 import { WhyCard } from './WhyCard/WhyCard';
 import { ListingCard } from './ListingCard/ListingCard'
@@ -39,6 +40,7 @@ function thirdSection() {
                     <WhyCard text={WHY_CHOOSE_THIRD} src={Deal}/>
                 </div>
             </div>
+            <img className="chatIcon" src={ChatIcon} alt="Chat Icon"/>
             <div className="section">
                 <div className="textDividerContainer">
                     <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
@@ -76,7 +78,7 @@ function thirdSection() {
                 </div>
             </div>
             <div className="section">
-                <p className="mainText">What people say about us</p>
+                <p className="mainText">{WHAT_PEOPLE_SAY}</p>
                 <div className="thirdSectionContainer">
                     <RatingCard src={Rating1} name="Bob" text={RATING_TEXT_ONE}/>
                     <RatingCard src={Rating2} name="Laura" text={RATING_TEXT_TWO}/>

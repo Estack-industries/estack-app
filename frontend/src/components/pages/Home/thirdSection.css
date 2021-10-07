@@ -65,3 +65,15 @@
 
     margin-top: 64px;
 }
+
+.chatIcon {
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    margin-left: 1850px;
+    margin-top: 90px;
+}
+
+.chatIcon:hover {
+    cursor: pointer;
+}

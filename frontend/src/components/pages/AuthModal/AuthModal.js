@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from '../../Container/Container';
 import Rectangle427 from '../../../assets/Rectangle 427.png';
+import SignInPage from './SignInPage/SignInPage';
 import {
   AUTH_BG_TITLE,
   AUTH_SIGNIN_TITLE,
@@ -21,7 +22,7 @@ function AuthModal({ isModalOpen, onModalToggle }) {
       id="auth-modal"
       className="auth-container"
       style={{
-        display: isModalOpen ? 'flex' : 'none'
+        display: isModalOpen ? 'flex' : 'none',
       }}
     >
       <Container>
@@ -32,7 +33,7 @@ function AuthModal({ isModalOpen, onModalToggle }) {
           </div>
           <div className="auth-panel">
             <button className="auth-close" onClick={closeAuthModal}>&times;</button>
-            <p>Modal is Opened!</p>
+            <SignInPage />
           </div>
         </div>
       </Container>
