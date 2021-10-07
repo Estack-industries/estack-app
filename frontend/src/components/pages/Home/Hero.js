@@ -17,8 +17,6 @@ function Hero() {
           </div>
         </div>
       </WaveBG>
-      <div className="content">
-      </div>
       <img className="ellipse1" src={Ellipse} alt="Ellipse" />
     </div>
   )

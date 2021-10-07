@@ -1,9 +1,3 @@
 :root {
   --menu_height: 80px;
 }
-
-.homeContainer {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-}
