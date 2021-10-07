@@ -1,3 +1,8 @@
+:root {
+  --padding: 5rem;
+  --transparent: rgba(0,0,0,0);
+}
+
 .auth-container {
   display: none;
   position: fixed;
@@ -6,21 +11,69 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
+  padding-top: var(--padding);
+  justify-content: center;
+  overflow: hidden;
+  background: rgb(0,0,0);
+  background: rgba(0,0,0,0.4);
+}
+
+.auth-content {
+  display: flex;
+  min-height: 100%;
+  width: 100%;
+  background: #fefefe;
+  border-radius: 15px;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.auth-bg {
+  display: flex;
+  background: url('../../../assets/Rectangle 427.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  height: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .auth-bg-image {
+  height: 100%;
+  width: auto;
+} */
+
+.auth-bg-title {
+  /* align-self: center;
+  justify-self: center; */
+}
+
+.auth-panel {
+  min-height: 100%;
+  width: 100%;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .auth-close {
-  color: #aaaaaa;
   float: right;
+  background: var(--transparent);
+  color: #aaaaaa;
+  border: none;
+  padding: 0.5em;
+  cursor: pointer;
   font-size: 28px;
   font-weight: bold;
 }
-
+/* 
 .auth-close:hover,
 .auth-close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
+} */
+

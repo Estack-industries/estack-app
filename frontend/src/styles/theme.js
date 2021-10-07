@@ -53,6 +53,9 @@ const COLORS = {
     200: "#FF6341",
     300: "#E61E14",
   },
+  transparent: {
+    100: rgba(0, 0, 0, 0),
+  }
 }
 
 const FONTS = {
