@@ -8,6 +8,10 @@
     background: #3F51F4;
 }
 
+.signInButtonContainer:hover {
+    cursor: pointer;
+}
+
 .buttonText {
     text-align: center;
     font-family: 'Open Sans', sans-serif;

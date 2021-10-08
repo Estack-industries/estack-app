@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../../Container/Container';
 import Rectangle427 from '../../../assets/Rectangle 427.png';
-import SignInPage from './SignInPage/SignInPage';
+import NewAccountPage from './NewAccountPage/NewAccountPage';
 import {
   AUTH_BG_TITLE,
   AUTH_SIGNIN_TITLE,
@@ -33,7 +33,7 @@ function AuthModal({ isModalOpen, onModalToggle }) {
           </div>
           <div className="auth-panel">
             <button className="auth-close" onClick={closeAuthModal}>&times;</button>
-            <SignInPage />
+            <NewAccountPage />
           </div>
         </div>
       </Container>

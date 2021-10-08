@@ -47,8 +47,15 @@
 } */
 
 .auth-bg-title {
-  /* align-self: center;
-  justify-self: center; */
+  font-family: 'DM Sans', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 76px;
+  line-height: 89px;
+  text-align: center;
+  padding: 60px;
+
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .auth-panel {

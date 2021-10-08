@@ -1,0 +1,113 @@
+.accountPageContainer {
+    height: 1200px;
+    max-width: 750;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 72px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.welcomeTitle {
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 62px;
+    margin-bottom: 10px;
+}
+
+.hrLineOne {
+    width: 95%;
+    height: 2px;
+    background-color:#000000;
+    border: none;
+}
+
+.accountHighlight {
+    width: 29%;
+    height: 8px;
+    background-color:rgba(244, 165, 35, 0.6);
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 2px;
+    margin-left: 22%;
+}
+
+.topTab {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.topTabTextContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.topTabText {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 47px;
+
+    color: #000000;
+}
+
+#signInText {
+    margin-right: 40px;
+}
+
+.contentContainer {
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.authEmail {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.authPassword {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+.signInButton {
+    margin-top: 80px;
+}
+
+.forgotPassword {
+    text-align: center;
+    margin-top: 32px;
+}
+
+.forgotPasswordText {
+    color: #3F51F4;
+}
+
+.hrLineTwo {
+    width: 95%;
+    height: 2px;
+    background-color:#000000;
+    border: none;
+    margin-top: 40px;
+}
+
+.authSocialText {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

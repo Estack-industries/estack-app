@@ -9,8 +9,10 @@ import {
   AUTH_REGISTER_TITLE,
   AUTH_SIGNIN_RESET,
   AUTH_SOCIAL,
+  AUTH_GOOGLE,
 } from '../strings/en.js';
 import { Link } from 'react-router-dom';
+import { GoogleButton } from '../GoogleButton/GoogleButton';
 
 function SignInPage() {
   return (
@@ -34,7 +36,7 @@ function SignInPage() {
           </div>
           <hr className="hrLineTwo" />
           <div className="authSocialText">{AUTH_SOCIAL}</div>
-          {/* GoogleBox */}
+          <GoogleButton text={AUTH_GOOGLE}/>
         </div>
       </div>
     </>
