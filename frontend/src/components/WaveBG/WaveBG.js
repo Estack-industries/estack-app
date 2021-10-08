@@ -23,10 +23,10 @@ export const WaveBG = ({
           <path opacity="1" fill="#FFF" stroke="#FFF" d="m0.38388,404.44938c55.31063,-130.13759 183.8738,-196.68743 255.69872,-199.189c71.82492,-2.50157 78.53573,8.11193 150.92486,-27.94455c72.38913,-36.05648 104.10811,-130.64398 159.23812,-139.90806c55.13,-9.26407 88.35343,18.76252 145.15858,38.9392c56.80515,20.17668 76.20227,4.55735 120.88364,-10.37065c44.68137,-14.928 98.17878,-40.46992 186.17987,-32.22274c88.00109,8.24718 118.74203,51.70658 181.39454,128.17305l-0.47842,-161.76195c-399.67219,-0.14006 -799.34437,-0.28011 -1199.01656,-0.42017l0.01665,404.70487z" />
         </svg>
       </div>
-      <div class="wave-title">{title}</div>
+      <div className="wave-title">{title}</div>
       <Container d="container--row">
         {children}
-        <img class={checkBGImagePos} src={src} alt="Wave Background" />
+        <img className={checkBGImagePos} src={src} alt="Wave Background" />
       </Container>
     </div>
   )

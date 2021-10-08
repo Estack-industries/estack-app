@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { NavLink } from '../NavLink/NavLink';
+import { Logo } from '../Logo/Logo';
 import { NavButton } from '../NavButton/NavButton';
 import { Container } from '../Container/Container';
 import './Navbar.css';
@@ -10,7 +11,7 @@ function Navbar({ onModalToggle }) {
     <>
       <nav className="navbar">
         <Container d="container--row">
-          {/* Logo */}
+          <Logo />
           <Link to="/" className="navbar-logo">
             -Stack
           </Link>

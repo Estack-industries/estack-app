@@ -1,14 +1,37 @@
-.Logo {
+.logo-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  justify-content: stretch;
-  width: 38px;
-  min-height: 100%;
+  gap: 0.3em;
 }
 
-.line {
-  height: auto;
-  width: auto;
-  border: 2px solid black;
+.logo-one,
+.logo-two,
+.logo-three {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 0.3em;
+  width: 2em;
+}
+
+.logo-one {
+  background: transparent;
+  border-top: 0.3em solid black;
+  border-left: 0.3em solid black;
+  border-right: 0.3em solid transparent;
+}
+
+.logo-two {
+  width: 1.3em;
+  background: transparent;
+  border-top: 0.3em solid orange;
+  border-left: 0.3em solid orange;
+  border-right: 0.3em solid transparent;
+}
+
+.logo-three {
+  background: transparent;
+  border-top: 0.3em solid white;
+  border-left: 0.3em solid white;
+  border-right: 0.3em solid transparent;
 }

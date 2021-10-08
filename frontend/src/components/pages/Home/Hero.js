@@ -6,8 +6,8 @@ import SearchBar from '../../SearchBar/SearchBar'
 
 function Hero() {
   return (
-    <div class="hero-wrapper">
-      <p class="registerText">You can register for free!</p>
+    <div className="hero-wrapper">
+      <p className="registerText">You can register for free!</p>
       <SearchBar />
       {/* <div className="searchBar">
         <p id="searchText">Search bar</p>

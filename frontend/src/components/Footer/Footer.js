@@ -16,54 +16,54 @@ function Footer() {
           <div className="footerSectionContainer">
             <p className="footerSectionTitle">WHO WE ARE</p>
             <ul>
-              <Link href="#" className="sectionLinks">About</Link>
-              <Link href="#" className="sectionLinks">Team</Link>
-              <Link href="#" className="sectionLinks">Work With Us</Link>
+              <Link to="#" className="sectionLinks">About</Link>
+              <Link to="#" className="sectionLinks">Team</Link>
+              <Link to="#" className="sectionLinks">Work With Us</Link>
             </ul>
           </div>
           <div className="footerSectionContainer">
             <p className="footerSectionTitle">E-STACK</p>
             <ul>
-              <Link href="#" className="sectionLinks">Features</Link>
-              <Link href="#" className="sectionLinks">Payments</Link>
-              <Link href="#" className="sectionLinks">Marketing</Link>
-              <Link href="#" className="sectionLinks">Shipping</Link>
-              <Link href="#" className="sectionLinks">Extension Store</Link>
-              <Link href="#" className="sectionLinks">E-Stack blog</Link>
-              <Link href="#" className="sectionLinks">Development blog</Link>
-              <Link href="#" className="sectionLinks">Ideas board</Link>
-              <Link href="#" className="sectionLinks">Mobile App</Link>
-              <Link href="#" className="sectionLinks">Community</Link>
-              <Link href="#" className="sectionLinks">Style Guide</Link>
-              <Link href="#" className="sectionLinks">Email Newsletter</Link>
+              <Link to="#" className="sectionLinks">Features</Link>
+              <Link to="#" className="sectionLinks">Payments</Link>
+              <Link to="#" className="sectionLinks">Marketing</Link>
+              <Link to="#" className="sectionLinks">Shipping</Link>
+              <Link to="#" className="sectionLinks">Extension Store</Link>
+              <Link to="#" className="sectionLinks">E-Stack blog</Link>
+              <Link to="#" className="sectionLinks">Development blog</Link>
+              <Link to="#" className="sectionLinks">Ideas board</Link>
+              <Link to="#" className="sectionLinks">Mobile App</Link>
+              <Link to="#" className="sectionLinks">Community</Link>
+              <Link to="#" className="sectionLinks">Style Guide</Link>
+              <Link to="#" className="sectionLinks">Email Newsletter</Link>
             </ul>
           </div>
           <div className="footerSectionContainer">
             <p className="footerSectionTitle">OTHER PRODUCTS</p>
             <ul>
-              <Link href="#" className="sectionLinks">Storefront</Link>
-              <Link href="#" className="sectionLinks">Agents</Link>
-              <Link href="#" className="sectionLinks">Real-Estate Extensions</Link>
+              <Link to="#" className="sectionLinks">Storefront</Link>
+              <Link to="#" className="sectionLinks">Agents</Link>
+              <Link to="#" className="sectionLinks">Real-Estate Extensions</Link>
             </ul>
           </div>
           <div className="footerSectionContainer">
             <p className="footerSectionTitle">SUPPORT</p>
             <ul>
-              <Link href="#" className="sectionLinks">Documentation</Link>
-              <Link href="#" className="sectionLinks">Customizations</Link>
-              <Link href="#" className="sectionLinks">Support Policy</Link>
-              <Link href="#" className="sectionLinks">Contact</Link>
-              <Link href="#" className="sectionLinks">COVID-19 Resources</Link>
+              <Link to="#" className="sectionLinks">Documentation</Link>
+              <Link to="#" className="sectionLinks">Customizations</Link>
+              <Link to="#" className="sectionLinks">Support Policy</Link>
+              <Link to="#" className="sectionLinks">Contact</Link>
+              <Link to="#" className="sectionLinks">COVID-19 Resources</Link>
             </ul>
           </div>
           <div className="footerSectionContainer">
             <p className="footerSectionTitle">WE RECOMMEND</p>
             <ul>
-              <Link href="#" className="sectionLinks">E-Stack Experts</Link>
-              <Link href="#" className="sectionLinks">Housing Solutions</Link>
-              <Link href="#" className="sectionLinks">Pre-sales FAQ</Link>
-              <Link href="#" className="sectionLinks">Success Stories</Link>
-              <Link href="#" className="sectionLinks">Design Feedback Group</Link>
+              <Link to="#" className="sectionLinks">E-Stack Experts</Link>
+              <Link to="#" className="sectionLinks">Housing Solutions</Link>
+              <Link to="#" className="sectionLinks">Pre-sales FAQ</Link>
+              <Link to="#" className="sectionLinks">Success Stories</Link>
+              <Link to="#" className="sectionLinks">Design Feedback Group</Link>
             </ul>
           </div>
         </div>
