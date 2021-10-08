@@ -13,7 +13,6 @@
   padding-right: var(--padding);
   padding-bottom: var(--padding);
   align-items: center;
-  /* gap: 5em; */
 }
 
 .container--column {

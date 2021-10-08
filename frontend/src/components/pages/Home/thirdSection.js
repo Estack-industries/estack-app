@@ -12,81 +12,81 @@ import Rating2 from './pictures/rating2.png'
 import Rating3 from './pictures/rating3.png'
 import ChatIcon from './pictures/chatIcon.png'
 import {
-    WHY_CHOOSE_FIRST,
-    WHY_CHOOSE_SECOND,
-    WHY_CHOOSE_THIRD,
-    LISTING_ADDRESS,
-    LISTING_PRICE,
-    RATING_TEXT_ONE,
-    RATING_TEXT_TWO,
-    WHAT_PEOPLE_SAY
+  WHY_CHOOSE_FIRST,
+  WHY_CHOOSE_SECOND,
+  WHY_CHOOSE_THIRD,
+  LISTING_ADDRESS,
+  LISTING_PRICE,
+  RATING_TEXT_ONE,
+  RATING_TEXT_TWO,
+  WHAT_PEOPLE_SAY
 } from './strings/en.js';
 import { WhyCard } from './WhyCard/WhyCard';
 import { ListingCard } from './ListingCard/ListingCard'
 import { RatingCard } from './RatingCard/RatingCard'
 
 function thirdSection() {
-    return (
-        <div className="sectionContainer">
-            <div>
-                <div className="textDividerContainer">
-                    <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
-                    <p className="mainText">Why choose us?</p>
-                    <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
-                </div>
-                <div className="firstSectionContainer">
-                    <WhyCard text={WHY_CHOOSE_FIRST} src={Agent}/>
-                    <WhyCard text={WHY_CHOOSE_SECOND} src={Details}/>
-                    <WhyCard text={WHY_CHOOSE_THIRD} src={Deal}/>
-                </div>
-            </div>
-            <img className="chatIcon" src={ChatIcon} alt="Chat Icon"/>
-            <div className="section">
-                <div className="textDividerContainer">
-                    <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
-                    <p className="mainText">Top Listings</p>
-                    <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
-                </div>
-                <div className="secondSectionContainer">
-                    <ListingCard 
-                        src={Listing1}
-                        address={LISTING_ADDRESS} 
-                        price={LISTING_PRICE}
-                        status="New"
-                        bedCount = "4"
-                        bathCount = "2"
-                        floorCount = "2"
-                    />
-                    <ListingCard 
-                        src={Listing2}
-                        address={LISTING_ADDRESS} 
-                        price={LISTING_PRICE}
-                        status="New"
-                        bedCount = "4"
-                        bathCount = "2"
-                        floorCount = "2"
-                    />
-                    <ListingCard 
-                        src={Listing3}
-                        address={LISTING_ADDRESS} 
-                        price={LISTING_PRICE}
-                        status="New"
-                        bedCount = "4"
-                        bathCount = "2"
-                        floorCount = "2"
-                    />
-                </div>
-            </div>
-            <div className="section">
-                <p className="mainText">{WHAT_PEOPLE_SAY}</p>
-                <div className="thirdSectionContainer">
-                    <RatingCard src={Rating1} name="Bob" text={RATING_TEXT_ONE}/>
-                    <RatingCard src={Rating2} name="Laura" text={RATING_TEXT_TWO}/>
-                    <RatingCard src={Rating3} name="Tim" text={RATING_TEXT_ONE}/>
-                </div>
-            </div>
+  return (
+    <div className="sectionContainer">
+      <div>
+        <div className="textDividerContainer">
+          <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
+          <p className="mainText">Why choose us?</p>
+          <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
         </div>
-    )
+        <div className="firstSectionContainer">
+          <WhyCard text={WHY_CHOOSE_FIRST} src={Agent} />
+          <WhyCard text={WHY_CHOOSE_SECOND} src={Details} />
+          <WhyCard text={WHY_CHOOSE_THIRD} src={Deal} />
+        </div>
+      </div>
+      <img className="chatIcon" src={ChatIcon} alt="Chat Icon" />
+      <div className="section">
+        <div className="textDividerContainer">
+          <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
+          <p className="mainText">Top Listings</p>
+          <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
+        </div>
+        <div className="secondSectionContainer">
+          <ListingCard
+            src={Listing1}
+            address={LISTING_ADDRESS}
+            price={LISTING_PRICE}
+            status="New"
+            bedCount="4"
+            bathCount="2"
+            floorCount="2"
+          />
+          <ListingCard
+            src={Listing2}
+            address={LISTING_ADDRESS}
+            price={LISTING_PRICE}
+            status="New"
+            bedCount="4"
+            bathCount="2"
+            floorCount="2"
+          />
+          <ListingCard
+            src={Listing3}
+            address={LISTING_ADDRESS}
+            price={LISTING_PRICE}
+            status="New"
+            bedCount="4"
+            bathCount="2"
+            floorCount="2"
+          />
+        </div>
+      </div>
+      <div className="section">
+        <p className="mainText">{WHAT_PEOPLE_SAY}</p>
+        <div className="thirdSectionContainer">
+          <RatingCard src={Rating1} name="Bob" text={RATING_TEXT_ONE} />
+          <RatingCard src={Rating2} name="Laura" text={RATING_TEXT_TWO} />
+          <RatingCard src={Rating3} name="Tim" text={RATING_TEXT_ONE} />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default thirdSection
