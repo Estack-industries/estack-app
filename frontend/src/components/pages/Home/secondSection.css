@@ -7,6 +7,7 @@
     background: #98D4FF;
     border-radius: 25px;
     height: 15em;
+    margin-top: -62px;
 }
 
 .missionText {
@@ -30,24 +31,16 @@
     justify-content: center;
     align-items: center;
     filter: drop-shadow(0px 62px 54px rgba(0, 0, 0, 0.3));
-    /* border-radius: 57px 0px 0px 0px; */
     margin-top: -60px;
+    margin-left: 200px;
 }
 
 .SRBContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* justify-content: space-between; */
     margin-top: 180px;
-}
-
-.sellRentBuyimg {
-    /* width: 308px;
-    height: 274px; */
 }
 
 .sellRentBuyimg:hover {
   transform: scale(1.1);
-    /* width: 344px;
-    height: 306px; */
 }
