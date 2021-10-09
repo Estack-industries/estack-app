@@ -2,11 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { IoLogoTwitter, IoLogoFacebook, IoLogoInstagram, IoWifi } from "react-icons/io5";
+import { Container } from '../Container/Container';
 
 function Footer() {
   return (
-    <>
-      <nav className="footer">
+    <nav className="footer">
+      <Container pb="container--nopb">
         <div className="footerStart">
           <p><b>Support</b> teams across the world</p>
           <p><b>Safe &amp; Secure</b> online payment</p>
@@ -77,11 +78,10 @@ function Footer() {
           <div className="terms">
             COPYRIGHT E-Stack 2021 - <a className="terms" href="/" target="_blank" rel="noreferrer"><u>TERMS &amp; CONDITIONS</u> <u>PRIVACY POLICY</u></a>
           </div>
-          {/* To align social media icons and terms */}
           <div></div>
         </div>
-      </nav>
-    </>
+      </Container>
+    </nav>
   )
 }
 

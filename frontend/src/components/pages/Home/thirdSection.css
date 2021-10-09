@@ -1,17 +1,20 @@
 .sectionContainer {
-    margin-top: 7em;
-    margin-bottom: 5em;
+  width: 100%;
+  margin-bottom: 6em;
 }
 
 .section {
-    margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  margin-top: 6em;
+    gap: 6em;
 }
 
 .textDividerContainer {
     display: flex;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+    margin-top: 6em;
+    margin-bottom: 6em;
 }
 
 .sectionLine {
@@ -34,15 +37,13 @@
     color: #2073F9;
 }
 
-.firstSectionContainer {
-    display: flex;
-    justify-content: space-between;
 
-    max-width: 1180px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 64px;
-}
+/* .firstSectionContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 7em;
+    margin-top: 5em;
+} */
 
 .secondSectionContainer {
     display: flex;
@@ -68,10 +69,9 @@
 
 .chatIcon {
     position: absolute;
-    width: 98px;
-    height: 98px;
-    margin-left: 1300px;
-    margin-top: 90px;
+    right: 0px;
+
+    width: 5em;
 }
 
 .chatIcon:hover {

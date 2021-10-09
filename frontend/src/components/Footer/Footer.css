@@ -2,28 +2,30 @@
     display: flex;
     flex-direction: column;
     font-family: 'Actor', sans-serif;
-    margin-left: auto;
-    margin-right: auto;
     background: linear-gradient(86.02deg, #3161F7 0.23%, #078EFD 100.79%);
     color: #FFFFFF;
+    width: 100%;
 }
 
 .footerStart {
     display: flex;
-    justify-content: space-between;
     text-align: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 740px;
-    height: 100px;
-    margin-top: 26px;
-    margin-bottom: 21px;
+    justify-content: center;
+    margin: 2em 0 2em 0;
+    gap: 8em;
 
     font-family: 'Lato', sans-serif;
     font-style: normal;
     font-size: 20px;
     line-height: 52px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .footerStart {
+    flex-direction: column;
+    gap: 1em;
+  }
 }
 
 .footerBreak {
@@ -35,9 +37,8 @@
 .footerContent {
     display: flex;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1240px;
+    gap: 1em;
+    width: 100%;
 }
 
 .footerSectionContainer {
@@ -64,16 +65,12 @@
 .footerBottom {
     display: flex;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    width: 1440px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin: 2em 0 2em 0;
 }
 
 .logoContainer {
     margin-top: -14px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
 }
 
 .socialLogo {
@@ -85,7 +82,7 @@
 
 .terms {
     text-decoration: none;
-    padding-right: 110px;
+    /* padding-right: 110px; */
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     line-height: 22px;

@@ -1,5 +1,8 @@
 .secondSection {
-    z-index: 15;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  z-index: 15;
 }
 
 .missionContainer {
@@ -7,7 +10,8 @@
     background: #98D4FF;
     border-radius: 25px;
     height: 15em;
-    margin-top: -62px;
+    margin-top: -2.5em;
+    margin-bottom: 10em;
 }
 
 .missionText {
@@ -15,6 +19,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    text-overflow: clip;
     padding-left: 3em;
     max-width: 50%;
 
@@ -32,15 +37,18 @@
     align-items: center;
     filter: drop-shadow(0px 62px 54px rgba(0, 0, 0, 0.3));
     margin-top: -60px;
-    margin-left: 200px;
-}
-
-.SRBContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin-top: 180px;
+    margin-left: auto;
 }
 
 .sellRentBuyimg:hover {
   transform: scale(1.1);
+}
+
+.sellRentBuyimg {
+  width: 100%;
+}
+
+Link {
+  display: none;
+  visibility: hidden;
 }

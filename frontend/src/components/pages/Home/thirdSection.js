@@ -24,30 +24,31 @@ import {
 import { WhyCard } from './WhyCard/WhyCard';
 import { ListingCard } from './ListingCard/ListingCard'
 import { RatingCard } from './RatingCard/RatingCard'
+import { SectionGrid } from '../../SectionGrid/SectionGrid'
 
 function thirdSection() {
   return (
     <div className="sectionContainer">
-      <div>
+      <div lassName="sectionContainer-firstSection">
         <div className="textDividerContainer">
           <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
           <p className="mainText">Why choose us?</p>
           <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
         </div>
-        <div className="firstSectionContainer">
+        <SectionGrid>
           <WhyCard text={WHY_CHOOSE_FIRST} src={Agent} />
           <WhyCard text={WHY_CHOOSE_SECOND} src={Details} />
           <WhyCard text={WHY_CHOOSE_THIRD} src={Deal} />
-        </div>
+        </SectionGrid>
       </div>
-      <img className="chatIcon" src={ChatIcon} alt="Chat Icon" />
-      <div className="section">
+      <div className="sectionContainer-section">
         <div className="textDividerContainer">
           <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
           <p className="mainText">Top Listings</p>
           <img className="sectionLine" src={SectionLine} alt="Section Line"></img>
+          <img className="chatIcon" src={ChatIcon} alt="Chat Icon" />
         </div>
-        <div className="secondSectionContainer">
+        <SectionGrid>
           <ListingCard
             src={Listing1}
             address={LISTING_ADDRESS}
@@ -75,15 +76,15 @@ function thirdSection() {
             bathCount="2"
             floorCount="2"
           />
-        </div>
+        </SectionGrid>
       </div>
       <div className="section">
         <p className="mainText">{WHAT_PEOPLE_SAY}</p>
-        <div className="thirdSectionContainer">
+        <SectionGrid>
           <RatingCard src={Rating1} name="Bob" text={RATING_TEXT_ONE} />
           <RatingCard src={Rating2} name="Laura" text={RATING_TEXT_TWO} />
           <RatingCard src={Rating3} name="Tim" text={RATING_TEXT_ONE} />
-        </div>
+        </SectionGrid>
       </div>
     </div>
   )
