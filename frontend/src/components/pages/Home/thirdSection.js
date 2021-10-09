@@ -50,6 +50,7 @@ function thirdSection() {
         </div>
         <SectionGrid>
           <ListingCard
+            to="/property"
             src={Listing1}
             address={LISTING_ADDRESS}
             price={LISTING_PRICE}
@@ -59,6 +60,7 @@ function thirdSection() {
             floorCount="2"
           />
           <ListingCard
+            to="/property"
             src={Listing2}
             address={LISTING_ADDRESS}
             price={LISTING_PRICE}
@@ -68,6 +70,7 @@ function thirdSection() {
             floorCount="2"
           />
           <ListingCard
+            to="/property"
             src={Listing3}
             address={LISTING_ADDRESS}
             price={LISTING_PRICE}

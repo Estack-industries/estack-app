@@ -34,6 +34,10 @@
   align-self: center;
 }
 
+.heroImage--none {
+  display: none;
+}
+
 /* .heroImage--end {
   position: absolute;
   left: 1;

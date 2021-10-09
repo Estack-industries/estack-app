@@ -1,0 +1,11 @@
+.propertysection1-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  
+  position: relative;
+  width: 100%;
+  margin-top: -70vh;
+  margin-bottom: var(--page-padding);
+  z-index: 10;
+}

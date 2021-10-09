@@ -2,7 +2,7 @@ import React from 'react';
 import './WaveBG.css';
 import { Container } from '../Container/Container';
 
-const POSITION = ['center', 'start', 'end'];
+const POSITION = ['center', 'start', 'end', 'none'];
 
 export const WaveBG = ({
   position,
