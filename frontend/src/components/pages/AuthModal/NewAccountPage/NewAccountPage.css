@@ -28,13 +28,13 @@
 }
 
 .accountHighlight {
-    width: 29%;
+    width: 32%;
     height: 8px;
     background-color:rgba(244, 165, 35, 0.6);
     border: none;
     border-radius: 15px;
     margin-bottom: 2px;
-    margin-left: 22%;
+    margin-left: 24.5%;
 }
 
 .topTab {
@@ -85,17 +85,15 @@
     margin-bottom: 8px;
 }
 
-.signInButton {
-    margin-top: 80px;
+.newAccountSignInButton {
+    margin-top: 30px;
 }
 
-.forgotPassword {
+.terms {
     text-align: center;
     margin-top: 32px;
-}
-
-.forgotPasswordText {
-    color: #3F51F4;
+    color: #7B6F6F;
+    font-size: 18px;
 }
 
 .hrLineTwo {
@@ -103,11 +101,40 @@
     height: 2px;
     background-color:#000000;
     border: none;
-    margin-top: 40px;
+    margin-top: 28px;
 }
 
 .authSocialText {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.authPasswordRequirements {
+    margin-top: 16px;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #7B6F6F;
+}
+
+.registerPassword4Container {
+    display: flex;
+}
+
+.registerPassword4Box { 
+    width: 16px;
+    height: 16px;
+    background: #C4C4C4;
+    border: none;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-right: 8px;
+}
+
+.termsOfUse {
+    text-decoration: none;
+    color: #3F51F4;
 }

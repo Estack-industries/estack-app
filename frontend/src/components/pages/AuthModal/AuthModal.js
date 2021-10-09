@@ -33,6 +33,7 @@ function AuthModal({ isModalOpen, onModalToggle }) {
           </div>
           <div className="auth-panel">
             <button className="auth-close" onClick={closeAuthModal}>&times;</button>
+            {/* State change to display Sign in or New Account page */}
             <NewAccountPage />
           </div>
         </div>

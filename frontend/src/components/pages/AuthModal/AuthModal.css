@@ -36,7 +36,7 @@
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   height: auto;
-  width: 100%;
+  width: 60%;
   align-items: center;
   justify-content: center;
 }
@@ -60,7 +60,7 @@
 
 .auth-panel {
   min-height: 100%;
-  width: 100%;
+  width: 50%;
   /* display: flex; */
   /* justify-content: center;
   align-items: center; */

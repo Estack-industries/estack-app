@@ -7,10 +7,16 @@ import {
   AUTH_PASSWORD,
   AUTH_SIGNIN_TITLE,
   AUTH_REGISTER_TITLE,
-  AUTH_SIGNIN_RESET,
   AUTH_SOCIAL,
   AUTH_GOOGLE,
   AUTH_BG_TITLE,
+  AUTH_REGISTER_PASSWORD1,
+  AUTH_REGISTER_PASSWORD2,
+  AUTH_REGISTER_PASSWORD3,
+  AUTH_REGISTER_PASSWORD4,
+  AUTH_REGISTER_TERMS_ACCEPT,
+  AUTH_REGISTER_TERMS_OF_USE,
+
 } from '../strings/en.js';
 import { Link } from 'react-router-dom';
 import { GoogleButton } from '../GoogleButton/GoogleButton';
@@ -32,9 +38,16 @@ function NewAccountPage() {
             <EmailPassBox text={AUTH_EMAIL} />
             <h3 className="authPassword">Password</h3>
             <EmailPassBox text={AUTH_PASSWORD} />
-            <div className="signInButton"><SignInButton text="Sign in" /></div>
-            <div className="forgotPassword">
-              <Link to="#"><p className="forgotPasswordText">{AUTH_SIGNIN_RESET}</p></Link></div>
+            <div className="authPasswordRequirements">
+              <p>{AUTH_REGISTER_PASSWORD1}</p>
+              <p>{AUTH_REGISTER_PASSWORD2}</p>
+              <p>{AUTH_REGISTER_PASSWORD3}</p>
+              <p className="registerPassword4Container"><hr className="registerPassword4Box"/>{AUTH_REGISTER_PASSWORD4}</p>
+            </div>
+            <div className="newAccountSignInButton"><SignInButton text="Submit" /></div>
+            <div className="terms">
+              <p>{AUTH_REGISTER_TERMS_ACCEPT}<Link to="#" className="termsOfUse">{AUTH_REGISTER_TERMS_OF_USE}</Link></p>
+            </div>
           </div>
           <hr className="hrLineTwo" />
           <div className="authSocialText">{AUTH_SOCIAL}</div>
