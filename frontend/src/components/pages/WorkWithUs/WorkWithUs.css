@@ -1,10 +1,18 @@
-.one {
-  background-color: chartreuse;
-  height: 50vh;
+.ttttsss {
+  /* background-color: chartreuse; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
 }
 
-.two {
-  background-color: red;
-  height: 50vh;
+.tttt222 {
+  flex: 1;
+  height: auto;
+  width: 100%;
+}
+
+.tttt333 {
+  flex: 1;
+  height: auto;
+  width: 100%;
 }

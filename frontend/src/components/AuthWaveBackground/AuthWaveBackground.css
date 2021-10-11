@@ -1,14 +1,21 @@
 .authwave-wrapper {
-  /* position: relative; */
-  /* display: flex; */
-  /* min-height: 100%;
-  width: 100%; */
-  /* overflow: hidden; */
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
   /* background: linear-gradient(260.28deg, #0193FD 0%, #3F51F4 96.58%); */
-  /* text-align: center; */
-  /* background: url('../../assets/AuthWaveVector 1.svg') url('../../assets/AuthWaveVector 2.svg') no-repeat top left;; */
-  margin-top: 10em;
+  text-align: center;
+}
+
+.authwave-wrapper-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
   /* transform: rotate(-90deg); */
+  z-index: 3;
 }
 
 /* .authwave-shape-divider {

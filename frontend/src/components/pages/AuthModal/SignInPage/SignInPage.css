@@ -1,5 +1,5 @@
 .pageContainer {
-    height: 1200px;
+    /* height: 1200px; */
     max-width: 750;
     display: flex;
     flex-direction: column;
