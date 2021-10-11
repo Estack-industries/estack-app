@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from '../../Container/Container';
 import Rectangle427 from '../../../assets/Rectangle 427.png';
 import NewAccountPage from './NewAccountPage/NewAccountPage';
+import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
 import {
   AUTH_BG_TITLE,
   AUTH_SIGNIN_TITLE,
@@ -28,12 +29,10 @@ function AuthModal({ isModalOpen, onModalToggle }) {
       <Container>
         <div className="auth-content">
           <div className="auth-bg">
-            <h2 className="auth-bg-title">{AUTH_BG_TITLE}</h2>
-            {/* <img className='auth-bg-image' src={Rectangle427} alt='rectangle' /> */}
+            <AuthWaveBackground />
           </div>
           <div className="auth-panel">
             <button className="auth-close" onClick={closeAuthModal}>&times;</button>
-            {/* State change to display Sign in or New Account page */}
             <NewAccountPage />
           </div>
         </div>

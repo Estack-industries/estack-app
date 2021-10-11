@@ -1,15 +1,13 @@
 import React from 'react';
 import { Container } from '../../Container/Container';
+import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
 import './WorkWithUs.css';
 
 function WorkWithUs() {
   return (
     <Container>
       {/* Why Section */}
-      <div className='nt'>
-        <div className='one' />
-        <div className='two' />
-      </div>
+      <AuthWaveBackground />
     </Container>
   )
 }

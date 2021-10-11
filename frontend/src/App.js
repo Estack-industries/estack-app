@@ -10,6 +10,7 @@ import About from './components/pages/About/About';
 import WorkWithUs from './components/pages/WorkWithUs/WorkWithUs';
 import AuthModal from './components/pages/AuthModal/AuthModal';
 import Property from './components/pages/Property/Property';
+import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path='/property' exact component={Property} />
         </Switch>
         <AuthModal isModalOpen={isModalOpen} onModalToggle={onModalToggle} />
+        <Footer />
       </Router>
     </div>
   );

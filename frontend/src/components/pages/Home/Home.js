@@ -3,11 +3,9 @@ import './Home.css'
 import Hero from './Hero'
 import SecondSection from './secondSection'
 import ThirdSection from './thirdSection'
-import Footer from '../../Footer/Footer';
 import { Container } from '../../Container/Container';
 import { WaveBG } from '../../WaveBG/WaveBG'
 import landingHome from './pictures/house.png'
-import SearchBar from '../../SearchBar/SearchBar'
 
 function Home() {
   return (
@@ -19,7 +17,6 @@ function Home() {
         <SecondSection />
         <ThirdSection />
       </Container>
-      <Footer />
     </div>
   )
 }

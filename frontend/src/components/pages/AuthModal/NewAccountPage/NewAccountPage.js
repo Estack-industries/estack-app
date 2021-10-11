@@ -38,11 +38,13 @@ function NewAccountPage() {
             <EmailPassBox text={AUTH_EMAIL} />
             <h3 className="authPassword">Password</h3>
             <EmailPassBox text={AUTH_PASSWORD} />
+            <h3 className="authConfirmPassword">Confirm Password</h3>
+            <EmailPassBox text={AUTH_PASSWORD} />
             <div className="authPasswordRequirements">
               <p>{AUTH_REGISTER_PASSWORD1}</p>
               <p>{AUTH_REGISTER_PASSWORD2}</p>
               <p>{AUTH_REGISTER_PASSWORD3}</p>
-              <p className="registerPassword4Container"><hr className="registerPassword4Box"/>{AUTH_REGISTER_PASSWORD4}</p>
+              <p className="registerPassword4Container"><hr className="registerPassword4Box" />{AUTH_REGISTER_PASSWORD4}</p>
             </div>
             <div className="newAccountSignInButton"><SignInButton text="Submit" /></div>
             <div className="terms">
@@ -51,7 +53,7 @@ function NewAccountPage() {
           </div>
           <hr className="hrLineTwo" />
           <div className="authSocialText">{AUTH_SOCIAL}</div>
-          <GoogleButton text={AUTH_GOOGLE}/>
+          <GoogleButton text={AUTH_GOOGLE} />
         </div>
       </div>
     </>
