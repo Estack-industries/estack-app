@@ -20,14 +20,19 @@
 .auth-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100%;
   width: 100%;
   background: #fefefe;
   border-radius: 15px;
-  overflow-y: auto;
-  align-items: self-start;
+  overflow-y: scroll;
+  overflow-x: hidden;
   /* align-items: center;
   justify-content: center; */
+}
+
+@media only screen and (max-width: 85em) {
+  .auth-content {
+    grid-template-columns: 1fr;
+  }
 }
 
 .auth-bg {
@@ -39,9 +44,10 @@
   background-position-x: left;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px; */
-  height: auto;
+
+  height:0;
+  min-height:100%;
   width: 100%;
-  overflow: hidden;
   /* align-items: center;
   justify-content: center; */
 }
@@ -64,7 +70,7 @@
 }
 
 .auth-panel {
-  min-height: auto;
+  height: 100%;
   width: 100%;
   /* display: flex; */
   /* justify-content: center;

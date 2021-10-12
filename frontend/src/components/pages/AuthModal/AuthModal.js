@@ -40,8 +40,10 @@ function AuthModal({ isModalOpen, onModalToggle }) {
           </svg>
           {/* </div> */}
           <div className="auth-panel">
-            <button className="auth-close" onClick={closeAuthModal}>&times;</button>
-            <NewAccountPage />
+            <div>
+              <button className="auth-close" onClick={closeAuthModal}>&times;</button>
+              <NewAccountPage />
+            </div>
           </div>
         </div>
       </Container>
