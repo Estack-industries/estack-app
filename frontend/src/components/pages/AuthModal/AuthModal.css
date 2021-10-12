@@ -25,6 +25,7 @@
   background: #fefefe;
   border-radius: 15px;
   overflow-y: auto;
+  align-items: self-start;
   /* align-items: center;
   justify-content: center; */
 }
@@ -38,8 +39,9 @@
   background-position-x: left;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px; */
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
   /* align-items: center;
   justify-content: center; */
 }

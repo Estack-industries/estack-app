@@ -50,10 +50,10 @@ function NewAccountPage() {
             <div className="terms">
               <p>{AUTH_REGISTER_TERMS_ACCEPT}<Link to="#" className="termsOfUse">{AUTH_REGISTER_TERMS_OF_USE}</Link></p>
             </div>
+            <hr className="hrLineTwo" />
+            <div className="authSocialText">{AUTH_SOCIAL}</div>
+            <GoogleButton text={AUTH_GOOGLE} />
           </div>
-          <hr className="hrLineTwo" />
-          <div className="authSocialText">{AUTH_SOCIAL}</div>
-          <GoogleButton text={AUTH_GOOGLE} />
         </div>
       </div>
     </>

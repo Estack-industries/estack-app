@@ -1,5 +1,5 @@
 .googleAuthBoxContainer {
-    width: 500px;
+    width: 100%;
     height: 72px;
     border: 1px solid #8A8A8A;
     box-sizing: border-box;
@@ -7,8 +7,8 @@
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .googleAuthBoxContainer:hover {
