@@ -1,67 +1,5 @@
-.accountPageContainer {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 2em 2em 2em;
-}
-
-.welcomeTitle {
-    text-align: center;
-    font-family: 'DM Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 62px;
-    margin-bottom: 10px;
-}
-
-.hrLineOne {
-    width: 95%;
-    height: 2px;
-    background-color:#000000;
-    border: none;
-}
-
-.accountHighlight {
-    width: 32%;
-    height: 8px;
-    background-color:rgba(244, 165, 35, 0.6);
-    border: none;
-    border-radius: 15px;
-    margin-bottom: 2px;
-    margin-left: 24.5%;
-}
-
-.topTab {
-  height: 100%;
-  width: 100%;
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.topTabTextContainer {
-    display: flex;
-    flex-direction: row;
-}
-
-.topTabText {
-    font-family: 'DM Sans', sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 47px;
-
-    color: #000000;
-}
-
-#signInText {
-    margin-right: 40px;
-}
-
 .contentContainer {
-  padding: 3em 2em 2em 2em;
+  padding: 3em 1.5em 1.5em 1.5em;
 }
 
 .authEmail {
@@ -82,12 +20,12 @@
 }
 
 .newAccountSignInButton {
-    margin-top: 30px;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 .terms {
     text-align: center;
-    margin-top: 32px;
     color: #7B6F6F;
     font-size: 18px;
 }
@@ -97,13 +35,13 @@
     height: 2px;
     background-color:#000000;
     border: none;
-    margin-top: 28px;
+    margin-top: 2em;
 }
 
 .authSocialText {
     text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 4em;
+    margin-bottom: 4em;
 }
 
 .authPasswordRequirements {

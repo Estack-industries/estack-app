@@ -19,7 +19,7 @@ function Navbar({ onModalToggle }) {
           <ul className="nav-menu">
             <NavLink buttonStyle='btn--dropdown' to='/about'>About Us</NavLink>
             <NavButton onModalToggle={onModalToggle}>Log In</NavButton>
-            <NavButton onModalToggle={onModalToggle}>Register</NavButton>
+            {/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
           </ul>
         </Container>
       </nav>
