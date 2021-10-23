@@ -17,8 +17,8 @@ class Controller {
   /********************************************************************
    * Purpose:         Get all test data in the temporary testdata.js
    *                  file
-   * Precondition:    N/A
-   * Postcondition:   promise with resolve data
+   * Precondition:    Access the API with GET request at /api/data
+   * Postcondition:   Promise with resolve data
   *********************************************************************/
   async getAllData() {
     return new Promise((resolve, _) => resolve(testdata));
@@ -27,9 +27,9 @@ class Controller {
   /********************************************************************
    * Purpose:         Get a single test data in the temporary testdata
    *                  js file
-   * Precondition:    id
-   * Postcondition:   1. resolve with the data item
-   *                  2. reject with the given id
+   * Precondition:    Access the API with GET request at /api/data/id
+   * Postcondition:   1. Resolve with the data item
+   *                  2. Reject with the given id
   *********************************************************************/
   async getData(id) {
     return new Promise((resolve, reject) => {

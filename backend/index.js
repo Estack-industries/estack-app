@@ -22,7 +22,7 @@ const PORT = process.env.PORT || 5000;
 const server = HTTP.createServer(async (req, res) => {
   /********************************************************************
    * Purpose:         Handle default route
-   * Precondition:    N/A
+   * Precondition:    Access the default api route
    * Postcondition:   200 with welcome text
   *********************************************************************/
   if (req.url === "/api" && req.method === "GET") {
@@ -73,8 +73,8 @@ const server = HTTP.createServer(async (req, res) => {
 
   /********************************************************************
    * Purpose:         Handle route not found
-   * Precondition:    N/A
-   * Postcondition:   promise with resolve data
+   * Precondition:    Access an invalid route
+   * Postcondition:   404 with error message
   *********************************************************************/
   else {
     res.writeHead(404, { "Content-Type": "application/json" });
