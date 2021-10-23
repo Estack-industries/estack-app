@@ -1,0 +1,5 @@
+.propertysection2-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}

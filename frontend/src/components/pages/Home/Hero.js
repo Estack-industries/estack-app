@@ -1,7 +1,7 @@
 import React from 'react'
 import './Hero.css'
-import { FiSearch } from "react-icons/fi";
-import Ellipse from './pictures/ellipse.png'
+// import { FiSearch } from "react-icons/fi";
+// import Ellipse from './pictures/ellipse.png'
 import SearchBar from '../../SearchBar/SearchBar'
 
 function Hero() {

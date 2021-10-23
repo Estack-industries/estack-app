@@ -37,7 +37,10 @@ function NewAccountPage({ isOpen }) {
           <p>{AUTH_REGISTER_PASSWORD1}</p>
           <p>{AUTH_REGISTER_PASSWORD2}</p>
           <p>{AUTH_REGISTER_PASSWORD3}</p>
-          <p className="registerPassword4Container"><hr className="registerPassword4Box" />{AUTH_REGISTER_PASSWORD4}</p>
+          <div style={{ display: 'flex' }}>
+            <hr className="registerPassword4Box" />
+            <p className="registerPassword4Container">{AUTH_REGISTER_PASSWORD4}</p>
+          </div>
         </div>
         <div className="newAccountSignInButton">
           <SignInButton text="Submit" />

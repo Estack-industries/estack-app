@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../../Container/Container';
-import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
+// import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
 import Rectangle from '../../../assets/Rectangle 279.png';
 import './WorkWithUs.css';
 
@@ -20,8 +20,8 @@ function WorkWithUs() {
             </linearGradient>
           </svg>
         </div> */}
-        <img className="tttt222" src={Rectangle} />
-        <img className="tttt333" src={Rectangle} />
+        <img className="tttt222" src={Rectangle} alt="tt" />
+        <img className="tttt333" src={Rectangle} alt="tt2" />
       </div>
     </Container>
   )

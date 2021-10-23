@@ -6,6 +6,6 @@
   position: relative;
   width: 100%;
   margin-top: -70vh;
-  margin-bottom: var(--page-padding);
+  margin-bottom: 10vh;
   z-index: 10;
 }
