@@ -13,9 +13,9 @@ import Property from './components/pages/Property/Property';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
+
 function App() {
   const [isModalOpen, onModalToggle] = useState(false);
-
   return (
     <div className="App">
       <Router>
@@ -32,5 +32,27 @@ function App() {
     </div>
   );
 }
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
+  callAPI() {
+      fetch("http://localhost:9000/testAPI")
+          .then(res => res.text())
+          .then(res => this.setState({ apiResponse: res }));
+  }
+
+  componentWillMount() {
+      this.callAPI();
+  }
+  render() {
+    
+    return("App function")
+  }
+}
+
+
 
 export default App;
