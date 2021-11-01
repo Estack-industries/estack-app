@@ -14,24 +14,24 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 
-function App() {
-  const [isModalOpen, onModalToggle] = useState(false);
-  return (
-    <div className="App">
-      <Router>
-        <Navbar onModalToggle={onModalToggle} />
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/about' exact component={About} />
-          <Route path='/workwithus' exact component={WorkWithUs} />
-          <Route path='/property' exact component={Property} />
-        </Switch>
-        <AuthModal isModalOpen={isModalOpen} onModalToggle={onModalToggle} />
-        <Footer />
-      </Router>
-    </div>
-  );
-}
+// function App() {
+//   const [isModalOpen, onModalToggle] = useState(false);
+//   return (
+//     <div className="App">
+//       <Router>
+//         <Navbar onModalToggle={onModalToggle} />
+//         <Switch>
+//           <Route path='/' exact component={Home} />
+//           <Route path='/about' exact component={About} />
+//           <Route path='/workwithus' exact component={WorkWithUs} />
+//           <Route path='/property' exact component={Property} />
+//         </Switch>
+//         <AuthModal isModalOpen={isModalOpen} onModalToggle={onModalToggle} />
+//         <Footer />
+//       </Router>
+//     </div>
+//   );
+// }
 
 class App extends React.Component {
   constructor(props) {
