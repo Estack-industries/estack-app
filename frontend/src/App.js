@@ -19,7 +19,7 @@ function App() {
 			const text = await response.text();
 			setApiResponse(text);
 		})();
-	});
+	}, []);
 
 	return (
 		<div className="App">
