@@ -1,9 +1,5 @@
-import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/pages/Home/Home';
 import About from './components/pages/About/About';
@@ -13,46 +9,36 @@ import Property from './components/pages/Property/Property';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
+function App() {
+	const [isModalOpen, onModalToggle] = useState(false);
+	const [apiResponse, setApiResponse] = useState(null);
 
-// function App() {
-//   const [isModalOpen, onModalToggle] = useState(false);
-//   return (
-//     <div className="App">
-//       <Router>
-//         <Navbar onModalToggle={onModalToggle} />
-//         <Switch>
-//           <Route path='/' exact component={Home} />
-//           <Route path='/about' exact component={About} />
-//           <Route path='/workwithus' exact component={WorkWithUs} />
-//           <Route path='/property' exact component={Property} />
-//         </Switch>
-//         <AuthModal isModalOpen={isModalOpen} onModalToggle={onModalToggle} />
-//         <Footer />
-//       </Router>
-//     </div>
-//   );
-// }
+	useEffect(() => {
+		(async () => {
+			const response = await fetch('http://localhost:9000/testAPI');
+			const text = await response.text();
+			setApiResponse(text);
+		})();
+	});
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { apiResponse: "" };
-  }
-  callAPI() {
-      fetch("http://localhost:9000/testAPI")
-          .then(res => res.text())
-          .then(res => this.setState({ apiResponse: res }));
-  }
-
-  componentWillMount() {
-      this.callAPI();
-  }
-  render() {
-    
-    return("App function")
-  }
+	return (
+		<div className="App">
+			<Router>
+				<Navbar onModalToggle={onModalToggle} />
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/about" exact component={About} />
+					<Route path="/workwithus" exact component={WorkWithUs} />
+					<Route path="/property" exact component={Property} />
+				</Switch>
+				<AuthModal
+					isModalOpen={isModalOpen}
+					onModalToggle={onModalToggle}
+				/>
+				<Footer />
+			</Router>
+		</div>
+	);
 }
-
-
 
 export default App;
