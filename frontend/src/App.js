@@ -10,7 +10,7 @@ import Footer from './components/Footer/Footer';
 import './App.css';
 
 function App() {
-	const [isModalOpen, onModalToggle] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
 
 	useEffect(() => {
@@ -24,7 +24,7 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<Navbar onModalToggle={onModalToggle} />
+				<Navbar onModalToggle={setIsModalOpen} />
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/about" exact component={About} />
@@ -33,7 +33,7 @@ function App() {
 				</Switch>
 				<AuthModal
 					isModalOpen={isModalOpen}
-					onModalToggle={onModalToggle}
+					onModalToggle={setIsModalOpen}
 				/>
 				<Footer />
 			</Router>

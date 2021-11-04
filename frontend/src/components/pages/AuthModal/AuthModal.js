@@ -18,9 +18,9 @@ function AuthModal({ isModalOpen, onModalToggle }) {
     onModalToggle(false);
   }
 
-  const [isSignInOpen, onSignInToggle] = useState(true);
+  const [isSignInOpen, setIsSignInOpen] = useState(true);
   function toggleSignInPage(isSignin) {
-    onSignInToggle(isSignin);
+    setIsSignInOpen(isSignin);
   }
 
 
