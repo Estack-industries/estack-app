@@ -1,54 +1,54 @@
 :root {
-  --primary: #fff;
+	--primary: #fff;
 }
 
 .btn {
-  font-family: "Open Sans", sans-serif;
-  padding: 8px 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
+	font-family: "Open Sans", sans-serif;
+	padding: 8px 20px;
+	border-radius: 2px;
+	outline: none;
+	border: none;
+	cursor: pointer;
 }
 
 .btn--menu {
-  background-color: var(--primary);
-  color: #242424;
-  border: 1px solid var(--primary);
+	background-color: var(--primary);
+	color: #242424;
+	border: 1px solid var(--primary);
 }
 
 .btn--dropdown {
-  background-color: var(--primary);
-  color: #242424;
-  border: 1px solid var(--primary);
+	background-color: var(--primary);
+	color: #242424;
+	border: 1px solid var(--primary);
 }
 
 .btn--primary {
-  background-color: var(--primary);
-  color: #242424;
-  border: 1px solid var(--primary);
+	background-color: var(--primary);
+	color: #242424;
+	border: 1px solid var(--primary);
 }
 
 .btn--small {
-  padding: 4px 14px;
-  font-size: 18px;
+	padding: 4px 14px;
+	font-size: 18px;
 }
 
 .btn--medium {
-  padding: 8px 20px;
-  font-size: 20px;
+	padding: 8px 20px;
+	font-size: 20px;
 }
 
 .btn--large {
-  padding: 12px 26px;
-  font-size: 24px;
+	padding: 12px 26px;
+	font-size: 24px;
 }
 
 .btn--small:hover,
 .btn--large:hover,
 .btn--medium:hover {
-  transition: all 0.3s ease-out;
-  background: #fff;
-  color: #242424;
-  transition: 250ms;
+	transition: all 0.3s ease-out;
+	background: #fff;
+	color: #242424;
+	transition: 250ms;
 }

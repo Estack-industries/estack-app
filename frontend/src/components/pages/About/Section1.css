@@ -1,90 +1,92 @@
 :root {
-  --primary: #F4A523;
-  --text-color: black;
-  --transparent: rgba(0,0,0,0);
-  --border: 20px;
-  --shadow: rgba(0, 0, 0, 0.5);
-  --section-title-size: 38px;
-  --section-title-style: normal;
-  --section-title-weight: bold;
-  --paragraph-size: 24px;
-  --paragraph-style: normal;
-  --paragraph-weight: 500;
-  --page-padding: 4em;
+	--primary: #f4a523;
+	--text-color: black;
+	--transparent: rgba(0, 0, 0, 0);
+	--border: 20px;
+	--shadow: rgba(0, 0, 0, 0.5);
+	--section-title-size: 38px;
+	--section-title-style: normal;
+	--section-title-weight: bold;
+	--paragraph-size: 24px;
+	--paragraph-style: normal;
+	--paragraph-weight: 500;
+	--page-padding: 4em;
 }
 
 .section1-container {
-  position: relative;
-  width: 100%;
-  margin-top: -15em;
-  margin-bottom: var(--page-padding);
-  z-index: 10;
+	position: relative;
+	width: 100%;
+	margin-top: -15em;
+	margin-bottom: var(--page-padding);
+	z-index: 10;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
-  color: black;
-  gap: var(--page-padding);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	justify-content: center;
+	align-items: flex-end;
+	overflow: hidden;
+	color: black;
+	gap: var(--page-padding);
 }
 
-
 @media only screen and (max-width: 1100px) {
-  .section1-container {
-    display: flex;
-    flex-direction: column-reverse;
-  }
+	.section1-container {
+		display: flex;
+		flex-direction: column-reverse;
+	}
 }
 
 /* why-grid */
-.estimate-wrapper, .info-wrapper {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2em;
+.estimate-wrapper,
+.info-wrapper {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
 }
 
-.section1-container .email-input, .info-wrapper {
-  border: 1px solid #000000;
-  border-radius: 1em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  background: white;
+.section1-container .email-input,
+.info-wrapper {
+	border: 1px solid #000000;
+	border-radius: 1em;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	background: white;
 }
 
 .info-wrapper {
-  padding: 3em;
+	padding: 3em;
 }
 
 .info-wrapper h2 {
-  display: block;
-  justify-self: center;
-  align-self: center;
-  place-self: center;
-  font-size: var(--section-title-size);
-  font-style: var(--section-title-style);
-  font-weight: var(--section-title-weight);
+	display: block;
+	justify-self: center;
+	align-self: center;
+	place-self: center;
+	font-size: var(--section-title-size);
+	font-style: var(--section-title-style);
+	font-weight: var(--section-title-weight);
 }
 
-.info-wrapper p, .estimate-wrapper .email-input {
-  white-space: pre-line;
-  font-size: var(--paragraph-size);
-  font-style: var(--paragraph-style);
-  font-weight: var(--paragraph-weight);
-  height: 100%;
-  width: 100%;
-  padding: 1em;
+.info-wrapper p,
+.estimate-wrapper .email-input {
+	white-space: pre-line;
+	font-size: var(--paragraph-size);
+	font-style: var(--paragraph-style);
+	font-weight: var(--paragraph-weight);
+	height: 100%;
+	width: 100%;
+	padding: 1em;
 }
 
 .estimate-wrapper .email-input {
-  outline: none;
-  text-align: center;
+	outline: none;
+	text-align: center;
 }
 
 .estimate-wrapper h3 {
-  font-size: var(--paragraph-size);
-  font-style: var(--paragraph-style);
-  font-weight: var(--paragraph-weight);
+	font-size: var(--paragraph-size);
+	font-style: var(--paragraph-style);
+	font-weight: var(--paragraph-weight);
 }

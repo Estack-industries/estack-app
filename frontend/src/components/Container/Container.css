@@ -1,28 +1,28 @@
 :root {
-  --container-width: 90rem;
-  --padding: 5rem;
+	--container-width: 90rem;
+	--padding: 5rem;
 }
 
 .container-wrapper {
-  display: flex;
-  width: 100%;
-  max-width: var(--container-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--padding);
-  padding-right: var(--padding);
-  padding-bottom: var(--padding);
-  align-items: center;
+	display: flex;
+	width: 100%;
+	max-width: var(--container-width);
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
+	padding-bottom: var(--padding);
+	align-items: center;
 }
 
 .container--column {
-  flex-direction: column;
+	flex-direction: column;
 }
 
 .container--row {
-  flex-direction: row;
+	flex-direction: row;
 }
 
 .container--nopb {
-  padding-bottom: 0;
+	padding-bottom: 0;
 }

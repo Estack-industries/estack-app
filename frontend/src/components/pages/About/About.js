@@ -9,17 +9,17 @@ import Section4 from './Section4';
 import './About.css';
 
 function About() {
-  return (
-    <div className="about-container">
-      <WaveBG src={image136} title="About Us" />
-      <Container>
-        <Section1 className="about-section1" />
-        <Section2 />
-        <Section3 />
-        <Section4 />
-      </Container>
-    </div>
-  )
+	return (
+		<div className="about-container">
+			<WaveBG src={image136} title="About Us" />
+			<Container>
+				<Section1 className="about-section1" />
+				<Section2 />
+				<Section3 />
+				<Section4 />
+			</Container>
+		</div>
+	);
 }
 
-export default About
+export default About;

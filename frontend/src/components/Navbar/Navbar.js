@@ -7,24 +7,28 @@ import { Container } from '../Container/Container';
 import './Navbar.css';
 
 function Navbar({ onModalToggle }) {
-  return (
-    <>
-      <nav className="navbar">
-        <Container d="container--row">
-          <Logo />
-          <Link to="/" className="navbar-logo">
-            -Stack
-          </Link>
-          {/* Navbar Menu Items */}
-          <ul className="nav-menu">
-            <NavLink buttonStyle='btn--dropdown' to='/about'>About Us</NavLink>
-            <NavButton onModalToggle={onModalToggle}>Log In</NavButton>
-            {/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
-          </ul>
-        </Container>
-      </nav>
-    </>
-  )
+	return (
+		<>
+			<nav className="navbar">
+				<Container d="container--row">
+					<Logo />
+					<Link to="/" className="navbar-logo">
+						-Stack
+					</Link>
+					{/* Navbar Menu Items */}
+					<ul className="nav-menu">
+						<NavLink buttonStyle="btn--dropdown" to="/about">
+							About Us
+						</NavLink>
+						<NavButton onModalToggle={onModalToggle}>
+							Log In
+						</NavButton>
+						{/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
+					</ul>
+				</Container>
+			</nav>
+		</>
+	);
 }
 
-export default Navbar
+export default Navbar;
