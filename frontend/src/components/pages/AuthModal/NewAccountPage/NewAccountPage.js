@@ -17,8 +17,40 @@ import {
 } from '../strings/en.js';
 import { Link } from 'react-router-dom';
 import { GoogleButton } from '../GoogleButton/GoogleButton';
+import {useState} from 'react';
+import Axios from "axios";
+
 
 function NewAccountPage({ isOpen }) {
+
+  const [email,setEmail] = useState ('');
+  const [password,setPassword] = useState('');
+  const [loginStatus,setLoginStatus] = useState('')
+  
+  //submit to the api
+  const submitData = () =>{
+    
+    Axios.post('http://localhost:3001/users/register' ,
+     {email : email , password : password}).then(() => {
+       
+     });
+  };
+
+  //check the api for user
+  const checkData = () =>{
+    
+    Axios.post('http://localhost:3001/users/Auth' ,
+     {email : email}).then((response) => {
+       if(response.data.message){
+         setLoginStatus(response.data.message)
+         console.log(loginStatus)
+       }else{
+         submitData();
+       }
+     });
+  }
+
+
   return (
     <>
       <div className="contentContainer"
@@ -28,9 +60,13 @@ function NewAccountPage({ isOpen }) {
       >
         {/* Emaill & Password */}
         <h3 className="authEmail">Email</h3>
-        <EmailPassBox text={AUTH_EMAIL} />
+        <EmailPassBox text={AUTH_EMAIL} onChange = {(e) => {
+        setEmail(e.target.value);
+      }} />
         <h3 className="authPassword">Password</h3>
-        <EmailPassBox text={AUTH_PASSWORD} />
+        <EmailPassBox text={AUTH_PASSWORD} onChange = {(e) => {
+        setPassword(e.target.value);
+      }} />
         <h3 className="authConfirmPassword">Confirm Password</h3>
         <EmailPassBox text={AUTH_PASSWORD} />
         <div className="authPasswordRequirements">
@@ -43,7 +79,7 @@ function NewAccountPage({ isOpen }) {
           </div>
         </div>
         <div className="newAccountSignInButton">
-          <SignInButton text="Submit" />
+          <SignInButton text="Submit" onClick = {checkData} />
         </div>
         <div className="terms">
           <p>
