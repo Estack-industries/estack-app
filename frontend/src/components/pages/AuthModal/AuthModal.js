@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container } from '../../Container/Container';
 import NewAccountPage from './NewAccountPage/NewAccountPage';
 import SignInPage from './SignInPage/SignInPage';
+
 // import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
 // import {
 //   AUTH_BG_TITLE,
@@ -13,16 +14,22 @@ import SignInPage from './SignInPage/SignInPage';
 // } from './strings/en.js';
 import './AuthModal.css';
 
+
 function AuthModal({ isModalOpen, onModalToggle }) {
+
   function closeAuthModal() {
+    
     onModalToggle(false);
   }
+ 
 
   const [isSignInOpen, setIsSignInOpen] = useState(true);
   function toggleSignInPage(isSignin) {
     setIsSignInOpen(isSignin);
   }
 
+  
+  
 
   return (
     <div
@@ -65,8 +72,8 @@ function AuthModal({ isModalOpen, onModalToggle }) {
                   <h3 className="auth-signInText" onClick={() => toggleSignInPage(true)}>Sign In</h3>
                   <h3 className="authregisterText" onClick={() => toggleSignInPage(false)}>New Account</h3>
                 </div>
-                <NewAccountPage isOpen={isSignInOpen} />
-                <SignInPage isOpen={isSignInOpen} />
+                <NewAccountPage  isOpen={isSignInOpen} />
+                <SignInPage onModalToggle ={onModalToggle} isOpen={isSignInOpen} />
               </div>
             </div>
           </div>
