@@ -1,5 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/pages/Home/Home';
 import About from './components/pages/About/About';
@@ -7,11 +11,18 @@ import WorkWithUs from './components/pages/WorkWithUs/WorkWithUs';
 import AuthModal from './components/pages/AuthModal/AuthModal';
 import Property from './components/pages/Property/Property';
 import Footer from './components/Footer/Footer';
+import { useEffect } from 'react';
+
 import './App.css';
+
 
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
+	
+
+
+	
 
 	useEffect(() => {
 		(async () => {
@@ -19,7 +30,9 @@ function App() {
 			const text = await response.text();
 			setApiResponse(text);
 		})();
-	}, []);
+	}, []); 
+	
+	
 
 	return (
 		<div className="App">
@@ -42,3 +55,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
