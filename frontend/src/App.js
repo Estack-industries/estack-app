@@ -12,14 +12,17 @@ import AuthModal from './components/pages/AuthModal/AuthModal';
 import Property from './components/pages/Property/Property';
 import Footer from './components/Footer/Footer';
 import { useEffect } from 'react';
+
 import './App.css';
 
 
 function App() {
 	const [isModalOpen, onModalToggle] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
+	
 
-	/*when api is offline this crashes the dev build. need to add error handling.
+
+	
 
 	useEffect(() => {
 		(async () => {
@@ -29,7 +32,7 @@ function App() {
 		})();
 	}, []); 
 	
-	*/
+	
 
 	return (
 		<div className="App">

@@ -6,7 +6,11 @@ import { NavButton } from '../NavButton/NavButton';
 import { Container } from '../Container/Container';
 import './Navbar.css';
 
+
 function Navbar({ onModalToggle }) {
+
+
+
   return (
     <>
       <nav className="navbar">
@@ -18,7 +22,7 @@ function Navbar({ onModalToggle }) {
           {/* Navbar Menu Items */}
           <ul className="nav-menu">
             <NavLink buttonStyle='btn--dropdown' to='/about'>About Us</NavLink>
-            <NavButton onModalToggle={onModalToggle}>Log In</NavButton>
+            <NavButton onModalToggle={onModalToggle}>Log in</NavButton>
             {/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
           </ul>
         </Container>

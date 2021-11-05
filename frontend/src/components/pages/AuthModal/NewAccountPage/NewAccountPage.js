@@ -25,7 +25,7 @@ function NewAccountPage({ isOpen }) {
 
   const [email,setEmail] = useState ('');
   const [password,setPassword] = useState('');
-  const [loginStatus,setLoginStatus] = useState('')
+  var [loginStatus,setLoginStatus] = useState('')
   
   //submit to the api
   const submitData = () =>{
@@ -38,13 +38,16 @@ function NewAccountPage({ isOpen }) {
 
   //check the api for user
   const checkData = () =>{
+    setLoginStatus('');
     
     Axios.post('http://localhost:3001/users/Auth' ,
      {email : email}).then((response) => {
-       if(response.data.message){
+
+       if(response.data.message === 'User already exists'){
          setLoginStatus(response.data.message)
-         console.log(loginStatus)
+         
        }else{
+         //console.log(loginStatus)
          submitData();
        }
      });
@@ -59,7 +62,7 @@ function NewAccountPage({ isOpen }) {
         }}
       >
         {/* Emaill & Password */}
-        <h3 className="authEmail">Email</h3>
+        <h3 className="authEmail">Email <span className = "Warning-Text">{loginStatus}</span></h3>
         <EmailPassBox text={AUTH_EMAIL} onChange = {(e) => {
         setEmail(e.target.value);
       }} />

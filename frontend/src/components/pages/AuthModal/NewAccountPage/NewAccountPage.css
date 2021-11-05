@@ -72,3 +72,10 @@
     text-decoration: none;
     color: #3F51F4;
 }
+
+.Warning-Text{
+    color: red;
+    font-size: x-small;
+    margin-left: 5em;
+    
+}
