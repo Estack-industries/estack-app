@@ -5,11 +5,12 @@ import { Logo } from '../Logo/Logo';
 import { NavButton } from '../NavButton/NavButton';
 import { Container } from '../Container/Container';
 import './Navbar.css';
+import {useEffect} from 'react';
+import isLoggedIn from '../../App'
 
+function Navbar({ onModalToggle, text }) {
 
-function Navbar({ onModalToggle }) {
-
-
+	
 
   return (
     <>
@@ -22,7 +23,7 @@ function Navbar({ onModalToggle }) {
           {/* Navbar Menu Items */}
           <ul className="nav-menu">
             <NavLink buttonStyle='btn--dropdown' to='/about'>About Us</NavLink>
-            <NavButton onModalToggle={onModalToggle}>Log in</NavButton>
+            <NavButton onModalToggle={onModalToggle}>{text}</NavButton>
             {/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
           </ul>
         </Container>

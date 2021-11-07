@@ -1,13 +1,31 @@
 var express = require('express');
 var router = express.Router();
 var mysql2 = require('mysql2');
-var bodyParser = require('body-parser');
+var body = require('body-parser');
 var bcrypt = require("bcrypt");
 var saltRounds = 10;
 const session = require("express-session");
+var cors = require('cors');
+const app = require('../app');
+const cookieParser = require('cookie-parser');
+
 /* GET users listing. */
 
 router.use(express.json());
+
+
+//create session
+router.use(
+  session({
+    key: "userId",
+    secret: "subscribe",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      expires: 60 * 60 * 24,
+    },
+  })
+);
 
 //DataBase Details you need to reconfig this to work on you localhost and mySQL DB
 var db = mysql2.createPool({
@@ -16,6 +34,15 @@ var db = mysql2.createPool({
   password: "password",
   database: "estackdb"
 })
+
+
+router.use(body.urlencoded({extended : true}));
+
+
+router.use(cookieParser());
+
+
+
 
 
 //Checking if login details match current users on DB
@@ -37,8 +64,12 @@ router.post('/login', (req, res) => {
       //check if hashed password matches user
       bcrypt.compare(password, result[0].password, (error, response) => {
         if (response) {
+          
+          req.session.user = result;
+          console.log(req.session.user);
           res.send({message : 'logged in'})
-        }else{
+          //console.log('logged in')
+        }else if (error){
         //if password is wrong
         res.send({message:'Wrong Password'})
         }});
@@ -52,6 +83,19 @@ router.post('/login', (req, res) => {
  
 });
 
+
+router.get("/login", (req, res) => {
+  if (req.session.user) {
+    console.log(req.session.user.email)
+    
+    res.send({ loggedIn: true, user: req.session.user });
+    
+  } else {
+    res.send({ loggedIn: false });
+    console.log(req.session.user)
+    
+  }
+});
          
 
 //Checking if users allready exists
