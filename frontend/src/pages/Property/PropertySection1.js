@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './PropertySection1.css';
-import SearchBar from '../../SearchBar/SearchBar';
-import Rectangle279 from '../../../assets/Rectangle 279.png';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import Rectangle279 from '../../assets/Rectangle 279.png';
 
 function PropertySection1() {
 	return (

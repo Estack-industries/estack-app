@@ -4,8 +4,8 @@ import './Home.css';
 import Hero from './Hero';
 import SecondSection from './secondSection';
 import ThirdSection from './thirdSection';
-import { Container } from '../../Container/Container';
-import { WaveBG } from '../../WaveBG/WaveBG';
+import { Container } from '../../components/Container/Container';
+import { WaveBG } from '../../components/WaveBG/WaveBG';
 import landingHome from './pictures/house.png';
 
 function Home() {

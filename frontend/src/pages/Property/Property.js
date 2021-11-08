@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container } from '../../Container/Container';
-import { WaveBG } from '../../WaveBG/WaveBG';
+import { Container } from '../../components/Container/Container';
+import { WaveBG } from '../../components/WaveBG/WaveBG';
 import PropertySection1 from './PropertySection1';
 import './Property.css';
 

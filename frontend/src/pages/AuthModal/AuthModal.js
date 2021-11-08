@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Container } from '../../Container/Container';
+import { Container } from '../../components/Container/Container';
 import NewAccountPage from './NewAccountPage/NewAccountPage';
 import SignInPage from './SignInPage/SignInPage';
 import './AuthModal.css';

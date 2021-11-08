@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
 
 import Navbar from './components/Navbar/Navbar';
-import Home from './components/pages/Home/Home';
-import About from './components/pages/About/About';
-import WorkWithUs from './components/pages/WorkWithUs/WorkWithUs';
-import AuthModal from './components/pages/AuthModal/AuthModal';
-import Property from './components/pages/Property/Property';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import WorkWithUs from './pages/WorkWithUs/WorkWithUs';
+import AuthModal from './pages/AuthModal/AuthModal';
+import Property from './pages/Property/Property';
 import Footer from './components/Footer/Footer';
 import './App.css';
 
