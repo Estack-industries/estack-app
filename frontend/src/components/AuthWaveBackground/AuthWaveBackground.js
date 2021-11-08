@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './AuthWaveBackground.css';
 
 export const AuthWaveBackground = () => {
