@@ -1,27 +1,32 @@
 import React from 'react';
-import './Button.css';
 import { Link } from 'react-router-dom';
 
-const STYLES = ['btn--menu', 'btn--menudropdown'];
-const SIZES = ['btn--small', 'btn--medium', 'btn--large'];
+import './Button.css';
 
-export const Button = ({
+const BTN_MENU = 'btn--menu';
+const BTN_MENUDROPDOWN = 'btn--menudropdown';
+const BTN_SMALL = 'btn--small';
+const BTN_MEDIUM = 'btn--medium';
+const BTN_LARGE = 'btn--large';
+
+const STYLES = [BTN_MENU, BTN_MENUDROPDOWN];
+const SIZES = [BTN_SMALL, BTN_MEDIUM, BTN_LARGE];
+
+const Button = ({
 	children,
 	type,
 	onClick,
-	buttonStyle,
-	buttonSize,
+	buttonStyle: style,
+	buttonSize: size,
 	to,
 }) => {
-	const checkButtonStyle = STYLES.includes(buttonStyle)
-		? buttonStyle
-		: STYLES[0];
-	const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
+	const buttonStyle = STYLES.includes(style) ? style : BTN_MENU;
+	const buttonSize = SIZES.includes(size) ? size : BTN_SMALL;
 
 	return (
 		<Link to={to} className="btn-mobile">
 			<button
-				className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+				className={`btn ${buttonStyle} ${buttonSize}`}
 				onClick={onClick}
 				type={type}
 			>
@@ -30,3 +35,5 @@ export const Button = ({
 		</Link>
 	);
 };
+
+export default Button;

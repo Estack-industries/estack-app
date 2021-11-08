@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
 import {
 	IoLogoTwitter,
 	IoLogoFacebook,
 	IoLogoInstagram,
 	IoWifi,
 } from 'react-icons/io5';
+
+import './Footer.css';
 import { Container } from '../Container/Container';
 
-function Footer() {
+const Footer = () => {
 	return (
 		<nav className="footer">
 			<Container pb="container--nopb">
@@ -184,6 +185,6 @@ function Footer() {
 			</Container>
 		</nav>
 	);
-}
+};
 
 export default Footer;

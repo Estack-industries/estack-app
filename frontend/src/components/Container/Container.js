@@ -1,16 +1,24 @@
 import React from 'react';
+
 import './Container.css';
 
-const DIRECTION = ['container--column', 'container--row'];
-const PADDINGBOT = ['container--nopb'];
+const CONTAINER_COLUMN = 'container--column';
+const CONTAINER_ROW = 'container--row';
+const CONTAINER_NO_PADDING_BOTTOM = 'container--nopb';
 
-export const Container = ({ d, pb, children }) => {
-	const wrapper_name = 'container-wrapper';
-	const prop = DIRECTION.includes(d) ? d : DIRECTION[0];
-	const paddingbot = PADDINGBOT.includes(pb) ? pb : '';
+const DIRECTIONS = [CONTAINER_COLUMN, CONTAINER_ROW];
+
+export const Container = ({ children, d: direction, pb: paddingBottom }) => {
+	const containerDirection = DIRECTIONS.includes(direction)
+		? direction
+		: CONTAINER_COLUMN;
+	const containerPaddingBottom =
+		CONTAINER_NO_PADDING_BOTTOM === paddingBottom ? paddingBottom : '';
 
 	return (
-		<div className={wrapper_name + ' ' + prop + ' ' + paddingbot}>
+		<div
+			className={`container-wrapper ${containerDirection} ${containerPaddingBottom}`}
+		>
 			{children}
 		</div>
 	);
