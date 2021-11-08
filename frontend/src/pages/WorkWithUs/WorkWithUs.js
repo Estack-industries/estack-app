@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Container } from '../../Container/Container';
+import { Container } from '../../components/Container/Container';
 // import { AuthWaveBackground } from '../../AuthWaveBackground/AuthWaveBackground';
-import Rectangle from '../../../assets/Rectangle 279.png';
+import Rectangle from '../../assets/Rectangle 279.png';
 import './WorkWithUs.css';
 
 function WorkWithUs() {

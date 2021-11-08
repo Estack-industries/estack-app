@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Container } from '../../Container/Container';
-import { WaveBG } from '../../WaveBG/WaveBG';
+import { Container } from '../../components/Container/Container';
+import { WaveBG } from '../../components/WaveBG/WaveBG';
 import image136 from './assets/image 136.svg';
 import Section1 from './Section1';
 import Section2 from './Section2';

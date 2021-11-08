@@ -7,7 +7,7 @@ import Sell from './pictures/sell.png';
 import Rent from './pictures/rent.png';
 import Buy from './pictures/buy.png';
 import { MISSION_TEXT } from './constants/en';
-import { SectionGrid } from '../../SectionGrid/SectionGrid';
+import { SectionGrid } from '../../components/SectionGrid/SectionGrid';
 
 function secondSection() {
 	return (

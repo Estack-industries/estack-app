@@ -21,11 +21,11 @@ import {
 	RATING_TEXT_ONE,
 	RATING_TEXT_TWO,
 	WHAT_PEOPLE_SAY,
-} from './strings/en.js';
+} from './constants/en.js';
 import { WhyCard } from './WhyCard/WhyCard';
 import { ListingCard } from './ListingCard/ListingCard';
 import { RatingCard } from './RatingCard/RatingCard';
-import { SectionGrid } from '../../SectionGrid/SectionGrid';
+import { SectionGrid } from '../../components/SectionGrid/SectionGrid';
 
 function thirdSection() {
 	return (

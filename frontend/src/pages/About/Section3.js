@@ -6,7 +6,7 @@ import {
 	SECTION3_CARD1,
 	SECTION3_CARD2,
 	SECTION3_CARD3,
-} from './constant/en.js';
+} from './constants/en.js';
 import Rectangle288 from './assets/Rectangle 288.png';
 import Rectangle289 from './assets/Rectangle 289.png';
 import Rectangle290 from './assets/Rectangle 290.png';
