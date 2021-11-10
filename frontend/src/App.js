@@ -14,8 +14,15 @@ import './App.css';
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
+	const [loggedIn, setLoggedIn] = useState(false);
 
-	const [user, setUser] = useState('Log In');
+	const [user, setUser] = useState('LogIn');
+
+	useEffect(() => {
+		if (user !== 'Log In') {
+			setLoggedIn(true);
+		}
+	}, [user]);
 
 	//Axios.defaults.withCredentials = true;
 
@@ -42,7 +49,11 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<Navbar onModalToggle={setIsModalOpen} text={user} />
+				<Navbar
+					onModalToggle={setIsModalOpen}
+					text={user}
+					loggedIn={loggedIn}
+				/>
 				<Switch>
 					<Route path="/" exact component={Home} />
 					<Route path="/about" exact component={About} />

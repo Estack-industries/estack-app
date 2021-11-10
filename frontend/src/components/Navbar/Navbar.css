@@ -43,3 +43,10 @@
 	justify-content: flex-end;
 	margin-right: 3em;
 }
+
+.user-icon-container {
+	border-radius: 100%;
+	overflow: hidden;
+	align-items: center;
+	justify-content: center;
+}
