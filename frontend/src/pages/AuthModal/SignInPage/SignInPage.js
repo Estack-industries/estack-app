@@ -14,7 +14,6 @@ import {
 } from '../constants/en.js';
 import { GoogleButton } from '../GoogleButton/GoogleButton';
 
-
 function SignInPage({ isOpen, onModalToggle, setIsLoggedIn }) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -22,14 +21,11 @@ function SignInPage({ isOpen, onModalToggle, setIsLoggedIn }) {
 	const [emailStatus, setEmailStatus] = useState('');
 	const [passwordStatus, setPasswordStatus] = useState('');
 
-	function test(){
-		Axios.post('http://localhost:3001/PropertySell/sell')
-	};
 
 	const login = () => {
 		setEmailStatus('');
 		setPasswordStatus('');
-		test()
+
 		Axios.post('http://localhost:3001/users/login', {
 			email: email,
 			password: password,

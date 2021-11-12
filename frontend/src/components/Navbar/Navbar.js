@@ -1,35 +1,51 @@
-import React from 'react';
+import React, { Image } from 'react';
 import { Link } from 'react-router-dom';
-import { NavLink } from '../NavLink/NavLink';
+
+import { Container } from '../Container/Container';
 import { Logo } from '../Logo/Logo';
 import { NavButton } from '../NavButton/NavButton';
-import { Container } from '../Container/Container';
+import { NavLink } from '../NavLink/NavLink';
+import userIcon from './user-icon.png';
+
 import './Navbar.css';
-import {useEffect} from 'react';
-import isLoggedIn from '../../App'
 
-function Navbar({ onModalToggle, text }) {
+const Navbar = ({ onModalToggle, text, loggedIn }) => {
+	return (
+		<>
+			<nav className="navbar">
+				<Container d="container--row">
+					<Logo />
+					<Link to="/" className="navbar-logo">
+						-Stack
+					</Link>
+					{/* Navbar Menu Items */}
+					<ul className="nav-menu">
+						<NavLink buttonStyle="btn--dropdown" to="/about">
+							About Us
+						</NavLink>
+						{!loggedIn && (
+							<NavButton onModalToggle={onModalToggle}>
+								{text}
+							</NavButton>
+						)}
+						{loggedIn && (
+							<div className="user-icon-container">
+								<img
+									src={userIcon}
+									alt="user"
+									width="79"
+									height="73"
+									className="user-icon"
+									onClick={() => console.log('it works!')}
+								/>
+							</div>
+						)}
+						{/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
+					</ul>
+				</Container>
+			</nav>
+		</>
+	);
+};
 
-	
-
-  return (
-    <>
-      <nav className="navbar">
-        <Container d="container--row">
-          <Logo />
-          <Link to="/" className="navbar-logo">
-            -Stack
-          </Link>
-          {/* Navbar Menu Items */}
-          <ul className="nav-menu">
-            <NavLink buttonStyle='btn--dropdown' to='/about'>About Us</NavLink>
-            <NavButton onModalToggle={onModalToggle}>{text}</NavButton>
-            {/* <NavButton onModalToggle={onModalToggle}>Register</NavButton> */}
-          </ul>
-        </Container>
-      </nav>
-    </>
-  )
-}
-
-export default Navbar
+export default Navbar;
