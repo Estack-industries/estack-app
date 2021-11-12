@@ -9,6 +9,7 @@ import WorkWithUs from './pages/WorkWithUs/WorkWithUs';
 import AuthModal from './pages/AuthModal/AuthModal';
 import Property from './pages/Property/Property';
 import Footer from './components/Footer/Footer';
+import Dashboard from './pages/Dashboard/Dashboard';
 import './App.css';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
 					<Route path="/about" exact component={About} />
 					<Route path="/workwithus" exact component={WorkWithUs} />
 					<Route path="/property" exact component={Property} />
+					<Route path="/dashboard" exact component={Dashboard} />
 				</Switch>
 				<AuthModal
 					isModalOpen={isModalOpen}

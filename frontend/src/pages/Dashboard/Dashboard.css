@@ -1,0 +1,20 @@
+.dashboard-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: -35%;
+	margin-bottom: 5%;
+}
+
+.dashboard-text {
+	color: white;
+	font-weight: bold;
+	font-size: xx-large;
+	margin: 5%;
+}
+
+.info-section {
+	display: flex;
+	flex-direction: row;
+}
