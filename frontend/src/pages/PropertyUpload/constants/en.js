@@ -1,0 +1,15 @@
+export const SECTION1_TITLE = "Sell Property";
+export const SECTION1_CALL_TO_ACTION = "You are only Steps away from registering your listing!";
+export const SECTION2_ADDRESS ="Enter Address";
+export const SECTION2_TYPE ="Property Type";
+export const SECTION2_YEAR ="Year Build";
+export const SECTION2_BATH ="Number of Bathrooms";
+export const SECTION2_BED ="Number of Bedrooms";
+export const SECTION2_SQUAREFT = "Square Footage";
+export const SECTION2_EXTRA ="Exstra Features"; /*should have pools, entertainment areas, */
+export const CARD_TITLE = "Upload Your Files";
+export const CARD_PARAGRATH= "We offer this complimetary  service because we’re confident you are going to love E-Stack.";
+export const SUMBIT_TITLE = "Ready to Submit?";
+export const SUBMIT_EMAIL = "Email";
+export const SUBMIT_PASSWORD = "Password";
+export const BOTTOM_SECTION_TITLE = "Check some trending listings";

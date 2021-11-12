@@ -1,9 +1,16 @@
+<<<<<<< Updated upstream
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from 'react-router-dom';
+=======
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Axios from 'axios';
+import PropertyUpload from './pages/PropertyUpload/propertyUpload';
+>>>>>>> Stashed changes
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/pages/Home/Home';
 import About from './components/pages/About/About';
@@ -22,6 +29,7 @@ function App() {
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
+<<<<<<< Updated upstream
 	
 	const [user, setUser] = useState('Log In');
 	
@@ -33,6 +41,20 @@ function App() {
 	
 	
 
+=======
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	const [user, setUser] = useState('LogIn');
+
+	useEffect(() => {
+		if (user !== 'Log In') {
+			setLoggedIn(false);
+		}
+	}, [user]);
+
+	//Axios.defaults.withCredentials = true;
+/*
+>>>>>>> Stashed changes
 	useEffect(() => {
 		(async () => {
 			const response = await fetch('http://localhost:9000/testAPI');
@@ -52,9 +74,13 @@ function App() {
 			
 		  }
 		});
+<<<<<<< Updated upstream
 	  }, []);
 	
 	
+=======
+	}, []); */
+>>>>>>> Stashed changes
 
 	return (
 		<div className="App">
@@ -65,6 +91,7 @@ function App() {
 					<Route path="/about" exact component={About} />
 					<Route path="/workwithus" exact component={WorkWithUs} />
 					<Route path="/property" exact component={Property} />
+					<Route path='/sell/property-details' exact component = {PropertyUpload} />
 				</Switch>
 				<AuthModal
 					isModalOpen={isModalOpen}
