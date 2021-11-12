@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
-
+import PropertyUpload from './pages/PropertyUpload/propertyUpload'
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
@@ -15,7 +15,7 @@ import './App.css';
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
-
+	const [loggedIn,setLoggedIn] = useState('Log in')
 	const [user, setUser] = useState('LogIn');
 
 	useEffect(() => {
