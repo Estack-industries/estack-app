@@ -15,7 +15,6 @@ import './App.css';
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
-	const [loggedIn, setLoggedIn] = useState(false);
 
 	const [user, setUser] = useState('LogIn');
 
@@ -26,6 +25,7 @@ function App() {
 	}, [user]);
 
 	//Axios.defaults.withCredentials = true;
+
 
 	useEffect(() => {
 		(async () => {
@@ -45,7 +45,11 @@ function App() {
 				console.log("I don't work");
 			}
 		});
-	}, []);
+
+	  }, []);
+	
+	
+
 
 	return (
 		<div className="App">
@@ -60,7 +64,11 @@ function App() {
 					<Route path="/about" exact component={About} />
 					<Route path="/workwithus" exact component={WorkWithUs} />
 					<Route path="/property" exact component={Property} />
+
+					<Route path='/sell/property-details' exact component = {PropertyUpload} />
+
 					<Route path="/dashboard" exact component={Dashboard} />
+
 				</Switch>
 				<AuthModal
 					isModalOpen={isModalOpen}

@@ -21,6 +21,7 @@ function SignInPage({ isOpen, onModalToggle, setIsLoggedIn }) {
 	const [emailStatus, setEmailStatus] = useState('');
 	const [passwordStatus, setPasswordStatus] = useState('');
 
+
 	const login = () => {
 		setEmailStatus('');
 		setPasswordStatus('');
