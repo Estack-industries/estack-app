@@ -1,0 +1,5 @@
+.form-container{
+    align-content: center;
+    width: 50em;
+    display: flexbox;
+}
