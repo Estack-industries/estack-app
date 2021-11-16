@@ -1,7 +1,6 @@
 .dashboard-container {
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	flex-direction: column;
 	margin-top: -35%;
 	margin-bottom: 5%;
@@ -16,5 +15,49 @@
 
 .info-section {
 	display: flex;
+	flex-wrap: wrap;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.dashboard-text-container {
+	display: flex;
+	justify-content: center;
+}
+
+.dashboard-image-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+	padding-top: 0%;
+}
+
+.middle-section {
+	display: flex;
 	flex-direction: row;
+	align-items: baseline;
+	justify-content: space-between;
+	padding: 5%;
+}
+
+.options-section {
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-bottom: 5%;
+	justify-content: space-between;
+}
+
+.option {
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
+	padding-left: 5%;
+	padding-right: 5%;
+
+	border: 1px solid #a4d7fc;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+	border-radius: 20px;
 }
