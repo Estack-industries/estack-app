@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Axios from 'axios';
-import PropertyUpload from './pages/PropertyUpload/propertyUpload'
+import PropertyUpload from './pages/PropertyUpload/propertyUpload';
 import Navbar from './components/Navbar/Navbar';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
@@ -15,8 +15,10 @@ import './App.css';
 function App() {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [apiResponse, setApiResponse] = useState(null);
-	const [loggedIn,setLoggedIn] = useState('Log in')
+	const [loggedIn, setLoggedIn] = useState('Log in');
 	const [user, setUser] = useState('LogIn');
+
+	const logOut = () => setLoggedIn(false);
 
 	useEffect(() => {
 		if (user !== 'Log In') {
@@ -25,7 +27,6 @@ function App() {
 	}, [user]);
 
 	//Axios.defaults.withCredentials = true;
-
 
 	useEffect(() => {
 		(async () => {
@@ -45,11 +46,7 @@ function App() {
 				console.log("I don't work");
 			}
 		});
-
-	  }, []);
-	
-	
-
+	}, []);
 
 	return (
 		<div className="App">
@@ -58,6 +55,7 @@ function App() {
 					onModalToggle={setIsModalOpen}
 					text={user}
 					loggedIn={loggedIn}
+					logOut={logOut}
 				/>
 				<Switch>
 					<Route path="/" exact component={Home} />
@@ -65,10 +63,13 @@ function App() {
 					<Route path="/workwithus" exact component={WorkWithUs} />
 					<Route path="/property" exact component={Property} />
 
-					<Route path='/sell/property-details' exact component = {PropertyUpload} />
+					<Route
+						path="/sell/property-details"
+						exact
+						component={PropertyUpload}
+					/>
 
 					<Route path="/dashboard" exact component={Dashboard} />
-
 				</Switch>
 				<AuthModal
 					isModalOpen={isModalOpen}
