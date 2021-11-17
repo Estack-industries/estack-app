@@ -106,15 +106,14 @@ router.post('/Auth' , (req,res) => {
   email,
 
   (err,result)=>{
-
     if(err){
       res.send(err);
-    };
+    }
     
-    if(result.length > 0){
+    if(result != undefined && result.length > 0){
       res.send({message : 'User already exists'})
     }else{
-      res.send(result)
+      res.send(result);
     };
   }
 )
@@ -130,10 +129,10 @@ router.post('/register' , (req,res) =>{
   bcrypt.hash(password, saltRounds, (err, hash) => { 
 
     if (err) {
-      console.log(err);
+      console.log("hash error: ", err);
     }else{
     db.query(sqlInsert, [email , hash], (err,result) =>{
-      console.log(err)
+      console.log("query error: ", err)
   } ) }
     
 
