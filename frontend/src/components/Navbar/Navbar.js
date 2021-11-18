@@ -31,10 +31,7 @@ const Navbar = ({ onModalToggle, text, loggedIn, logOut }) => {
 						)}
 						{loggedIn && (
 							<Dropdown>
-								<Dropdown.Toggle
-									variant="success"
-									id="dropdown-basic"
-								>
+								<Dropdown.Toggle id="dropdown-basic">
 									<img
 										src={userIcon}
 										alt="user"
