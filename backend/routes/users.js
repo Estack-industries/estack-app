@@ -50,42 +50,61 @@ router.use(cookieParser());
 router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  
-  
- db.query(
-  //fist search for user email in DB
-  "SELECT * FROM users WHERE email = ?;",
-  email,
-  (err,result)=>{
-    if(err){
-      res.send(err);
-    };
-    
-    if(result.length > 0){
-      //check if hashed password matches user
-      bcrypt.compare(password, result[0].password, (error, response) => {
-        if (response) {
-          
-          req.session.user = result;
-          console.log(req.session.user);
-          res.send({message : 'logged in'})
-          //console.log('logged in')
-        }else if (error){
-        //if password is wrong
-        res.send({message:'Wrong Password'})
-        }});
+  console.log("post /login with email ", email, ", password ", password);
+
+  db.query(
+    //fist search for user email in DB
+    "SELECT * FROM users WHERE email = ?;",
+    email,
+    (err,result)=>{
+      if(err){
+        console.log("failed to query from db.");
+        res.send(err);
+      };
       
-      //no User found
-    }else{
-      res.send({message : 'Email Address not found'})
-    };
-  }
-)
+      if(result.length > 0){
+        //check if hashed password matches user
+        console.log("query result: ", result[0]);
+        bcrypt.compare(password, result[0].password, (error, response) => {
+          if(error){
+            //if password is wrong
+            console.log("incorrect password");
+            res.send({message:'Wrong Password'});
+          }
+          if(response){
+            console.log('logged in');
+            req.session.user = result;
+            console.log(req.session.user);
+            res.status(200).send({message: 'logged in'});
+          }else{
+            console.log("wrong password.");
+            res.status(400).send({message: 'Wrong Password'});
+          }
+        });
+        // bcrypt.compare(password, result[0].password, (error, response) => {
+        //   if (response) {
+        //     console.log('logged in');
+        //     req.session.user = result;
+        //     console.log(req.session.user);
+        //     res.send({message : 'logged in'});
+        //   }else if (error){
+        //     //if password is wrong
+        //     console.log("incorrect password");
+        //     res.send({message:'Wrong Password'})
+        //   }});
+        //no User found
+      }else{
+        console.log("Email address not found.");
+        res.send({message : 'Email Address not found'})
+      };
+    }
+  )
  
 });
 
 
 router.get("/login", (req, res) => {
+  console.log("get session users in ", req.session);
   if (req.session.user) {
     console.log(req.session.user.email)
     
@@ -93,13 +112,13 @@ router.get("/login", (req, res) => {
     
   } else {
     res.send({ loggedIn: false });
-    console.log(req.session.user)
+    console.log("no session user found.");
     
   }
 });
          
 
-//Checking if users allready exists
+//Checking if users already exists
 router.post('/Auth' , (req,res) => {
   var email = req.body.email;
 
@@ -132,8 +151,13 @@ router.post('/register' , (req,res) =>{
     if (err) {
       console.log("hash error: ", err);
     }else{
-    db.query(sqlInsert, [email , hash], (err,result) =>{
-      console.log("query error: ", err)
+      console.log("original password: ", password);
+      console.log("hash: ", hash);
+      db.query(sqlInsert, [email , hash], (err,result) =>{
+        if(err){
+          console.log("query error: ", err);
+        }
+        res.status(200).send({message: "Success"});
   } ) }
     
 
