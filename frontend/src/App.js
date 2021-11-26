@@ -28,13 +28,13 @@ function App() {
 
 	//Axios.defaults.withCredentials = true;
 
-	useEffect(() => {
-		(async () => {
-			const response = await fetch('http://localhost:9000/testAPI');
-			const text = await response.text();
-			setApiResponse(text);
-		})();
-	}, []);
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const response = await fetch('http://localhost:9000/testAPI');
+	// 		const text = await response.text();
+	// 		setApiResponse(text);
+	// 	})();
+	// }, []);
 
 	useEffect(() => {
 		Axios.get('http://localhost:3001/users/login').then((response) => {

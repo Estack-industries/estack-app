@@ -25,11 +25,12 @@ function SignInPage({ isOpen, onModalToggle, setIsLoggedIn }) {
 	const login = () => {
 		setEmailStatus('');
 		setPasswordStatus('');
-
+		console.log("post /users/login");
 		Axios.post('http://localhost:3001/users/login', {
 			email: email,
 			password: password,
 		}).then((response) => {
+			console.log("get login response");
 			setLoginStatus(response.data.message);
 			check();
 		});
