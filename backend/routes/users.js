@@ -32,7 +32,8 @@ var db = mysql2.createPool({
   host:"localhost",
   user:"root",
   password: "password",
-  database: "estackdb"
+  database: "estackdb",
+  port: 3306,
 })
 
 
