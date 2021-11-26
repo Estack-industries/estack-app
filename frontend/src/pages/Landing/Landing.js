@@ -3,17 +3,17 @@
 import styled from 'styled-components';
 
 import './Landing.css';
-import Footer from './Footer/Footer';
-import Buy from '../assets/buy.svg';
-import Rent from '../assets/rent.svg';
-import Sell from '../assets/sell.svg';
-import WhyUs1 from '../assets/why-us-1.svg';
-import WhyUs2 from '../assets/why-us-2.svg';
-import WhyUs3 from '../assets/why-us-3.svg';
-import BobPhoto from '../assets/bob-photo.svg';
-import LauraPhoto from '../assets/laura-photo.svg';
-import TimPhoto from '../assets/tim-photo.svg';
-import StarImage from '../assets/star-image.svg';
+import Footer from '../../components/Footer/Footer';
+import Buy from './assets/buy.svg';
+import Rent from './assets/rent.svg';
+import Sell from './assets/sell.svg';
+import WhyUs1 from './assets/why-us-1.svg';
+import WhyUs2 from './assets/why-us-2.svg';
+import WhyUs3 from './assets/why-us-3.svg';
+import BobPhoto from './assets/bob-photo.svg';
+import LauraPhoto from './assets/laura-photo.svg';
+import TimPhoto from './assets/tim-photo.svg';
+import StarImage from './assets/star-image.svg';
 
 const Break = () => {
 	return (
