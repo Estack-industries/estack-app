@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
-import { Dialog, Tabs, Tab, Box, Typography, TextField } from '@mui/material';
+import {
+	Dialog,
+	Tabs,
+	Tab,
+	Typography,
+	TextField,
+	Button,
+	Link,
+	Divider,
+} from '@mui/material';
 
 import './RegisterAndLoginDialog.css';
+import AppleLogin from './assets/apple-login.svg';
+import FacebookLogin from './assets/facebook-login.svg';
+import GoogleLogin from './assets/google-login.svg';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -15,10 +27,21 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 3 }}>
+				<div sx={{ p: 3 }}>
 					<Typography>{children}</Typography>
-				</Box>
+				</div>
 			)}
+		</div>
+	);
+}
+
+function ThirdPartiesLogin() {
+	return (
+		<div className="third-parties-login">
+			<p>or connect with:</p>
+			<img src={FacebookLogin} alt="facebook-login" />
+			<img src={GoogleLogin} alt="google-login" />
+			<img src={AppleLogin} alt="apple-login" />
 		</div>
 	);
 }
@@ -31,6 +54,69 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 	const handleRegisterChange = (event, number) => {
 		setIsRegister(number);
 	};
+
+	const handleRegister = () => {
+		async () => {
+			const info = {
+				email: emailInput,
+				password: passwordInput,
+			};
+			const response = await fetch('/register', {
+				method: 'POST',
+				body: info,
+			});
+		};
+	};
+
+	const handleSignIn = () => {
+		(async () => {
+			const info = {
+				email: emailInput,
+				password: passwordInput,
+			};
+			const response = await fetch('/login', {
+				method: 'POST',
+				body: info,
+			});
+		})();
+	};
+
+	function InputField() {
+		return (
+			<>
+				<div className="email-container">
+					<p>Email</p>
+					<div className="input-container shadow">
+						<TextField
+							fullWidth
+							variant="outlined"
+							placeholder="Enter your Email Address"
+							value={emailInput}
+							onChange={(event) =>
+								setEmailInput(event.target.value)
+							}
+						/>
+					</div>
+				</div>
+
+				<div className="password-container">
+					<p>Password</p>
+					<div className="input-container shadow">
+						<TextField
+							fullWidth
+							variant="outlined"
+							placeholder="Enter your Email Address"
+							value={passwordInput}
+							onChange={(event) =>
+								setpasswordInput(event.target.value)
+							}
+							type="password"
+						/>
+					</div>
+				</div>
+			</>
+		);
+	}
 
 	return (
 		<Dialog
@@ -56,13 +142,22 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 					)}
 				</div>
 
-				<Box className="register-login-container">
-					<Box className="welcome-text">
-						{isRegister === 1 && <p>Welcome to E-Stack</p>}
-						{isRegister === 0 && <p>Welcome back!</p>}
-					</Box>
+				<div className="register-login-container">
+					<div className="welcome-text">
+						{isRegister === 1 && (
+							<p className="DMSans text-center large-text">
+								Welcome to E-Stack
+							</p>
+						)}
+						{isRegister === 0 && (
+							<p className="DMSans text-center large-text">
+								Welcome back!
+							</p>
+						)}
+					</div>
+					<Divider />
 
-					<Box>
+					<div>
 						<Tabs
 							value={isRegister}
 							onChange={handleRegisterChange}
@@ -70,25 +165,50 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 							<Tab label="Sign In" />
 							<Tab label="New Account" />
 						</Tabs>
-					</Box>
+					</div>
 
 					<TabPanel value={isRegister} index={0}>
-						<div className="email-input-container shadow">
-							<TextField
-								fullWidth
-								variant="outlined"
-								placeholder="Enter your Email Address"
-								value={emailInput}
-								onChange={(event) =>
-									setEmailInput(event.target.value)
-								}
-							/>
-						</div>
+						<InputField />
+						<p className="small-text">At least 8 characters</p>
+						<p className="small-text">
+							At least 1 special character
+						</p>
+						<p className="small-text">
+							At least 1 lowercase letter and 1 upper case letter
+						</p>
+						<Button
+							fullWidth
+							variant="contained"
+							onClick={handleRegister}
+						>
+							Submit
+						</Button>
+						<p>
+							By submitting, I accept Estack’s{' '}
+							<Link underline="none" href="#">
+								terms of use
+							</Link>
+						</p>
+						<Divider />
+						<ThirdPartiesLogin />
 					</TabPanel>
+
 					<TabPanel value={isRegister} index={1}>
-						<h1>hello2</h1>
+						<InputField />
+						<Button
+							fullWidth
+							variant="contained"
+							onClick={handleSignIn}
+						>
+							Sign In
+						</Button>
+						<Link underline="none" href="#">
+							forgot your password?
+						</Link>
+						<Divider />
+						<ThirdPartiesLogin />
 					</TabPanel>
-				</Box>
+				</div>
 			</div>
 		</Dialog>
 	);
