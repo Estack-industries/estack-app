@@ -56,7 +56,7 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 	};
 
 	const handleRegister = () => {
-		async () => {
+		(async () => {
 			const info = {
 				email: emailInput,
 				password: passwordInput,
@@ -65,7 +65,7 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 				method: 'POST',
 				body: info,
 			});
-		};
+		})();
 	};
 
 	const handleSignIn = () => {
