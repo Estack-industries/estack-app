@@ -40,9 +40,21 @@ function ThirdPartiesLogin() {
 	return (
 		<div className="third-parties-login">
 			<p>or connect with:</p>
-			<img src={FacebookLogin} alt="facebook-login" />
-			<img src={GoogleLogin} alt="google-login" />
-			<img src={AppleLogin} alt="apple-login" />
+			<img
+				src={FacebookLogin}
+				alt="facebook-login"
+				onClick={() => console.log('clicked')}
+			/>
+			<img
+				src={GoogleLogin}
+				alt="google-login"
+				onClick={() => console.log('clicked')}
+			/>
+			<img
+				src={AppleLogin}
+				alt="apple-login"
+				onClick={() => console.log('clicked')}
+			/>
 		</div>
 	);
 }
