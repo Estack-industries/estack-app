@@ -48,7 +48,7 @@ function ThirdPartiesLogin() {
 }
 
 const registerLoginSchema = Joi.object({
-	email: Joi.email(),
+	email: Joi.string().email({ tlds: { allow: false } }),
 	password: Joi.string()
 		.min(8)
 		.required()
@@ -76,15 +76,15 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 					password: passwordInput,
 				};
 				registerLoginSchema.validate(info);
+
+				const response = await fetch('/register', {
+					method: 'POST',
+					body: info,
+				});
 			} catch (err) {
 				console.error(err);
 				return;
 			}
-
-			const response = await fetch('/register', {
-				method: 'POST',
-				body: info,
-			});
 		})();
 	};
 
@@ -96,15 +96,15 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 					password: passwordInput,
 				};
 				registerLoginSchema.validate(info);
+
+				const response = await fetch('/login', {
+					method: 'POST',
+					body: info,
+				});
 			} catch (err) {
 				console.error(err);
 				return;
 			}
-
-			const response = await fetch('/login', {
-				method: 'POST',
-				body: info,
-			});
 		})();
 	};
 
