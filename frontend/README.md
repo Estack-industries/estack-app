@@ -14,3 +14,6 @@ npm start // to start local server
   - [x] footer
   - [ ] nav bar
   - [ ] middle part(?)
+
+## Problems
+- [ ] dialog input lose foucs after typing a char
