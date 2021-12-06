@@ -9,6 +9,7 @@ import {
 	Link,
 	Divider,
 } from '@mui/material';
+import Joi from 'joi';
 
 import './RegisterAndLoginDialog.css';
 import AppleLogin from './assets/apple-login.svg';
@@ -46,6 +47,18 @@ function ThirdPartiesLogin() {
 	);
 }
 
+const registerLoginSchema = Joi.object({
+	email: Joi.email(),
+	password: Joi.string()
+		.min(8)
+		.required()
+		.pattern(
+			new RegExp(
+				'^(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[@$!%*?&])[A-Za-zd@$!%*?&]{8,}$'
+			)
+		),
+});
+
 const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 	const [isRegister, setIsRegister] = useState(0); // 0 = register; 1 = login
 	const [emailInput, setEmailInput] = useState('');
@@ -57,10 +70,17 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 
 	const handleRegister = () => {
 		(async () => {
-			const info = {
-				email: emailInput,
-				password: passwordInput,
-			};
+			try {
+				const info = {
+					email: emailInput,
+					password: passwordInput,
+				};
+				registerLoginSchema.validate(info);
+			} catch (err) {
+				console.error(err);
+				return;
+			}
+
 			const response = await fetch('/register', {
 				method: 'POST',
 				body: info,
@@ -70,10 +90,17 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 
 	const handleSignIn = () => {
 		(async () => {
-			const info = {
-				email: emailInput,
-				password: passwordInput,
-			};
+			try {
+				const info = {
+					email: emailInput,
+					password: passwordInput,
+				};
+				registerLoginSchema.validate(info);
+			} catch (err) {
+				console.error(err);
+				return;
+			}
+
 			const response = await fetch('/login', {
 				method: 'POST',
 				body: info,
