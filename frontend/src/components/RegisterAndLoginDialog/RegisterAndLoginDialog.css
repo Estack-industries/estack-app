@@ -84,3 +84,7 @@ p {
 .text-center {
 	text-align: center;
 }
+
+.hint-text {
+	color: #7b6f6f;
+}

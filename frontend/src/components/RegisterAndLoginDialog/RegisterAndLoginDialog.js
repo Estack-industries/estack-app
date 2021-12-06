@@ -48,7 +48,9 @@ function ThirdPartiesLogin() {
 }
 
 const registerLoginSchema = Joi.object({
-	email: Joi.string().email({ tlds: { allow: false } }),
+	email: Joi.string()
+		.email({ tlds: { allow: false } })
+		.required(),
 	password: Joi.string()
 		.min(8)
 		.required()
@@ -75,7 +77,10 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 					email: emailInput,
 					password: passwordInput,
 				};
-				registerLoginSchema.validate(info);
+				const ok = registerLoginSchema.validate(info);
+				if (ok.error) {
+					throw new Error(ok.error);
+				}
 
 				const response = await fetch('/register', {
 					method: 'POST',
@@ -95,7 +100,10 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 					email: emailInput,
 					password: passwordInput,
 				};
-				registerLoginSchema.validate(info);
+				const ok = registerLoginSchema.validate(info);
+				if (ok.error) {
+					throw new Error(ok.error);
+				}
 
 				const response = await fetch('/login', {
 					method: 'POST',
@@ -119,24 +127,26 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 							variant="outlined"
 							placeholder="Enter your Email Address"
 							value={emailInput}
-							onChange={(event) =>
-								setEmailInput(event.target.value)
-							}
+							onChange={(event) => {
+								event.preventDefault();
+								setEmailInput(event.target.value);
+							}}
 						/>
 					</div>
 				</div>
 
 				<div className="password-container">
 					<p>Password</p>
-					<div className="input-container shadow">
+					<div className="input-container shadow" key="password">
 						<TextField
 							fullWidth
 							variant="outlined"
 							placeholder="Enter your Email Address"
 							value={passwordInput}
-							onChange={(event) =>
-								setpasswordInput(event.target.value)
-							}
+							onChange={(event) => {
+								event.preventDefault();
+								setpasswordInput(event.target.value);
+							}}
 							type="password"
 						/>
 					</div>
@@ -196,11 +206,27 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 
 					<TabPanel value={isRegister} index={0}>
 						<InputField />
-						<p className="small-text">At least 8 characters</p>
-						<p className="small-text">
+						<Button
+							fullWidth
+							variant="contained"
+							onClick={handleSignIn}
+						>
+							Sign In
+						</Button>
+
+						<Divider />
+						<ThirdPartiesLogin />
+					</TabPanel>
+
+					<TabPanel value={isRegister} index={1}>
+						<InputField />
+						<p className="small-text hint-text">
+							At least 8 characters
+						</p>
+						<p className="small-text hint-text">
 							At least 1 special character
 						</p>
-						<p className="small-text">
+						<p className="small-text hint-text">
 							At least 1 lowercase letter and 1 upper case letter
 						</p>
 						<Button
@@ -210,25 +236,12 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 						>
 							Submit
 						</Button>
-						<p>
+						<p className="small-text hint-text">
 							By submitting, I accept Estack’s{' '}
 							<Link underline="none" href="#">
 								terms of use
 							</Link>
 						</p>
-						<Divider />
-						<ThirdPartiesLogin />
-					</TabPanel>
-
-					<TabPanel value={isRegister} index={1}>
-						<InputField />
-						<Button
-							fullWidth
-							variant="contained"
-							onClick={handleSignIn}
-						>
-							Sign In
-						</Button>
 						<Link underline="none" href="#">
 							forgot your password?
 						</Link>
