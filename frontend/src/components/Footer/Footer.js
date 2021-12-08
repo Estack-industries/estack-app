@@ -11,7 +11,7 @@ import InstagramIcon from './assets/instagram-icon.svg';
 
 const Footer = () => {
 	return (
-		<div className="footer-container">
+		<div className="footer-container" style={{ overflow: 'hidden' }}>
 			{/* section before white line */}
 			<div className="footer-top">
 				<div className="footer-1">
