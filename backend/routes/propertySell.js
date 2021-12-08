@@ -33,7 +33,7 @@ router.use(cookieParser());
 
 //Posting property to DB
 router.post('/sell' , (req,res) =>{
-  var address = req.body;
+  var address = req.body.address;
   var type = req.body.type;
   var numBedrooms = req.body.numBedrooms;
   var numBathrooms = req.body.numBathrooms;
@@ -66,6 +66,10 @@ router.post('/sell' , (req,res) =>{
 
   });
 
+// Get listed properties
+router.post('/listProperty', (req, res) =>{
+  
+});
 
 
 
