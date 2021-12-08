@@ -156,6 +156,7 @@ router.post('/register' , (req,res) =>{
       db.query(sqlInsert, [email , hash], (err,result) =>{
         if(err){
           console.log("query error: ", err);
+          res.status(409).send({message: "Email exists"});
         }
         res.status(200).send({message: "Success"});
   } ) }

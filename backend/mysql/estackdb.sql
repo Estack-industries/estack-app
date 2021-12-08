@@ -13,47 +13,80 @@ use estackdb;
 -- -----------------------------------------------
 
 create table users (
-uname varchar(40),
-email varchar(40) not null,
-password varchar(256) not null,
-fname varchar(100),
-lname varchar(100),
-birthdate date,
-street varchar(200),
-city varchar(40),
-state varchar(20),
-zip_code varchar(10),
-primary key (email),
+uname VARCHAR(40),
+email VARCHAR(40) NOT NULL,
+password VARCHAR(256) NOT NULL,
+fname VARCHAR(100),
+lname VARCHAR(100),
+birthdate DATE,
+street VARCHAR(200),
+city VARCHAR(40),
+state VARCHAR(20),
+zip_code VARCHAR(10),
+PRIMARY KEY (email),
 unique key (street, city, state, zip_code),
 unique key(uname)
 ) engine = innodb;
 
 create table owners (
-email varchar(40) not null,
-cvv varchar(3),
-card_number varchar(20),
-expiration_date date,
-upgraded boolean default false,
-primary key (email)
+email VARCHAR(40) NOT NULL,
+cvv VARCHAR(3),
+card_number VARCHAR(20),
+expiration_date DATE,
+upgraded BOOLEAN default false,
+PRIMARY KEY (email)
 ) engine = innodb;
 
 create table landlords (
-email varchar(40) not null,
-primary key(email)
+email VARCHAR(40) NOT NULL,
+PRIMARY KEY(email)
 ) engine = innodb;
 
 create table sellers (
-email varchar(40) not null,
-primary key(email)
+email VARCHAR(40) NOT NULL,
+PRIMARY KEY(email)
 ) engine = innodb;
 
 create table customers (
-email varchar(40) not null,
-cvv varchar(3),
-card_number varchar(20),
-expiration_date date,
-primary key (email)
+email VARCHAR(40) NOT NULL,
+cvv VARCHAR(3),
+card_number VARCHAR(20),
+expiration_date DATE,
+PRIMARY KEY (email)
 ) engine = innodb;
+
+
+create table properties (
+    -- address
+    street VARCHAR(50) NOT NULL,
+    city VARCHAR(50) NOT NULL,
+    state CHAR(2) NOT NULL CHECK(length(State) = 2),
+    zip CHAR(5) NOT NULL CHECK(length(Zip) = 5),
+
+    
+    type VARCHAR(20) NOT NULL,
+    numBedrooms INT NOT NULL CHECK (numBedrooms >= 1),
+    numBathrooms INT NOT NULL CHECK (numBathrooms >= 1),
+    sqaureft DECIMAL(6, 2) NOT NULL CHECK (sqaureft >= 0),
+    yearBuilt DATE,
+    garageParking INT,
+    ac BOOLEAN,
+    wheelChairAcces BOOLEAN,
+    offStreetParking BOOLEAN,
+    balcony BOOLEAN,
+    furnished BOOLEAN,
+    hardWood BOOLEAN,
+    listingPrice DECIMAL(10, 2),
+
+    property_name VARCHAR(50) NOT NULL,
+    owner_email VARCHAR(50) NOT NULL,
+    descr VARCHAR(500) NOT NULL,
+    -- image file name
+    filename VARCHAR(64),
+    PRIMARY KEY (property_Name, owner_Email),
+    FOREIGN KEY (Owner_Email) REFERENCES owners (email),
+    UNIQUE KEY (street, city, state, zip)
+);
 
 -- users (uname, email, password, fname, lname, birthdate, street, city, state, zip_code)
 insert into users values
