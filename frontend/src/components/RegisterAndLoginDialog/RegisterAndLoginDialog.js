@@ -225,6 +225,9 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 						>
 							Sign In
 						</Button>
+						<Link underline="none" href="#">
+							forgot your password?
+						</Link>
 
 						<Divider />
 						<ThirdPartiesLogin />
@@ -254,9 +257,7 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 								terms of use
 							</Link>
 						</p>
-						<Link underline="none" href="#">
-							forgot your password?
-						</Link>
+
 						<Divider />
 						<ThirdPartiesLogin />
 					</TabPanel>
