@@ -7,14 +7,25 @@ import PropertyVector1 from './assets/PropertyVector1.svg';
 import PropertyVector2 from './assets/PropertyVector2.png';
 import PropertyVector3 from './assets/PropertyVector3.svg';
 import PropertyVector4 from './assets/PropertyVector4.svg';
-import propertyimage from './assets/propertyimage.png'
-import smallimage1 from './assets/smallimage1.png'
-import smallimage2 from './assets/smallimage2.png'
-import smallimage3 from './assets/smallimage3.png'
-import smallimage4 from './assets/smallimage4.png'
-import smallimage5 from './assets/smallimage5.png'
-import smallimage6 from './assets/smallimage6.png'
-import smallimage7 from './assets/smallimage7.png'
+import propertyimage from './assets/propertyimage.png';
+import smallimage1 from './assets/smallimage1.png';
+import smallimage2 from './assets/smallimage2.png';
+import smallimage3 from './assets/smallimage3.png';
+import smallimage4 from './assets/smallimage4.png';
+import smallimage5 from './assets/smallimage5.png';
+import smallimage6 from './assets/smallimage6.png';
+import smallimage7 from './assets/smallimage7.png';
+import address from './assets/address.png'
+import price from './assets/price.png'
+import bed from './assets/bed.PNG';
+import bathroom from './assets/bath.png'
+import sun from './assets/sun.PNG'
+import garage from './assets/garage.PNG'
+import calendar from './assets/calendar.png'
+import tourImage from './assets/tourImage.png'
+import contactImage from './assets/contactImage.png'
+import lenderImage from './assets/lenderImage.png'
+
 import Footer from '../../components/Footer/Footer';
 
 
@@ -115,14 +126,76 @@ const Property = () =>  {
 
             </div>
 
-            <div className='property-information'>
+            <div className='property-information-container'>
+                <div className='information-top'>
+                    <div className='address'>
+                        <img src={address} alt='property-address' />
+                    </div>
+                    <div className='price'>
+                        <img src={price} alt='property-price' />
+                    </div>
+                </div>
+
+                <div className='information-bottom'>
+
+                    <div className='bedrooms'>
+                        <img src={bed} alt='bed-image' />
+                        <div className='info-number'>1</div>
+                    </div>
+                    <div className='bathrooms'>
+                        <img src={bathroom} alt='sink-image' />
+                        <div className='info-number'>2</div>
+                    </div>
+                    <div className='sun'>
+                        <img src={sun} alt='sun-image' />
+                        <div className='info-number'>2</div>
+
+                    </div>
+                    <div className='garage'>
+                        <img src={garage} alt='garage-image' />
+                        <div className='info-number'>1</div>
+
+                    </div>
+                    <div className='calendar'>
+                        <img src={calendar} alt='calendar-image' />
+                        <div className='info-number'>2007</div>
+                    </div>
+                </div>
 
             </div>
 
             <div className='button-layout'>
-                <button class="button">Request a Tour</button>
-                <button class="button">Contact Agent</button>
-                <button class="button">Find Lender</button>
+                <button class="blue-button">
+                    Request a Tour
+                    <img src={tourImage} alt='tour-image' className="tour-image" />
+                </button>
+                <button class="blue-button">
+                    Contact Agent
+                    <img src={contactImage} alt='contact-image' />
+                </button>
+                <button class="blue-button">
+                    Find Lender
+                    <img src={lenderImage} alt='lender-image' />
+                </button>
+            </div>
+
+            <div className='description-container'>
+                <div className='description-header'>
+                    Description
+                </div>
+                <div className='description-info'>
+                At vero eos et iusto odio dignissimos ducimus, qui haec putat, ut ipsi auctori huius disciplinae placet: constituam, quid sit numeranda nec me ab illo inventore veritatis et expedita distinctio nam libero tempore, cum memoriter, tum etiam ac ratione
+                
+                Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.
+                </div>
+            </div>
+
+            <button className='buy-button'>
+                Buy the Property
+            </button>
+
+            <div className='payment-calculator-container'>
+
             </div>
             
 
