@@ -1,35 +1,24 @@
-.vector-1 {
-    position: absolute;
-    width: 1446.95px;
-    height: 681px;
-    /* left: 444px; */
-    top: -4px;
+
+.navbar-container {
+    margin: auto;
 }
 
-.vector-2 {
-    position: absolute;
-    width: 1457.96px;
-    height: 719px;
-    /* left: 444px; */
-    top: -39px;
+.vector-1 {
+   width: 100%;
+   margin-top: -25px;
+   z-index: -1;
 }
 
 .vector-3 {
-    position: absolute;
-    width: 1478.86px;
-    height: 717px;
-    /* left: 444px; */
-    top: 13.88px;
+    width: 110%;
+    z-index: -2;
 }
 .vector-4 {
-    position: absolute;
-    width: 1478.86px;
-    height: 731px;
-    /* left: 444px; */
-    top: 34.91px;
+    width: 100%;
+    z-index: -3;
 }
 .property-image {
-    margin-top: -100px;
+    margin-top: -150px;
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
@@ -38,13 +27,12 @@
 
 .tiny-images-container {
     display: flex;
-    justify-content:center
+    justify-content:space-evenly;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-.photo-container {
-    margin-right: 25px;
-    margin-left: 25px;
-}
+
 
 .property-information-container {
     width: 1269px;
@@ -136,7 +124,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    font-family: OpenSans;
+    font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
     font-size: 22px;
@@ -151,7 +139,21 @@
     cursor: pointer;
 }
 
+.description-lenders-container {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+}
+
+.description-column {
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between
+}
+
 .description-container {
+    display: flex;
+    flex-direction: column;
     width: 607px;
     height: 374px;
     left: 85px;
@@ -161,13 +163,16 @@
     border: 3px solid #0193FD;
     box-sizing: border-box;
     border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
 }
 
 .description-header {
+    margin-top: 40px;
+    margin-left: 23px;
     width: 268.87px;
     height: 32.86px;
     left: 110.8px;
-    top: calc(50% - 32.86px/2 - 521.3px);
 
     font-family: DM Sans;
     font-style: normal;
@@ -180,6 +185,11 @@
 }
 
 .description-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
     width: 554.6px;
     height: 270.87px;
     left: 107px;
@@ -204,6 +214,8 @@
     height: 70px;
     left: 98px;
     top: calc(50% - 70px/2 - 129.5px);
+    margin: auto;
+    margin-top: 40px;
 
     background: #F4A523;
     border-radius: 18px;
@@ -219,9 +231,201 @@
 
     color: #000000;
     cursor: pointer;
-
 }
 
+.best-lenders-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 30px;
+    /* identical to box height */
 
+    letter-spacing: -0.427179px;
 
+    color: #FFFFFF;
+    background: #0193FDB2 70%;
+    width: 588px;
+    height: 479px;
+    right: 63px;
+    top: 1252px;
 
+    background: rgba(1, 147, 253, 0.7);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 19px;
+}
+
+.best-lenders-header{
+    margin-bottom: 30px;
+    width: 308px;
+    height: 49px;
+    right: 203px;
+    top: 1312px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.georgia-bank{ 
+    width: 268px;
+    height: 77px;
+    right: 223px;
+    top: 1401px;
+
+    background: #FFFFFF;
+    border: 2px;
+    box-sizing: border-box;
+    border-radius: 11px;
+}
+
+.tbc-bank{
+    width: 268px;
+    height: 75px;
+    right: 223px;
+    top: 1552px;
+
+    background: #FFFFFF;
+    border: 2px solid #1B6499;
+    box-sizing: border-box;
+    border-radius: 11px;
+}
+
+.payment-calculator-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1282px;
+    height: 332px;
+    background: #FFFFFF;
+    border: 1px solid #A4D7FC;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+
+.payment-calculator-header {
+    width: 337.13px;
+    height: 30.36px;
+    left: calc(50% - 337.13px/2 - 416.6px);
+    top: calc(50% - 30.36px/2 - 14.86px);
+
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: -0.427179px;
+
+    color: #000000;
+}
+.amount-per-month {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -0.427179px;
+    
+    color: #000000;
+}
+
+.cost-breakdown-colors {
+    display:flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.first-line {
+    width: 1198.85px;
+    height: 0px;
+    border: 5px solid #59E0D0;
+}
+
+.second-line {
+    width: 433.88px;
+    height: 0px;
+    left: calc(50% - 433.88px/2 + 286.4px);
+    top: calc(50% - 0px/2 + 54.19px);
+
+    border: 5px solid #77A2D0;
+}
+
+.third-line {
+    width: 110.36px;
+    height: 0px;
+    left: calc(50% - 110.36px/2 + 558.52px);
+    top: calc(50% - 0px/2 + 54.19px);
+    border: 5px solid #FADD77;
+}
+
+.amount-details {
+    width: 1198.85px;
+    height: 78.35px;
+    left: calc(50% - 1198.85px/2 + 14.27px);
+    top: calc(50% - 78.35px/2 + 182.48px);
+
+    background: #FFFFFF;
+    border: 1px solid rgba(168, 168, 168, 0.44);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.map {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.similar-listings{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.similar-listings-header {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items:baseline;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 65px;
+    letter-spacing: -1.25641px;
+
+    color: #000000;
+}
+
+.listing-1, .listing-2, .listing-3, .listing-4{
+    width: 336px;
+    height: 417px;
+    left: 10px;
+    top: calc(50% - 417px/2 + 1067px);
+    
+    background: #FFFFFF;
+    border: 1px solid #A4D7FC;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    cursor: pointer;
+
+}

@@ -7,24 +7,36 @@ import PropertyVector1 from './assets/PropertyVector1.svg';
 import PropertyVector2 from './assets/PropertyVector2.png';
 import PropertyVector3 from './assets/PropertyVector3.svg';
 import PropertyVector4 from './assets/PropertyVector4.svg';
-import propertyimage from './assets/propertyimage.png';
-import smallimage1 from './assets/smallimage1.png';
-import smallimage2 from './assets/smallimage2.png';
-import smallimage3 from './assets/smallimage3.png';
-import smallimage4 from './assets/smallimage4.png';
-import smallimage5 from './assets/smallimage5.png';
-import smallimage6 from './assets/smallimage6.png';
-import smallimage7 from './assets/smallimage7.png';
-import address from './assets/address.png'
-import price from './assets/price.png'
-import bed from './assets/bed.PNG';
-import bathroom from './assets/bath.png'
-import sun from './assets/sun.PNG'
-import garage from './assets/garage.PNG'
-import calendar from './assets/calendar.png'
-import tourImage from './assets/tourImage.png'
-import contactImage from './assets/contactImage.png'
-import lenderImage from './assets/lenderImage.png'
+import Propertyimage from './assets/propertyimage.png';
+import Smallimage1 from './assets/smallimage1.png';
+import Smallimage2 from './assets/smallimage2.png';
+import Smallimage3 from './assets/smallimage3.png';
+import Smallimage4 from './assets/smallimage4.png';
+import Smallimage5 from './assets/smallimage5.png';
+import Smallimage6 from './assets/smallimage6.png';
+import Smallimage7 from './assets/smallimage7.png';
+import Address from './assets/address.png'
+import Price from './assets/price.png'
+import Bed from './assets/bed.PNG';
+import Bathroom from './assets/bath.png'
+import Sun from './assets/sun.PNG'
+import Garage from './assets/garage.PNG'
+import Calendar from './assets/calendar.png'
+import TourImage from './assets/tourImage.png'
+import ContactImage from './assets/contactImage.png'
+import LenderImage from './assets/lenderImage.png'
+import GeogiaBankLogo from './assets/georgiaBankLogo.png'
+import TbcBankLogo from './assets/tbcBankLogo.png'
+import firstLine from './assets/firstLine.png'
+import secondLine from './assets/secondLine.png'
+import thirdLine from './assets/thirdLine.png'
+
+import AreaMap from './assets/map.png'
+import BlueLine from './assets/blueLine.png'
+import Similar1 from './assets/similar1.png'
+import Similar2 from './assets/similar2.png'
+import Similar3 from './assets/similar3.png'
+import Similar4 from './assets/similar4.png'
 
 import Footer from '../../components/Footer/Footer';
 
@@ -67,8 +79,8 @@ function Background() {
 	return (
 		<>
         	<img src={PropertyVector1} alt="property-vector-1" className="vector-1" />
-        	{/* <img src={PropertyVector2} alt="property-vector-2" className="vector-2" /> */}
-			{/* <img src={PropertyVector3} alt="property-vector-3" className="vector-3" /> */}
+        	<img src={PropertyVector2} alt="property-vector-2" className="vector-2" />
+			<img src={PropertyVector3} alt="property-vector-3" className="vector-3" />
             {/* <img src={PropertyVector4} alt="property-vector-4" className="vector-4" /> */}
 
 			{/* <img
@@ -81,6 +93,7 @@ function Background() {
 }
 
 
+
 const Property = () =>  {
     return (
         <div>
@@ -89,7 +102,7 @@ const Property = () =>  {
             <div className='property-image'>
                 <img
                     className='main-image'
-                    src={propertyimage}
+                    src={Propertyimage}
                     alt="property-image-1"
                 />
             </div>
@@ -100,25 +113,25 @@ const Property = () =>  {
 
             <div className='tiny-images-container'>
                 <div className="photo-container">
-                    <img src={smallimage1} alt="small-property-1" />
+                    <img src={Smallimage1} alt="small-property-1" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage2} alt="small-property-2" />
+                    <img src={Smallimage2} alt="small-property-2" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage3} alt="small-property-3" />
+                    <img src={Smallimage3} alt="small-property-3" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage4} alt="small-property-4" />
+                    <img src={Smallimage4} alt="small-property-4" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage5} alt="small-property-5" />
+                    <img src={Smallimage5} alt="small-property-5" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage6} alt="small-property-6" />
+                    <img src={Smallimage6} alt="small-property-6" />
                 </div>
                 <div className="photo-container">
-                    <img src={smallimage7} alt="small-property-7" />
+                    <img src={Smallimage7} alt="small-property-7" />
                 </div>
             </div>
 
@@ -129,35 +142,35 @@ const Property = () =>  {
             <div className='property-information-container'>
                 <div className='information-top'>
                     <div className='address'>
-                        <img src={address} alt='property-address' />
+                        <img src={Address} alt='property-address' />
                     </div>
                     <div className='price'>
-                        <img src={price} alt='property-price' />
+                        <img src={Price} alt='property-price' />
                     </div>
                 </div>
 
                 <div className='information-bottom'>
 
                     <div className='bedrooms'>
-                        <img src={bed} alt='bed-image' />
+                        <img src={Bed} alt='bed-image' />
                         <div className='info-number'>1</div>
                     </div>
                     <div className='bathrooms'>
-                        <img src={bathroom} alt='sink-image' />
+                        <img src={Bathroom} alt='sink-image' />
                         <div className='info-number'>2</div>
                     </div>
                     <div className='sun'>
-                        <img src={sun} alt='sun-image' />
+                        <img src={Sun} alt='sun-image' />
                         <div className='info-number'>2</div>
 
                     </div>
                     <div className='garage'>
-                        <img src={garage} alt='garage-image' />
+                        <img src={Garage} alt='garage-image' />
                         <div className='info-number'>1</div>
 
                     </div>
                     <div className='calendar'>
-                        <img src={calendar} alt='calendar-image' />
+                        <img src={Calendar} alt='calendar-image' />
                         <div className='info-number'>2007</div>
                     </div>
                 </div>
@@ -167,36 +180,109 @@ const Property = () =>  {
             <div className='button-layout'>
                 <button class="blue-button">
                     Request a Tour
-                    <img src={tourImage} alt='tour-image' className="tour-image" />
+                    <img src={TourImage} alt='tour-image' />
                 </button>
                 <button class="blue-button">
                     Contact Agent
-                    <img src={contactImage} alt='contact-image' />
+                    <img src={ContactImage} alt='contact-image' />
                 </button>
                 <button class="blue-button">
                     Find Lender
-                    <img src={lenderImage} alt='lender-image' />
+                    <img src={LenderImage} alt='lender-image' />
                 </button>
             </div>
 
-            <div className='description-container'>
-                <div className='description-header'>
-                    Description
+            <div className='description-lenders-container'>
+                <div className='description-column'>
+                    <div className='description-container'>
+                        <div className='description-header'>
+                            Description
+                        </div>
+                        <div className='description-info'>
+                        <p>At vero eos et iusto odio dignissimos ducimus, qui haec putat, ut ipsi auctori huius disciplinae placet: constituam, quid sit numeranda nec me ab illo inventore veritatis et expedita distinctio nam libero tempore, cum memoriter, tum etiam ac ratione</p>
+                        
+                        <p>Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.</p>
+                        </div>
+                    </div>
+                    <button className='buy-button'>
+                        Buy the Property
+                    </button>
                 </div>
-                <div className='description-info'>
-                At vero eos et iusto odio dignissimos ducimus, qui haec putat, ut ipsi auctori huius disciplinae placet: constituam, quid sit numeranda nec me ab illo inventore veritatis et expedita distinctio nam libero tempore, cum memoriter, tum etiam ac ratione
-                
-                Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.
+
+                <div className='best-lenders-container'>
+                    <div className='best-lenders-header'>
+                        The Best Lenders
+                    </div>
+                    <img className='georgia-bank' src={GeogiaBankLogo} alt='georgia-bank-logo' />
+                    Bank of Georgia
+                    <img className='tbc-bank' src={TbcBankLogo} alt='tbc-bank-logo' />
+                    TBC Bank
                 </div>
             </div>
-
-            <button className='buy-button'>
-                Buy the Property
-            </button>
 
             <div className='payment-calculator-container'>
+                <div className='payment-calculator-header'>
+                    Payment Calculator
+                </div>
+                <div className='amount-per-month'>
+                    $2689 per month
+                </div>
+                <div className='cost-breakdown-colors'>
+                <img src={firstLine} className='first-line' />
+                    <img src={secondLine} className='second-line' />
+                    <img src={thirdLine} className='third-line' />
+                </div>
+                <div className='colors-legend'>
+
+                </div>
+                <div className='amount-details'>
+                    <div className='down-payment'>
+                        Down Payment
+                    </div>
+                    <div className='home-price'>
+                        Home Price
+                    </div>
+                    <div className='loan-detials'>
+                        Loan Details
+                    </div>
+                    <div className='extra'>
+
+                    </div>
+                </div>
 
             </div>
+
+            <div className='map'>
+                <img src={AreaMap} />
+            </div>
+
+            <div className='similar-listings-conatiner'>
+                <div className='similar-listings-header'>
+                    <img src={BlueLine} />
+                    Similar Listings
+                </div>
+                <div className='similar-listings'>
+                    <div className='listing-1'>
+                        <img src={Similar1} />
+                    </div>
+                    <div className='listing-2'>
+                        <img src={Similar2} />
+                    </div>
+                    <div className='listing-3'>
+                        <img src={Similar3} />
+                    </div>
+                    <div className='listing-4'>
+                        <img src={Similar4} />
+                    </div>
+
+
+                </div>
+            </div>
+
+
+    
+
+
             
 
 
