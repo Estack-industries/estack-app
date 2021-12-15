@@ -1,0 +1,305 @@
+.vector-1 {
+	position: absolute;
+	top: 25px;
+	left: 0px;
+	z-index: -100;
+}
+
+.vector-2 {
+	position: absolute;
+	top: 5px;
+	left: 0px;
+	z-index: -100;
+}
+
+.vector-3 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: auto;
+	z-index: -100;
+}
+
+.estack-logo {
+	position: absolute;
+	width: 139px;
+	height: 46px;
+	left: 32px;
+	top: 45px;
+}
+
+.user-icon {
+	position: absolute;
+	width: 68px;
+	height: 72px;
+	right: 42px;
+	top: 17px;
+}
+
+.navbar-option {
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 33px;
+	padding: 4%;
+}
+
+.white-color {
+	color: white;
+}
+
+.open-sans {
+	font-family: "Open Sans", sans-serif;
+}
+
+.dm-sans {
+	font-family: "DM Sans", sans-serif;
+}
+
+.lato {
+	font-family: "Lato", sans-serif;
+}
+
+.navbar-options {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 14%;
+}
+
+.extra-large-text {
+	font-size: 64px;
+}
+
+.blod-text {
+	font-weight: bold;
+}
+
+.large-text {
+	font-size: 48px;
+}
+
+.medium-text {
+	font-size: 38px;
+}
+
+.small-text {
+	font-size: 24px;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.small-padding-vertical {
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
+}
+
+.small-padding-horizontal {
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+}
+
+.medium-padding-left {
+	padding-left: 5%;
+}
+
+.medium-padding-right {
+	padding-right: 5%;
+}
+
+.medium-padding-horizontal {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.medium-padding-vertical {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+.small-padding {
+	padding: 2.5%;
+}
+
+.medium-padding {
+	padding: 5%;
+}
+
+.small-margin {
+	margin: 2.5%;
+}
+
+.medium-margin {
+	margin: 5%;
+}
+
+.small-margin-horizontal {
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+
+.medium-padding-bottom {
+	padding-bottom: 5%;
+}
+
+.large-padding-top {
+	padding-top: 7.5%;
+}
+
+.large-padding-bottom {
+	padding-bottom: 7.5%;
+}
+
+.medium-padding-top {
+	padding-top: 5%;
+}
+
+.medium-margin-horizontal {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.half-width {
+	width: 50%;
+}
+
+.center-text {
+	text-align: center;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-main-center {
+	justify-content: center;
+}
+
+.flex-cross-center {
+	align-items: center;
+}
+
+.column-flex {
+	flex-direction: column;
+}
+
+.row-flex {
+	flex-direction: row;
+}
+
+.flex-end {
+	justify-content: flex-end;
+}
+
+.blue-border-box {
+	background: #ffffff;
+	border: 5px solid #0193fd;
+	box-sizing: border-box;
+	border-radius: 28px;
+}
+
+.small-space {
+	width: 100%;
+	height: 24px;
+}
+
+.large-space {
+	width: 100%;
+	height: 64px;
+}
+
+.test {
+	background-color: red;
+}
+
+.email-input {
+	outline: none;
+	background: #ffffff;
+	border: 1px solid #8a8a8a;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 20px;
+	width: 70%;
+	line-height: 2em;
+	font-size: 2em;
+}
+
+.address-input {
+	outline: none;
+	background: #ffffff;
+	border: 1px solid #8a8a8a;
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	width: 55%;
+	line-height: 2em;
+	font-size: 2em;
+	position: relative;
+	left: 2.5%;
+}
+
+.address-input::placeholder {
+	font-size: 0.75em;
+	font-family: "Open Sans", sans-serif;
+	color: #7b6f6f;
+}
+
+.email-input::placeholder {
+	font-size: 0.75em;
+	font-family: "Open Sans", sans-serif;
+	color: #7b6f6f;
+}
+
+.address-input:focus::placeholder,
+.email-input:focus::placeholder {
+	color: transparent;
+}
+
+.email-input-sumbit-button {
+	position: absolute;
+	left: 35%;
+	padding: 1.8%;
+}
+
+.about-photo-1 {
+	object-fit: contain;
+	width: 85%;
+	height: auto;
+}
+
+.why-join-us-container {
+	background: #a4d7fc;
+	border-radius: 30px;
+}
+
+.how-can-we-help-you-background {
+	background-image: url("./assets/how-can-we-help-you-background.svg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.explore-our-options-background {
+	background-image: url("./assets/explore-our-options-background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.photos-container {
+	justify-content: space-evenly;
+}
+
+.small-border-radius {
+	border-radius: 15px;
+}
+
+.search-icon {
+	position: relative;
+	right: 2.5%;
+}
