@@ -88,7 +88,18 @@ create table properties (
     UNIQUE KEY (street, city, state, zip)
 );
 
+
+
 -- users (uname, email, password, fname, lname, birthdate, street, city, state, zip_code)
 insert into users values
 ('jstone5', 'jared@gmail.com', 'passwordP!', 'Jared', 'Stone', '1961-01-06', '101 Five Finger Way', 'Atlanta', 'Georgia', '30333'),
 (NULL, 'sarahprince@gmail.com', 'passwordP!', 'Sarah', 'Prince', NULL,  NULL, NULL, NULL, NULL);
+
+insert into owners values
+('jared@gmail.com', '123', '4040 4040 4040 4040', '1920-03-01', false);
+
+insert into properties values
+('Front Street', 'Ann Arbor', 'MI', '40044', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House", "jared@gmail.com", "This is the first selling house!", NULL);
+
+insert into properties values
+('Back Street', 'Ann Arbor', 'MI', '40045', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House 2", "jared@gmail.com", "This is the second selling house!", NULL);

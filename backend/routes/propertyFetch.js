@@ -66,22 +66,9 @@ router.post('/sell' , (req,res) =>{
 
   });
 
-// Get listed properties of a seller
-router.post('/listSellProperty', (req, res) =>{
-  console.log("enter this function.");
-  var email = req.body.email;
-  console.log("owner email ", email);
-  var sqlQuery = `SELECT * from properties where owner_email = ?`;
-  db.query(sqlQuery, [email], (err, result) =>{
-    if(err){
-      console.log(err);
-      res.status("404").send({message : "Error on listing owners' properties."});
-    }else{
-      console.log(result);
-      property_list = JSON.stringify(result);
-      res.status("200").send({message: "Return Property List.", list: property_list});
-    }
-  });
+// Get listed properties
+router.post('/listProperty', (req, res) =>{
+  
 });
 
 
