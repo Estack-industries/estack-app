@@ -15,28 +15,31 @@ import Smallimage4 from './assets/smallimage4.png';
 import Smallimage5 from './assets/smallimage5.png';
 import Smallimage6 from './assets/smallimage6.png';
 import Smallimage7 from './assets/smallimage7.png';
-import Address from './assets/address.png'
-import Price from './assets/price.png'
+import Address from './assets/address.png';
+import Price from './assets/price.png';
 import Bed from './assets/bed.PNG';
-import Bathroom from './assets/bath.png'
-import Sun from './assets/sun.PNG'
-import Garage from './assets/garage.PNG'
-import Calendar from './assets/calendar.png'
-import TourImage from './assets/tourImage.png'
-import ContactImage from './assets/contactImage.png'
-import LenderImage from './assets/lenderImage.png'
-import GeogiaBankLogo from './assets/georgiaBankLogo.png'
-import TbcBankLogo from './assets/tbcBankLogo.png'
-import firstLine from './assets/firstLine.png'
-import secondLine from './assets/secondLine.png'
-import thirdLine from './assets/thirdLine.png'
-
-import AreaMap from './assets/map.png'
-import BlueLine from './assets/blueLine.png'
-import Similar1 from './assets/similar1.png'
-import Similar2 from './assets/similar2.png'
-import Similar3 from './assets/similar3.png'
-import Similar4 from './assets/similar4.png'
+import Bathroom from './assets/bath.png';
+import Sun from './assets/sun.PNG';
+import Garage from './assets/garage.PNG';
+import Calendar from './assets/calendar.png';
+import TourImage from './assets/tourImage.png';
+import ContactImage from './assets/contactImage.png';
+import LenderImage from './assets/lenderImage.png';
+import GeogiaBankLogo from './assets/georgiaBankLogo.png';
+import TbcBankLogo from './assets/tbcBankLogo.png';
+import FirstLine from './assets/firstLine.png';
+import SecondLine from './assets/secondLine.png';
+import ThirdLine from './assets/thirdLine.png';
+import TourquoiseEllipse from './assets/tourquoiseEllipse.png';
+import BlueEllipse from './assets/blueEllipse.png';
+import YellowEllipse from './assets/yellowEllipse.png';
+import GrayEllipse from './assets/grayEllipse.png'
+import AreaMap from './assets/map.png';
+import BlueLine from './assets/blueLine.png';
+import Similar1 from './assets/similar1.png';
+import Similar2 from './assets/similar2.png';
+import Similar3 from './assets/similar3.png';
+import Similar4 from './assets/similar4.png';
 
 import Footer from '../../components/Footer/Footer';
 
@@ -210,6 +213,7 @@ const Property = () =>  {
                 </div>
 
                 <div className='best-lenders-container'>
+
                     <div className='best-lenders-header'>
                         The Best Lenders
                     </div>
@@ -228,25 +232,58 @@ const Property = () =>  {
                     $2689 per month
                 </div>
                 <div className='cost-breakdown-colors'>
-                <img src={firstLine} className='first-line' />
-                    <img src={secondLine} className='second-line' />
-                    <img src={thirdLine} className='third-line' />
+                <img src={FirstLine} className='first-line' />
+                    <img src={SecondLine} className='second-line' />
+                    <img src={ThirdLine} className='third-line' />
                 </div>
                 <div className='colors-legend'>
+                    <div className='principle-interest'>
+                        <img src={TourquoiseEllipse} className='tourquoise-ellipse' />
+                        principle and Interstate 
+                        $1550
+                    </div>
+                    <div className='Homeowners-Insurance'>
+                        <img src={BlueEllipse} className='blue-ellipse' />
+                        Homeowner's Insurance
+                        $150
+                    </div>
+                    <div className='Property Taxes' >
+                        <img src={YellowEllipse} className='yellow-ellipse' />
+                        Property Taxes
+                        $895
+                    </div>
+                    
 
                 </div>
                 <div className='amount-details'>
                     <div className='down-payment'>
-                        Down Payment
+                        <div className='down-payment-header'>
+                            Down Payment
+                        </div>
+                        <div className='down-payment-amount'>
+                            20% ($105,000)
+                        </div>
                     </div>
                     <div className='home-price'>
-                        Home Price
+                        <div className='home-price-header'>
+                            Home Price
+                        </div>
+                        <div className='home-price-amount'>
+                            $535,000
+                        </div>
                     </div>
-                    <div className='loan-detials'>
-                        Loan Details
+                    <div className='loan-details'>
+                        <div className='loan-details-header'>
+                            Loan Details
+                        </div>
+                        <div className='loan-details-amount'>
+                            30 yr 2.5%
+                        </div>
                     </div>
                     <div className='extra'>
-
+                        <img src={GrayEllipse} className='gray-ellipse' />
+                        <img src={GrayEllipse} className='gray-ellipse' />
+                        <img src={GrayEllipse} className='gray-ellipse' />
                     </div>
                 </div>
 
@@ -264,28 +301,114 @@ const Property = () =>  {
                 <div className='similar-listings'>
                     <div className='listing-1'>
                         <img src={Similar1} />
+                        <div className='listing-location'>
+                            Ventura st. 2892, St louis
+                        </div>
+                        <div className='listing-price'>
+                            $600,000
+                            <div className='new-listing'>
+                            New
+                            </div>
+                        </div>
+                        
+                        <div className='listing-info'>
+                            <div className='bedrooms'>
+                                <img src={Bed} alt='bed-image' />
+                                <div className='info-number'>4</div>
+                            </div>
+                            <div className='bathrooms'>
+                                <img src={Bathroom} alt='sink-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                            <div className='sun'>
+                                <img src={Sun} alt='sun-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                        </div>
                     </div>
                     <div className='listing-2'>
                         <img src={Similar2} />
+                        <div className='listing-location'>
+                            Ventura st. 2892, St louis
+                        </div>
+                        <div className='listing-price'>
+                            $600,000
+                            <div className='new-listing'>
+                                New
+                            </div>
+                        </div>
+                        <div className='listing-info'>
+                            <div className='bedrooms'>
+                                <img src={Bed} alt='bed-image' />
+                                <div className='info-number'>4</div>
+                            </div>
+                            <div className='bathrooms'>
+                                <img src={Bathroom} alt='sink-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                            <div className='sun'>
+                                <img src={Sun} alt='sun-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                        </div>
                     </div>
                     <div className='listing-3'>
                         <img src={Similar3} />
+                        <div className='listing-location'>
+                            Ventura st. 2892, St louis
+                        </div>
+                        <div className='listing-price'>
+                            $600,000
+                            <div className='new-listing'>
+                            New
+                            </div>
+                        </div>
+                        <div className='listing-info'>
+                            <div className='bedrooms'>
+                                <img src={Bed} alt='bed-image' />
+                                <div className='info-number'>4</div>
+                            </div>
+                            <div className='bathrooms'>
+                                <img src={Bathroom} alt='sink-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                            <div className='sun'>
+                                <img src={Sun} alt='sun-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                        </div>
                     </div>
                     <div className='listing-4'>
                         <img src={Similar4} />
+                        <div className='listing-location'>
+                            Ventura st. 2892, St louis
+                        </div>
+                        <div className='listing-price'>
+                            $600,000
+                            <div className='new-listing'>
+                            New
+                            </div>
+                        </div>
+                        
+                        <div className='listing-info'>
+                            <div className='bedrooms'>
+                                <img src={Bed} alt='bed-image' />
+                                <div className='info-number'>4</div>
+                            </div>
+                            <div className='bathrooms'>
+                                <img src={Bathroom} alt='sink-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                            <div className='sun'>
+                                <img src={Sun} alt='sun-image' />
+                                <div className='info-number'>2</div>
+                            </div>
+                        </div>
                     </div>
 
 
                 </div>
             </div>
-
-
-    
-
-
-            
-
-
             <Footer/>
         </div>  
     );
