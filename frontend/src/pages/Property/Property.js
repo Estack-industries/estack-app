@@ -25,6 +25,7 @@ import Calendar from './assets/calendar.png';
 import TourImage from './assets/tourImage.png';
 import ContactImage from './assets/contactImage.png';
 import LenderImage from './assets/lenderImage.png';
+import KayleyHall from './assets/KayleyHall.png'
 import GeogiaBankLogo from './assets/georgiaBankLogo.png';
 import TbcBankLogo from './assets/tbcBankLogo.png';
 import FirstLine from './assets/firstLine.png';
@@ -40,9 +41,7 @@ import Similar1 from './assets/similar1.png';
 import Similar2 from './assets/similar2.png';
 import Similar3 from './assets/similar3.png';
 import Similar4 from './assets/similar4.png';
-
 import Footer from '../../components/Footer/Footer';
-
 
 function NavBar() {
     return (
@@ -85,17 +84,9 @@ function Background() {
         	<img src={PropertyVector2} alt="property-vector-2" className="vector-2" />
 			<img src={PropertyVector3} alt="property-vector-3" className="vector-3" />
             {/* <img src={PropertyVector4} alt="property-vector-4" className="vector-4" /> */}
-
-			{/* <img
-				src={AboutMainImage}
-				alt="about-main-image"
-				className="main-image"
-			/> */}
 		</>
 	);
 }
-
-
 
 const Property = () =>  {
     return (
@@ -151,9 +142,7 @@ const Property = () =>  {
                         <img src={Price} alt='property-price' />
                     </div>
                 </div>
-
                 <div className='information-bottom'>
-
                     <div className='bedrooms'>
                         <img src={Bed} alt='bed-image' />
                         <div className='info-number'>1</div>
@@ -181,20 +170,69 @@ const Property = () =>  {
             </div>
 
             <div className='button-layout'>
-                <button class="blue-button">
+                <button className="tour-button">
                     Request a Tour
-                    <img src={TourImage} alt='tour-image' />
+                    <img src={TourImage} alt='tour' />
                 </button>
-                <button class="blue-button">
+                <button id='button1' className="agent-button">
                     Contact Agent
-                    <img src={ContactImage} alt='contact-image' />
+                    <img src={ContactImage} alt='agent' />
                 </button>
-                <button class="blue-button">
+                <button className="lender-button">
                     Find Lender
-                    <img src={LenderImage} alt='lender-image' />
+                    <img src={LenderImage} alt='lender' />
                 </button>
             </div>
 
+            <div className='tour-hover-menu'>
+                <div className='tour-header'>
+                    Request a Tour
+                </div>
+                <form action="request-tour-form" method="post" className='tour-form'>
+                    <div className='top-form'>
+                        <div className='tour-date'>
+                            <label for='appointment'>When</label>
+                            <input type='date' id='appointment' className='appointment' />
+                        </div>
+                        <div className='tour-time'>
+                            <label for='appointment-time'>What Time</label>
+                            <input type='time' id='appointment-time' className='appointment' />
+                        </div>
+                    </div>
+                    <div className='bottom-form'>
+                        <label for='name' className='label'>First Name & Last Name</label>
+                        <input type='text' id='name' className='tour-name' />
+                        <label for='email' className='label'>Email</label>     
+                        <input type='email' id='mail' className='tour-email' />
+                    </div>
+                </form>
+                <button class='tour-button-menu'>
+                    Request a Tour
+                    <img src={TourImage} alt='agent' />
+                </button>
+            </div>
+
+            <div className='agent-hover-menu'>
+                <div className='agent-header'>
+                    <img  src={KayleyHall} className='agent-avatar' />
+                    <div className='agent-info'>
+                        <div className='agent-name'> Kayley Hall</div>
+                        <div className='profile'>view profile</div>
+                    </div>
+                </div>
+                <form action="contact-agent-form" method="post" className='agent-form'>
+                        <input type='text' id='name' className='user-name' placeholder='Name' />
+                        <input type='text' id='phone' className='user-phone' placeholder='Phone' />
+                        <input type='email' id='mail' className='user-email' placeholder='Email' />
+                        <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
+                </form>
+                <button class='agent-button-menu'>
+                    Contact Agent
+                    <img src={ContactImage} alt='agent' />
+                </button>
+            </div>
+
+            
             <div className='description-lenders-container'>
                 <div className='description-column'>
                     <div className='description-container'>
@@ -213,7 +251,6 @@ const Property = () =>  {
                 </div>
 
                 <div className='best-lenders-container'>
-
                     <div className='best-lenders-header'>
                         The Best Lenders
                     </div>
@@ -252,8 +289,6 @@ const Property = () =>  {
                         Property Taxes
                         $895
                     </div>
-                    
-
                 </div>
                 <div className='amount-details'>
                     <div className='down-payment'>
@@ -286,7 +321,13 @@ const Property = () =>  {
                         <img src={GrayEllipse} className='gray-ellipse' />
                     </div>
                 </div>
+            </div>
 
+            <div className='down-payment-hover-menu'>
+                <div className='down-payment-header'>
+                  <div className='down-payment-title'>Down Payment</div>
+                  <button class='close-button'>&times;</button>
+                </div>
             </div>
 
             <div className='map'>
