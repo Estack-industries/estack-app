@@ -25,12 +25,36 @@
     align-items: center;
 }
 
+.heart-icon {
+    display: flex;
+    margin-left: 10%;
+    width: 93px;
+    height: 91px;
+    filter: drop-shadow(0px 3.03118px 3.03118px rgba(0, 0, 0, 0.25));
+    border-radius: 151.559px;
+    margin-bottom: -50px;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
 .tiny-images-container {
     display: flex;
     justify-content:center;
     gap: 30px;
 }
 
+.help-button {
+    position: absolute;
+    width: 118px;
+    height: 118px;
+    right: 22px;
+    top: 95%;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;}
 
 
 .property-information-container {
@@ -114,16 +138,22 @@
     text-align: left; 
 }
 
+.tour-dropdown, .agent-dropdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .button-layout {
     display: flex;
     justify-content: center;
-    gap: 170px;
+    gap: 140px;
 }
 .tour-button, .agent-button, .lender-button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    margin-right: 0;
     font-family: Open Sans;
     font-style: normal;
     font-weight: bold;
@@ -139,11 +169,12 @@
     cursor: pointer;
 }
 
-.tour-hover-menu {
-    display: flex;
+.tour-menu {
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
+    margin-top: 20px;
     width: 341px;
     height: 527.74px;
     background: #FFFFFF;
@@ -158,6 +189,8 @@
     background: #0193FD;
     font-family: DM Sans;
     height: 71px;
+    margin-top: 20px;
+
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
@@ -237,17 +270,22 @@
 }
 
 
-.agent-hover-menu {
-    display: flex;
+.agent-menu {
+    display: none;
     flex-direction: column;
     justify-content: space-around;
     margin: auto;
+    margin-top: 20px;
     width: 341px;
     height: 527.74px;
     background: #FFFFFF;
     border: 4px solid #0193FD;
     box-shadow: 0px 32px 34px rgba(0, 0, 0, 0.133714);
     border-radius: 25px;
+    z-index: 10;
+}
+.agent-menu.active {
+    transform: translate(-50%, -50%) scale(1)
 }
 
 .agent-header {
@@ -263,10 +301,8 @@
     font-size: 16px;
     line-height: 21px;
     /* identical to box height */
-
     text-align: center;
     letter-spacing: -0.376923px;
-
     color: #000000;
 
 }
@@ -358,10 +394,7 @@
     padding: 10px;
     color: white;
     border-radius: 18px;
-    cursor: pointer;}
-
-.agent-button:hover + .agent-hover-menu {
-    display:contents
+    cursor: pointer;
 }
 
 .description-lenders-container {
@@ -391,7 +424,6 @@
     box-sizing: border-box;
     border-radius: 15px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
 }
 
 .description-header {
@@ -400,7 +432,6 @@
     width: 268.87px;
     height: 32.86px;
     left: 110.8px;
-
     font-family: DM Sans;
     font-style: normal;
     font-weight: bold;
@@ -421,17 +452,13 @@
     height: 270.87px;
     left: 107px;
     top: calc(50% - 270.87px/2 - 348.06px);
-
     font-family: Lato;
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 22px;
     /* or 110% */
-
-
     color: #000000;
-
     mix-blend-mode: normal;
     opacity: 0.6;
 }
@@ -538,7 +565,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
     width: 1282px;
-    height: 332px;
+    height: 400px;
     background: #FFFFFF;
     border: 1px solid #A4D7FC;
     box-sizing: border-box;
@@ -604,7 +631,6 @@
 
 .colors-legend{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 30px;
     font-family: Lato;
@@ -612,9 +638,15 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    gap: 100px;
+    gap: 400px;
     /* identical to box height */
     color: #000000;
+}
+
+.color-left{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .tourquoise-ellipse, .blue-ellipse, .yellow-ellipse {
@@ -631,7 +663,7 @@
     border-radius: 10px;
 }
 
-.down-payment, .home-price, .loan-details  {
+.down-payment-dropdown, .home-price, .loan-details  {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -641,20 +673,28 @@
     
 }
 
-.down-payment:hover, .home-price:hover, .loan-details:hover, .extra:hover {
-        border: 2px solid #000000;
-        border-radius: 10px;
-        cursor: pointer;
+.down-payment-dropdown:hover{
+    border: 2px solid #000000;
+    border-radius: 10px;
+    cursor: pointer;
     
 }
 
-.down-payment-header, .home-price-header, .loan-details-header {
+.down-payment-button, .home-price-header, .loan-details-header {
     font-family: Lato;
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
     line-height: 20px;
     color: #000000;
+}
+
+.down-payment-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+
 }
 
 .down-payment-amount, .home-price-amount, .loan-details-amount {
@@ -682,24 +722,233 @@
     height: 10.77px;
 }
 
-.down-payment-hover-menu{
+.down-payment-menu{
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
     width: 487px;
     height: 580px;
-    left: 0px;
-    top: 23px;
-    
+    margin: auto;
+    margin-bottom: 30px;
     background: #FFFFFF;
     border: 3px solid #F4A523;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    
+    z-index: 10;
 }
 
-.map {
+.down-payment-calculator-header {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 34px;
+    margin-right: 34px;
+    align-items: center;
+}
+.down-payment-title {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: -0.427179px;
+    color: #000000; 
+}
+
+.close-button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2.5rem;
+}
+
+.down-payment-sub-title {
+    display: flex;
+    height: 22px;
+    margin-left: 34px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: -1.25641px;
+    color: #000000;
+}
+
+.info-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.amounts {
+    width: 418px;
+    height: 43px;
+    left: 34px;
+    top: 112px;
+    margin-left: 34px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+
+.loan-amount-money {
+
+    width: 300px;
+    height: 43px;
+    left: 34px;
+    top: 112px;
+    padding-left: 50px;
+    background: #FFFFFF;
+    border: 1px solid #CECCCC;
+    box-sizing: border-box;
+}
+.loan-amount-percent {
+    padding-left: 30px;
+    width: 100px;
+    height: 43px;
+    left: 34px;
+    top: 112px;
+    background: #FFFFFF;
+    border: 1px solid #CECCCC;
+    box-sizing: border-box;
+}
+
+.slider{
+    margin-left: 34px;
+    margin-right: 34px;
+}
+
+.buy-now-title {
+    width: 139px;
+    height: 23px;
+    margin-left: 34px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: -1.25641px;
+    color: #000000;
+}
+
+.buy-now-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 34px;
+    width: 418px;
+    height: 39px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+    
+    letter-spacing: -1.25641px;
+    
+    color: #FFFFFF;
+    background: #F4A523;
+    border: 1px solid #E2E2E2;
+    box-sizing: border-box;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.amount-breakdown {
+    border-bottom: 1px solid #C4C4C4;
+}
+
+.cash-container, .initial-down-container, .total-down-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 34px;
+    margin-right: 34px;
+}
+
+.total-down-container {
+    border-top: 1px solid #C4C4C4;
+}
+
+.total-cash-text, .initial-down-text, .total-down-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: -1.25641px;
+    color: #000000;
+}
+
+.total-cash-number, .initial-down-number {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    letter-spacing: -1.25641px;
+    color: #000000;
+}
+
+.total-down-number {
+    margin-top: 10px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: -1.25641px;
+
+    color: #000000;
+}
+
+.down-payment-footer {
+    display: flex;
+    justify-content: space-around;
+    height: 51px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: -0.427179px;
+    color: #000000;
+}
+.down-payment-text {
+    height: 51px;
+    width: 220px;
+    left: 35px;
+    top: 517px;
+    border-radius: nullpx;
+}
+
+.learn-more-link{
+    color: #1a01fd;
+}
+.map, .under {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+}
+
+.image {
+    margin-top: 3%;   
+    margin-left: -100px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
 }
 
 .similar-listings{

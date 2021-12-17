@@ -8,6 +8,7 @@ import PropertyVector2 from './assets/PropertyVector2.png';
 import PropertyVector3 from './assets/PropertyVector3.svg';
 import PropertyVector4 from './assets/PropertyVector4.svg';
 import Propertyimage from './assets/propertyimage.png';
+import HeartIcon from './assets/heartIcon.png';
 import Smallimage1 from './assets/smallimage1.png';
 import Smallimage2 from './assets/smallimage2.png';
 import Smallimage3 from './assets/smallimage3.png';
@@ -15,6 +16,9 @@ import Smallimage4 from './assets/smallimage4.png';
 import Smallimage5 from './assets/smallimage5.png';
 import Smallimage6 from './assets/smallimage6.png';
 import Smallimage7 from './assets/smallimage7.png';
+import YellowHelp from './assets/yellowHelp.png';
+import YellowHelpInner from './assets/yellowHelpInner.png';
+import YellowTail from './assets/yellowTail.png';
 import Address from './assets/address.png';
 import Price from './assets/price.png';
 import Bed from './assets/bed.PNG';
@@ -34,8 +38,11 @@ import ThirdLine from './assets/thirdLine.png';
 import TourquoiseEllipse from './assets/tourquoiseEllipse.png';
 import BlueEllipse from './assets/blueEllipse.png';
 import YellowEllipse from './assets/yellowEllipse.png';
-import GrayEllipse from './assets/grayEllipse.png'
+import GrayEllipse from './assets/grayEllipse.png';
+import Info from './assets/info.png';
+import LightBulb from './assets/lightBulb.png';
 import AreaMap from './assets/map.png';
+import MapPointer from './assets/mapPointer.png';
 import BlueLine from './assets/blueLine.png';
 import Similar1 from './assets/similar1.png';
 import Similar2 from './assets/similar2.png';
@@ -88,6 +95,36 @@ function Background() {
 	);
 }
 
+let dropDownAgent = document.querySelector('.agent-button')
+let agentContent = document.querySelector('.agent-menu')
+dropDownAgent.addEventListener('click', ()=> {
+    if (agentContent.style.display===""){
+        agentContent.style.display="flex";
+    } else {
+        agentContent.style.display=""
+    }
+})
+
+let dropDownTour = document.querySelector('.tour-button')
+let tourContent = document.querySelector('.tour-menu')
+dropDownTour.addEventListener('click', ()=> {
+    if (tourContent.style.display===""){
+        tourContent.style.display="flex";
+    } else {
+        tourContent.style.display=""
+    }
+})
+
+let dropDownPayment = document.querySelector('.down-payment-dropdown')
+let paymentContent = document.querySelector('.down-payment-menu')
+dropDownPayment.addEventListener('click', ()=> {
+    if (paymentContent.style.display===""){
+        paymentContent.style.display="flex";
+    } else {
+        paymentContent.style.display=""
+    }
+})
+
 const Property = () =>  {
     return (
         <div>
@@ -101,9 +138,9 @@ const Property = () =>  {
                 />
             </div>
 
-            <div className='heart-icon'>
-
-            </div>
+            <button className='heart-icon'>
+                <img src={HeartIcon} />
+            </button>
 
             <div className='tiny-images-container'>
                 <div className="photo-container">
@@ -129,9 +166,9 @@ const Property = () =>  {
                 </div>
             </div>
 
-            <div className='help-button'>
-
-            </div>
+            <button className='help-button'>
+                <img className='yellow-help' src={YellowHelp} />
+            </button>
 
             <div className='property-information-container'>
                 <div className='information-top'>
@@ -170,21 +207,12 @@ const Property = () =>  {
             </div>
 
             <div className='button-layout'>
-                <button className="tour-button">
-                    Request a Tour
-                    <img src={TourImage} alt='tour' />
-                </button>
-                <button id='button1' className="agent-button">
-                    Contact Agent
-                    <img src={ContactImage} alt='agent' />
-                </button>
-                <button className="lender-button">
-                    Find Lender
-                    <img src={LenderImage} alt='lender' />
-                </button>
-            </div>
-
-            <div className='tour-hover-menu'>
+                <div className='tour-dropdown'>
+                    <button className="tour-button">
+                        Request a Tour
+                        <img src={TourImage} alt='tour' />
+                    </button>
+                    <div className='tour-menu'>
                 <div className='tour-header'>
                     Request a Tour
                 </div>
@@ -210,29 +238,40 @@ const Property = () =>  {
                     Request a Tour
                     <img src={TourImage} alt='agent' />
                 </button>
-            </div>
+                </div>
 
-            <div className='agent-hover-menu'>
-                <div className='agent-header'>
-                    <img  src={KayleyHall} className='agent-avatar' />
-                    <div className='agent-info'>
-                        <div className='agent-name'> Kayley Hall</div>
-                        <div className='profile'>view profile</div>
+                </div>
+                <div className='agent-dropdown'>
+                    <button id='button1' className="agent-button">
+                        Contact Agent
+                        <img src={ContactImage} alt='agent' />
+                    </button>
+                    <div className='agent-menu'>
+                        <div className='agent-header'>
+                            <img  src={KayleyHall} className='agent-avatar' />
+                            <div className='agent-info'>
+                            <div className='agent-name'> Kayley Hall</div>
+                            <div className='profile'>view profile</div>
+                        </div>
+                        </div>
+                            <form action="contact-agent-form" method="post" className='agent-form'>
+                                <input type='text' id='name' className='user-name' placeholder='Name' />
+                                <input type='text' id='phone' className='user-phone' placeholder='Phone' />
+                                <input type='email' id='mail' className='user-email' placeholder='Email' />
+                                <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
+                            </form>
+                        <button class='agent-button-menu'>
+                            Contact Agent
+                            <img src={ContactImage} alt='agent' />
+                        </button>
                     </div>
                 </div>
-                <form action="contact-agent-form" method="post" className='agent-form'>
-                        <input type='text' id='name' className='user-name' placeholder='Name' />
-                        <input type='text' id='phone' className='user-phone' placeholder='Phone' />
-                        <input type='email' id='mail' className='user-email' placeholder='Email' />
-                        <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
-                </form>
-                <button class='agent-button-menu'>
-                    Contact Agent
-                    <img src={ContactImage} alt='agent' />
+                <button className="lender-button">
+                    Find Lender
+                    <img src={LenderImage} alt='lender' />
                 </button>
             </div>
 
-            
             <div className='description-lenders-container'>
                 <div className='description-column'>
                     <div className='description-container'>
@@ -274,30 +313,37 @@ const Property = () =>  {
                     <img src={ThirdLine} className='third-line' />
                 </div>
                 <div className='colors-legend'>
-                    <div className='principle-interest'>
-                        <img src={TourquoiseEllipse} className='tourquoise-ellipse' />
-                        principle and Interstate 
-                        $1550
+                    <div className='color-left'>
+                        <div className='principle-interest'>
+                            <img src={TourquoiseEllipse} className='tourquoise-ellipse' />
+                            principle and Interstate 
+                            $1550
+                        </div>
+                        <div className='Homeowners-Insurance'>
+                            <img src={BlueEllipse} className='blue-ellipse' />
+                            Homeowner's Insurance
+                            $150
+                        </div>
                     </div>
-                    <div className='Homeowners-Insurance'>
-                        <img src={BlueEllipse} className='blue-ellipse' />
-                        Homeowner's Insurance
-                        $150
-                    </div>
-                    <div className='Property Taxes' >
-                        <img src={YellowEllipse} className='yellow-ellipse' />
-                        Property Taxes
-                        $895
+                    <div className='color-right'>
+                        
+                        <div className='Property Taxes' >
+                            <img src={YellowEllipse} className='yellow-ellipse' />
+                            Property Taxes
+                            $895
+                        </div>
                     </div>
                 </div>
                 <div className='amount-details'>
-                    <div className='down-payment'>
-                        <div className='down-payment-header'>
+
+                    <div className='down-payment-dropdown'>
+                        <button className='down-payment-button'>
                             Down Payment
-                        </div>
+                        </button>
                         <div className='down-payment-amount'>
                             20% ($105,000)
                         </div>
+
                     </div>
                     <div className='home-price'>
                         <div className='home-price-header'>
@@ -323,15 +369,54 @@ const Property = () =>  {
                 </div>
             </div>
 
-            <div className='down-payment-hover-menu'>
-                <div className='down-payment-header'>
+            <div className='down-payment-menu'>
+                <div className='down-payment-calculator-header'>
                   <div className='down-payment-title'>Down Payment</div>
-                  <button class='close-button'>&times;</button>
+                  <button className='close-button'>&times;</button>
                 </div>
+                <div className='down-payment-sub-title'>
+                    <div className='cash'>Cash</div>
+                    <button className='info-button'>
+                        <img src={Info} />
+                    </button>
+                </div>
+                <div className='amounts'>
+                    <input type='text' id='amount' className='loan-amount-money' placeholder='$150,000' />
+                    <input type='text' id='amount' className='loan-amount-percent' placeholder='20%' />
+
+                </div>
+                <input type='range' min='0' max='100' value='50' className='slider'/>
+                <div className='buy-now-title'>
+                    Want to Buy Now?
+                </div>
+                    <button className='buy-now-button'>Buy</button>
+                <div className='amount-breakdown'>
+                    <div className='cash-container'>
+                        <div className='total-cash-text'>Cash</div>
+                        <div className='total-cash-number'>$105,00.00</div>
+                    </div>
+                    <div className='initial-down-container'>
+                        <div className='initial-down-text'>Down Payment</div>
+                        <div className='initial-down-number'>$15,000.00</div>
+                    </div>
+                    <div className='total-down-container'>
+                        <div className='total-down-text'>Total Down</div>
+                        <div className='total-down-number'>$15,000 (20%)</div>
+                    </div>
+                </div>
+                <div className='down-payment-footer'>
+                    <div className='down-payment-text'>
+                        Down payment assistacne programs may loewr the up-front cost of buying. 
+                        <a className='learn-more-link' href="#"> Learn More.</a>
+                    </div>
+                    <img src={LightBulb} />
+                </div>
+
             </div>
 
             <div className='map'>
-                <img src={AreaMap} />
+                <img className='under' src={AreaMap} />
+                <img className='image' src={MapPointer} />
             </div>
 
             <div className='similar-listings-conatiner'>
