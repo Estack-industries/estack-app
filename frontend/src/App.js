@@ -1,14 +1,26 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import "bootstrap/dist/css/bootstrap.css";
 
 import './App.css';
 import Landing from './pages/Landing/Landing';
 import About from './pages/About/About';
+import Plans from './pages/Plans/Plans';
 
 function App() {
 	return (
-		<div style={{ padding: 0, margin: 0 }}>
-			<About />
-		</div>
+		<Router>
+			<Switch>
+				<Route exact path="/">
+				<div style={{ padding: 0, margin: 0 }}>
+					<About />
+				</div>
+				</Route>
+				<Route path="/plans">
+					<Plans />
+				</Route>
+			</Switch>
+		</Router>
 	);
 }
 
