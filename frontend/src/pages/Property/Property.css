@@ -937,11 +937,15 @@
 .learn-more-link{
     color: #1a01fd;
 }
-.map, .under {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
+.map{
+    margin: auto;
+    Width: 1282px;
+    Height: 400px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+
 }
+
 
 .image {
     margin-top: 3%;   
@@ -949,6 +953,12 @@
     position: absolute;
     width: 100px;
     height: 100px;
+}
+.pop-up {
+    display: none;
+    background: (0,0,0, .7);
+    z-index: 100;
+   
 }
 
 .similar-listings{

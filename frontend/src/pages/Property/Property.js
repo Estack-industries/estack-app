@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
+import { GoogleMap, withScriptjs } from 'react-google-maps';
 import './Property.css';
+
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
@@ -17,8 +20,6 @@ import Smallimage5 from './assets/smallimage5.png';
 import Smallimage6 from './assets/smallimage6.png';
 import Smallimage7 from './assets/smallimage7.png';
 import YellowHelp from './assets/yellowHelp.png';
-import YellowHelpInner from './assets/yellowHelpInner.png';
-import YellowTail from './assets/yellowTail.png';
 import Address from './assets/address.png';
 import Price from './assets/price.png';
 import Bed from './assets/bed.PNG';
@@ -41,14 +42,13 @@ import YellowEllipse from './assets/yellowEllipse.png';
 import GrayEllipse from './assets/grayEllipse.png';
 import Info from './assets/info.png';
 import LightBulb from './assets/lightBulb.png';
-import AreaMap from './assets/map.png';
-import MapPointer from './assets/mapPointer.png';
 import BlueLine from './assets/blueLine.png';
 import Similar1 from './assets/similar1.png';
 import Similar2 from './assets/similar2.png';
 import Similar3 from './assets/similar3.png';
 import Similar4 from './assets/similar4.png';
 import Footer from '../../components/Footer/Footer';
+import withGoogleMap from 'react-google-maps/lib/withGoogleMap';
 
 function NavBar() {
     return (
@@ -95,41 +95,56 @@ function Background() {
 	);
 }
 
-let dropDownAgent = document.querySelector('.agent-button')
-let agentContent = document.querySelector('.agent-menu')
-dropDownAgent.addEventListener('click', ()=> {
-    if (agentContent.style.display===""){
-        agentContent.style.display="flex";
-    } else {
-        agentContent.style.display=""
-    }
-})
 
-let dropDownTour = document.querySelector('.tour-button')
-let tourContent = document.querySelector('.tour-menu')
-dropDownTour.addEventListener('click', ()=> {
-    if (tourContent.style.display===""){
-        tourContent.style.display="flex";
-    } else {
-        tourContent.style.display=""
-    }
-})
+// const dropDownAgent = document.querySelector('.agent-button')
+// const agentContent = document.querySelector('.agent-menu')
+// dropDownAgent.addEventListener('click', ()=> {
+//     if (agentContent.style.display==""){
+//         agentContent.style.display="flex";
+//     } else {
+//         agentContent.style.display=""
+//     }
+// })
 
-let dropDownPayment = document.querySelector('.down-payment-dropdown')
-let paymentContent = document.querySelector('.down-payment-menu')
-dropDownPayment.addEventListener('click', ()=> {
-    if (paymentContent.style.display===""){
-        paymentContent.style.display="flex";
-    } else {
-        paymentContent.style.display=""
+
+function agentForm() {
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log('clicked the contact agen button')
     }
-})
+
+}
+
+
+// const dropDownPayment = document.querySelector('.down-payment-dropdown')
+// const paymentContent = document.querySelector('.down-payment-menu')
+// dropDownPayment.addEventListener('click', ()=> {
+//     if (paymentContent.style.display==""){
+//         paymentContent.style.display="flex";
+//     } else {
+//         paymentContent.style.display=""
+//     }
+// })
+
+
+function Map() {
+    return (
+        <GoogleMap
+        defalutZoom={10}
+        defalutCenter={{lat:44.465396 ,lng:39.719735}}
+        />
+    )
+}
+
+const WrappedMap = withScriptjs(withGoogleMap(Map))
+
 
 const Property = () =>  {
     return (
         <div>
             <Background />
-            <NavBar />
+            <NavBar /> 
+            
             <div className='property-image'>
                 <img
                     className='main-image'
@@ -265,6 +280,7 @@ const Property = () =>  {
                             <img src={ContactImage} alt='agent' />
                         </button>
                     </div>
+                
                 </div>
                 <button className="lender-button">
                     Find Lender
@@ -409,24 +425,27 @@ const Property = () =>  {
                         Down payment assistacne programs may loewr the up-front cost of buying. 
                         <a className='learn-more-link' href="#"> Learn More.</a>
                     </div>
-                    <img src={LightBulb} />
+                    <img src={LightBulb} alt='light-bulb-img' />
                 </div>
 
             </div>
 
             <div className='map'>
-                <img className='under' src={AreaMap} />
-                <img className='image' src={MapPointer} />
+            <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q`}
+                loadingElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+                />
             </div>
 
             <div className='similar-listings-conatiner'>
                 <div className='similar-listings-header'>
-                    <img src={BlueLine} />
+                    <img src={BlueLine} alt='blue-dash' />
                     Similar Listings
                 </div>
                 <div className='similar-listings'>
                     <div className='listing-1'>
-                        <img src={Similar1} />
+                        <img src={Similar1} alt='listing-1' />
                         <div className='listing-location'>
                             Ventura st. 2892, St louis
                         </div>
@@ -439,21 +458,21 @@ const Property = () =>  {
                         
                         <div className='listing-info'>
                             <div className='bedrooms'>
-                                <img src={Bed} alt='bed-image' />
+                                <img src={Bed} alt='bed' />
                                 <div className='info-number'>4</div>
                             </div>
                             <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink-image' />
+                                <img src={Bathroom} alt='sink' />
                                 <div className='info-number'>2</div>
                             </div>
                             <div className='sun'>
-                                <img src={Sun} alt='sun-image' />
+                                <img src={Sun} alt='sun' />
                                 <div className='info-number'>2</div>
                             </div>
                         </div>
                     </div>
                     <div className='listing-2'>
-                        <img src={Similar2} />
+                        <img src={Similar2} alt='listing-2' />
                         <div className='listing-location'>
                             Ventura st. 2892, St louis
                         </div>
@@ -465,21 +484,21 @@ const Property = () =>  {
                         </div>
                         <div className='listing-info'>
                             <div className='bedrooms'>
-                                <img src={Bed} alt='bed-image' />
+                                <img src={Bed} alt='bed' />
                                 <div className='info-number'>4</div>
                             </div>
                             <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink-image' />
+                                <img src={Bathroom} alt='sink' />
                                 <div className='info-number'>2</div>
                             </div>
                             <div className='sun'>
-                                <img src={Sun} alt='sun-image' />
+                                <img src={Sun} alt='sun' />
                                 <div className='info-number'>2</div>
                             </div>
                         </div>
                     </div>
                     <div className='listing-3'>
-                        <img src={Similar3} />
+                        <img src={Similar3} alt='listing-3' />
                         <div className='listing-location'>
                             Ventura st. 2892, St louis
                         </div>
@@ -491,21 +510,21 @@ const Property = () =>  {
                         </div>
                         <div className='listing-info'>
                             <div className='bedrooms'>
-                                <img src={Bed} alt='bed-image' />
+                                <img src={Bed} alt='bed' />
                                 <div className='info-number'>4</div>
                             </div>
                             <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink-image' />
+                                <img src={Bathroom} alt='sink' />
                                 <div className='info-number'>2</div>
                             </div>
                             <div className='sun'>
-                                <img src={Sun} alt='sun-image' />
+                                <img src={Sun} alt='sun' />
                                 <div className='info-number'>2</div>
                             </div>
                         </div>
                     </div>
                     <div className='listing-4'>
-                        <img src={Similar4} />
+                        <img src={Similar4} alt='listing-4' />
                         <div className='listing-location'>
                             Ventura st. 2892, St louis
                         </div>
@@ -518,15 +537,15 @@ const Property = () =>  {
                         
                         <div className='listing-info'>
                             <div className='bedrooms'>
-                                <img src={Bed} alt='bed-image' />
+                                <img src={Bed} alt='bed' />
                                 <div className='info-number'>4</div>
                             </div>
                             <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink-image' />
+                                <img src={Bathroom} alt='sink' />
                                 <div className='info-number'>2</div>
                             </div>
                             <div className='sun'>
-                                <img src={Sun} alt='sun-image' />
+                                <img src={Sun} alt='sun' />
                                 <div className='info-number'>2</div>
                             </div>
                         </div>
