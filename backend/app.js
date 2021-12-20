@@ -21,12 +21,6 @@ const bodyParser = require('body-parser');
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-app.get("/" , (res,req) =>{
- 
-});
-
-
-
 
 
 // view engine setup
