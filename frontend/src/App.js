@@ -12,9 +12,7 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path="/">
-				<div style={{ padding: 0, margin: 0 }}>
 					<About />
-				</div>
 				</Route>
 				<Route path="/plans">
 					<Plans />
