@@ -118,12 +118,6 @@
 	padding-bottom: 5%;
 }
 
-.container {
-	width: 100vw;
-	padding: 0;
-	margin: 0;
-}
-
 .review-star-container {
 	display: flex;
 	flex-direction: row;

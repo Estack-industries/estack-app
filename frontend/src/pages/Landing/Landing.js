@@ -46,7 +46,6 @@ function Landing() {
 
 	return (
 		<>
-			<div className="container">
 				<div className="landing-middle">
 					<div className="landing-middle-container">
 						<div className="section-title">
@@ -168,7 +167,6 @@ function Landing() {
 				</div>
 
 				<Footer />
-			</div>
 			<RegisterAndLoginDialog
 				isOpened={isRegisterDialogOpened}
 				onSwitch={regsiterDialogSwitch}
