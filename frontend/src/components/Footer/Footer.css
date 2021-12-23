@@ -53,7 +53,8 @@
 	position: absolute;
 	bottom: 25%;
 	left: 1%;
-	width: 100%;
+	display: flex;
+	gap: 0.6em;
 }
 
 .lato-regular {
@@ -81,4 +82,21 @@
 .copyright,
 .copyright a {
 	color: white;
+}
+
+@media screen and (max-width: 924px) {
+	.footer-bottom {
+		flex-direction: column;
+	}
+
+	.footer-contacts {
+		position: static;
+		margin: 0 auto;
+		padding-bottom: 1em;
+	}
+
+	.copyright {
+		width: 100%;
+		text-align: center;
+	}
 }
