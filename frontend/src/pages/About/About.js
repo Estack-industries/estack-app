@@ -4,10 +4,7 @@ import './About.css';
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
-import AboutMainImage from './assets/about-main-image.png';
-import AboutVector1 from './assets/about-vector-1.svg';
-import AboutVector2 from './assets/about-vector-2.svg';
-import AboutVector3 from './assets/about-vector-3.svg';
+import Background from './background';
 import Click from './assets/click.svg';
 import AboutPhoto1 from './assets/about-photo-1.png';
 import Divider from './assets/divider.svg';
@@ -47,21 +44,6 @@ function NavBar() {
 				onClick={() => console.log('clicked')}
 			/>
 		</div>
-	);
-}
-
-function Background() {
-	return (
-		<>
-			<img src={AboutVector1} alt="about-vector-1" className="vector-1" />
-			<img src={AboutVector2} alt="about-vector-2" className="vector-2" />
-			<img src={AboutVector3} alt="about-vector-3" className="vector-3" />
-			{/* <img
-				src={AboutMainImage}
-				alt="about-main-image"
-				className="main-image"
-			/> */}
-		</>
 	);
 }
 
