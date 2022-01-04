@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import $ from "jquery";
 import "bootstrap/dist/css/bootstrap.css";
 
 import './App.css';
