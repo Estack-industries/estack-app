@@ -7,12 +7,13 @@ import DefaultUserIcon from './assets/default-user-icon.svg';
 function Navbar() {
 	return (
 		<div className="navbar-container">
-			<img
+			<a className="logo" href="/">
+				<img
 				src={EStackLogo}
 				alt="estack-logo"
 				className="estack-logo"
 				onClick={() => console.log('clicked')}
-			/>
+			/></a>
 			<div className="navbar-options">
 				<a className="navbar-option white-color open-sans" href="#">
 					Buy

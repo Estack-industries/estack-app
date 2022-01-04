@@ -4,6 +4,7 @@ import './About.css';
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
+import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
 import Click from './assets/click.svg';
 import AboutPhoto1 from './assets/about-photo-1.png';
@@ -15,7 +16,7 @@ import Footer from '../../components/Footer/Footer';
 import Search from './assets/search.svg';
 import AboutMainImage from './assets/about-main-image.png';
 
-function NavBar() {
+/*function NavBar() {
 	return (
 		<div className="navbar-container">
 			<img
@@ -46,7 +47,7 @@ function NavBar() {
 			/>
 		</div>
 	);
-}
+}*/
 
 function BlueDivider() {
 	return (
@@ -60,7 +61,7 @@ const About = () => {
 	return (
 		<div>
 			<Background src={AboutMainImage}/>
-			<NavBar />
+			<Navbar />
 
 			<div className="full-width">
 				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
