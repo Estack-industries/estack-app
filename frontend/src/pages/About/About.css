@@ -245,11 +245,6 @@
 	padding: 1.8%;
 }
 
-#background-canvas {
-	z-index: -1;
-	position: absolute;
-}
-
 .about-photo-1 {
 	object-fit: contain;
 	width: 85%;

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import AboutMainImage from './assets/about-main-image.png';
+
+import './index.css'
 
 function DrawAboutVector1 (ctx) {
 	const gradient = ctx.createLinearGradient(0, 520, 1440, 0);
@@ -53,7 +54,7 @@ function DrawAboutVector3 (ctx) {
 	ctx.fill();
 }
 
-function drawBackground() {
+function drawBackground(src) {
 	const canvas = document.getElementById('background-canvas');
 	if (canvas === null) return;
 
@@ -65,13 +66,15 @@ function drawBackground() {
 	DrawAboutVector3(ctx);
 	DrawAboutVector2(ctx);
 	DrawAboutVector1(ctx);
-	
-	const image = new Image(1027, 620);
-	image.src = AboutMainImage;
-	image.onload = function() {
-		ctx.clip();
-		ctx.drawImage(image, 207, 110, 1027, 620);
-	};
+
+	if (src !== undefined) {
+		const image = new Image(1027, 620);
+		image.src = src;
+		image.onload = function() {
+			ctx.clip();
+			ctx.drawImage(image, 207, 110, 1027, 620);
+		}
+	}
 	
 	const resizeBy = document.body.clientWidth / 1440;
 	const moveByX = (1440 - document.body.clientWidth) / -2;
@@ -79,7 +82,7 @@ function drawBackground() {
 	canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 }
 
-function Background() {
+function Background(props) {
 
 	useEffect(() => {
 		const canvas = document.getElementById('background-canvas');
@@ -92,7 +95,7 @@ function Background() {
 			canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 		});
 		
-		drawBackground();
+		drawBackground(props.src);
 	})
 
 	return (

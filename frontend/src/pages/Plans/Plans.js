@@ -3,7 +3,7 @@ import $ from "jquery";
 import Navbar from '../../components/Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Plans.css';
-import Background from './background.js';
+import Background from '../../components/NavBackground';
 
 const Plans = () => {
 	return (
