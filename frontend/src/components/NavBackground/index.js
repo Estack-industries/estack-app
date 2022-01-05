@@ -68,11 +68,12 @@ function drawBackground(src) {
 	DrawAboutVector1(ctx);
 
 	if (src !== undefined) {
-		const image = new Image(1027, 620);
+		const image = new Image();
 		image.src = src;
 		image.onload = function() {
+			const ratio = image.height / image.width;
 			ctx.clip();
-			ctx.drawImage(image, 207, 110, 1027, 620);
+			ctx.drawImage(image, 0, 110, 1440, 111 + ratio * 1440);
 		}
 	}
 	
