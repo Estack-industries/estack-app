@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios'
-import { GoogleMap, withScriptjs } from 'react-google-maps';
+import React, { useState } from 'react';
+import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 import './Property.css';
-
+import Slider from '@mui/material/Slider'
+import { styled } from '@mui/material/styles';
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
@@ -10,7 +10,10 @@ import PropertyVector1 from './assets/PropertyVector1.svg';
 import PropertyVector2 from './assets/PropertyVector2.png';
 import PropertyVector3 from './assets/PropertyVector3.svg';
 import PropertyVector4 from './assets/PropertyVector4.svg';
+import BlueCircle1 from './assets/blueCircle1.png'
+import BlueCircle2 from './assets/blueCircle2.png'
 import Propertyimage from './assets/propertyimage.png';
+import FullCircle from './assets/fullCircle.png'
 import HeartIcon from './assets/heartIcon.png';
 import Smallimage1 from './assets/smallimage1.png';
 import Smallimage2 from './assets/smallimage2.png';
@@ -30,6 +33,7 @@ import Calendar from './assets/calendar.png';
 import TourImage from './assets/tourImage.png';
 import ContactImage from './assets/contactImage.png';
 import LenderImage from './assets/lenderImage.png';
+import HalfCircle from './assets/halfCircle.png'
 import KayleyHall from './assets/KayleyHall.png'
 import GeogiaBankLogo from './assets/georgiaBankLogo.png';
 import TbcBankLogo from './assets/tbcBankLogo.png';
@@ -48,7 +52,6 @@ import Similar2 from './assets/similar2.png';
 import Similar3 from './assets/similar3.png';
 import Similar4 from './assets/similar4.png';
 import Footer from '../../components/Footer/Footer';
-import withGoogleMap from 'react-google-maps/lib/withGoogleMap';
 
 function NavBar() {
     return (
@@ -90,61 +93,91 @@ function Background() {
         	<img src={PropertyVector1} alt="property-vector-1" className="vector-1" />
         	<img src={PropertyVector2} alt="property-vector-2" className="vector-2" />
 			<img src={PropertyVector3} alt="property-vector-3" className="vector-3" />
-            {/* <img src={PropertyVector4} alt="property-vector-4" className="vector-4" /> */}
+            <img src={PropertyVector4} alt="property-vector-4" className="vector-4" />
 		</>
 	);
 }
 
-
-// const dropDownAgent = document.querySelector('.agent-button')
-// const agentContent = document.querySelector('.agent-menu')
-// dropDownAgent.addEventListener('click', ()=> {
-//     if (agentContent.style.display==""){
-//         agentContent.style.display="flex";
-//     } else {
-//         agentContent.style.display=""
-//     }
-// })
-
-
-function agentForm() {
-    function handleSubmit(e) {
-        e.preventDefault();
-        console.log('clicked the contact agen button')
-    }
-
+function Popup(props) {
+    return (props.trigger) ? (
+        <div className='popup'>
+            <div className='popup-inner'>
+                <button className='close-button' onClick={() => props.setTrigger(false)}>&times;</button>
+                {props.children}
+            </div>
+        </div>
+    ) : "";
 }
-
-
-// const dropDownPayment = document.querySelector('.down-payment-dropdown')
-// const paymentContent = document.querySelector('.down-payment-menu')
-// dropDownPayment.addEventListener('click', ()=> {
-//     if (paymentContent.style.display==""){
-//         paymentContent.style.display="flex";
-//     } else {
-//         paymentContent.style.display=""
-//     }
-// })
-
 
 function Map() {
     return (
         <GoogleMap
-        defalutZoom={10}
-        defalutCenter={{lat:44.465396 ,lng:39.719735}}
+        defalutZoom={8}
+        defalutCenter={{lat:44.465396, lng:39.719735}}
         />
     )
-}
+  }
+  const WrappedMap = withScriptjs(withGoogleMap(Map))
 
-const WrappedMap = withScriptjs(withGoogleMap(Map))
+
+// slider
+const PrettoSlider = styled(Slider)({
+    color: '#65C0CF',
+    width: 419,
+    height: 8,
+    '& .MuiSlider-track': {
+        border: 'none',
+    },
+    '& .MuiSlider-rail': {
+        backgroundColor: '#C4C4C4',
+    },
+    '& .MuiSlider-thumb': {
+        height: 24,
+        width: 24,
+        backgroundColor: '#fff',
+        border: '2px solid currentColor',
+        '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
+        boxShadow: 'inherit',
+        },
+        '&:before': {
+        display: 'none',
+        },
+    },
+    '& .MuiSlider-valueLabel': {
+        lineHeight: 1.2,
+        fontSize: 12,
+        background: 'unset',
+        padding: 0,
+        width: 32,
+        height: 32,
+        borderRadius: '50% 50% 50% 0',
+        backgroundColor: '#65C0CF',
+        transformOrigin: 'bottom left',
+        transform: 'translate(50%, -100%) rotate(-45deg) scale(0)',
+        '&:before': { display: 'none' },
+        '&.MuiSlider-valueLabelOpen': {
+        transform: 'translate(50%, -100%) rotate(-45deg) scale(1)',
+        },
+        '& > *': {
+        transform: 'rotate(45deg)',
+        },
+    },
+});
 
 
 const Property = () =>  {
+    const [agentIsShown, setAgentIsShown] = useState(false)
+    const [tourIsShown, setTourIsShown] = useState(false)
+    const [downPaymetIsShown, setDownPaymentIsShown] = useState(false)
+
     return (
         <div>
             <Background />
-            <NavBar /> 
-            
+            <NavBar />
+            <div className='blue-circle1'>
+                <img src={BlueCircle1} />
+            </div>
+            {/* main image */}
             <div className='property-image'>
                 <img
                     className='main-image'
@@ -152,11 +185,17 @@ const Property = () =>  {
                     alt="property-image-1"
                 />
             </div>
-
+            <div className='blue-circle2'>
+                <img src={BlueCircle2} />
+            </div>
+            <div className='full-circle'>
+                <img src={FullCircle} />
+            </div>
+            {/* like button */}
             <button className='heart-icon'>
                 <img src={HeartIcon} />
             </button>
-
+            {/* tiny images under main image */}
             <div className='tiny-images-container'>
                 <div className="photo-container">
                     <img src={Smallimage1} alt="small-property-1" />
@@ -180,11 +219,11 @@ const Property = () =>  {
                     <img src={Smallimage7} alt="small-property-7" />
                 </div>
             </div>
-
+            {/* yellow help button */}
             <button className='help-button'>
                 <img className='yellow-help' src={YellowHelp} />
             </button>
-
+            {/* information on big image */}
             <div className='property-information-container'>
                 <div className='information-top'>
                     <div className='address'>
@@ -218,20 +257,21 @@ const Property = () =>  {
                         <div className='info-number'>2007</div>
                     </div>
                 </div>
-
             </div>
-
+            {/* three blue buttons */}
             <div className='button-layout'>
-                <div className='tour-dropdown'>
+                <div className='tour-dropdown' onMouseEnter={() => setTourIsShown(true)} onMouseLeave={() => setTourIsShown(false)}>
                     <button className="tour-button">
                         Request a Tour
                         <img src={TourImage} alt='tour' />
                     </button>
+                    {/* hidden request a tour menu */}
+                    {tourIsShown && (
                     <div className='tour-menu'>
-                <div className='tour-header'>
-                    Request a Tour
-                </div>
-                <form action="request-tour-form" method="post" className='tour-form'>
+                        <div className='tour-header'>
+                            Request a Tour
+                        </div>
+                    <form action="request-tour-form" method="post" className='tour-form'>
                     <div className='top-form'>
                         <div className='tour-date'>
                             <label for='appointment'>When</label>
@@ -254,19 +294,22 @@ const Property = () =>  {
                     <img src={TourImage} alt='agent' />
                 </button>
                 </div>
-
+                )}
                 </div>
-                <div className='agent-dropdown'>
+
+                <div className='agent-dropdown' onMouseEnter={() => setAgentIsShown(true)} onMouseLeave={() => setAgentIsShown(false)}>
                     <button id='button1' className="agent-button">
                         Contact Agent
                         <img src={ContactImage} alt='agent' />
                     </button>
+                    {/* hidden contact agent form */}
+                    {agentIsShown && (
                     <div className='agent-menu'>
                         <div className='agent-header'>
                             <img  src={KayleyHall} className='agent-avatar' />
                             <div className='agent-info'>
                             <div className='agent-name'> Kayley Hall</div>
-                            <div className='profile'>view profile</div>
+                            <a className='profile' href='#'>view profile</a>
                         </div>
                         </div>
                             <form action="contact-agent-form" method="post" className='agent-form'>
@@ -279,17 +322,20 @@ const Property = () =>  {
                             Contact Agent
                             <img src={ContactImage} alt='agent' />
                         </button>
-                    </div>
-                
+                    </div> 
+                    )}
                 </div>
                 <button className="lender-button">
                     Find Lender
                     <img src={LenderImage} alt='lender' />
                 </button>
             </div>
-
+            <div className='half-circle'>
+                <img src={HalfCircle} />
+            </div>
             <div className='description-lenders-container'>
                 <div className='description-column'>
+                    {/* description box */}
                     <div className='description-container'>
                         <div className='description-header'>
                             Description
@@ -300,11 +346,12 @@ const Property = () =>  {
                         <p>Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.</p>
                         </div>
                     </div>
+                    {/* buy the property button */}
                     <button className='buy-button'>
                         Buy the Property
                     </button>
                 </div>
-
+                {/* best lenders box */}
                 <div className='best-lenders-container'>
                     <div className='best-lenders-header'>
                         The Best Lenders
@@ -315,7 +362,7 @@ const Property = () =>  {
                     TBC Bank
                 </div>
             </div>
-
+            {/* Payment calculator box */}
             <div className='payment-calculator-container'>
                 <div className='payment-calculator-header'>
                     Payment Calculator
@@ -351,15 +398,13 @@ const Property = () =>  {
                     </div>
                 </div>
                 <div className='amount-details'>
-
-                    <div className='down-payment-dropdown'>
+                    <div className='down-payment-dropdown' onMouseEnter={() => setDownPaymentIsShown(true)}>
                         <button className='down-payment-button'>
                             Down Payment
                         </button>
                         <div className='down-payment-amount'>
                             20% ($105,000)
                         </div>
-
                     </div>
                     <div className='home-price'>
                         <div className='home-price-header'>
@@ -384,11 +429,12 @@ const Property = () =>  {
                     </div>
                 </div>
             </div>
-
+            {/* down payment hidden menu */}
+            { downPaymetIsShown && (
             <div className='down-payment-menu'>
                 <div className='down-payment-calculator-header'>
                   <div className='down-payment-title'>Down Payment</div>
-                  <button className='close-button'>&times;</button>
+                  <button className='close-button' onClick={() => setDownPaymentIsShown(false)} >&times;</button>
                 </div>
                 <div className='down-payment-sub-title'>
                     <div className='cash'>Cash</div>
@@ -399,9 +445,13 @@ const Property = () =>  {
                 <div className='amounts'>
                     <input type='text' id='amount' className='loan-amount-money' placeholder='$150,000' />
                     <input type='text' id='amount' className='loan-amount-percent' placeholder='20%' />
-
                 </div>
-                <input type='range' min='0' max='100' value='50' className='slider'/>
+                <PrettoSlider
+                    valueLabelDisplay="auto"
+                    aria-label="pretto slider"
+                    defaultValue={50}
+                    className='slider'
+                />
                 <div className='buy-now-title'>
                     Want to Buy Now?
                 </div>
@@ -427,17 +477,17 @@ const Property = () =>  {
                     </div>
                     <img src={LightBulb} alt='light-bulb-img' />
                 </div>
-
             </div>
-
+            )}
+            {/* map */}
             <div className='map'>
-            <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q`}
-                loadingElement={<div style={{ height: `100%` }} />}
+                <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q`}
+                loadingElement={<div style={{ height: `100%`, width: `100%` }} />}
                 containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
+                mapElement={<div style={{ height: `100%`, width: `100%` }} />}
                 />
             </div>
-
+            {/* similar listing cards */}
             <div className='similar-listings-conatiner'>
                 <div className='similar-listings-header'>
                     <img src={BlueLine} alt='blue-dash' />
@@ -550,8 +600,6 @@ const Property = () =>  {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
             <Footer/>

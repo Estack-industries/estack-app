@@ -1,0 +1,50 @@
+.navbar-container {
+    margin: auto;
+}
+
+.heading {
+    position: absolute;
+    width: 770px;
+    height: 65px;
+    left: calc(50% - 770px/2 - 25px);
+    top: 198px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 65px;
+
+}
+
+.loan-options {
+width: 1284px;
+height: 260px;
+left: calc(50% - 1284px/2 + 1px);
+top: 469px;
+
+background: #FFFFFF;
+border: 2px solid #A4D7FC;
+box-sizing: border-box;
+border-radius: 15px;
+
+display: flex;
+margin: auto;
+justify-content: center;
+align-content: center;
+align-items: center;
+}
+
+.loan-purpose, .credit-score {
+width: 273px;
+height: 60px;
+/* left: 0px;
+top: 0px; */
+
+background: #FFFFFF;
+border: 1px solid #000000;
+box-sizing: border-box;
+justify-content: center;
+align-content: center;
+align-items: center;
+}
