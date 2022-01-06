@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import './index.css'
 
@@ -85,7 +85,11 @@ function drawBackground(src) {
 
 function Background(props) {
 
+	const [src, setSrc] = useState(undefined);
+	
 	useEffect(() => {
+		if (src === props.src) return;
+		else setSrc(props.src);
 		const canvas = document.getElementById('background-canvas');
 		if (canvas === null) return;
 
@@ -97,7 +101,7 @@ function Background(props) {
 		});
 		
 		drawBackground(props.src);
-	})
+	}, [src, props.src])
 
 	return (
 		<canvas id='background-canvas'/>
