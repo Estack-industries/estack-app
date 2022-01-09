@@ -1,5 +1,4 @@
-import React from 'react';
-import $ from "jquery";
+import React from 'react'; 
 import Navbar from '../../components/Navbar/Navbar';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Plans.css';
