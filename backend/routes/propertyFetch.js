@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
 var mysql2 = require('mysql2');
 var body = require('body-parser');
 var bcrypt = require("bcrypt");
@@ -20,8 +20,8 @@ var db = mysql2.createPool({
   host:"localhost",
   user:"root",
   password: "password",
-  database: "estackdb"
-})
+  database: "estackdb",
+});
 
 
 router.use(body.urlencoded({extended : true}));
@@ -70,6 +70,15 @@ router.post('/sell' , (req,res) =>{
 router.post('/listProperty', (req, res) =>{
   
 });
+
+// Fetch data from the Properties table
+router.get('/get', (req, res) => {
+  const sqlSelect = "SELECT * FROM estackdb.properties";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});
+
 
 
 

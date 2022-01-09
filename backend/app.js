@@ -7,7 +7,8 @@ const cors = require("cors");
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testAPIRouter = require("./routes/testAPI");
-const propertysell = require('./routes/propertySell')
+const propertysell = require('./routes/propertySell');
+const propertyFetch = require('./routes/propertyFetch');
 
 const app = express();
 const mysql2 = require('mysql2');
@@ -20,6 +21,7 @@ const bodyParser = require('body-parser');
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+app.use(bodyParser.json());
 
 
 
@@ -38,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
 app.use('/propertySell', propertysell);
+app.use('/property', propertyFetch);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
