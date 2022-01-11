@@ -54,7 +54,19 @@ function DrawAboutVector3 (ctx) {
 	ctx.fill();
 }
 
-function drawBackground(src) {
+function compareSrcArray(cacheSrcArray, currentSrcArray) {
+	const properties = ['src', 'left', 'bottom', 'width', 'height'];
+	if (cacheSrcArray.length === 0) return false;
+	return cacheSrcArray.every((cacheSrc, i) => {
+		return currentSrcArray.some((currentSrc, j) => {
+			return properties.every(property => {
+				return cacheSrc[property] === currentSrc[property];
+			})
+		})
+	})
+}
+
+function drawBackground(srcArray) {
 	const canvas = document.getElementById('background-canvas');
 	if (canvas === null) return;
 
@@ -67,13 +79,23 @@ function drawBackground(src) {
 	DrawAboutVector2(ctx);
 	DrawAboutVector1(ctx);
 
-	if (src !== undefined) {
+	for (let i = 0; i < srcArray.length; i++) {
+		const src = srcArray[i];
+		if (src === undefined || src === null) continue;
+
+		const left = 14.4 * (src.left ?? 0);
+		const bottom = 71.8 * (src.bottom ?? 0);
+		const width = 14.4 * (src.width ?? 100);
+		let height = src.height === undefined ? undefined : 71.8 * src.height;
+
+		
 		const image = new Image();
-		image.src = src;
+		image.src = src.src;
 		image.onload = function() {
 			const ratio = image.height / image.width;
+			height = height ?? (ratio * width)
 			ctx.clip();
-			ctx.drawImage(image, 0, 110, 1440, 111 + ratio * 1440);
+			ctx.drawImage(image, left, 718 - height - bottom, width, height ?? (ratio * width));
 		}
 	}
 	
@@ -83,13 +105,15 @@ function drawBackground(src) {
 	canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 }
 
-function Background(props) {
+function Background({src}) {
 
-	const [src, setSrc] = useState(undefined);
+	const [cacheSrc, setCacheSrc] = useState([]);
 	
 	useEffect(() => {
-		if (src === props.src) return;
-		else setSrc(props.src);
+		const currentSrc = Array.isArray(src) ? src : [{src}];
+
+		if (compareSrcArray(cacheSrc, currentSrc)) return;
+		else setCacheSrc(currentSrc);
 		const canvas = document.getElementById('background-canvas');
 		if (canvas === null) return;
 
@@ -100,8 +124,8 @@ function Background(props) {
 			canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 		});
 		
-		drawBackground(props.src);
-	}, [src, props.src])
+		drawBackground(currentSrc);
+	}, [src, cacheSrc]);
 
 	return (
 		<canvas id='background-canvas'/>
