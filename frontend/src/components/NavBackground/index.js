@@ -105,6 +105,47 @@ function drawBackground(srcArray) {
 	canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 }
 
+/**
+ * Bubble-like background under navigation bar.
+ * @param {object} [props] Component props
+ * @param {string | array} props.src The string to the path of the image or an array of objects with the properties. Check examples.
+ * @return {JSX.Element} React component of an HTML Canvas.
+ * @example
+ * // Generates a background without any images.
+ * <NavBackground/>
+ * 
+ * // Generates a background with an image.
+ * import backgroundImage from './background.png';
+ * <NavBackground src={backgroundImage}/>
+ * 
+ * // Generates a background with an image that is resized and centered.
+ * import backgroundImage from './background.png';
+ * const navImages = [
+ *   {
+ *     src: backgroundImage,
+ *     width: 60,
+ *     left: 15
+ *   }
+ * ]
+ * <NavBackground src={navImages}/>
+ * 
+ * // Generates a background with multiple images.
+ * import backgroundImage1 from './background1.png';
+ * import backgroundImage2 from './background2.png';
+ * const navImages = [
+ *   {
+ *     src: backgroundImage1,
+ *     width: 50,
+ *     left: 0,
+ *   },
+ *   {
+ *     src: backgroundImage2,
+ *     width: 50,
+ *     left: 50,
+ *   }
+ * ]
+ * <NavBackground src={navImages}/>
+ */
 function Background({src}) {
 
 	const [cacheSrc, setCacheSrc] = useState([]);
