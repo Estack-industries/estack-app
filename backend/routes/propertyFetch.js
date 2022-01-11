@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+const router = express.Router();
 var mysql2 = require('mysql2');
 var body = require('body-parser');
 var bcrypt = require("bcrypt");
@@ -21,9 +21,9 @@ router.use(express.json());
 var db = mysql2.createPool({
   host:"127.0.0.1",
   user:"root",
-  // password: "password",
-  database: "estackdb"
-})
+  password: "password",
+  database: "estackdb",
+});
 
 
 router.use(body.urlencoded({extended : true}));

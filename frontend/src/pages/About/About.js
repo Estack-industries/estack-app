@@ -4,10 +4,8 @@ import './About.css';
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
-import AboutMainImage from './assets/about-main-image.png';
-import AboutVector1 from './assets/about-vector-1.svg';
-import AboutVector2 from './assets/about-vector-2.svg';
-import AboutVector3 from './assets/about-vector-3.svg';
+import Navbar from '../../components/Navbar/Navbar';
+import Background from '../../components/NavBackground';
 import Click from './assets/click.svg';
 import AboutPhoto1 from './assets/about-photo-1.png';
 import Divider from './assets/divider.svg';
@@ -16,8 +14,9 @@ import HelpSellHome from './assets/help-sell-home.png';
 import FindApartments from './assets/find-apartments.png';
 import Footer from '../../components/Footer/Footer';
 import Search from './assets/search.svg';
+import AboutMainImage from './assets/about-main-image.png';
 
-function NavBar() {
+/*function NavBar() {
 	return (
 		<div className="navbar-container">
 			<img
@@ -48,22 +47,7 @@ function NavBar() {
 			/>
 		</div>
 	);
-}
-
-function Background() {
-	return (
-		<>
-			<img src={AboutVector1} alt="about-vector-1" className="vector-1" />
-			<img src={AboutVector2} alt="about-vector-2" className="vector-2" />
-			<img src={AboutVector3} alt="about-vector-3" className="vector-3" />
-			{/* <img
-				src={AboutMainImage}
-				alt="about-main-image"
-				className="main-image"
-			/> */}
-		</>
-	);
-}
+}*/
 
 function BlueDivider() {
 	return (
@@ -76,8 +60,8 @@ function BlueDivider() {
 const About = () => {
 	return (
 		<div>
-			<Background />
-			<NavBar />
+			<Background src={AboutMainImage}/>
+			<Navbar />
 
 			<div className="full-width">
 				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
