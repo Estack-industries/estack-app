@@ -62,12 +62,13 @@ create table properties (
     city VARCHAR(50) NOT NULL,
     state CHAR(2) NOT NULL CHECK(length(State) = 2),
     zip CHAR(5) NOT NULL CHECK(length(Zip) = 5),
-
+    lat decimal(6, 2),
+    lng decimal(6, 2),
     
     type VARCHAR(20) NOT NULL,
     numBedrooms INT NOT NULL CHECK (numBedrooms >= 1),
     numBathrooms INT NOT NULL CHECK (numBathrooms >= 1),
-    sqaureft DECIMAL(6, 2) NOT NULL CHECK (sqaureft >= 0),
+    squareft DECIMAL(6, 2) NOT NULL CHECK (squareft >= 0),
     yearBuilt DATE,
     garageParking INT,
     ac BOOLEAN,
@@ -80,7 +81,7 @@ create table properties (
 
     property_name VARCHAR(50) NOT NULL,
     owner_email VARCHAR(50) NOT NULL,
-    descr VARCHAR(500) NOT NULL,
+    description VARCHAR(500) NOT NULL,
     -- image file name
     filename VARCHAR(64),
     PRIMARY KEY (property_Name, owner_Email),
@@ -98,8 +99,8 @@ insert into users values
 insert into owners values
 ('jared@gmail.com', '123', '4040 4040 4040 4040', '1920-03-01', false);
 
-insert into properties values
-('Front Street', 'Ann Arbor', 'MI', '40044', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House", "jared@gmail.com", "This is the first selling house!", NULL);
+-- insert into properties values
+-- ('Front Street', 'Ann Arbor', 'MI', '40044', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House", "jared@gmail.com", "This is the first selling house!", NULL);
 
-insert into properties values
-('Back Street', 'Ann Arbor', 'MI', '40045', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House 2", "jared@gmail.com", "This is the second selling house!", NULL);
+-- insert into properties values
+-- ('Back Street', 'Ann Arbor', 'MI', '40045', "Apartment", 2, 2, 860, '1980-01-01', 5, true, true, true, true, true, true, 200000.43, "White House 2", "jared@gmail.com", "This is the second selling house!", NULL);

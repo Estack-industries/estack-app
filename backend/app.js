@@ -7,7 +7,8 @@ const cors = require("cors");
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testAPIRouter = require("./routes/testAPI");
-const propertysell = require('./routes/propertySell')
+const propertyPost = require('./routes/propertyPost')
+const propertyFetch = require('./routes/propertyFetch')
 
 const app = express();
 const mysql2 = require('mysql2');
@@ -43,7 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
-app.use('/propertySell', propertysell);
+app.use('/propertyPost', propertyPost);
+app.use('/propertyFetch', propertyFetch);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -63,7 +65,7 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(3001,()=>{
-  console.log("server is running perfectly");
+  console.log("server is running perfectly at port 3001");
   
 })
 
