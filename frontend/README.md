@@ -23,3 +23,4 @@ npm start // to start local server
 
 -   [ ] Dialog input lose foucs after typing a char
 -   [ ] Background design of the "Plans" Page
+-   [ ] Background Pictures needed to be positioned of the "Dashboard" Page

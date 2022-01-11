@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Axios from 'axios';
 import './Dashboard.css';
-import Navbar from '../../components/Navbar/Navbar';
 import DashBackground from '../Dashboard/DashBackground';
 import Footer from '../../components/Footer/Footer';
 import {
@@ -35,9 +34,14 @@ const Dashboard = () => {
 	return (
 		<div>
 			<DashBackground src={BuildingImage} />
-			<Navbar />
 
 			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />		
+				<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
 
