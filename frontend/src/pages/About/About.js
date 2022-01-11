@@ -63,6 +63,13 @@ const About = () => {
 			<Background src={AboutMainImage}/>
 			<Navbar />
 
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />		
+
 			<div className="full-width">
 				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
 					About Us
