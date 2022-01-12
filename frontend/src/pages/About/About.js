@@ -60,7 +60,7 @@ function BlueDivider() {
 const About = () => {
 	return (
 		<div>
-			<Background src={AboutMainImage}/>
+			<Background src={[{src: AboutMainImage, width: 64, left: 13}]}/>
 			<Navbar />
 
 			<div className="large-space" />
