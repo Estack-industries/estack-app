@@ -9,12 +9,10 @@ const Plans = () => {
 		<div>
 			<Background />
 			<Navbar />
-
-			<div className="full-width">
-				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
-					E-Stack Plans
-				</p>
-			</div>
+			<h1 className="title">E-Stack Plans</h1>
+			<div className="large-space" />
+			<div className="large-space" />
+			<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
