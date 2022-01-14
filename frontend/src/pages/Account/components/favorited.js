@@ -1,4 +1,4 @@
-import './favorited.css';
+import styles from './favorited.module.css';
 import {moneyFormat} from '../utils';
 
 import houseBeds from '../assets/house-beds.svg';
@@ -17,15 +17,15 @@ const HomeStatistics = function({text, icon, alt}) {
 function FavoritedHomes({homes}) {
 
 	return (
-		<div id='profile-favorited-homes'>
+		<div id={styles.favoritedHomes}>
 			<div>
 				{homes.map((home, index) => 
-					<a className='profile-favorited-home' key={index} href={'/buy/' + home.id}>
+					<a className={styles.favoritedHome} key={index} href={'/buy/' + home.id}>
 						<img src={home.image} alt={'home at ' + home.address}/>
-						<p className='address'>{home.address}</p>
-						<p className='price'>{moneyFormat(home.price)}</p>
-						{home.new && <p className='new-tag'>New</p>}
-						<div className='stats'>
+						<p className={styles.homeAddress}>{home.address}</p>
+						<p className={styles.homePrice}>{moneyFormat(home.price)}</p>
+						{home.new && <p className={styles.newTag}>New</p>}
+						<div className={styles.stats}>
 							<HomeStatistics text={home.beds} icon={houseBeds} alt='Number of beds'/>
 							<HomeStatistics text={home.baths} icon={houseBaths} alt='Number of baths'/>
 							<HomeStatistics text={home.sqft} icon={houseSqfts} alt='Square footage'/>

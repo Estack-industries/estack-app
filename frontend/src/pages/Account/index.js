@@ -5,18 +5,18 @@ import Footer from '../../components/Footer/Footer';
 import Statistics from './components/statistics';
 import FavoritedHomes from './components/favorited';
 import fetchData from './dataFetching'
-import './index.css';
+import styles from './index.module.css';
 
 import backgroundImage from './assets/background.svg';
 import editPicture from './assets/edit-picture.svg';
 
-function SettingButtons({text, notification, color = '#0193fd'}) {
+function SettingButtons({text, notification = 0, color = '#0193fd'}) {
 	if (notification > 99) notification = '99+';
 
 	return (
 		<div>
 			{notification !== 0 &&
-				<div className='profile-settings-notification'>
+				<div className={styles.settingsNotification}>
 					<svg viewBox='0 0 100 100'>
 						<text x='51' y='68'	
 							fontSize={50} fontWeight={500} textAnchor='middle'
@@ -57,38 +57,40 @@ function UserPage() {
 		<>
 			<Background src={backgroundImage}/>
 			<Navbar />
-			<div className="full-width">
-				<h1 id='nav-background-heading'>
-					Dashboard
-				</h1>
-			</div>
-			<div id='profile-picture-container'>
-				{userData.picture &&
+			<main>
+				<div className="full-width">
+					<h1 className={styles.heading}>
+						Dashboard
+					</h1>
+				</div>
+				<div id={styles.pictureContainer}>
+					{userData.picture &&
+						<>
+							<div id={styles.editPicture}>
+								<input type='file' accept='image/*' onInput={changeProfilePicture}/>
+								<img src={editPicture} alt='Edit appearance'/>
+							</div>
+							<img src={userData.picture} alt='Profile appearance'/>
+						</>
+					}
+				</div>
+				<button id={styles.upgrade}>Upgrade</button>
+				<div id={styles.settings}>
+					<SettingButtons text='Messages' notification={userData?.messages ?? 0}/>
+					<SettingButtons text='My Cards' notification={userData?.cards?.length ?? 0}/>
+					<SettingButtons text='Account Settings'/>
+					<SettingButtons text='Deleted' color='#f4a523'/>
+				</div>
+				{userData &&
+					<Statistics userData={userData}/>
+				}
+				{userData.favoritedHomes && userData.favoritedHomes.length > 0 &&
 					<>
-						<div id='edit-picture'>
-							<input type='file' accept='image/*' onInput={changeProfilePicture}/>
-							<img src={editPicture} alt='Edit appearance'/>
-						</div>
-						<img src={userData.picture} alt='Profile appearance'/>
+						<h2 className={styles.heading}>Your Favorited Homes</h2>
+						<FavoritedHomes homes={userData.favoritedHomes}/>
 					</>
 				}
-			</div>
-			<button id='profile-upgrade-button'>Upgrade</button>
-			<div id='profile-settings'>
-				<SettingButtons text='Messages' notification={userData?.messages ?? 0}/>
-				<SettingButtons text='My Cards' notification={userData?.cards?.length ?? 0}/>
-				<SettingButtons text='Account Settings' notification={0}/>
-				<SettingButtons text='Deleted' notification={0} color='#f4a523'/>
-			</div>
-			{userData &&
-				<Statistics userData={userData}/>
-			}
-			{userData.favoritedHomes && userData.favoritedHomes.length > 0 &&
-				<>
-					<h2 className='profile-heading'>Your Favorited Homes</h2>
-					<FavoritedHomes homes={userData.favoritedHomes}/>
-				</>
-			}
+			</main>
 			<Footer/>
 		</>
 	)

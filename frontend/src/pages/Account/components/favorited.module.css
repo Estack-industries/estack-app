@@ -1,20 +1,18 @@
-#profile-favorited-homes {
-	display: flex;
+#favoritedHomes {
 	width: 85%;
 	margin: 2.3em auto;
 	overflow-x: scroll;
-	overflow-y: hidden;
 }
 
-#profile-favorited-homes > * {
+#favoritedHomes > * {
 	display: flex;
-	margin: 1em 0;
+	margin: 0.75em 0;
 	gap: 1.8em;
 }
 
-.profile-favorited-home {
-	width: 20em;
+.favoritedHome {
 	height: 21.7em;
+	width: 19em;
 	background-color: #ffffff;
 	border: 1px solid #a4d7fc;
 	border-radius: 1em;
@@ -24,13 +22,13 @@
 	transition: transform 300ms ease-in-out;
 }
 
-.profile-favorited-home:hover,
-.profile-favorited-home:focus {
+.favoritedHome:hover,
+.favoritedHome:focus {
 	color: black;
 	transform: scale(1.02);
 }
 
-.profile-favorited-home > img {
+.favoritedHome > img {
 	width: 100%;
 	height: 14em;
 	border-top-left-radius: calc(1em - 1px);
@@ -39,7 +37,7 @@
 	object-fit: cover;
 }
 
-.profile-favorited-home .address {
+.homeAddress {
 	height: 1.5em;
 	margin: 0.7em auto 0em auto;
 	width: 16em;
@@ -47,8 +45,7 @@
 	font-weight: bold;
 }
 
-.profile-favorited-home .price {
-	display: inline;
+.homePrice {
 	margin: 0.4em 0 0.5em 2.5em;
 	width: fit-content;
 	max-width: 10em;
@@ -58,16 +55,15 @@
 	font-weight: bold;
 }
 
-.profile-favorited-home .new-tag {
+.newTag {
 	margin: 0 0 0.5em 2.5em;
-	width: 50%;
 	color: #38cd3e;
 	overflow: hidden;
 	white-space: nowrap;
 	font-weight: bold;
 }
 
-.profile-favorited-home .new-tag::before {
+.newTag::before {
 	content: '';
 	display: inline-block;
 	width: 1px;
@@ -77,13 +73,13 @@
 	background-color: #c4c4c4;
 }
 
-.profile-favorited-home .stats {
+.stats {
 	display: flex;
 	justify-content: space-around;
 	width: 19em;
 	margin: 1em auto 0 auto;
 }
 
-.profile-favorited-home .stats img{
+.stats img{
 	margin-right: 0.5em;
 }

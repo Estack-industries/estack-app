@@ -1,0 +1,80 @@
+#mainCard {
+	position: relative;
+	width: 66%;
+	aspect-ratio: 18 / 11;
+	left: 18%;
+	border-radius: 1em;
+}
+
+#mainCard div {
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: column;
+	height: 100%;
+}
+
+#mainCard p {
+	text-align: center;
+	font-size: 0.9em;
+	color: #ffffff;
+}
+
+#shadowCard {
+	position: absolute;
+	left: 18%;
+	margin-top: 7%;
+	width: 61%;
+	aspect-ratio: 18 / 11;
+	border-radius: 1em;
+}
+
+#selector {
+	display: flex;
+	justify-content: center;
+	gap: 1em;
+}
+
+#selector > * {
+	width: 0.65em;
+	height: 0.65em;
+	margin-top: 7%;
+	background-color: #a4d7fc;
+	border-radius: 50%;
+}
+
+.historyElement {
+	width: 80%;
+	margin: auto;
+}
+
+.historyElement::before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 0.2em;
+	height: 2em;
+	margin: 0.25em 0em 0em 0.6%;
+	background-color: #ed5b75;
+	border-radius: 0.1em;
+}
+
+.historyElement > p {
+	width: 80%;
+	height: 1.5em;
+	margin-left: 11%;
+	font-size: 0.9em;
+	font-weight: bold;
+	overflow: hidden;
+}
+
+.historyElement > div {
+	display: flex;
+	justify-content: space-between;
+	width: 78%;
+	margin: auto;
+}
+
+.historyElement > div > p {
+	color: #959595;
+	font-size: 0.7em;
+}
