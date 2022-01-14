@@ -2,16 +2,15 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Axios from 'axios';
 import './Dashboard.css';
-import DashBackground from '../Dashboard/DashBackground';
+import Navbar from '../../components/Navbar/Navbar';
+import Background from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
-import {
-	faBed,
-	faBath,
-	faThLarge,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBed, faBath, faThLarge } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import BuildingImage from './assets/cityline.png';
+import HouseImage from './assets/houses.png';
+import Handshake from './assets/handshake.png';
 import squareOne from './assets/squareOne.png';
 import squareTwo from './assets/squareTwo.png';
 import squareThree from './assets/squareThree.png';
@@ -22,6 +21,11 @@ import rentOne from './assets/rentOne.png';
 import rentTwo from './assets/rentTwo.png';
 import rentThree from './assets/rentThree.png';
 
+/* 
+* Note:
+* Need to make corresponding changes after the backend is completely designed
+*/
+
 const Dashboard = () => {
 	const [listings, setListings] = useState([]);
 
@@ -31,17 +35,37 @@ const Dashboard = () => {
 		});
 	}, []);
 
+	const backgroundImages = [
+		{
+			src: BuildingImage,
+			width: 50,
+			left: 0,
+		},
+		{
+			src: HouseImage,
+			width: 55,
+			left: 30,
+		},
+		{
+			src: Handshake,
+			width: 25,
+			left: 70,
+			height: 9.5,
+			
+		},
+	];
+
 	return (
 		<div>
-			<DashBackground src={BuildingImage} />
+			<Background src={backgroundImages} />
+			<Navbar />
+			<h1 className="title">Pick a <span className="highlight">Dashboard</span></h1>
 
 			<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
-			<div className="large-space" />		
-				<div className="large-space" />
 			<div className="large-space" />
 			<div className="large-space" />
 
@@ -103,7 +127,7 @@ const Dashboard = () => {
 
 			<div className="large-space" />
 			<img className="divide" src={smalldiv} alt="smallDivide" />
-			<h2 className="title"> Rent Listings</h2>
+			<h2 className="title2"> Rent Listings</h2>
 			<div className="row row-cols-1 row-cols-md-3 g-4">
 				{listings.map((val) => {
 					return (
@@ -119,7 +143,9 @@ const Dashboard = () => {
 										{val.street}, {val.city}, {val.state}
 									</h5>
 									<p className="card-text">
-										<span className="space">&emsp;&emsp;</span>
+										<span className="space">
+											&emsp;&emsp;
+										</span>
 										{val.listingPrice}${' '}
 										<span className="space">&emsp;</span>|{' '}
 										<span className="space">&emsp;</span>{' '}

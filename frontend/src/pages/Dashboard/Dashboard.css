@@ -1,3 +1,14 @@
+.title {
+  text-align: center;
+  color: white;
+  padding: 160px;
+  font-size: 70px;
+  font-weight: normal;
+}
+
+.highlight {
+  color: orange;
+}
 
 .image {
 	width: 100%;
@@ -20,6 +31,7 @@ img.icon {
 	display: flex;
   justify-content: space-between;
   margin: 0px 100px 0px 100px;
+
 }
 
 .btn {
@@ -45,7 +57,7 @@ img.icon {
   margin-left: 70px;
 }
 
-.title {
+.title2 {
   margin-left: 70px;
   font-weight: bold;
 }
