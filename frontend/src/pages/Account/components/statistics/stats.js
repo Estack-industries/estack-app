@@ -225,11 +225,11 @@ function StatsPanel({userData}) {
 				</div>
 				<div>
 					<svg viewBox='0 0 180 300' width='9em' height='10em' id={styles.statGraph}>
-						{statGraphSmall.map((e) => (
-							<line y1={e} y2={e} x1={0} x2={130} strokeWidth={1.5} stroke={'#f5f5f5'}/>
+						{statGraphSmall.map((e, i) => (
+							<line key={i} y1={e} y2={e} x1={0} x2={130} strokeWidth={1.5} stroke={'#f5f5f5'}/>
 						))}
-						{statGraphLarge.map((e) => (
-							<line y1={30} y2={270} x1={e} x2={e} strokeWidth={10} stroke={'#f5f5f5'}/>
+						{statGraphLarge.map((e, i) => (
+							<line key={i} y1={30} y2={270} x1={e} x2={e} strokeWidth={10} stroke={'#f5f5f5'}/>
 						))}
 						<text y={25} x={140} alignmentBaseline='middle'>Max</text>
 						<text y={275} x={140} alignmentBaseline='middle'>Min</text>
@@ -237,7 +237,7 @@ function StatsPanel({userData}) {
 							const y = (1 - (stat.amount / maxStatAmount)) * 240 + 30
 							const x = i * 32.5 + 32.5
 							return (
-								<line y1={y} y2={270} x1={x} x2={x} key={i} stroke={stat.color} strokeWidth={10}/>
+								<line key={i} y1={y} y2={270} x1={x} x2={x} strokeWidth={10} stroke={stat.color}/>
 							)
 						})}
 					</svg>
