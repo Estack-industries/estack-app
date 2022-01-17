@@ -5,11 +5,13 @@ import Landing from './pages/Landing/Landing';
 import About from './pages/About/About';
 import Banking from './pages/Banking/Banking';
 import Property from './pages/Property/Property';
+import AccountSetting from './pages/AccountSettings/AccountSettings';
 
 function App() {
 	return (
 		<div style={{ padding: 0, margin: 0 }}>
-			<Banking />
+			{/* <Property /> */}
+			<AccountSetting />
 		</div>
 	);
 }

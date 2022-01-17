@@ -301,9 +301,39 @@
     color: #000000;
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
+
+  .popup-inner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 400px;
+    z-index: 1;
+  }
+  
+.close-btn {
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 2.5rem;
+  }
 
 .agent-menu {
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -315,12 +345,11 @@
     border: 4px solid #0193FD;
     box-shadow: 0px 32px 34px rgba(0, 0, 0, 0.133714);
     border-radius: 25px;
-    z-index: 10;
+    z-index: 1;
 }
 
 
-.agent-header {
-    
+.agent-header { 
     display: flex;
     justify-content: center;
     height: 71px;
@@ -999,7 +1028,7 @@
 .pop-up {
     display: none;
     background: (0,0,0, .7);
-    z-index: 100;
+    z-index: 1;
    
 }
 

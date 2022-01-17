@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const testAPIRouter = require("./routes/testAPI");
 const propertysell = require('./routes/propertySell')
+const bankRouter = require('./Banks/bank-router')
 
 const app = express();
 const mysql2 = require('mysql2');
@@ -15,14 +16,15 @@ const { send } = require('process');
 const bodyParser = require('body-parser');
 
 
-
+app.use("/api/bank", bankRouter)
 
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-app.get("/" , (res,req) =>{
- 
+
+app.get("/", function (req, res) {
+    res.send("App is working")
 });
 
 
@@ -62,7 +64,7 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(3001,()=>{
-  console.log("server is running perfectly");
+  console.log("server is running perfectly on 3001");
   
 })
 

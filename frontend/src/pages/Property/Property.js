@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 import './Property.css';
 import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles';
+import {Link} from 'react-router-dom'
 
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
@@ -98,16 +99,51 @@ function Background() {
 	);
 }
 
-function Popup(props) {
-    return (props.trigger) ? (
-        <div className='popup'>
-            <div className='popup-inner'>
-                <button className='close-button' onClick={() => props.setTrigger(false)}>&times;</button>
-                {props.children}
+
+
+
+
+
+
+
+
+
+function AgentMenu ({agentIsShown, setAgentIsShown}) {
+    const agentRef = useRef()
+  
+    const closeAgent = e => {
+      if(agentRef. current ===e.target) {
+        setAgentIsShown(false)
+      }
+    }
+
+    return <>{agentIsShown ? ( 
+        <div className='popup' ref={agentRef} onClick={closeAgent}>
+            <div className='popup-inner' >
+                <div className='agent-menu' >
+                    <div className='agent-header'>
+                        <img src={KayleyHall} className='agent-avatar' />
+                        <div className='agent-info'>
+                            <div className='agent-name'> Kayley Hall</div>
+                            <a className='profile' href='#'>view profile</a>
+                        </div>
+                    </div>
+                    <form action="contact-agent-form" method="post" className='agent-form'>
+                        <input type='text' id='name' className='user-name' placeholder='Name' />
+                        <input type='text' id='phone' className='user-phone' placeholder='Phone' />
+                        <input type='email' id='mail' className='user-email' placeholder='Email' />
+                        <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
+                    </form>
+                    <button class='agent-button-menu'>
+                        Contact Agent
+                        <img src={ContactImage} alt='agent' />
+                    </button>
+                </div>
             </div>
-        </div>
-    ) : "";
-}
+      </div>
+      ): null}
+    </>
+  };
 
 function Map() {
     return (
@@ -169,6 +205,10 @@ const Property = () =>  {
     const [agentIsShown, setAgentIsShown] = useState(false)
     const [tourIsShown, setTourIsShown] = useState(false)
     const [downPaymetIsShown, setDownPaymentIsShown] = useState(false)
+
+    const openAgent = () => {
+        setAgentIsShown(prev => !prev)
+    }
 
     return (
         <div>
@@ -260,7 +300,7 @@ const Property = () =>  {
             </div>
             {/* three blue buttons */}
             <div className='button-layout'>
-                <div className='tour-dropdown' onMouseEnter={() => setTourIsShown(true)} onMouseLeave={() => setTourIsShown(false)}>
+                <div className='tour-dropdown' onMouseEnter={() => setTourIsShown(true)} onClick={() => setTourIsShown(false)}>
                     <button className="tour-button">
                         Request a Tour
                         <img src={TourImage} alt='tour' />
@@ -297,38 +337,18 @@ const Property = () =>  {
                 )}
                 </div>
 
-                <div className='agent-dropdown' onMouseEnter={() => setAgentIsShown(true)} onMouseLeave={() => setAgentIsShown(false)}>
-                    <button id='button1' className="agent-button">
+                <div className='agent-dropdown' onClick={openAgent} >
+                    <button id='agent-button' className="agent-button">
                         Contact Agent
                         <img src={ContactImage} alt='agent' />
                     </button>
                     {/* hidden contact agent form */}
-                    {agentIsShown && (
-                    <div className='agent-menu'>
-                        <div className='agent-header'>
-                            <img  src={KayleyHall} className='agent-avatar' />
-                            <div className='agent-info'>
-                            <div className='agent-name'> Kayley Hall</div>
-                            <a className='profile' href='#'>view profile</a>
-                        </div>
-                        </div>
-                            <form action="contact-agent-form" method="post" className='agent-form'>
-                                <input type='text' id='name' className='user-name' placeholder='Name' />
-                                <input type='text' id='phone' className='user-phone' placeholder='Phone' />
-                                <input type='email' id='mail' className='user-email' placeholder='Email' />
-                                <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
-                            </form>
-                        <button class='agent-button-menu'>
-                            Contact Agent
-                            <img src={ContactImage} alt='agent' />
-                        </button>
-                    </div> 
-                    )}
                 </div>
-                <button className="lender-button">
+                <AgentMenu agentIsShown={agentIsShown} setAgentIsShown={setAgentIsShown} />
+                <Link className="lender-button" to="/Banking" >
                     Find Lender
                     <img src={LenderImage} alt='lender' />
-                </button>
+                </Link>
             </div>
             <div className='half-circle'>
                 <img src={HalfCircle} />
