@@ -74,10 +74,10 @@ const Banking = () => {
             </div>
             <div className='images'>
                 <div className='head'>
-                    <img src={Head} />
+                    <img src={Head} alt="head" />
                 </div>
                 <div className='house'>
-                    <img src={House} />
+                    <img src={House} alt="house"/>
                 </div>
                 </div>
             <div className='loan-options'>
@@ -143,18 +143,18 @@ const Banking = () => {
                 <input type="checkbox" />
                 <div className='bank-of-georgia'>
                     <div className='Georgia-Logo'>
-                        <img src={BankOfGeorgia}  />
+                        <img src={BankOfGeorgia} alt="bank-of-georgia-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Bank of Georgia
                         </div>
                         <div className='georgia-rating'>
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
                         </div>
                     </div>
                     <div className='apr-container'>
@@ -174,18 +174,18 @@ const Banking = () => {
                 </div>
                 <div className='bank-tbc'>
                     <div className='tbc-logo'>
-                        <img src={TBCBank}  />
+                        <img src={TBCBank} alt="tbc-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             TBC Bank
                         </div>
                         <div className='tbc-rating'>
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
                         </div>
                     </div>
                     <div className='apr-container'>
@@ -205,18 +205,18 @@ const Banking = () => {
                 </div>
                 <div className='liberty-bank'>
                     <div className='liberty-logo'>
-                        <img src={LibertyBank}  />
+                        <img src={LibertyBank} alt="liberty-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Liberty Bank
                         </div>
                         <div className='tbc-rating'>
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
                         </div>
                     </div>
                     <div className='apr-container'>
@@ -236,18 +236,18 @@ const Banking = () => {
                 </div>
                 <div className='basis-bank'>
                     <div className='basis-logo'>
-                        <img src={BasisBank}  />
+                        <img src={BasisBank} alt="basis-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Basis Bank
                         </div>
                         <div className='tbc-rating'>
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
                         </div>
                     </div>
                     <div className='apr-container'>
@@ -267,18 +267,18 @@ const Banking = () => {
                 </div>
                 <div className='vtb-bank'>
                     <div className='vtb-logo'>
-                        <img src={VTBBank}  />
+                        <img src={VTBBank} alt="vtb-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             VTB Bank
                         </div>
                         <div className='tbc-rating'>
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
-                            <img src={Star} />
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
+                            <img src={Star} alt="star-rating"/>
                         </div>
                     </div>
                     <div className='apr-container'>

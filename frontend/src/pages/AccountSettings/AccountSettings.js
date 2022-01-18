@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
+import 'antd/dist/antd.css';
+import {Avatar, Modal, Button} from 'antd';
 import './AccountSettings.css';
 
 import EStackLogo from './assets/e-stack-logo.svg';
@@ -7,6 +9,7 @@ import AccountVecotr1 from './assets/accountVector1.svg'
 import AccountVecotr3 from './assets/accountVector3.svg'
 import AccountVecotr4 from './assets/accountVector4.svg'
 import GearsBig from './assets/2gearsBig.png'
+import ProfileImage from './assets/ProfileImage.png'
 
 import Footer from '../../components/Footer/Footer';
 
@@ -54,7 +57,61 @@ function Background() {
 	);
 }
 
+function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}) {
+    const picutreRef = useRef()
+
+    const closePicture = e => {
+        if(picutreRef.current === e.target) {
+            setPictureChooseIsShown(false)
+        }
+    } 
+
+    const handleOk = () => {
+        setPictureChooseIsShown(false);
+      };
+    
+    const handleCancel = () => {
+        setPictureChooseIsShown(false);
+      };
+
+
+    return <>{pictureChooseIsShwon ? (
+        <div className='popup' ref={picutreRef} onClick={closePicture}>
+            <div className='popup-inner'>
+                <div className='image-menu'>
+                    <div className='image-header'>
+                        Please Choose Your Profile Picture
+
+                        <Modal title="Choose your profile picture" visible={pictureChooseIsShwon} onOk={handleOk} onCancel={handleCancel}>
+                            <p>Some contents...</p>
+                            <p>Some contents...</p>
+                            <p>Some contents...</p>
+                        </Modal>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    ): null}
+    </>
+}
+
+
+
+
+
+
 const AccountSetting = () => {
+    const [pictureChooseIsShwon, setPictureChooseIsShown] = useState(false)
+
+    const openChoose = () => {
+        setPictureChooseIsShown(prev => ! prev)
+    }
+
+    
+
     return (
         <div>
             <NavBar />
@@ -62,9 +119,10 @@ const AccountSetting = () => {
             <div className='heading'>
                 Account Settings
             </div>
-            <div className='profile-picture'>
-                
+            <div className='profile-picture' onClick={openChoose}>
+                <Avatar size={400} />
             </div>
+            <PictureMenu pictureChooseIsShwon={pictureChooseIsShwon} setPictureChooseIsShown={setPictureChooseIsShown} />
             <div className='info-container'>
                 <div className='personal-information'>
                     <div className='info-heading'>
