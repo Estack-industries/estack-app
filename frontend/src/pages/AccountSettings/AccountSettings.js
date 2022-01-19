@@ -10,6 +10,8 @@ import AccountVecotr3 from './assets/accountVector3.svg'
 import AccountVecotr4 from './assets/accountVector4.svg'
 import GearsBig from './assets/2gearsBig.png'
 import ProfileImage from './assets/ProfileImage.png'
+import ProfileImage2 from './assets/ProfileImage2.png'
+import ProfileImage3 from './assets/ProfileImage3.png'
 
 import Footer from '../../components/Footer/Footer';
 
@@ -57,7 +59,7 @@ function Background() {
 	);
 }
 
-function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}) {
+function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}, props) {
     const picutreRef = useRef()
 
     const closePicture = e => {
@@ -82,11 +84,7 @@ function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}) {
                     <div className='image-header'>
                         Please Choose Your Profile Picture
 
-                        <Modal title="Choose your profile picture" visible={pictureChooseIsShwon} onOk={handleOk} onCancel={handleCancel}>
-                            <p>Some contents...</p>
-                            <p>Some contents...</p>
-                            <p>Some contents...</p>
-                        </Modal>
+                      
                     </div>
 
                 </div>
@@ -105,11 +103,30 @@ function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}) {
 
 const AccountSetting = () => {
     const [pictureChooseIsShwon, setPictureChooseIsShown] = useState(false)
+    const [profileImage, setProfileImage] = useState(null)
+    const uploadedImage = React.useRef(null)
+    const imageUploader = React.useRef(null)
 
     const openChoose = () => {
         setPictureChooseIsShown(prev => ! prev)
     }
 
+    const handleImageChange = () => {
+        setProfileImage(profileImage)
+    }
+
+    const handleImageUpload = e => {
+        const [file] = e.target.files;
+        if (file) {
+          const reader = new FileReader();
+          const { current } = uploadedImage;
+          current.file = file;
+          reader.onload = e => {
+            current.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      };
     
 
     return (
@@ -119,10 +136,17 @@ const AccountSetting = () => {
             <div className='heading'>
                 Account Settings
             </div>
-            <div className='profile-picture' onClick={openChoose}>
-                <Avatar size={400} />
+            <div className='profile-picture' onClick={() => imageUploader.current.click()}>
+                {/* <Avatar size={500} src={profileImage}> */}
+                <div>
+                    <input type="file" accept="image/*" onChange={handleImageUpload} ref={imageUploader} style={{display: "none"}}/>
+                    <div style={{height: "460px", width: "460px"}} >
+                        <img ref={uploadedImage} style={{ width: "100%", height: "100%", position: "acsolute"}}/>
+                    </div>
+                </div>
+              {/* </Avatar> */}
             </div>
-            <PictureMenu pictureChooseIsShwon={pictureChooseIsShwon} setPictureChooseIsShown={setPictureChooseIsShown} />
+            <PictureMenu pictureChooseIsShwon={pictureChooseIsShwon} setPictureChooseIsShown={setPictureChooseIsShown} handleImageChange={handleImageChange} pic2={ProfileImage2} pic3={ProfileImage3} />
             <div className='info-container'>
                 <div className='personal-information'>
                     <div className='info-heading'>

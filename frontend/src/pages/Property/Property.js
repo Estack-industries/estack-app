@@ -100,19 +100,11 @@ function Background() {
 }
 
 
-
-
-
-
-
-
-
-
 function AgentMenu ({agentIsShown, setAgentIsShown}) {
     const agentRef = useRef()
   
     const closeAgent = e => {
-      if(agentRef. current ===e.target) {
+      if(agentRef.current === e.target) {
         setAgentIsShown(false)
       }
     }

@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 
-.popup {
+/* .popup {
     position: fixed;
     top: 0;
     left: 0;
@@ -64,9 +64,9 @@
     align-items: center;
     background-color: rgba(0,0,0,0.4); 
     z-index: 1;
-  }
+  } */
 
-  .popup-inner {
+  /* .popup-inner {
     position: relative;
     display: flex;
     justify-content: center;
@@ -75,7 +75,7 @@
     max-width: 900px;
     background-color: #FFFFFF;
     z-index: 1;
-  }
+  } */
 
   .image-header {
     display: flex;
