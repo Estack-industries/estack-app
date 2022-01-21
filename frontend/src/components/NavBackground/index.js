@@ -84,7 +84,7 @@ function drawBackground(srcArray) {
 		if (src === undefined || src === null) continue;
 
 		const left = 14.4 * (src.left ?? 0);
-		const bottom = 71.8 * (src.bottom ?? 0);
+		const bottom = 7.18 * (src.bottom ?? 0);
 		const width = 14.4 * (src.width ?? 100);
 		let height = src.height === undefined ? undefined : 71.8 * src.height;
 
