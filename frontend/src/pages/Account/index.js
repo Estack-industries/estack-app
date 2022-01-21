@@ -1,16 +1,17 @@
-import React, {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
 import Statistics from './components/statistics';
 import FavoritedHomes from './components/favorited';
+import MessageMenu from './components/messages'
 import fetchData from './dataFetching'
 import styles from './index.module.css';
 
 import backgroundImage from './assets/background.svg';
 import editPicture from './assets/edit-picture.svg';
 
-function SettingButtons({text, notification = 0, color = '#0193fd'}) {
+function SettingButtons({text, notification = 0, color = '#0193fd', onClick}) {
 	if (notification > 99) notification = '99+';
 
 	return (
@@ -28,7 +29,7 @@ function SettingButtons({text, notification = 0, color = '#0193fd'}) {
 					</svg>
 				</div>
 			}	
-			<button style={{background: color}}>
+			<button style={{background: color}} onClick={onClick}>
 				{text}
 			</button>
 		</div>
@@ -36,8 +37,8 @@ function SettingButtons({text, notification = 0, color = '#0193fd'}) {
 }
 
 function UserPage() {
-	const [userData, setUserData] = React.useState({});
-	
+	const [userData, setUserData] = useState({});
+	const [messageOpen, setMessageOpen] = useState(false);
 	
 	useEffect(function() {
 		fetchData('example').then(function(data) {
@@ -58,7 +59,7 @@ function UserPage() {
 			<Background src={backgroundImage}/>
 			<Navbar />
 			<main>
-				<div className="full-width">
+				<div style={{width: '100%'}}>
 					<h1 className={styles.heading}>
 						Dashboard
 					</h1>
@@ -76,11 +77,14 @@ function UserPage() {
 				</div>
 				<button id={styles.upgrade}>Upgrade</button>
 				<div id={styles.settings}>
-					<SettingButtons text='Messages' notification={userData?.messages ?? 0}/>
+					<SettingButtons text='Messages' notification={userData?.messages ?? 0} onClick={() => setMessageOpen(!messageOpen)}/>
 					<SettingButtons text='My Cards' notification={userData?.cards?.length ?? 0}/>
 					<SettingButtons text='Account Settings'/>
 					<SettingButtons text='Deleted' color='#f4a523'/>
 				</div>
+				{messageOpen &&
+					<MessageMenu userData={userData}/>
+				}
 				{userData &&
 					<Statistics userData={userData}/>
 				}

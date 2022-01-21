@@ -3,13 +3,22 @@ import sampleHouse1 from './assets/sample/sample-house-1.jpg';
 import sampleHouse2 from './assets/sample/sample-house-2.jpg';
 import sampleHouse3 from './assets/sample/sample-house-3.jpg';
 import sampleHouse4 from './assets/sample/sample-house-4.jpg';
+import sampleHouse5 from './assets/sample/sample-house-5.jpg';
+import sampleContacts1 from './assets/sample/sample-contact-1.jpg';
+import sampleContacts2 from './assets/sample/sample-contact-2.png';
+import sampleContacts3 from './assets/sample/sample-contact-3.jpg';
+import sampleContacts4 from './assets/sample/sample-contact-4.jpg';
+import sampleContacts5 from './assets/sample/sample-contact-5.png';
 
-async function Fetching(id) {
-	await new Promise(function(resolve) {setTimeout(resolve, 2000)});
+const Fetching = async (id) => {
+	await new Promise((resolve) => {setTimeout(resolve, 2000)});
 
 	if (id === 'example') return {
+		id: 'example',
 		picture: picture,
+		name: 'Roman Vasilev',
 		messages: 16,
+		sentMessagesToday: 10,
 		favoritedHomes: [
 			{
 				image: sampleHouse1,
@@ -151,4 +160,80 @@ async function Fetching(id) {
 	else return {}
 }
 
+const FetchingContacts = async (id) => {
+	await new Promise((resolve) => {setTimeout(resolve, 2000)});
+
+	if (id === 'example') return [
+		{
+			id: 'abner-antonio-100',
+			name: 'Abner Antonio',
+			group: 'Buyers',
+			profilePicture:  sampleContacts1,
+			online: true,
+		},
+		{
+			id: 'alex-fominikh-100',
+			name: 'Alex Fominikh',
+			group: 'Buyers',
+			profilePicture: sampleContacts2,
+			online: false,
+		},
+		{
+			id: 'aubrey-zolotukhin-100',
+			name: 'Andrey Zolotukhin',
+			group: 'Buyers',
+			profilePicture: sampleContacts3,
+			online: false,
+		},
+		{
+			id: 'bohdan-kononets-100',
+			name: 'Bohdan Kononets',
+			group: 'Buyers',
+			profilePicture: sampleContacts4,
+			online: true,
+		},
+		{
+			id: 'elena-buzila-100',
+			name: 'Elena Buzila',
+			group: 'Renters',
+			profilePicture: sampleContacts5,
+		}
+	]
+};
+
+export const FetchingMessages = async (id, contactId) => {
+	await new Promise(function(resolve) {setTimeout(resolve, 2000)});
+
+	if (id === 'example' && contactId === 'abner-antonio-100') return [
+		{
+			sender: 'example',
+			text: 'Hi, how can I help you?',
+			date: Date.now() - 1000 * 60 * 60 * 24 * 2,
+		},
+		{
+			sender: 'abner-antonio-100',
+			text: 'What\'s up? how much is the house im interested in making an appointment to see the house in person',
+			date: Date.now() - 1000 * 60 * 60 * 24 * 1,
+			attachments: [
+				{
+					url: sampleHouse5,
+					caption: 'Property #1'
+				}
+			]
+		},
+		{
+			sender: 'example',
+			text: 'Sure we can set a time and date',
+			date: Date.now() - 1000 * 60,
+		},
+		{
+			sender: 'abner-antonio-100',
+			text: 'Lorem ipsum',
+			date: Date.now(),
+		},
+	]
+}
+
 export default Fetching;
+
+export { FetchingContacts };

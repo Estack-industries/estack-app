@@ -23,12 +23,14 @@ const moneyFormat = function(number) {
 
 function dateFormat(date) {
 	date = new Date(date);
-
-	const month = (date.getMonth() + 1).toString().padStart(2, '0');
-	const day = date.getDate().toString().padStart(2, '0');
-	const year = date.getFullYear();
-
-	return day + '/' + month + '/' + year;
+	let formattedDate = date.toLocaleDateString('en-US');
+	return formattedDate;
 }
 
-export { moneyFormat, dateFormat};
+function timeFormat(date) {
+	date = new Date(date);
+	let formattedTime = date.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'});
+	return formattedTime
+}
+
+export { moneyFormat, dateFormat, timeFormat };
