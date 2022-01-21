@@ -15,6 +15,9 @@ function App() {
 		<Router>
 			<Switch>
 				<Route exact path="/">
+					<Landing />
+				</Route>
+				<Route path="/about-us">
 					<About />
 				</Route>
 				<Route path="/plans">
