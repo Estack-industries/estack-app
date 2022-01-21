@@ -30,14 +30,7 @@ const About = () => {
 			<Background src={[{src: AboutMainImage, width: 64, left: 13}]}/>
 			<Navbar />
 
-			<div className="large-space" />
-			<div className="large-space" />
-			<div className="large-space" />
-			<div className="large-space" />
-			<div className="large-space" />
-			<div className="large-space" />		
-
-			<div className="full-width">
+			<div className="full-width" style={{marginTop: '3em'}}>
 				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
 					About Us
 				</p>
