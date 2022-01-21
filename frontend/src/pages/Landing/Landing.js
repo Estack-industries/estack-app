@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 
 import './Landing.css';
 import RegisterAndLoginDialog from '../../components/RegisterAndLoginDialog/RegisterAndLoginDialog';
+import Navbar from '../../components/Navbar/Navbar';
+import NavBackground from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
 import Buy from './assets/buy.jpg';
 import Rent from './assets/rent.jpg';
@@ -14,6 +16,10 @@ import BobPhoto from './assets/bob-photo.svg';
 import LauraPhoto from './assets/laura-photo.svg';
 import TimPhoto from './assets/tim-photo.svg';
 import StarImage from './assets/star-image.svg';
+import BackgroundClouds from './assets/nav-background-clouds.png';
+import BackgroundFamily from './assets/nav-background-family.png';
+import BackgroundHouse from './assets/nav-background-house.png';
+import AboutUs from './assets/about-us.jpg';
 
 const Break = () => {
 	return (
@@ -46,6 +52,17 @@ function Landing() {
 
 	return (
 		<>
+			<NavBackground src={[{src: BackgroundClouds, bottom: 50}, {src: BackgroundFamily, width: 45, left: 10}, {src: BackgroundHouse, width: 45, left: 52, bottom: 20}]}/>
+			<Navbar/>
+			<h1 className='page-header'>
+				Home <span>is not a place</span>
+				<span style={{display: 'block', marginLeft: '25%'}}>It's a feeling.</span>
+			</h1>
+			<input id='search-by-location' placeholder='Enter an address, or ZIP code'/>
+			<div className='flex-row' style={{marginTop: '8em'}}>
+				<p className='about-us-box'>The Agency's mission is to modernize and progress the experience of buying and selling real estate by cultivating a spirit of collaboration, innovation, and integrity.</p>
+				<img className='about-us-image' src={AboutUs} alt=''/>
+			</div>
 			<div className="landing-middle">
 				<div className="landing-middle-container">
 					<div className="section-title">
@@ -165,7 +182,6 @@ function Landing() {
 					</div>
 				</div>
 			</div>
-
 			<Footer />
 			<RegisterAndLoginDialog
 				isOpened={isRegisterDialogOpened}

@@ -8,6 +8,46 @@
 	flex-direction: row;
 }
 
+h1.page-header {
+	width: 80%;
+	font-size: 3.5em;
+	color: #ffffff;
+	margin: 0.8em 10%;
+}
+
+h1.page-header span {
+	font-size: 0.65em;
+}
+
+#search-by-location {
+	width: 40%;
+	padding: 1em 1.5em;
+	margin: 0em 0em 1em 10%;
+	border: 0.15em solid #8a8a8a;
+	border-radius: 1em;
+}
+
+.about-us-box {
+	width: 100%;
+	height: 100%;
+	padding: 2em;
+	margin: auto 5em 0em 5em;
+	color: #ffffff;
+	background-color: #266cf8;
+	border: 1em solid #98d4ff;
+	border-radius: 1em;
+	font-size: 1.1em;
+}
+
+.about-us-image {
+	height: 25em;
+	width: 16em;
+	object-fit: cover;
+	margin-right: 4em;
+	border-top-left-radius: 4em;
+	box-shadow: 0em 5em 4em 0em #0000004d;
+}
+
 .landing-middle-container {
 	display: flex;
 	flex-direction: column;
@@ -149,6 +189,10 @@
 
 	.break {
 		width: 75%;
+	}
+
+	.about-us-image {
+		display: none;
 	}
 }
 
