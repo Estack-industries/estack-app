@@ -26,7 +26,7 @@ Go to [user.js](routes/users.js)
 
 ---
 
-`post /account` Retrieves information from an account.
+#### Frontend `/account` retrieves information from an account.
 
 \- Message me, Kyle Smith, if you have any questions.
 
@@ -45,8 +45,13 @@ Request body
 Response body
 ```ts
 {
+   id: string,
+   name: string,
    picture: string | Buffer | Image,
+   messages: number, // Number of unread messages.
+   sentMessagesToday: number // Amoung of messages the user has sent today. This is for rate limiting messages.
    favoritedHomes: {
+      id: string, // Or the link to the home.
       image: string | Buffer | Image,
       address: string,
       price: number,
@@ -79,6 +84,61 @@ Response body
       date: string | number | Date,
       amount: number,
    }[],
+   stats: { // Stats about the user: total income, total expenses, etc.
+      name: string,
+      amount: number,
+      color: string
+   }[],
 }
 ```
 ---
+
+#### Retrives an array of messages between two users.
+
+\- Message me, Kyle Smith, if you have any questions.
+
+Request Body
+```ts
+{
+   uid: string,
+   token: string
+} // Or however you authentificate a user on the backend, idk.
+``` 
+
+Response Body
+```ts
+{
+   sender: string, // ID of the message sender.
+   text: string,
+   date: string | number | Date,
+   attachments: {
+      url: string | Buffer, // URL of the attachment: image, video, etc.
+      caption: string // Caption of the attachment.
+   }[],
+}[]
+```
+
+---
+
+#### Retrieves an array of contacts from one user.
+
+\- Message me, Kyle Smith, if you have any questions.
+
+Request Body
+```ts
+{
+   uid: string,
+   token: string
+} // Or however you authentificate a user on the backend, idk.
+```
+
+Response Body
+```ts
+{
+   id: string,
+   name: string,
+   group: string, // Group the user belongs to: Buyer, Seller, etc.
+   profilePicture:  string | Buffer | Image,
+   online: boolean,
+}[]
+```
