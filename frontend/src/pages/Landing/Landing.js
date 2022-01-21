@@ -46,127 +46,127 @@ function Landing() {
 
 	return (
 		<>
-				<div className="landing-middle">
-					<div className="landing-middle-container">
-						<div className="section-title">
-							<Break />
-							<h2>Our Pleasure to Help you in</h2>
-							<Break />
-						</div>
-
-						<div className="section">
-							<ShadowContainerImage src={Buy} text="Buy"/>
-							<ShadowContainerImage src={Rent} text="Rent"/>
-							<ShadowContainerImage src={Sell} text="Sell"/>
-						</div>
+			<div className="landing-middle">
+				<div className="landing-middle-container">
+					<div className="section-title">
+						<Break />
+						<h2>Our Pleasure to Help you in</h2>
+						<Break />
 					</div>
 
-					<div className="landing-middle-container">
-						<div className="section-title">
-							<Break />
-							<h2>Why Choose Us?</h2>
-							<Break />
-						</div>
-
-						<div className="section">
-							<ShadowContainer className={'flex-column'}>
-								<img src={WhyUs1} alt="why-us-1" />
-								<p className="text">
-									You’ll be in direct contact with the
-									landlord/agent and he’ll help you sort out
-									any doubts that you may have
-								</p>
-							</ShadowContainer>
-							<ShadowContainer className={'flex-column'}>
-								<img src={WhyUs2} alt="why-us-2" />
-								<p className="text">
-									We give you the details and every
-									requirement that is needed for you to buy,
-									rent or sell
-								</p>
-							</ShadowContainer>
-							<ShadowContainer className={'flex-column'}>
-								<img src={WhyUs3} alt="why-us-3" />
-								<p className="text">
-									We help you close the deal of your dream
-									home
-								</p>
-							</ShadowContainer>
-						</div>
-					</div>
-
-					<div className="landing-middle-container">
-						<div className="section-title">
-							<Break />
-							<h2>What People Say About Us</h2>
-							<Break />
-						</div>
-
-						<div className="section">
-							<ShadowContainer className={'flex-row'}>
-								<img
-									src={BobPhoto}
-									alt="bob-photo"
-									className="says-about-us"
-								/>
-								<div className="flex-column">
-									<p className="text">
-										“This page helped me find my dream home”
-									</p>
-									<div className="review-star-container">
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-									</div>
-								</div>
-							</ShadowContainer>
-
-							<ShadowContainer className={'flex-row'}>
-								<img
-									src={LauraPhoto}
-									alt="bob-photo"
-									className="says-about-us"
-								/>
-								<div className="flex-column">
-									<p className="text">
-										“Made it easy to find my new place”
-									</p>
-									<div className="review-star-container">
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-									</div>
-								</div>
-							</ShadowContainer>
-
-							<ShadowContainer className={'flex-row'}>
-								<img
-									src={TimPhoto}
-									alt="bob-photo"
-									className="says-about-us"
-								/>
-								<div className="flex-column">
-									<p className="text">
-										“This page helped me find my dream home”
-									</p>
-									<div className="review-star-container">
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-										<img src={StarImage} alt="star" />
-									</div>
-								</div>
-							</ShadowContainer>
-						</div>
+					<div className="section">
+						<ShadowContainerImage src={Buy} text="Buy"/>
+						<ShadowContainerImage src={Rent} text="Rent"/>
+						<ShadowContainerImage src={Sell} text="Sell"/>
 					</div>
 				</div>
 
-				<Footer />
+				<div className="landing-middle-container">
+					<div className="section-title">
+						<Break />
+						<h2>Why Choose Us?</h2>
+						<Break />
+					</div>
+
+					<div className="section">
+						<ShadowContainer className={'flex-column'}>
+							<img src={WhyUs1} alt="why-us-1" />
+							<p className="text">
+								You’ll be in direct contact with the
+								landlord/agent and he’ll help you sort out
+								any doubts that you may have
+							</p>
+						</ShadowContainer>
+						<ShadowContainer className={'flex-column'}>
+							<img src={WhyUs2} alt="why-us-2" />
+							<p className="text">
+								We give you the details and every
+								requirement that is needed for you to buy,
+								rent or sell
+							</p>
+						</ShadowContainer>
+						<ShadowContainer className={'flex-column'}>
+							<img src={WhyUs3} alt="why-us-3" />
+							<p className="text">
+								We help you close the deal of your dream
+								home
+							</p>
+						</ShadowContainer>
+					</div>
+				</div>
+
+				<div className="landing-middle-container">
+					<div className="section-title">
+						<Break />
+						<h2>What People Say About Us</h2>
+						<Break />
+					</div>
+
+					<div className="section">
+						<ShadowContainer className={'flex-row'}>
+							<img
+								src={BobPhoto}
+								alt="bob-photo"
+								className="says-about-us"
+							/>
+							<div className="flex-column">
+								<p className="text">
+									“This page helped me find my dream home”
+								</p>
+								<div className="review-star-container">
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+								</div>
+							</div>
+						</ShadowContainer>
+
+						<ShadowContainer className={'flex-row'}>
+							<img
+								src={LauraPhoto}
+								alt="bob-photo"
+								className="says-about-us"
+							/>
+							<div className="flex-column">
+								<p className="text">
+									“Made it easy to find my new place”
+								</p>
+								<div className="review-star-container">
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+								</div>
+							</div>
+						</ShadowContainer>
+
+						<ShadowContainer className={'flex-row'}>
+							<img
+								src={TimPhoto}
+								alt="bob-photo"
+								className="says-about-us"
+							/>
+							<div className="flex-column">
+								<p className="text">
+									“This page helped me find my dream home”
+								</p>
+								<div className="review-star-container">
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+									<img src={StarImage} alt="star" />
+								</div>
+							</div>
+						</ShadowContainer>
+					</div>
+				</div>
+			</div>
+
+			<Footer />
 			<RegisterAndLoginDialog
 				isOpened={isRegisterDialogOpened}
 				onSwitch={regsiterDialogSwitch}
