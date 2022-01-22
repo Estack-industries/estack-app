@@ -1,6 +1,10 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
+import {makeStyles, Box, Typography, IconButton, Popover, TextField, InputLabel, Button} from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
+import CloseIcon from "@material-ui/icons/Close";
+
 import 'antd/dist/antd.css';
-import {Avatar, Modal, Button} from 'antd';
+import EditButton from 'react-edit-button'
 import './AccountSettings.css';
 
 import EStackLogo from './assets/e-stack-logo.svg';
@@ -12,6 +16,7 @@ import GearsBig from './assets/2gearsBig.png'
 import ProfileImage from './assets/ProfileImage.png'
 import ProfileImage2 from './assets/ProfileImage2.png'
 import ProfileImage3 from './assets/ProfileImage3.png'
+import PlaceHolderImage from './assets/placeholderImage.png'
 
 import Footer from '../../components/Footer/Footer';
 
@@ -59,61 +64,102 @@ function Background() {
 	);
 }
 
-function PictureMenu ({pictureChooseIsShwon, setPictureChooseIsShown}, props) {
-    const picutreRef = useRef()
 
-    const closePicture = e => {
-        if(picutreRef.current === e.target) {
-            setPictureChooseIsShown(false)
-        }
-    } 
+const useStyle = makeStyles({
+   
+   
+    popoverContainer: {
+      position: "relative"
+    },
+    popoverCloseIcon: {
+      position: "absolute",
+      top: 0,
+      right: 0
+    },
+  });
 
-    const handleOk = () => {
-        setPictureChooseIsShown(false);
-      };
-    
-    const handleCancel = () => {
-        setPictureChooseIsShown(false);
-      };
-
-
-    return <>{pictureChooseIsShwon ? (
-        <div className='popup' ref={picutreRef} onClick={closePicture}>
-            <div className='popup-inner'>
-                <div className='image-menu'>
-                    <div className='image-header'>
-                        Please Choose Your Profile Picture
-
-                      
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-    ): null}
-    </>
-}
-
-
-
+  const InlineEditor = ({ labelText, variant, value, onConfirmChange }) => {
+    const [editMode, setEditMode] = React.useState(false);
+    const [internalValue, setInternalValue] = React.useState(value);
+  
+    const classes = useStyle();
+    const typoRef = React.useRef();
+  
+    useEffect(() => {
+      setInternalValue(value);
+    }, [value]);
+  
+    const handleClick = () => {
+      setEditMode(!editMode);
+    };
+    const handleClickConfirm = () => {
+      setEditMode(!editMode);
+      onConfirmChange(internalValue);
+    };
+  
+    const handleChange = ev => {
+      setInternalValue(ev.target.value);
+    };
+    return (
+      <Box display="flex" flexDirection="row" alignItems="center">
+        {labelText && (
+          <Box pr={1}>
+            <InputLabel>{labelText}</InputLabel>
+          </Box>
+        )}
+        <Box pr={1}>
+          <Typography ref={typoRef} variant={variant}>
+            {value}
+          </Typography>
+  
+          <Popover
+            open={editMode}
+            anchorEl={typoRef.current}
+            anchorOrigin={{ vertical: "top", horizontal: "center" }}
+            transformOrigin={{ vertical: "top", horizontal: "center" }}
+          >
+            <Box display="flex" flexDirection="column" className={classes.popoverContainer}>
+              <Box display="flex" width="100%" justifyContent="flex-end" className={classes.popoverCloseIcon}>
+                <IconButton key="close" size="small" onClick={handleClick}>
+                  <CloseIcon className={classes.icon} />
+                </IconButton>
+              </Box>
+              <Box p={1}>
+                <TextField label="Please Write Your Name" fullWidth variant="standard" value={internalValue} onChange={handleChange}/>
+              </Box>
+              <Box p={1} >
+                <Button color="primary" size="small" variant="outlined" onClick={handleClickConfirm}>
+                  Confirm
+                </Button>
+                <Button
+                  classes={{
+                    outlined: classes.errorButton
+                  }}
+                  size="small"
+                  variant="outlined"
+                  onClick={handleClick}
+                >
+                  Cancel
+                </Button>
+              </Box>
+            </Box>
+          </Popover>
+        </Box>
+        <Box>
+          <button cla onClick={handleClick}>
+            Edit
+          </button>
+        </Box>
+      </Box>
+    );
+  };
 
 
 
 const AccountSetting = () => {
-    const [pictureChooseIsShwon, setPictureChooseIsShown] = useState(false)
-    const [profileImage, setProfileImage] = useState(null)
     const uploadedImage = React.useRef(null)
     const imageUploader = React.useRef(null)
-
-    const openChoose = () => {
-        setPictureChooseIsShown(prev => ! prev)
-    }
-
-    const handleImageChange = () => {
-        setProfileImage(profileImage)
-    }
+    const [personalInfo, setPersonalInfo] = React.useState({});
 
     const handleImageUpload = e => {
         const [file] = e.target.files;
@@ -127,7 +173,9 @@ const AccountSetting = () => {
           reader.readAsDataURL(file);
         }
       };
-    
+    const _setState = key => value => {
+    setPersonalInfo({ ...personalInfo, [key]: value });
+    };
 
     return (
         <div>
@@ -136,31 +184,71 @@ const AccountSetting = () => {
             <div className='heading'>
                 Account Settings
             </div>
-            <div className='profile-picture' onClick={() => imageUploader.current.click()}>
-                {/* <Avatar size={500} src={profileImage}> */}
+            <div className='picture-container'  onClick={() => imageUploader.current.click()}>
                 <div>
                     <input type="file" accept="image/*" onChange={handleImageUpload} ref={imageUploader} style={{display: "none"}}/>
-                    <div style={{height: "460px", width: "460px"}} >
-                        <img ref={uploadedImage} style={{ width: "100%", height: "100%", position: "acsolute"}}/>
+                    <div >
+                        <img className='profile-picture' ref={uploadedImage} placeholder={PlaceHolderImage} />
                     </div>
                 </div>
-              {/* </Avatar> */}
             </div>
-            <PictureMenu pictureChooseIsShwon={pictureChooseIsShwon} setPictureChooseIsShown={setPictureChooseIsShown} handleImageChange={handleImageChange} pic2={ProfileImage2} pic3={ProfileImage3} />
             <div className='info-container'>
                 <div className='personal-information'>
                     <div className='info-heading'>
                         Personal Information
+                        <div className='name'>
+                            Name
+                            <Box>
+                                <InlineEditor value={personalInfo.name} variant="body1" onConfirmChange={_setState("name")}
+                                />
+                            </Box>
+
+                        </div>
+                        <div className='username'>
+                            Username
+                            <Box>
+                                <InlineEditor value={personalInfo.username} variant="body1" onConfirmChange={_setState("username")}
+                                />
+                            </Box>
+                        </div>
+                        <div className='reviews'>
+                            Reviews
+                            <button>Edit</button>
+                        </div>
                     </div>
                 </div>
                 <div className='sign-in-security'>
                     <div className='info-heading'>
                         Sign-in & Security
+                        <div className='email'>
+                            Email Address
+                            <button>Edit</button>
+                        </div>
+                        <div className='password'>
+                            Password
+                            <button>Edit</button>
+                        </div>
+                        <div className='google'>
+                            Google Sign-In
+                            <button>Edit</button>
+                        </div>
                     </div>
                 </div>
                 <div className='manage-account'>
                     <div className='info-heading'>
                         Manage Account
+                        <div className='deactivate'>
+                            Deactivate My Account
+                            <button>Deactivate</button>
+                        </div>
+                        <div className='privacy-cookies'>
+                            Privacy & Cookies
+                            <button>Edit</button>
+                        </div>
+                        <div className='other-accounts'>
+                            Link to Another Account
+                            <button>Edit</button>
+                        </div>
                     </div>
                 </div>
                 <div className='notifications'>

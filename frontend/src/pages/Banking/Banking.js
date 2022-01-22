@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './Banking.css';
-
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
 import BankingVector1 from './assets/BankingVector1.svg'

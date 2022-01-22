@@ -27,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: auto;
     margin-top: 60px;
     margin-bottom: 50px;
@@ -39,57 +40,30 @@
     text-shadow: 0px 4px 4px #000000;
 }
 
-.profile-picture {
+.picture-container {
     display: flex;
     justify-content: center;
+    width: 426px;
     margin: auto;
     align-items: center;
     margin-bottom: 214px;
-    width: 450px;
     margin-top: 50px;
     box-sizing: border-box;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 15px;
+    background-image: url('./assets/placeholderImage.png');
+    background-position: center;
+    background-size: 40%;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 
-/* .popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0,0,0,0.4); 
-    z-index: 1;
-  } */
+.profile-picture {
+    height: 323px;
+    width: 426px;
+    width: auto;
+    border-radius: 15px;
 
-  /* .popup-inner {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: 100%;
-    max-width: 900px;
-    background-color: #FFFFFF;
-    z-index: 1;
-  } */
-
-  .image-header {
-    display: flex;
-    margin: auto;
-    margin-top: 60px;
-    margin-bottom: 50px;
-    font-family: Open Sans;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 50px;
-    line-height: 87px;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px #000000;}
-  
+}
 
 .info-container {
     width: 1247px;
@@ -122,15 +96,37 @@
     margin-left: 31px;
     font-size: 35px;
     line-height: 48px;
-    /* identical to box height */
-    
-    
     color: #000000;
 }
 
+.name, .username, .reviews, .email, .password, .google, .deactivate, .privacy-cookies, .other-accounts {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    margin-top: 41px;
+    font-size: 25px;
+    line-height: 34px;
+    width: 1100px;
+}
+
+p {
+    font-size: 2rem;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #0193FD;
+}
+
+
+
 .gears-big {
     position: absolute;
-
     width: 300px;
     height: 300px;
     left: 310px;
