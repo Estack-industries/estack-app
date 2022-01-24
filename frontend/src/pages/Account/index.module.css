@@ -78,12 +78,15 @@ h2.heading::after {
 	display: block;
 	margin: 1.2em auto 0.7em auto;
 	padding: 0.5em 8.5em;
+	width: fit-content;
+	color: #000000;
 	background-color: #ffffff;
 	border: 1px solid #f4a523;
 	border-radius: 1em;
 	box-shadow: 0px 4px 4px #00000040;
 	font-size: 1.2em;
 	font-weight: bold;
+	text-decoration: none;
 }
 
 #settings {

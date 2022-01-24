@@ -75,7 +75,7 @@ function UserPage() {
 						</>
 					}
 				</div>
-				<button id={styles.upgrade}>Upgrade</button>
+				<a id={styles.upgrade} href='/plans'>Upgrade</a>
 				<div id={styles.settings}>
 					<SettingButtons text='Messages' notification={userData?.messages ?? 0} onClick={() => setMessageOpen(!messageOpen)}/>
 					<SettingButtons text='My Cards' notification={userData?.cards?.length ?? 0}/>
