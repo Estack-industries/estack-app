@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { moneyFormat, dateFormat } from '../../utils';
+import { moneyFormat, dateFormat } from '../../../pages/Account/utils';
 import styles from './cards.module.css';
-import parentStyles from './index.module.css';
 
 const CardsPanel = ({cards}) => {
 
@@ -30,7 +29,7 @@ const CardsPanel = ({cards}) => {
 	}, [cards]);
 
 	return (
-		<div className={parentStyles.box}>
+		<div className={styles.box}>
 			<h4>My Cards</h4>
 			<div style={{position: 'relative'}}>
 				<div id={styles.shadowCard} style={{backgroundColor: '#cbe9ff'}}/>

@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import CardsPanel from './cards';
+import CardsPanel from '../../../../components/Dashboard/cards/cards';
 import SchedulePanel from './schedule';
 import StatsPanel from './stats';
 
