@@ -64,7 +64,7 @@ const Navbar = () => {
 								aria-labelledby="navbarDropdown"
 							>
 								<li>
-									<a className="dropdown-item" href="#">
+									<a className="dropdown-item" href="/about-us">
 										Add Link 1
 									</a>
 								</li>
@@ -77,7 +77,7 @@ const Navbar = () => {
 						</li>
 					</ul>
 					<ul className="navbar-nav ms-auto">
-						<a className="nav-link" href="/#">
+						<a className="nav-link" href="/account">
 							<img
 								src={DefaultUserIcon}
 								alt="default-user-icon"
