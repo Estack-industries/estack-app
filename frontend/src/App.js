@@ -8,6 +8,7 @@ import Landing from './pages/Landing/Landing';
 import About from './pages/About/About';
 import Plans from './pages/Plans/Plans';
 import Dashboard from './pages/Dashboard/Dashboard';
+import SellerDB from './pages/Dashboard/SellerDB';
 import Account from './pages/Account';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
 				</Route>
 				<Route path="/dashboard">
 					<Dashboard />
+				</Route>
+				<Route path="/sellerdashboard">
+					<SellerDB />
 				</Route>
 				<Route path="/account">
 					<Account />
