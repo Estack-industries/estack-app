@@ -5,7 +5,7 @@ import styles from './cards.module.css';
 const CardsPanel = ({cards}) => {
 
 	const [selectedCard, setSelectedCard] = useState({});
-
+	
 	useEffect(() => {
 		if (cards && cards.length > 0) {
 			setSelectedCard(cards[0]);
@@ -27,6 +27,28 @@ const CardsPanel = ({cards}) => {
 			window.removeEventListener('resize', cardResize);
 		}
 	}, [cards]);
+	
+	let cardPurpose = [0];
+
+	const cardPayment = (payment, index) => {
+	
+		cardPurpose.push(payment.purpose);
+
+		return (
+			<>
+				{cardPurpose[index + 1] !== cardPurpose[index] && 
+					<h4>{cardPurpose[index + 1]}</h4>
+				}
+				<div className={styles.historyElement} key={index}>
+					<p>{payment.address}</p>
+					<div>
+						<p>{dateFormat(payment.date)}</p>
+						<p>{moneyFormat(payment.amount)}</p>
+					</div>
+				</div>
+			</>
+		)
+	};
 
 	return (
 		<div className={styles.box}>
@@ -50,17 +72,8 @@ const CardsPanel = ({cards}) => {
 						/>
 					))}
 				</div>
-				<h4>Payed Lease</h4>
 				<div>
-					{selectedCard.payments && selectedCard.payments.map((payment, index) => (
-						<div className={styles.historyElement} key={index}>
-							<p>{payment.address}</p>
-							<div>
-								<p>{dateFormat(payment.date)}</p>
-								<p>{moneyFormat(payment.amount)}</p>
-							</div>
-						</div>
-					))}
+					{selectedCard.payments && selectedCard.payments.map(cardPayment)}
 					{!selectedCard.payments && <p style={{textAlign: 'center'}}>No payments yet</p>}
 				</div>
 			</div>

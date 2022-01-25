@@ -85,16 +85,19 @@ const Fetching = async (id) => {
 				profit: 14225,
 				payments: [
 					{
+						purpose: 'Payed Lease',
 						date: Date.now() - 1000 * 60 * 60 * 24 * 1,
 						amount: 2500,
 						address: '26 Young Avenue East Elmhurst, NY 11369',
 					},
 					{
+						purpose: 'Payed Lease',
 						date: Date.now() - 1000 * 60 * 60 * 24 * 2,
 						amount: 2500,
 						address: '8952 Glenholme Avenue Saugus, MA 01906',
 					},
 					{
+						purpose: 'Top Picks by User\'s',
 						date: Date.now() - 1000 * 60 * 60 * 24 * 3,
 						amount: 2500,
 						address: '56 Oak Valley Street Aberdeen, SD 57401',
