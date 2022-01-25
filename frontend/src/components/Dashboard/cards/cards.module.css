@@ -1,4 +1,7 @@
 .box {
+	display: flex;
+	flex-direction: column;
+	position: relative;
 	height: 100%;
 	background-color: #ffffff;
 	border: 2px solid #a4d7fc;
@@ -92,4 +95,9 @@
 .historyElement > div > p {
 	color: #959595;
 	font-size: 0.7em;
+}
+
+.verticalScroll {
+	overflow-y: auto;
+	flex-grow: 1;
 }

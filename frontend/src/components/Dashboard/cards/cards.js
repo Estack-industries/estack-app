@@ -72,10 +72,12 @@ const CardsPanel = ({cards}) => {
 						/>
 					))}
 				</div>
-				<div>
-					{selectedCard.payments && selectedCard.payments.map(cardPayment)}
-					{!selectedCard.payments && <p style={{textAlign: 'center'}}>No payments yet</p>}
-				</div>
+			</div>
+			<div className={styles.verticalScroll}>
+				{selectedCard.payments
+					? selectedCard.payments.map(cardPayment)
+					: <p style={{textAlign: 'center'}}>No payments yet</p>
+				}
 			</div>
 		</div>
 	)
