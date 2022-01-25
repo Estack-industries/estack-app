@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
+import EditAvatar from '../../components/EditAvatar';
 import Statistics from './components/statistics';
 import FavoritedHomes from './components/favorited';
 import MessageMenu from './components/messages'
@@ -9,7 +10,6 @@ import fetchData from './dataFetching'
 import styles from './index.module.css';
 
 import backgroundImage from './assets/background.svg';
-import editPicture from './assets/edit-picture.svg';
 
 function SettingButtons({text, notification = 0, color = '#0193fd', onClick}) {
 	if (notification > 99) notification = '99+';
@@ -45,15 +45,7 @@ function UserPage() {
 			setUserData(data);
 		});
 	}, []);
-	
-	const changeProfilePicture = function(e) {
-		const image = e.target.files[0];
-		if (image) {
-			const imageURL = URL.createObjectURL(image);
-			setUserData({...userData, picture: imageURL});
-		}	
-	}
-	
+
 	return (
 		<>
 			<Background src={backgroundImage}/>
@@ -64,17 +56,7 @@ function UserPage() {
 						Dashboard
 					</h1>
 				</div>
-				<div id={styles.pictureContainer}>
-					{userData.picture &&
-						<>
-							<div id={styles.editPicture}>
-								<input type='file' accept='image/*' onInput={changeProfilePicture}/>
-								<img src={editPicture} alt='Edit appearance'/>
-							</div>
-							<img src={userData.picture} alt='Profile appearance'/>
-						</>
-					}
-				</div>
+				<EditAvatar parentObject={userData} setParentObject={setUserData} parentKey='picture'/>
 				<a id={styles.upgrade} href='/plans'>Upgrade</a>
 				<div id={styles.settings}>
 					<SettingButtons text='Messages' notification={userData?.messages ?? 0} onClick={() => setMessageOpen(!messageOpen)}/>
