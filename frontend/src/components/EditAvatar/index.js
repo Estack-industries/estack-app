@@ -4,10 +4,11 @@ import editPicture from './edit-picture.svg';
 
 /**
  * A component that allows the user to edit their avatar.
- * @param {Image} [avatar] The user's current avatar.
- * @param {object} [parentObject] The user object useState value.
- * @param {function} [setParentObject] The user object useState set value.
- * @param {string} [parentKey] The position of the avatar inside of the user object.
+ * @param {object} prop The properties of the component.
+ * @param {string} [prop.avatar] The user's current avatar.
+ * @param {object} [prop.parentObject] The user object useState value.
+ * @param {function} [prop.setParentObject] The user object useState set value.
+ * @param {string} [prop.parentKey] The position of the avatar inside of the user object.
  * @example
  * // Simplest usage
  * <EditAvatar avatar={user.picture} />

@@ -4,8 +4,17 @@ import styles from './cards.module.css';
 
 /**
  * A panel of credit card information and payments
- * @param {object[]} cards Array of card objects.
- * @param {string} containerStyle CSS classname for the container, defaults to have a border and box shadow.
+ * @param {object} props
+ * @param {object[]} props.cards Array of card objects.
+ * @param {string} props.cards[].balance Card balance.
+ * @param {string} props.cards[].profit Monthly card profit from the E-stack.
+ * @param {object[]} props.cards[].payments Recent payments by the card.
+ * @param {string} props.cards[].payments[].purpose Purpose of the payment. Example: "Payed Lease", "Mortgage Payment", etc.
+ * @param {number} props.cards[].payments[].amount Amount of the payment.
+ * @param {Date} props.cards[].payments[].date Date of the payment.
+ * @param {string} props.cards[].payments[].address Relevant address about the payment.
+ * @param {string} props.containerStyle CSS classname for the container, defaults to have a border and box shadow.
+ * @returns {JSX.Element} An HTML element that displays a panel of credit card information and payments.
  * @example
  * // All properties should be optional.
  * <CardsPanel cards={[{

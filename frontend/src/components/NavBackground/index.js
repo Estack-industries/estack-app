@@ -107,8 +107,8 @@ function drawBackground(srcArray) {
 
 /**
  * Bubble-like background under navigation bar.
- * @param {object} [props] Component props
- * @param {string | array} props.src The string to the path of the image or an array of objects with the properties. Check examples.
+ * @param {object} props Component props
+ * @param {(string | {src: string, left: number, bottom: number, width: number, height: number}[])} props.src The string to the path of the image or an array of objects with the properties. Check examples.
  * @return {JSX.Element} React component of an HTML Canvas.
  * @example
  * // Generates a background without any images.
@@ -147,7 +147,6 @@ function drawBackground(srcArray) {
  * <NavBackground src={navImages}/>
  */
 function Background({src}) {
-
 	const [cacheSrc, setCacheSrc] = useState([]);
 	
 	useEffect(() => {
