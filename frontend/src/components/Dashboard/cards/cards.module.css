@@ -1,7 +1,4 @@
 .box {
-	display: flex;
-	flex-direction: column;
-	position: relative;
 	height: 100%;
 	background-color: #ffffff;
 	border: 2px solid #a4d7fc;
@@ -16,11 +13,15 @@
 	text-align: center;
 }
 
+#cardContainer {
+	position: relative;
+	width: min(66%, 16em);
+	margin: 0em auto;
+}
+
 #mainCard {
 	position: relative;
-	width: 66%;
 	aspect-ratio: 18 / 11;
-	left: 18%;
 	border-radius: 1em;
 }
 
@@ -39,9 +40,8 @@
 
 #shadowCard {
 	position: absolute;
-	left: 18%;
-	margin-top: 7%;
-	width: 61%;
+	margin-top: min(10%, 2em);
+	width: 92%;
 	aspect-ratio: 18 / 11;
 	border-radius: 1em;
 }
@@ -61,14 +61,12 @@
 }
 
 .historyElement {
+	display: flex;
 	width: 80%;
 	margin: auto;
 }
 
-.historyElement::before {
-	content: '';
-	display: block;
-	position: absolute;
+.historyElement .historyTab {
 	width: 0.2em;
 	height: 2em;
 	margin: 0.25em 0em 0em 0.6%;
@@ -76,7 +74,11 @@
 	border-radius: 0.1em;
 }
 
-.historyElement > p {
+.historyContent {
+	flex-grow: 1;
+}
+
+.historyContent > p {
 	width: 80%;
 	height: 1.5em;
 	margin-left: 11%;
@@ -85,14 +87,14 @@
 	overflow: hidden;
 }
 
-.historyElement > div {
+.historyContent > div {
 	display: flex;
 	justify-content: space-between;
 	width: 78%;
 	margin: auto;
 }
 
-.historyElement > div > p {
+.historyContent > div > p {
 	color: #959595;
 	font-size: 0.7em;
 }

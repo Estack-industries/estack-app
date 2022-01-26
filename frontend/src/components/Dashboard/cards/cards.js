@@ -50,20 +50,23 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 	
 	let cardPurpose = [0];
 
-	const cardPayment = (payment, index) => {
-	
-		cardPurpose.push(payment.purpose);
+	const CardPayment = ({payment, index}) => {
+		
+		cardPurpose[index + 1] = payment.purpose;
 
 		return (
 			<>
 				{cardPurpose[index + 1] !== cardPurpose[index] && 
 					<h4>{cardPurpose[index + 1]}</h4>
 				}
-				<div className={styles.historyElement} key={index}>
-					<p>{payment.address}</p>
-					<div>
-						<p>{dateFormat(payment.date)}</p>
-						<p>{moneyFormat(payment.amount)}</p>
+				<div className={styles.historyElement}>
+					<div className={styles.historyTab}/>
+					<div className={styles.historyContent}>
+						<p>{payment.address}</p>
+						<div>
+							<p>{dateFormat(payment.date)}</p>
+							<p>{moneyFormat(payment.amount)}</p>
+						</div>
 					</div>
 				</div>
 			</>
@@ -73,14 +76,16 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 	return (
 		<div className={containerStyle}>
 			<h4>My Cards</h4>
-			<div style={{position: 'relative'}}>
-				<div id={styles.shadowCard} style={{backgroundColor: '#cbe9ff'}}/>
-				<div id={styles.mainCard} style={{background: 'linear-gradient(to top right, #a4d7fc, #0193fd)'}}>
-					<div id='cardInfo'>
-						<p>Balance</p>
-						<p style={{fontSize: '1.6em'}}>{moneyFormat(selectedCard.balance)}</p>
-						<p>Monthly Profit</p>
-						<p style={{fontSize: '1.2em'}}>{moneyFormat(selectedCard.profit)}</p>
+			<div>
+				<div id={styles.cardContainer}style={{position: 'relative', width: 'min(66%, 16em)', margin: '0em auto'}}>
+					<div id={styles.shadowCard} style={{backgroundColor: '#cbe9ff'}}/>
+					<div id={styles.mainCard} style={{background: 'linear-gradient(to top right, #a4d7fc, #0193fd)'}}>
+						<div id='cardInfo'>
+							<p>Balance</p>
+							<p style={{fontSize: '1.6em'}}>{moneyFormat(selectedCard.balance)}</p>
+							<p>Monthly Profit</p>
+							<p style={{fontSize: '1.2em'}}>{moneyFormat(selectedCard.profit)}</p>
+						</div>
 					</div>
 				</div>
 				<div id={styles.selector}>
@@ -95,7 +100,9 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 			</div>
 			<div className={styles.verticalScroll}>
 				{selectedCard.payments
-					? selectedCard.payments.map(cardPayment)
+					? selectedCard.payments.map((e, i) => (
+						<CardPayment payment={e} index={i} key={i}/>
+					))
 					: <p style={{textAlign: 'center'}}>No payments yet</p>
 				}
 			</div>
