@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { moneyFormat, dateFormat } from '../../../pages/Account/utils';
 import styles from './cards.module.css';
 
-const CardsPanel = ({cards}) => {
+const CardsPanel = ({cards, containerStyle=styles.box}) => {
 
 	const [selectedCard, setSelectedCard] = useState({});
 	
@@ -51,7 +51,7 @@ const CardsPanel = ({cards}) => {
 	};
 
 	return (
-		<div className={styles.box}>
+		<div className={containerStyle}>
 			<h4>My Cards</h4>
 			<div style={{position: 'relative'}}>
 				<div id={styles.shadowCard} style={{backgroundColor: '#cbe9ff'}}/>
