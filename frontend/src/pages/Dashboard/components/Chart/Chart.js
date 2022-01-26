@@ -21,7 +21,7 @@ export default class LineChart extends Component {
         title: "Views",
         interval: 10
       },
-      width: 1500,
+      width: 1300,
       data: [{
         yValueFormatString: "##",
 				xValueFormatString: "Views This Month",

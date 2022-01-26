@@ -1,10 +1,11 @@
 import React from 'react';
+import {useEffect, useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
 import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
-
+import fetchData from './dataFetching'
 import Data from './exampleData.json';
 import './sellerdb.css';
 
@@ -12,13 +13,12 @@ import FrontPic from './assets/seller/front.png';
 import Line from './assets/seller/Line 85.png';
 import Divider from './assets/seller/divider.png';
 import Graph from './assets/seller/graph.png';
-import Topbar from './components/Topbar/Topbar';
-import Sidebar from './components/Sidebar/Sidebar';
 import Map from './components/Map/Map';
 import Percentage from './assets/seller/percentage.png';
 import LineChart from './components/Chart/Chart';
 import Calendar from './components/Calendar/Calendar';
 import DonutChart from './components/Chart/DonutChart';
+import Statistics from './components/Statistics';
 
 function Carousel() {
 	return (
@@ -73,7 +73,7 @@ function MainPanel() {
 			{Data.Panel.map((post) => {
 				return (
 					<div className="col">
-						<div className="card h-100">
+						<div className="card h-80 w-90">
 							<h3 className="card-title">{post.title}</h3>
 							<div className="small-space" />
 							<div className="card-block">
@@ -84,7 +84,7 @@ function MainPanel() {
 									<h5 className="detail">{post.detail}</h5>
 								</div>
 							</div>
-							<h5 className="detail">{post.conclusion}</h5>
+							<h6 className="detailTwo">{post.conclusion}</h6>
 						</div>
 					</div>
 				);
@@ -135,6 +135,14 @@ const location = {
 };
 
 function SellerDB() {
+	const [userData, setUserData] = useState({});
+	const [messageOpen, setMessageOpen] = useState(false);
+	
+	useEffect(function() {
+		fetchData('example').then(function(data) {
+			setUserData(data);
+		});
+	}, []);
 	return (
 		<>
 			<Background />
@@ -153,9 +161,7 @@ function SellerDB() {
 					<div class="card-body">Dashboard</div>
 				</div>
 				<div>
-					<Topbar />
-					<Sidebar />
-					<div className="board">other</div>
+					<Statistics userData={userData}/>
 				</div>
 				<div className="col text-center">
 					<a href="#">
@@ -187,7 +193,50 @@ function SellerDB() {
 						<img src={Graph} />
 					</div>
 					<div id="rd-box">
-						<p> active percentage</p>
+						<h5 className="ptitle">Active Percentage</h5>
+						<h6 className="psubtitle">
+							<span className="numb">594</span> &emsp;Total
+						</h6>
+						<div
+							style={{
+								margin: '2em auto',
+								width: 500,
+								height: '1em',
+								backgroundColor: '#CBE9FF',
+								borderRadius: '0.5em',
+							}}
+						>
+							<div
+								style={{
+									width: 85,
+									height: '1em',
+									backgroundColor: '#25A2FD',
+									borderRadius: '0.5em',
+								}}
+							></div>
+						</div>
+						<div
+							className="childOne"
+							style={{
+								margin: '2em auto',
+								width: 60,
+								height: '0.5em',
+								backgroundColor: '#25A2FD',
+								borderRadius: '0.5em',
+							}}
+						></div>{' '}
+						<p className="keyOne">Online</p>
+						<div
+							className="childTwo"
+							style={{
+								margin: '2em auto',
+								width: 60,
+								height: '0.5em',
+								backgroundColor: '#CBE9FF',
+								borderRadius: '0.5em',
+							}}
+						></div>{' '}
+						<p className="keyTwo">Offline</p>
 					</div>
 				</div>
 			</main>

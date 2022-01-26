@@ -22,6 +22,11 @@
 	padding: 50px;
 }
 
+.row {
+	margin: auto;
+	display: flex;
+}
+
 .column {
 	float: left;
 	width: 25%;
@@ -32,16 +37,24 @@
 }
 
 .colIcon {
+	float: left;
 	padding-left: 30px;
 }
 
 .detail {
+	float: left;
 	text-align: right;
-	padding-right: 70px;
+	margin-left: 70px;
+	padding-top: 30px;
+}
+
+.detailTwo {
+	text-align: right;
+	padding-right: 10px;
 }
 
 .line {
-	padding: 80px 0px 30px 150px;
+	padding: 80px 0px 30px 100px;
 }
 
 .header {
@@ -90,9 +103,8 @@ h2.heading::after {
 .half {
 	height: 100px;
 	position: block;
-	margin-left: 600px;
+	margin-left: 400px;
 	margin-right: auto;
-	position: flex;
 }
 
 .btn-danger {
@@ -129,26 +141,53 @@ h2.heading::after {
 }
 
 .chart {
-	padding-left: 200px;
+	margin: auto;
+	padding-left: 70px;
 }
 
 .cal {
 	width: 150px;
-	margin-left: 1350px;
+	margin-left: 1150px;
 }
 
 #st-box {
-  float: left;
-  padding-left: 200px;
+	float: left;
+padding-left: 50px;
+	margin: auto;
 }
+
 #nd-box {
-  float: left;
-  margin-left: 500px;
-  padding-top: 100px;
-  padding-left: 150px;
+	float: left;
+	margin-left: 425px;
+	padding-top: 100px;
+	padding-left: 150px;
 }
 #rd-box {
-  float: left;
+	float: left;
+	padding-left: 70px;
 }
 
+.ptitle {
+	text-align: center;
+	padding-top: 30px;
+}
 
+.numb,
+.psubtitle {
+	margin-top: 60px;
+}
+
+.numb {
+	font-size: xx-large;
+}
+
+.childOne,
+.childTwo {
+	width: 50%;
+	margin: auto;
+}
+
+.keyOne,
+.keyTwo {
+	text-align: center;
+}
