@@ -120,31 +120,31 @@ const Fetching = async (id) => {
 		rent: [
 			{
 				date: Date.now() - 1000 * 60 * 60 * 24 * 4,
-				amount: 1000000,
+				value: 1000000,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 0,
-				amount: 2500,
+				value: 2500,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 30,
-				amount: 3000,
+				value: 3016.143214321412341234,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 59,
-				amount: 1000,
+				value: 1000,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 97,
-				amount: 1500,
+				value: 1500,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 120,
-				amount: 500,
+				value: 500,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 364,
-				amount: 1000,
+				value: 1000,
 			}
 		],
 		stats: [
