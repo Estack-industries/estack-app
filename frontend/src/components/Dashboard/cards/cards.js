@@ -2,6 +2,26 @@ import { useState, useEffect } from 'react';
 import { moneyFormat, dateFormat } from '../../../pages/Account/utils';
 import styles from './cards.module.css';
 
+/**
+ * A panel of credit card information and payments
+ * @param {object[]} cards Array of card objects.
+ * @param {string} containerStyle CSS classname for the container, defaults to have a border and box shadow.
+ * @example
+ * // All properties should be optional.
+ * <CardsPanel cards={[{
+ *		id: 'card-id-1',
+ *		balance: 10000,
+ *		profit: 1000,
+ *		payments: [
+ *			{
+ *				purpose: 'Payed Lease',
+ *				date: Date.now() - 1000 * 60 * 60 * 24 * 1,
+ *				amount: 2500,
+ *				address: '26 Young Avenue East Elmhurst, NY 11369'
+ *			}
+ *		]
+ * }]}/>
+ */
 const CardsPanel = ({cards, containerStyle=styles.box}) => {
 
 	const [selectedCard, setSelectedCard] = useState({});
