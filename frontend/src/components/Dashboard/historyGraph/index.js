@@ -36,6 +36,8 @@ function calcSplinePoints(data, scalar = 1) {
  * A graph that displays the change of values over time. Only includes Dates starting from now to next year.
  * @param {object} props Properties for the graph.
  * @param {object[]} props.coordinates Array of objects with value and date properties.
+ * @param {number} props.coordinates[].value Value of the data point.
+ * @param {Date} props.coordinates[].date Date of the data point.
  * @returns {JSX.Element} An HTML element that displays a graph.
  */
 function HistoryGraph({ coordinates }) {
