@@ -128,7 +128,7 @@ const Fetching = async (id) => {
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 30,
-				value: 3016.143214321412341234,
+				value: 3200,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 59,
@@ -144,7 +144,7 @@ const Fetching = async (id) => {
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 364,
-				value: 1000,
+				value: 3000,
 			}
 		],
 		stats: [

@@ -2,29 +2,12 @@ import { moneyFormat } from '../../utils';
 import styles from './stats.module.css';
 import parentStyles from './index.module.css'
 import HistoryGraph from '../../../../components/Dashboard/historyGraph';
+import PinnedAddress from '../../../../components/Dashboard/pinnedAddress';
 
 import addStatistics from '../../assets/add-statistics.svg';
 import statCalendar from '../../assets/stat-icons/calendar.svg';
 import statCoin from '../../assets/stat-icons/coin.svg';
 import statDollar from '../../assets/stat-icons/dollar.svg';
-
-function PinnedAddresses({pinnedAddress}) {
-	if (pinnedAddress === undefined) pinnedAddress = {};	
-	return (
-		<div className={parentStyles.box} style={{display: 'flex', gap: '0.5em', padding: '0.1em 0.5em'}}>
-			<div className={styles.pinnedImageContainer}>
-				{pinnedAddress.image && <img src={pinnedAddress.image} alt='Pinned Address 1'/>}
-			</div>
-			<div className={styles.pinnedText}>
-				<p className={styles.pinnedTextUpper}>{pinnedAddress.address ?? 'Address'}</p>
-				<div className={styles.pinnedTextLower}>
-					<p>{moneyFormat(pinnedAddress.cost) || 'Rent Due'}</p>
-					<p>{pinnedAddress.costInterval ?? 'Interval'}</p>
-				</div>
-			</div>
-		</div>
-	)
-}
 
 function StatsPanel({userData}) {
 
@@ -95,8 +78,8 @@ function StatsPanel({userData}) {
 	return (
 		<div id={styles.container}>
 			<div className={styles.twoPanel + ' ' + styles.pinnedAddress} style={{height: '15%'}}>
-				<PinnedAddresses pinnedAddress={userData.pinnedAddresses?.[0]}/>
-				<PinnedAddresses pinnedAddress={userData.pinnedAddresses?.[1]}/>
+				<PinnedAddress address={userData.pinnedAddresses?.[0]}/>
+				<PinnedAddress address={userData.pinnedAddresses?.[1]}/>
 			</div>
 			<div className={parentStyles.box} style={{height: '35%'}}>
 				<h4 style={{marginBottom: 0}}>Monthly Rent</h4>
