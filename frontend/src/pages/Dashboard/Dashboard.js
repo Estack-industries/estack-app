@@ -82,7 +82,7 @@ const Dashboard = () => {
 			</div>
 			<div className="row">
 				<div className="column">
-					<a className="btn" href="#" role="button">
+					<a className="btn" href="sellerdashboard" role="button">
 						Sell Homes
 					</a>
 				</div>
