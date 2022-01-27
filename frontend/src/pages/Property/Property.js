@@ -337,10 +337,10 @@ const Property = () =>  {
                     {/* hidden contact agent form */}
                 </div>
                 <AgentMenu agentIsShown={agentIsShown} setAgentIsShown={setAgentIsShown} />
-                {/* <Link className="lender-button" to="/Banking" >
+                <button className="lender-button" to="/Banking" >
                     Find Lender
                     <img src={LenderImage} alt='lender' />
-                </Link> */}
+                </button>
             </div>
             <div className='half-circle'>
                 <img src={HalfCircle} />

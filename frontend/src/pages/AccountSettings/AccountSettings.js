@@ -1,14 +1,10 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {makeStyles, Box, Typography, IconButton, Popover, TextField, InputLabel, Button} from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
-import CloseIcon from "@material-ui/icons/Close";
-
+import {makeStyles, Box, IconButton, Typography, Popover, TextField, InputLabel, Button} from "@material-ui/core";
 import 'antd/dist/antd.css';
-import EditButton from 'react-edit-button'
 import './AccountSettings.css';
-
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
+import editPicture from './assets/edit-picture.png';
 import AccountVecotr1 from './assets/accountVector1.svg'
 import AccountVecotr3 from './assets/accountVector3.svg'
 import AccountVecotr4 from './assets/accountVector4.svg'
@@ -57,125 +53,137 @@ function NavBar() {
 function Background() {
 	return (
 		<>
-        	<img src={AccountVecotr1} alt="account-vector-1" className="vector-1" />
-			<img src={AccountVecotr3} alt="account-vector-3" className="vector-3" />
-            <img src={AccountVecotr4} alt="account-vector-4" className="vector-4" />
+      		<img src={AccountVecotr1} alt="account-vector-1" className="vector-1" />
+		  	<img src={AccountVecotr3} alt="account-vector-3" className="vector-3" />
+     		<img src={AccountVecotr4} alt="account-vector-4" className="vector-4" />
 		</>
 	);
 }
 
+const EditAvatar = ({avatar, parentObject, setParentObject, parentKey = 'avatar'}) => {
+	const [localAvatar, setLocalAvatar] = useState(avatar ?? parentObject?.[parentKey]);
 
-const useStyle = makeStyles({
-   
-   
-    popoverContainer: {
-      position: "relative"
-    },
-    popoverCloseIcon: {
-      position: "absolute",
-      top: 0,
-      right: 0
-    },
-  });
+	useEffect(() => {
+		setLocalAvatar(avatar ?? parentObject?.[parentKey]);
+	}, [avatar, parentKey, parentObject]);
 
-  const InlineEditor = ({ labelText, variant, value, onConfirmChange }) => {
-    const [editMode, setEditMode] = React.useState(false);
-    const [internalValue, setInternalValue] = React.useState(value);
-  
-    const classes = useStyle();
-    const typoRef = React.useRef();
-  
-    useEffect(() => {
-      setInternalValue(value);
-    }, [value]);
-  
-    const handleClick = () => {
-      setEditMode(!editMode);
-    };
-    const handleClickConfirm = () => {
-      setEditMode(!editMode);
-      onConfirmChange(internalValue);
-    };
-  
-    const handleChange = ev => {
-      setInternalValue(ev.target.value);
-    };
-    return (
-      <Box display="flex" flexDirection="row" alignItems="center">
-        {labelText && (
-          <Box pr={1}>
-            <InputLabel>{labelText}</InputLabel>
-          </Box>
-        )}
-        <Box pr={1}>
-          <Typography ref={typoRef} variant={variant}>
-            {value}
-          </Typography>
-  
-          <Popover
-            open={editMode}
-            anchorEl={typoRef.current}
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            transformOrigin={{ vertical: "top", horizontal: "center" }}
-          >
-            <Box display="flex" flexDirection="column" className={classes.popoverContainer}>
-              <Box display="flex" width="100%" justifyContent="flex-end" className={classes.popoverCloseIcon}>
-                <IconButton key="close" size="small" onClick={handleClick}>
-                  <CloseIcon className={classes.icon} />
-                </IconButton>
-              </Box>
-              <Box p={1}>
-                <TextField label="Please Write Your Name" fullWidth variant="standard" value={internalValue} onChange={handleChange}/>
-              </Box>
-              <Box p={1} >
-                <Button color="primary" size="small" variant="outlined" onClick={handleClickConfirm}>
-                  Confirm
-                </Button>
-                <Button
-                  classes={{
-                    outlined: classes.errorButton
-                  }}
-                  size="small"
-                  variant="outlined"
-                  onClick={handleClick}
-                >
-                  Cancel
-                </Button>
-              </Box>
-            </Box>
-          </Popover>
-        </Box>
-        <Box>
-          <button cla onClick={handleClick}>
-            Edit
-          </button>
-        </Box>
-      </Box>
-    );
-  };
+	const changeAvatar = (e) => {
+		const image = e.target.files[0];
+		if (image) {
+			const imageURL = URL.createObjectURL(image);
+			setLocalAvatar(imageURL);
 
+			if (parentObject && setParentObject) setParentObject({...parentObject, [parentKey]: imageURL})
+		}	
+	}
 
+	return (
+		<div className='pictureContainer'>
+			{localAvatar &&
+				<>
+					<div className='editPicture'>
+						<input type='file' accept='image/*' onInput={changeAvatar}/>
+						<img src={editPicture} alt='Edit avatar'/>
+					</div>
+					<img src={localAvatar} alt='Your avatar'/>
+				</>
+			}
+		</div>
+	)
+}
+
+function InlineEditor({ type, labelText, variant, value, onConfirmChange }) {
+const [editMode, setEditMode] = useState(false);
+const [internalValue, setInternalValue] = useState(value);
+const [passwordShown, setPasswordShown] = useState(false);
+
+const typoRef = useRef();
+
+useEffect(() => {
+	setInternalValue(value);
+}, [value]);
+
+const handleClick = () => {
+	setEditMode(!editMode);
+};
+
+const handleClickConfirm = () => {
+	setEditMode(!editMode);
+	onConfirmChange(internalValue);
+};
+
+const handleChange = e => {
+	setInternalValue(e.target.value);
+};
+return (
+	<Box display="flex" flexDirection="row" alignItems="center">
+	{labelText && (
+		<Box pr={1}>
+			<InputLabel>{labelText}</InputLabel>
+		</Box>
+	)}
+	<Box pr={1}>
+		<Typography ref={typoRef} variant={variant}>
+			{value}
+		</Typography>
+		<Popover open={editMode} anchorEl={typoRef.current} anchorOrigin={{ vertical: "top", horizontal: "center" }} transformOrigin={{ vertical: "top", horizontal: "center" }}>
+			<Box display="flex" flexDirection="column" >
+				<Box display="flex" width="100%" justifyContent="flex-end" >
+					<IconButton key="close" size="small" onClick={handleClick}>
+						&times;
+					</IconButton>
+				</Box>
+				<Box p={1}>
+					<TextField type={type} fullWidth variant="standard" value={internalValue} onChange={handleChange}/>
+				</Box>
+				<Box p={1} >
+					<Button color="primary" size="small" variant="outlined" onClick={handleClickConfirm}>
+						Confirm
+					</Button>
+					<Button  size="small" variant="outlined" onClick={handleClick}>
+						Cancel
+					</Button>
+				</Box>
+			</Box>
+		</Popover>
+	</Box>
+	<Box>
+		<button classes onClick={handleClick}>
+		Edit
+		</button>
+	</Box>
+	</Box>
+	);
+};
 
 const AccountSetting = () => {
-    const uploadedImage = React.useRef(null)
-    const imageUploader = React.useRef(null)
-    const [personalInfo, setPersonalInfo] = React.useState({});
+    const uploadedImage = useRef(null)
+    const imageUploader = useRef(null)
+    const [personalInfo, setPersonalInfo] = useState({
+      name: "your name",
+      username: "your username",
+	  email: "email@address.com",
+	  password: "************",
+	  reviews: "N/A"
+    });
+    const [notifications, setNotifications] = useState("On");
 
     const handleImageUpload = e => {
         const [file] = e.target.files;
         if (file) {
-          const reader = new FileReader();
-          const { current } = uploadedImage;
-          current.file = file;
-          reader.onload = e => {
-            current.src = e.target.result;
-          };
-          reader.readAsDataURL(file);
+			const reader = new FileReader();
+			const { current } = uploadedImage;
+			current.file = file;
+			reader.onload = e => {
+            	current.src = e.target.result;
+			};
+			reader.readAsDataURL(file);
         }
       };
     const _setState = key => value => {
-    setPersonalInfo({ ...personalInfo, [key]: value });
+    	setPersonalInfo({ ...personalInfo, [key]: value });
     };
+
 
     return (
         <div>
@@ -184,12 +192,9 @@ const AccountSetting = () => {
             <div className='heading'>
                 Account Settings
             </div>
-            <div className='picture-container'  onClick={() => imageUploader.current.click()}>
+            <div className='picture-container' >
                 <div>
-                    <input type="file" accept="image/*" onChange={handleImageUpload} ref={imageUploader} style={{display: "none"}}/>
-                    <div >
-                        <img className='profile-picture' ref={uploadedImage} placeholder={PlaceHolderImage} />
-                    </div>
+                    <EditAvatar avatar={PlaceHolderImage} />
                 </div>
             </div>
             <div className='info-container'>
@@ -198,22 +203,19 @@ const AccountSetting = () => {
                         Personal Information
                         <div className='name'>
                             Name
-                            <Box>
-                                <InlineEditor value={personalInfo.name} variant="body1" onConfirmChange={_setState("name")}
-                                />
+                            <Box  >
+                                <InlineEditor value={personalInfo.name} variant="body3" onConfirmChange={_setState("name")}/>								
                             </Box>
-
                         </div>
                         <div className='username'>
                             Username
-                            <Box>
-                                <InlineEditor value={personalInfo.username} variant="body1" onConfirmChange={_setState("username")}
-                                />
+                            <Box label="Please Enter Your Username">
+                                <InlineEditor value={personalInfo.username} variant="body3" onConfirmChange={_setState("username")}/>
                             </Box>
                         </div>
                         <div className='reviews'>
                             Reviews
-                            <button>Edit</button>
+                            <InlineEditor value={personalInfo.reviews} variant="body3" onConfirmChange={_setState("reviews")}/>
                         </div>
                     </div>
                 </div>
@@ -222,15 +224,16 @@ const AccountSetting = () => {
                         Sign-in & Security
                         <div className='email'>
                             Email Address
-                            <button>Edit</button>
+                            <InlineEditor value={personalInfo.email} variant="body3" onConfirmChange={_setState("email")}/>
                         </div>
                         <div className='password'>
                             Password
-                            <button>Edit</button>
+                            <InlineEditor type="password" value={personalInfo.password} variant="body3" onConfirmChange={_setState("password")}/>
+
                         </div>
                         <div className='google'>
                             Google Sign-In
-                            <button>Edit</button>
+                            <button>Link</button>
                         </div>
                     </div>
                 </div>
@@ -243,18 +246,25 @@ const AccountSetting = () => {
                         </div>
                         <div className='privacy-cookies'>
                             Privacy & Cookies
-                            <button>Edit</button>
+                            <button>View</button>
                         </div>
                         <div className='other-accounts'>
                             Link to Another Account
-                            <button>Edit</button>
+                            <button>Link</button>
                         </div>
                     </div>
                 </div>
                 <div className='notifications'>
-                    <div className='info-heading'>
                         Notifications
-                    </div>
+                        <button className='notifications-button' onClick={() => {notifications === "On" ? setNotifications("Off") : setNotifications("On");}}>
+                            {notifications}
+                        </button>
+                    
+                </div>
+                <div className='more'>
+                    <button className='more-button'>
+                        More
+                    </button>
                 </div>
                 <div className='deleted-searches'>
                     <div className='info-heading'>
@@ -262,9 +272,9 @@ const AccountSetting = () => {
                     </div>
                 </div>
                 <div className='bidded-properties'>
-                <div className='info-heading'>
-                        Bidded Properties
-                    </div>
+                	<div className='info-heading'>
+                    	Bidded Properties
+                  	</div>
                 </div>
                 <div className='loans-financing'>
                 <div className='info-heading'>
