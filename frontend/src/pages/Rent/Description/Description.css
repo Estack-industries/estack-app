@@ -1,16 +1,16 @@
 .description-cont {
 	margin: 3rem 6rem;
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: repeat (3, 1fr);
+	display: flex;
+	flex-direction: column;
 }
 
 .description-input {
-	grid-column-start: 1 / span2;
+	width: 100%;
+	text-justify: top;
 }
 
-.description-cont button {
+.description-cont > button {
+	margin: 0.8em auto;
 	padding: 0.5rem 3rem;
 	grid-row-start: 3;
 	justify-self: center;

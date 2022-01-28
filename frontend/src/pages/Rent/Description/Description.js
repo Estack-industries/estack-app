@@ -15,6 +15,7 @@ const Description = () => {
 				fullwidth
 				size="large"
 				inputProps={{ style: { height: '400px' } }}
+				multiline={true}
 				label="Enter Description..."
 				value={description}
 				onChange={(e) => {
