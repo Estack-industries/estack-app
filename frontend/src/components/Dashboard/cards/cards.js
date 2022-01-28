@@ -112,7 +112,7 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 					? selectedCard.payments.map((e, i) => (
 						<CardPayment payment={e} index={i} key={i}/>
 					))
-					: <p style={{textAlign: 'center'}}>No payments yet</p>
+					: <p style={{textAlign: 'center', marginTop: '1em'}}>No payments yet</p>
 				}
 			</div>
 		</div>
