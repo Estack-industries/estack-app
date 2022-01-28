@@ -1,6 +1,15 @@
 import { useEffect } from 'react';
 import styles from './index.module.css'
 
+const roundToN = (num, n) => {
+	const str = Math.floor(num).toString();
+	const arr = new Array(str.length).fill('0');
+	arr[n - 1] = '1';
+	const divider = arr.join('');
+
+	return Math.round(num / divider) * divider;
+}
+
 const getOrdinalNumber = function(num) {
 	const modNum = num % 100;
   if (modNum > 3 && modNum < 21) return num + 'th';
@@ -99,7 +108,7 @@ function HistoryGraph({ coordinates }) {
 		<div id={styles.graph}>
 			<div>
 				{[0, maxValue / 3, maxValue * 2 / 3, maxValue].map((ele, i) => (
-					<p key={i} style={{top: (i * -30) + 85 + '%'}}>{ele}</p>
+					<p key={i} style={{top: (i * -30) + 85 + '%'}}>{roundToN(ele, 2)}</p>
 				))}
 			</div>
 			{renderedMonths.map((ele, i)  => (

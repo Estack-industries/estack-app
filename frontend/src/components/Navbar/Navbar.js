@@ -33,18 +33,18 @@ const Navbar = () => {
 							<a
 								className="nav-link"
 								aria-current="page"
-								href="#"
+								href="buy"
 							>
 								Buy
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="sell">
 								Sell
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">
+							<a className="nav-link" href="rent">
 								Rent
 							</a>
 						</li>
