@@ -10,6 +10,7 @@ import Plans from './pages/Plans/Plans';
 import Dashboard from './pages/Dashboard/Dashboard';
 import SellerDB from './pages/Dashboard/SellerDB';
 import Account from './pages/Account';
+import UploadRent from './pages/Rent/Rent';
 
 function App() {
 	return (
@@ -32,6 +33,9 @@ function App() {
 				</Route>
 				<Route path="/account">
 					<Account />
+				</Route>
+				<Route path="/upload/rent">
+					<UploadRent />
 				</Route>
 			</Switch>
 		</Router>
