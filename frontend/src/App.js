@@ -10,6 +10,7 @@ import Plans from './pages/Plans/Plans';
 import Dashboard from './pages/Dashboard/Dashboard';
 import SellerDB from './pages/Dashboard/SellerDB';
 import Account from './pages/Account';
+import AccountMessages from './pages/Account/Messages';
 import UploadRent from './pages/Rent/Rent';
 
 function App() {
@@ -31,8 +32,11 @@ function App() {
 				<Route path="/sellerdashboard">
 					<SellerDB />
 				</Route>
-				<Route path="/account">
+				<Route exact path="/account">
 					<Account />
+				</Route>
+				<Route path="/account/messages">
+					<AccountMessages />
 				</Route>
 				<Route path="/upload/rent">
 					<UploadRent />
