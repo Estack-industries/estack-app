@@ -1,0 +1,11 @@
+.worth-cont {
+	margin: 3rem 6rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	/* grid-template-rows: repeat (3, 1fr); */
+}
+
+.worth-input {
+	margin: 1rem;
+	grid-column: 1;
+}

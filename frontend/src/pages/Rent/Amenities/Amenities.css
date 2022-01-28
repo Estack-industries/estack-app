@@ -1,0 +1,11 @@
+.amenities-cont {
+	margin: 3rem 6rem 2rem;
+	display: grid;
+	grid-template-columns: repeat (2, 1fr);
+	grid-template-rows: repeat (4, 1fr);
+}
+
+.amenities-input {
+	margin: 1rem;
+	justify-self: middle;
+}
