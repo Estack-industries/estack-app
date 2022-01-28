@@ -70,7 +70,7 @@
 	border-radius: 20px;
 	display: flex;
 	padding: 20px 60px 20px 60px;
-	margin-left: 100px;
+	margin: auto;
 }
 
 a {
@@ -111,7 +111,7 @@ h2.heading::after {
 	background-color: red;
 	color: white;
 	border-radius: 20px;
-	padding: 20px 30px 20px 30px;
+	padding: 10px 30px 10px 30px;
 	font-weight: bold;
 	margin: 10px;
 	border-color: red;

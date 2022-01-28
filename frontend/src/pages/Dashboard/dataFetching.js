@@ -1,9 +1,12 @@
+import sampleHouse1 from './assets/seller/sampleHouse1.png';
+import sampleHouse2 from './assets/seller/sampleHouse2.png';
+
 const Fetching = async (id) => {
 	await new Promise((resolve) => {setTimeout(resolve, 2000)});
 
 	if (id === 'example') return {
 		id: 'example',
-		name: 'Roman Vasilev',
+		name: 'Rowena Ravenclaw',
 		messages: 16,
 		sentMessagesToday: 10,
 		favoritedHomes: [
@@ -68,26 +71,62 @@ const Fetching = async (id) => {
 		],
 		cards: [
 			{
-				balance: 510400,
-				profit: 14225,
+				balance: 521652,
+				profit: 854225,
 				payments: [
 					{
-						purpose: 'Payed Lease',
-						date: Date.now() - 1000 * 60 * 60 * 24 * 1,
+						purpose: 'Top Picks by Users',
+						sell: 400000,
 						amount: 2500,
-						address: '26 Young Avenue East Elmhurst, NY 11369',
+						address: 'Roma Avenue',
 					},
 					{
-						purpose: 'Payed Lease',
-						date: Date.now() - 1000 * 60 * 60 * 24 * 2,
-						amount: 2500,
-						address: '8952 Glenholme Avenue Saugus, MA 01906',
+						purpose: 'Top Picks by Users',
+						sell: 500000,
+						amount: 1500,
+						address: 'Atlas Shack',
 					},
 					{
-						purpose: 'Top Picks by User\'s',
-						date: Date.now() - 1000 * 60 * 60 * 24 * 3,
+						purpose: 'Top Picks by Users',
+						sell: 786000,
+						amount: 1500,
+						address: 'Germanrin',
+					},
+					{
+						purpose: 'Top Picks by Users',
+						sell: 667000,
+						amount: 3000,
+						address: 'Heavens',
+					},
+					{
+						purpose: 'Top Picks by Users',
+						sell: 348000,
+						amount: 1200,
+						address: 'Heretho',
+					},
+					{
+						purpose: 'Least Picks by Users',
+						sell: 400000,
 						amount: 2500,
-						address: '56 Oak Valley Street Aberdeen, SD 57401',
+						address: 'Roma Avenue',
+					},
+					{
+						purpose: 'Least Picks by Users',
+						sell: 50000,
+						amount: 1500,
+						address: 'Atlas Shack',
+					},
+					{
+						purpose: 'Least Picks by Users',
+						sell: 786000,
+						amount: 1500,
+						address: 'Germanrin',
+					},
+					{
+						purpose: 'Least Picks by Users',
+						sell: 667000,
+						amount: 3000,
+						address: 'Heavens',
 					},
 				]
 			},
@@ -98,15 +137,25 @@ const Fetching = async (id) => {
 		],
 		pinnedAddresses: [
 			{
-				address: '684 W. Ketch Harbour Drive New Bern, NC 28560',
-				cost: 1500,
-				costInterval: 'Monthly',
+				image: sampleHouse1,
+				address: 'Mandragora Mansion',
+				cost: 1000000,
+			},
+			{
+				image: sampleHouse2,
+				address: 'Halbert Avenue',
+				cost: 700000,
+			},
+			{
+				image: sampleHouse2,
+				address: 'Halbert Avenue',
+				cost: 700000,
 			}
 		],
 		rent: [
 			{
-				date: Date.now() - 1000 * 60 * 60 * 24 * 4,
-				amount: 1000000,
+				day: Date.now() - 1000 * 60 * 60 * 24 * 4,
+				cost: 1000000,
 			},
 			{
 				date: Date.now() + 1000 * 60 * 60 * 24 * 0,
@@ -135,14 +184,19 @@ const Fetching = async (id) => {
 		],
 		stats: [
 			{
-				name: 'Total Expenses',
-				amount: 2500,
+				name: 'Total Investment',
+				amount: 4000,
 				color: '#fbb142'
 			},
 			{
-				name: 'Weekly Income',
-				amount: 6000,
+				name: 'Weekly Returns',
+				amount: 5000,
 				color: '#4fdfb1'
+			},
+			{
+				name: 'Expenses',
+				amount: 3000,
+				color: '#ED5B75'
 			}
 		],
 	}

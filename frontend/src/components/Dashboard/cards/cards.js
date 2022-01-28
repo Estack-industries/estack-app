@@ -73,7 +73,7 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 					<div className={styles.historyContent}>
 						<p>{payment.address}</p>
 						<div>
-							<p>{dateFormat(payment.date)}</p>
+							<p>{moneyFormat(payment.sell)}</p>
 							<p>{moneyFormat(payment.amount)}</p>
 						</div>
 					</div>
@@ -92,7 +92,7 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 						<div id='cardInfo'>
 							<p>Balance</p>
 							<p style={{fontSize: '1.6em'}}>{moneyFormat(selectedCard.balance)}</p>
-							<p>Monthly Profit</p>
+							<p>Property's Worth</p>
 							<p style={{fontSize: '1.2em'}}>{moneyFormat(selectedCard.profit)}</p>
 						</div>
 					</div>
