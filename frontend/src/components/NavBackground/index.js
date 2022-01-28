@@ -66,7 +66,7 @@ function compareSrcArray(cacheSrcArray, currentSrcArray) {
 	})
 }
 
-function drawBackground(srcArray) {
+function drawBackground(srcArray, opacity) {
 	const canvas = document.getElementById('background-canvas');
 	if (canvas === null) return;
 
@@ -92,10 +92,12 @@ function drawBackground(srcArray) {
 		const image = new Image();
 		image.src = src.src;
 		image.onload = function() {
+			ctx.globalAlpha = opacity;
 			const ratio = image.height / image.width;
 			height = height ?? (ratio * width)
 			ctx.clip();
 			ctx.drawImage(image, left, 718 - height - bottom, width, height ?? (ratio * width));
+			ctx.globalAlpha = 1;
 		}
 	}
 	
@@ -108,7 +110,8 @@ function drawBackground(srcArray) {
 /**
  * Bubble-like background under navigation bar.
  * @param {object} props Component props
- * @param {(string | {src: string, left: number, bottom: number, width: number, height: number}[])} props.src The string to the path of the image or an array of objects with the properties. Check examples.
+ * @param {(string | {src: string, left?: number, bottom?: number, width?: number, height?: number}[])} props.src The string to the path of the image or an array of objects with the properties. Check examples.
+ * @param {number} [props.opacity] The opacity of the overlay image.
  * @return {JSX.Element} React component of an HTML Canvas.
  * @example
  * // Generates a background without any images.
@@ -146,7 +149,7 @@ function drawBackground(srcArray) {
  * ]
  * <NavBackground src={navImages}/>
  */
-function Background({src}) {
+function Background({src, opacity = 1}) {
 	const [cacheSrc, setCacheSrc] = useState([]);
 	
 	useEffect(() => {
@@ -164,8 +167,8 @@ function Background({src}) {
 			canvas.style.transform = 'translate(' + moveByX + 'px, ' + moveByY + 'px) scale(' + resizeBy + ')';
 		});
 		
-		drawBackground(currentSrc);
-	}, [src, cacheSrc]);
+		drawBackground(currentSrc, opacity);
+	}, [src, cacheSrc, opacity]);
 
 	return (
 		<canvas id='background-canvas'/>
