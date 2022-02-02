@@ -1,6 +1,6 @@
 #container {
-	width: 80%;
-	height: 35em;
+	width: 90%;
+	height: 50em;
 	margin: 1.5em auto 4em auto;
 	background-color: #a4d7fc1f;
 	border: 3px solid #a4d7fc;
@@ -35,6 +35,11 @@
 	height: 100%;
 	object-fit: cover;
 	border-radius: 1em;
+}
+
+#topbar > .name {
+	padding-right: 30px;
+	color: gray;
 }
 
 #main {

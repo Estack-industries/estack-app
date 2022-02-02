@@ -27,5 +27,27 @@
     "detail": "54/100",
     "conclusion": "Avg 25 days on market"
   }
-]
-}
+],
+"Homes": [
+  {
+    "address": "Roma Avenue",
+    "cost": "$600,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Thorian Park",
+    "cost": "$500,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Linda Mansion",
+    "cost": "$250,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Villa Mary",
+    "cost": "$350,000",
+    "icon": "Vector 1.png"
+  }
+ ]
+ }

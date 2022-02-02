@@ -161,7 +161,9 @@ function SellerDB() {
 					<div class="card-body">Dashboard</div>
 				</div>
 				<div>
+				{userData &&
 					<Statistics userData={userData}/>
+				}
 				</div>
 				<div className="col text-center">
 					<a href="#">

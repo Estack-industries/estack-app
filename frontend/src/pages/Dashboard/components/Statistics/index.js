@@ -3,6 +3,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CardsPanel from '../../../../components/Dashboard/cards/cards';
 import StatsPanel from './stats';
+import RealEstate from './realestate';
 import Profile from '../../assets/seller/profile.png';
 
 function Statistics({userData}) {
@@ -13,14 +14,17 @@ function Statistics({userData}) {
 				<div className={styles.profilePicture}>
 					<img src={Profile} alt="Profile" />
 				</div>
+        <p className={styles.name}>{userData.name}</p>
 			</div>
 			<div id={styles.main}>
-				<div className={styles.panel}></div>
+				<div className={styles.panel}>
+          <RealEstate />
+        </div>
 				<div className={styles.panel} style={{ width: '90%' }}>
 					<StatsPanel userData={userData}/>
 				</div>
 				<div className={styles.panel}>
-					<CardsPanel userData={userData}/>
+					<CardsPanel cards={userData.cards}/>
 				</div>
 			</div>
 		</div>
