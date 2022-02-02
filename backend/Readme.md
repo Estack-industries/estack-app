@@ -142,3 +142,25 @@ Response Body
    online: boolean,
 }[]
 ```
+
+---
+
+#### Rent Post similar to Property Post
+
+\- Message me, Kyle Smith, if you have any questions.
+
+I understand you have a propertyPost route, this TODO is asking for a rentPost route.
+
+Request Body
+```diff
+Almost the same as the properties scema or `/post` backend route. Here is a diff of changes.
+- listingPrice
++ monthlyRent
++ securityDeposit
++ cleaningFee
+```
+
+Response Body
+```
+2xx Success
+```
