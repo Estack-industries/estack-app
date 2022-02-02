@@ -1,88 +1,62 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../Banner/Banner';
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 import './Amenities.css';
 
-const Amenities = () => {
-	const [AC, setAC] = useState(false);
-	const [furnished, setFurnished] = useState(false);
-	const [balcony, setBalcony] = useState(false);
-	const [woodFloor, setWoodFloor] = useState(false);
-	const [disabilityAccess, setDisabilityAccess] = useState(false);
-	const [pets, setPets] = useState(false);
-	const [gargeParking, setGarageParking] = useState(false);
-	const [streetParking, setStreetParking] = useState(false);
+const Amenities = ({formData, setFormData}) => {
 
 	return (
 		<div className="amenities-cont">
 			<Banner title={'Amenities & Rules'} />
 			<FormControlLabel
+				id='rent-ac'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="A/C"
-				onChange={() => {
-					setAC(!AC);
-					console.log(AC);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-furnished'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Furnished"
-				onChange={() => {
-					setFurnished(!furnished);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-balcony'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Balcony or deck"
-				onChange={() => {
-					setBalcony(!balcony);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-hardWood'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Hardwood floors"
-				onChange={() => {
-					setWoodFloor(!woodFloor);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-wheelChairAcces'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Disability access"
-				onChange={() => {
-					disabilityAccess(!setDisabilityAccess);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-pets'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Pets allowed"
-				onChange={() => {
-					setPets(!pets);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-garageParking'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Garage parking"
-				onChange={() => {
-					setGarageParking(!gargeParking);
-				}}
 			/>
 			<FormControlLabel
+				id='rent-offStreetParking'
 				className="amenities-input"
 				control={<Checkbox />}
 				label="Off-street parking"
-				onChange={() => {
-					setStreetParking(!streetParking);
-				}}
 			/>
 		</div>
 	);

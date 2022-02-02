@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import navbarImage from './navbar-image.webp';
 
 import NavBackground from '../../components/NavBackground';
@@ -7,10 +7,14 @@ import Amenities from './Amenities/Amenities';
 import ImageAttachment from './ImageAttachment/ImageAttachment';
 import Worth from './Worth/Worth';
 import Description from './Description/Description';
+import Submit from './Submit';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 
 const Rent = () => {
+
+	const [imageData, setImageData] = useState([]);
+
 	return (
 		<div>
 			<Navbar />
@@ -23,9 +27,10 @@ const Rent = () => {
 			</h1>
 			<Info />
 			<Amenities />
-			<ImageAttachment />
+			<ImageAttachment imageData={imageData} setImageData={setImageData}/>
 			<Worth />
 			<Description />
+			<Submit imageData={imageData} />
 			<Footer />
 		</div>
 	);

@@ -1,0 +1,53 @@
+.uploadRentBox {
+	width: 85%;
+	margin: 1.5em auto 5em auto;
+	padding: 5em 2em;
+	border: 1px solid #a4d7fc;
+	border-radius: 1em;
+	box-shadow: 0px 4px 4px #00000080;
+}
+
+.uploadRentBox h1 {
+	text-align: center;
+	margin-bottom: 0.5em;
+}
+
+.submitButton {
+	display: flex;
+	width: 100%;
+}
+
+.submitButton > input {
+	margin: 0.5em auto;
+	padding: 0.5em 1em;
+	color: white;
+	background: #f4a523;
+	border: 3px solid #a4d7fc;
+	box-shadow: 0px 4px 4px #00000080;
+	border-radius: 20px;
+	font-weight: bold;
+	font-size: 1.8em;
+}
+
+.inputContainer > label {
+	margin: 1em 0em;
+	width: 6em;
+	font-size: 1.5em;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.inputContainer > input {
+	width: calc(100% - 12em);
+	margin: 0em auto;
+	padding: 0.2em 0.4em;
+	border: 2px solid #a4d7fc;
+	border-radius: 0.5em;
+	font-size: 1.5em;
+}
+
+.error {
+	color: red;
+	text-align: center;
+	font-size: 1.5em;
+}

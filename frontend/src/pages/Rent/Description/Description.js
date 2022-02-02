@@ -5,23 +5,18 @@ import TextField from '@mui/material/TextField';
 import './Description.css';
 
 const Description = () => {
-	const [description, setDescription] = useState('');
 
 	return (
 		<div className="description-cont">
-			<Banner title={'Detailed Description'} />-
+			<Banner title={'Detailed Description'} />
 			<TextField
+				id='rent-description'
 				className="description-input"
-				fullwidth
+				fullwidth='true'
 				size="large"
 				inputProps={{ style: { height: '400px' } }}
 				multiline={true}
-				label="Enter Description..."
-				value={description}
-				onChange={(e) => {
-					setDescription(e.target.value);
-					console.log(description);
-				}}
+				label="Description"
 			/>
 			<button>Submit</button>
 		</div>

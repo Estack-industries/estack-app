@@ -1,108 +1,129 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Banner from '../Banner/Banner';
 import TextField from '@mui/material/TextField';
-import DateInput from '../DateInput/DateInput';
+import Autocomplete from '@mui/material/Autocomplete';
 
 import './Info.css';
 
 const Info = () => {
-	const [address, setAddress] = useState('');
-	const [propertyType, setPropertyType] = useState('');
-	const [yearBuilt, setYearBuilt] = useState('');
-	const [bedrooms, setBedrooms] = useState('');
-	const [squareFootage, setSquareFootage] = useState('');
-	const [bathrooms, setBathrooms] = useState('');
-	const [leaseDuration, setLeaseDuration] = useState('');
-	const [dateAvailable, setDateAvailable] = useState('');
 
 	return (
 		<div className="info-cont">
 			<Banner title={'Information & Details'} />
 			<div className="info-input" id="first-input">
 				<TextField
+					id='rent-property_name'
 					fullWidth
-					label="Address"
+					label="Property Name"
 					variant="outlined"
-					value={address}
-					onChange={(e) => {
-						setAddress(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
 				<TextField
+					id='rent-street'
 					fullWidth
-					label="Property Type"
+					label="Street Address"
 					variant="outlined"
-					value={propertyType}
-					onChange={(e) => {
-						setPropertyType(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
 				<TextField
+					id='rent-city'
+					fullWidth
+					label="City"
+					variant="outlined"
+				/>
+			</div>
+			<div className="info-input">
+				<TextField
+					id='rent-state'
+					fullWidth
+					label="State"
+					variant="outlined"
+				/>
+			</div>
+			<div className="info-input">
+				<TextField
+					id='rent-zip'
+					fullWidth
+					label="Zip Code"
+					variant="outlined"
+				/>
+			</div>
+			<div className="info-input">
+				<Autocomplete
+					id='rent-type'
+					fullWidth
+					variant="outlined"
+					options={[
+						{value: 'House', label: 'House'},
+						{value: 'Apartment', label: 'Apartment'},
+						{value: 'Condo', label: 'Condo'},
+						{value: 'Townhouse', label: 'Townhouse'},
+						{value: 'Duplex', label: 'Duplex'},
+						{value: 'Multi-Family', label: 'Multi-Family'},
+						{value: 'Other', label: 'Other'},
+					]}
+					renderInput={(params) => <TextField {...params} label="Property Type" />}
+				/>
+			</div>
+			<div className="info-input">
+				<TextField
+					id='rent-yearBuilt'
+					type='number'
+					defaultValue={new Date().getFullYear()}
 					fullWidth
 					label="Year Built"
 					variant="outlined"
-					value={yearBuilt}
-					onChange={(e) => {
-						setYearBuilt(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
 				{' '}
 				<TextField
+					id='rent-numBedrooms'
+					type='number'
+					defaultValue={0}
 					fullWidth
 					label="Bedrooms"
 					variant="outlined"
-					value={bedrooms}
-					onChange={(e) => {
-						setBedrooms(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
 				<TextField
+					id='rent-squareft'
+					type='number'
+					defaultValue={0}
 					fullWidth
 					label="Square Footage"
 					variant="outlined"
-					value={squareFootage}
-					onChange={(e) => {
-						setSquareFootage(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
 				<TextField
+					id='rent-numBathrooms'
+					type='number'
+					defaultValue={0}
 					fullWidth
 					label="Bathrooms"
 					variant="outlined"
-					value={bathrooms}
-					onChange={(e) => {
-						setBathrooms(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
-				{' '}
 				<TextField
+					id='rent-leaseDuration'
 					fullWidth
 					label="Lease Duration"
 					variant="outlined"
-					value={leaseDuration}
-					onChange={(e) => {
-						setLeaseDuration(e.target.value);
-					}}
 				/>
 			</div>
 			<div className="info-input">
-				<DateInput
-					value={dateAvailable}
-					onChange={(e) => {
-						setDateAvailable(e.target.value);
-					}}
+				<TextField
+					id='rent-dateAvailable'
+					type='date'
+					defaultValue={new Date().toISOString().substr(0, 10)}
+					fullWidth
+					label="Date Available"
+					variant="outlined"
 				/>
 			</div>
 		</div>
