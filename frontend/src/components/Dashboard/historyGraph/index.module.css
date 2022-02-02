@@ -1,0 +1,18 @@
+#graph {
+	position: relative;
+	height: 6.8em;
+	width: 95%;
+	margin: auto;
+}
+
+#graph p {
+	position: absolute;
+	color: #959595;
+	text-align: right;
+	font-size: 0.5em;
+}
+
+#graph > svg {
+	margin-left: 2em;
+	margin-top: -0.5em;
+}

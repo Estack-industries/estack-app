@@ -1,0 +1,11 @@
+#favoritedHomes {
+	width: 85%;
+	margin: 2.3em auto;
+	overflow-x: scroll;
+}
+
+#favoritedHomes > * {
+	display: flex;
+	margin: 0.75em 0;
+	gap: 1.8em;
+}

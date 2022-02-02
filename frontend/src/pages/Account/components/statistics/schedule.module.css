@@ -1,0 +1,18 @@
+.date {
+	width: fit-content;
+	margin: auto;
+	padding: 0.25em 0.5em;
+	border: 1.5px solid #c4c4c4;
+	font-size: 0.8em;
+}
+
+.box {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin: 0.8em;
+	padding: 1em;
+	border: 2px solid #a4d7fc;
+	border-radius: 1em;
+	font-size: 0.85em;
+}

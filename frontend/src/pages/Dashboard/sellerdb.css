@@ -1,0 +1,193 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
+
+.title {
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 5px 3px #2c2c2c;
+}
+
+.first {
+	padding: 0px 180px 180px 180px;
+}
+
+.carousel-control-prev-icon {
+	margin-left: 160px;
+	margin-bottom: 140px;
+	padding: 50px;
+}
+
+.carousel-control-next-icon {
+	margin-right: 160px;
+	margin-bottom: 140px;
+	padding: 50px;
+}
+
+.row {
+	margin: auto;
+	display: flex;
+}
+
+.column {
+	float: left;
+	width: 25%;
+}
+
+.card-title {
+	padding-top: 20px;
+}
+
+.colIcon {
+	float: left;
+	padding-left: 30px;
+}
+
+.detail {
+	float: left;
+	text-align: right;
+	margin-left: 70px;
+	padding-top: 30px;
+}
+
+.detailTwo {
+	text-align: right;
+	padding-right: 10px;
+}
+
+.line {
+	padding: 80px 0px 30px 100px;
+}
+
+.header {
+	padding-left: 70px;
+	padding-bottom: 50px;
+	font-weight: bold;
+}
+
+.btn-block {
+	background-color: white;
+	border-color: #a4d7fc;
+	border-width: 1px;
+	border-radius: 20px;
+	display: flex;
+	padding: 20px 60px 20px 60px;
+	margin: auto;
+}
+
+a {
+	color: #0294fe;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+h2.heading {
+	width: fit-content;
+	margin: 0.7em 0 0.7em 2em;
+}
+
+h2.heading::after {
+	content: "";
+	display: block;
+	width: 6em;
+	height: 0.2em;
+	margin-top: 0.4em;
+	background-color: #98d4ff;
+	border-radius: 0.2em;
+}
+
+.half {
+	height: 100px;
+	position: block;
+	margin-left: 400px;
+	margin-right: auto;
+}
+
+.btn-danger {
+	background-color: red;
+	color: white;
+	border-radius: 20px;
+	padding: 10px 30px 10px 30px;
+	font-weight: bold;
+	margin: 10px;
+	border-color: red;
+	font-size: 30px;
+}
+
+.btn-danger:hover {
+	background-color: white;
+	color: red;
+	border-color: white;
+	border-radius: 20px;
+}
+
+.head {
+	padding-left: 70px;
+	margin-bottom: 0;
+}
+
+.description {
+	padding-left: 72px;
+	padding-top: 0;
+	font-weight: normal;
+}
+
+.percent {
+	padding-left: 1000px;
+}
+
+.chart {
+	margin: auto;
+	padding-left: 70px;
+}
+
+.cal {
+	width: 150px;
+	margin-left: 1150px;
+}
+
+#st-box {
+	float: left;
+padding-left: 50px;
+	margin: auto;
+}
+
+#nd-box {
+	float: left;
+	margin-left: 425px;
+	padding-top: 100px;
+	padding-left: 150px;
+}
+#rd-box {
+	float: left;
+	padding-left: 70px;
+}
+
+.ptitle {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.numb,
+.psubtitle {
+	margin-top: 60px;
+}
+
+.numb {
+	font-size: xx-large;
+}
+
+.childOne,
+.childTwo {
+	width: 50%;
+	margin: auto;
+}
+
+.keyOne,
+.keyTwo {
+	text-align: center;
+}

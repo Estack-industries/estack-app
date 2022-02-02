@@ -1,0 +1,53 @@
+{"Panel": [
+ {
+    "id": 1,
+    "title": "E-Stack Estimate",
+    "icon": "estimate.png",
+    "detail": "$600,000",
+    "conclusion": "+8% since last year"
+  },
+  {
+    "id": 2,
+    "title": "Activity",
+    "icon": "activity.png",
+    "detail": "100 VIEWS",
+    "conclusion": "45% Most Viewed"
+  },
+  {
+    "id": 3,
+    "title": "Average Sale Price",
+    "icon": "salePrice.png",
+    "detail": "$470,000",
+    "conclusion": "+2% since last year"
+  },
+  {
+    "id": 4,
+    "title": "Complete Score",
+    "icon": "score.png",
+    "detail": "54/100",
+    "conclusion": "Avg 25 days on market"
+  }
+],
+"Homes": [
+  {
+    "address": "Roma Avenue",
+    "cost": "$600,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Thorian Park",
+    "cost": "$500,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Linda Mansion",
+    "cost": "$250,000",
+    "icon": "Vector 1.png"
+  },
+  {
+    "address": "Villa Mary",
+    "cost": "$350,000",
+    "icon": "Vector 1.png"
+  }
+ ]
+ }

@@ -15,7 +15,7 @@ npm start // to start local server
 -   [ ] Register & sign in dialog
 -   [ ] Landing page
     -   [x] footer
-    -   [ ] nav bar
+    -   [x] nav bar
     -   [ ] middle part(?)
 -   [ ] About page
 

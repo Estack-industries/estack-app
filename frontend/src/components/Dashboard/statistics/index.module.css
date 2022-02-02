@@ -1,0 +1,45 @@
+#statsContainer {
+	display: flex;
+	justify-content: space-between;
+	gap: 1em;
+	margin: 1em;
+}
+
+
+#statsSelectContainer > * {
+	height: 3.3em;
+}
+
+#statsContainer > div > * {
+	margin: auto 0em;
+	align-items: center;
+}
+
+.addStat {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.statVectorContainer, .addStat {
+	margin: auto 0em;
+	border-radius: 0.5em;
+	width: 2.7em;
+	height: 2.2em;
+}
+
+.statVectorContainer > img {
+	margin: auto;
+	display: block;
+	width: 50%;
+	height: 100%;
+}
+
+#statGraph line {
+	stroke-linecap: round;
+}
+
+#statGraph text {
+	fill: #b5b5b5;
+	font-weight: bold;
+}

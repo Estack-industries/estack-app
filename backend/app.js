@@ -9,6 +9,8 @@ const usersRouter = require('./routes/users');
 const testAPIRouter = require("./routes/testAPI");
 const propertysell = require('./routes/propertySell')
 const bankRouter = require('./Banks/bank-router')
+const propertyPost = require('./routes/propertyPost')
+const propertyFetch = require('./routes/propertyFetch')
 
 const app = express();
 const mysql2 = require('mysql2');
@@ -21,19 +23,13 @@ app.use("/api/bank", bankRouter)
 
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
-
-
-app.get("/", function (req, res) {
-    res.send("App is working")
-});
-
-
+app.use(bodyParser.json());
 
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,7 +41,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
-app.use('/propertySell', propertysell)
+app.use('/propertyPost', propertyPost);
+app.use('/propertyFetch', propertyFetch);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -64,7 +62,7 @@ app.use(function(err, req, res, next) {
 
 
 app.listen(3001,()=>{
-  console.log("server is running perfectly on 3001");
+  console.log("server is running perfectly at port 3001");
   
 })
 

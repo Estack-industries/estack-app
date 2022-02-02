@@ -40,7 +40,7 @@ const Footer = () => {
 					<br />
 					<div className="lato-regular">
 						<div className="anchor">
-							<a href="#">About</a>
+							<a href="about-us">About</a>
 						</div>
 						<div className="anchor">
 							<a href="#">Team</a>

@@ -1,0 +1,16 @@
+
+.twoPanel {
+	display: flex;
+	gap: 2em;
+}
+
+.twoPanel > * {
+	width: 100%;
+}
+
+#container {
+	display: flex;
+	gap: 1em;
+	height: 100%;
+	flex-direction: column;	
+}
