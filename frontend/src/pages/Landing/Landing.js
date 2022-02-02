@@ -29,14 +29,14 @@ const Break = () => {
 	);
 };
 
-const ShadowContainerImage = ({ src, text }) => {
+const ShadowContainerImage = ({ src, text, href }) => {
 	return (
-		<div className='shadow-container-image'>
+		<a className='shadow-container-image' href={href}>
 			<img src={src} alt={text}>
 			</img>
 			<div className='gradient-cover'/>
 			<p>{text}</p>
-		</div>
+		</a>
 	);
 };
 
@@ -72,9 +72,9 @@ function Landing() {
 					</div>
 
 					<div className="section">
-						<ShadowContainerImage src={Buy} text="Buy"/>
-						<ShadowContainerImage src={Rent} text="Rent"/>
-						<ShadowContainerImage src={Sell} text="Sell"/>
+						<ShadowContainerImage src={Buy} text="Buy" href='buy'/>
+						<ShadowContainerImage src={Rent} text="Rent" href='rent'/>
+						<ShadowContainerImage src={Sell} text="Sell" href='sell'/>
 					</div>
 				</div>
 
