@@ -12,6 +12,7 @@ import SellerDB from './pages/Dashboard/SellerDB';
 import Account from './pages/Account';
 import AccountMessages from './pages/Account/Messages';
 import UploadRent from './pages/Rent/Rent';
+import AccountSetting from './pages/AccountSettings/AccountSettings';
 
 function App() {
 	return (
@@ -37,6 +38,9 @@ function App() {
 				</Route>
 				<Route path="/account/messages">
 					<AccountMessages />
+				</Route>
+				<Route path="/account/settings">
+					<AccountSetting />
 				</Route>
 				<Route path="/upload/rent">
 					<UploadRent />

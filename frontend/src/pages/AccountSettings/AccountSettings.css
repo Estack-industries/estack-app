@@ -116,7 +116,7 @@
 
 .personal-information, .sign-in-security, .manage-account, .deleted-searches, .bidded-properties, .loans-financing {
     width: 1184px;
-    height: 376px;
+    height: max(376px, 100%);
     align-self: center;
     margin-bottom: 33px;
     background: rgba(255, 255, 255, 0.5);    
@@ -210,4 +210,11 @@ button:hover {
     left: 310px;
     top: 2411px;
     z-index: -1;
+}
+
+.deleted-searches-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1.5em 2em;
+    gap: 1em;
 }

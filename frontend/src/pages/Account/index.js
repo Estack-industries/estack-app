@@ -11,8 +11,9 @@ import styles from './index.module.css';
 
 import backgroundImage from './assets/background.svg';
 
-function SettingButtons({text, notification = 0, color = '#0193fd', onClick}) {
+function SettingButtons({text, notification = 0, color = '#0193fd', onClick, href}) {
 	if (notification > 99) notification = '99+';
+	const ButtonElement = href ? 'a' : 'button';
 
 	return (
 		<div>
@@ -29,9 +30,9 @@ function SettingButtons({text, notification = 0, color = '#0193fd', onClick}) {
 					</svg>
 				</div>
 			}	
-			<button style={{background: color}} onClick={onClick}>
+			<ButtonElement style={{background: color}} onClick={onClick} href={href}>
 				{text}
-			</button>
+			</ButtonElement>
 		</div>
 	)
 }
@@ -61,7 +62,7 @@ function UserPage() {
 				<div id={styles.settings}>
 					<SettingButtons text='Messages' notification={userData?.messages ?? 0} onClick={() => setMessageOpen(!messageOpen)}/>
 					<SettingButtons text='My Cards' notification={userData?.cards?.length ?? 0}/>
-					<SettingButtons text='Account Settings'/>
+					<SettingButtons text='Account Settings' href='/account/settings' />
 					<SettingButtons text='Deleted' color='#f4a523'/>
 				</div>
 				{messageOpen &&

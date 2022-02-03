@@ -1,96 +1,16 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {makeStyles, Box, IconButton, Typography, Popover, TextField, InputLabel, Button} from "@material-ui/core";
-import 'antd/dist/antd.css';
+import {Box, IconButton, Typography, Popover, TextField, InputLabel, Button} from "@material-ui/core";
 import './AccountSettings.css';
-import EStackLogo from './assets/e-stack-logo.svg';
-import DefaultUserIcon from './assets/default-user-icon.svg';
-import editPicture from './assets/edit-picture.png';
-import AccountVecotr1 from './assets/accountVector1.svg'
-import AccountVecotr3 from './assets/accountVector3.svg'
-import AccountVecotr4 from './assets/accountVector4.svg'
 import GearsBig from './assets/2gearsBig.png'
-import ProfileImage from './assets/ProfileImage.png'
-import ProfileImage2 from './assets/ProfileImage2.png'
-import ProfileImage3 from './assets/ProfileImage3.png'
-import PlaceHolderImage from './assets/placeholderImage.png'
+import sampleHouse1 from './assets/temp/sample-house-1.jpg';
+import sampleHouse2 from './assets/temp/sample-house-2.jpg';
+import PlaceHolderImage from './assets/temp/sample-profile.jpg';
 
 import Footer from '../../components/Footer/Footer';
-
-function NavBar() {
-    return (
-        <div className="navbar-container">
-            <img
-                src={EStackLogo}
-                alt="estack-logo"
-                className="estack-logo"
-                onClick={() => console.log('clicked')}
-            />
-            <div className="navbar-options">
-                <a className="navbar-option white-color open-sans" href="#">
-                    Buy
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Sell
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Rent
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    About Us
-                </a>
-            </div>
-            <img
-                src={DefaultUserIcon}
-                alt="default-user-icon"
-                className="user-icon"
-                onClick={() => console.log('clicked')}
-            />
-        </div>
-    
-    );
-};
-
-function Background() {
-	return (
-		<>
-      		<img src={AccountVecotr1} alt="account-vector-1" className="vector-1" />
-		  	<img src={AccountVecotr3} alt="account-vector-3" className="vector-3" />
-     		<img src={AccountVecotr4} alt="account-vector-4" className="vector-4" />
-		</>
-	);
-}
-
-const EditAvatar = ({avatar, parentObject, setParentObject, parentKey = 'avatar'}) => {
-	const [localAvatar, setLocalAvatar] = useState(avatar ?? parentObject?.[parentKey]);
-
-	useEffect(() => {
-		setLocalAvatar(avatar ?? parentObject?.[parentKey]);
-	}, [avatar, parentKey, parentObject]);
-
-	const changeAvatar = (e) => {
-		const image = e.target.files[0];
-		if (image) {
-			const imageURL = URL.createObjectURL(image);
-			setLocalAvatar(imageURL);
-
-			if (parentObject && setParentObject) setParentObject({...parentObject, [parentKey]: imageURL})
-		}	
-	}
-
-	return (
-		<div className='pictureContainer'>
-			{localAvatar &&
-				<>
-					<div className='editPicture'>
-						<input type='file' accept='image/*' onInput={changeAvatar}/>
-						<img src={editPicture} alt='Edit avatar'/>
-					</div>
-					<img src={localAvatar} alt='Your avatar'/>
-				</>
-			}
-		</div>
-	)
-}
+import Navbar from '../../components/Navbar/Navbar';
+import NavBackground from '../../components/NavBackground';
+import PropertySummary from '../../components/PropertySummary';
+import EditAvatar from '../../components/EditAvatar';
 
 function InlineEditor({ type, labelText, variant, value, onConfirmChange }) {
 const [editMode, setEditMode] = useState(false);
@@ -156,6 +76,15 @@ return (
 	);
 };
 
+const formatPassword = (password) => {
+    if (password.length < 6) return password.replace(/./g, '*');
+    else {
+        const first = password.substring(0, 2);
+        const last = password.substring(password.length - 2);
+        return first + '*'.repeat(password.length - 4) + last;
+    }
+}
+
 const AccountSetting = () => {
     const uploadedImage = useRef(null)
     const imageUploader = useRef(null)
@@ -163,10 +92,31 @@ const AccountSetting = () => {
       name: "your name",
       username: "your username",
 	  email: "email@address.com",
-	  password: "************",
-	  reviews: "N/A"
+	  password: "password",
+	  reviews: "N/A",
+      avatar: PlaceHolderImage,
     });
     const [notifications, setNotifications] = useState("On");
+    const [deletedProperties, setDeletedProperties] = useState([
+        {
+            image: sampleHouse1,
+            address: '26 Young Avenue East Elmhurst, NY 11369',
+            price: 600000000000000000000000000,
+            beds: 3,
+            baths: 2.5,
+            sqft: 2000,
+            new: true,
+        },
+        {
+            image: sampleHouse2,
+            address: '8952 Glenholme Avenue Saugus, MA 01906',
+            price: 900000,
+            beds: 4,
+            baths: 3,
+            sqft: 3400,
+            new: true,
+        },
+    ]);
 
     const handleImageUpload = e => {
         const [file] = e.target.files;
@@ -187,14 +137,14 @@ const AccountSetting = () => {
 
     return (
         <div>
-            <NavBar />
-            <Background />
+            <Navbar />
+            <NavBackground />
             <div className='heading'>
                 Account Settings
             </div>
             <div className='picture-container' >
                 <div>
-                    <EditAvatar avatar={PlaceHolderImage} />
+                    <EditAvatar parentObject={personalInfo} setParentObject={setPersonalInfo} personalKey={'avatar'}/>
                 </div>
             </div>
             <div className='info-container'>
@@ -204,7 +154,7 @@ const AccountSetting = () => {
                         <div className='name'>
                             Name
                             <Box  >
-                                <InlineEditor value={personalInfo.name} variant="body3" onConfirmChange={_setState("name")}/>								
+                                <InlineEditor value={personalInfo.name} variant="body3" onConfirmChange={_setState("name")}/>			
                             </Box>
                         </div>
                         <div className='username'>
@@ -228,7 +178,7 @@ const AccountSetting = () => {
                         </div>
                         <div className='password'>
                             Password
-                            <InlineEditor type="password" value={personalInfo.password} variant="body3" onConfirmChange={_setState("password")}/>
+                            <InlineEditor type="password" value={formatPassword(personalInfo.password)} variant="body3" onConfirmChange={_setState("password")}/>
 
                         </div>
                         <div className='google'>
@@ -269,6 +219,11 @@ const AccountSetting = () => {
                 <div className='deleted-searches'>
                     <div className='info-heading'>
                         Deleted Searches
+                    </div>
+                    <div className='deleted-searches-container'>
+                        {deletedProperties.map((data, i) => (
+                            <PropertySummary homeData={data} key={i}/>
+                        ))}
                     </div>
                 </div>
                 <div className='bidded-properties'>
