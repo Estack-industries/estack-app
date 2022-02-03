@@ -136,111 +136,113 @@ const AccountSetting = () => {
 
 
     return (
-        <div>
+        <>
             <Navbar />
             <NavBackground />
-            <div className='heading'>
-                Account Settings
-            </div>
-            <div className='picture-container' >
-                <div>
-                    <EditAvatar parentObject={personalInfo} setParentObject={setPersonalInfo} personalKey={'avatar'}/>
-                </div>
-            </div>
-            <div className='info-container'>
-                <div className='personal-information'>
-                    <div className='info-heading'>
-                        Personal Information
-                        <div className='name'>
-                            Name
-                            <Box  >
-                                <InlineEditor value={personalInfo.name} variant="body3" onConfirmChange={_setState("name")}/>			
-                            </Box>
-                        </div>
-                        <div className='username'>
-                            Username
-                            <Box label="Please Enter Your Username">
-                                <InlineEditor value={personalInfo.username} variant="body3" onConfirmChange={_setState("username")}/>
-                            </Box>
-                        </div>
-                        <div className='reviews'>
-                            Reviews
-                            <InlineEditor value={personalInfo.reviews} variant="body3" onConfirmChange={_setState("reviews")}/>
-                        </div>
+            <main>
+                <h1 className='heading'>
+                    Account Settings
+                </h1>
+                <div className='picture-container' >
+                    <div>
+                        <EditAvatar parentObject={personalInfo} setParentObject={setPersonalInfo} personalKey={'avatar'}/>
                     </div>
                 </div>
-                <div className='sign-in-security'>
-                    <div className='info-heading'>
-                        Sign-in & Security
-                        <div className='email'>
-                            Email Address
-                            <InlineEditor value={personalInfo.email} variant="body3" onConfirmChange={_setState("email")}/>
+                <div className='info-container'>
+                    <div className='personal-information'>
+                        <div className='info-heading'>
+                            <h2>Personal Information</h2>
+                            <div className='name'>
+                                <label>Name</label>
+                                <Box>
+                                    <InlineEditor id='name' value={personalInfo.name} variant="body3" onConfirmChange={_setState("name")}/>			
+                                </Box>
+                            </div>
+                            <div className='username'>
+                                <label>Username</label>
+                                <Box label="Please Enter Your Username">
+                                    <InlineEditor value={personalInfo.username} variant="body3" onConfirmChange={_setState("username")}/>
+                                </Box>
+                            </div>
+                            <div className='reviews'>
+                                <label>Reviews</label>
+                                <InlineEditor value={personalInfo.reviews} variant="body3" onConfirmChange={_setState("reviews")}/>
+                            </div>
                         </div>
-                        <div className='password'>
-                            Password
-                            <InlineEditor type="password" value={formatPassword(personalInfo.password)} variant="body3" onConfirmChange={_setState("password")}/>
+                    </div>
+                    <div className='sign-in-security'>
+                        <div className='info-heading'>
+                            <h2>Sign-in & Security</h2>
+                            <div className='email'>
+                                <label>Email Address</label>
+                                <InlineEditor value={personalInfo.email} variant="body3" onConfirmChange={_setState("email")}/>
+                            </div>
+                            <div className='password'>
+                                <label>Password</label>
+                                <InlineEditor type="password" value={formatPassword(personalInfo.password)} variant="body3" onConfirmChange={_setState("password")}/>
 
-                        </div>
-                        <div className='google'>
-                            Google Sign-In
-                            <button>Link</button>
-                        </div>
-                    </div>
-                </div>
-                <div className='manage-account'>
-                    <div className='info-heading'>
-                        Manage Account
-                        <div className='deactivate'>
-                            Deactivate My Account
-                            <button>Deactivate</button>
-                        </div>
-                        <div className='privacy-cookies'>
-                            Privacy & Cookies
-                            <button>View</button>
-                        </div>
-                        <div className='other-accounts'>
-                            Link to Another Account
-                            <button>Link</button>
+                            </div>
+                            <div className='google'>
+                                <label>Google Sign-In</label>
+                                <button>Link</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='notifications'>
-                        Notifications
-                        <button className='notifications-button' onClick={() => {notifications === "On" ? setNotifications("Off") : setNotifications("On");}}>
-                            {notifications}
+                    <div className='manage-account'>
+                        <div className='info-heading'>
+                            <h2>Manage Account</h2>
+                            <div className='deactivate'>
+                                <label>Deactivate My Account</label>
+                                <button>Deactivate</button>
+                            </div>
+                            <div className='privacy-cookies'>
+                                <label>Privacy & Cookies</label>
+                                <button>View</button>
+                            </div>
+                            <div className='other-accounts'>
+                                <label>Link to Another Account</label>
+                                <button>Link</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='notifications'>
+                        <h2>Notifications</h2>
+                            <button className='notifications-button' onClick={() => {notifications === "On" ? setNotifications("Off") : setNotifications("On");}}>
+                                {notifications}
+                            </button>
+                        
+                    </div>
+                    <div className='more'>
+                        <button className='more-button'>
+                            More
                         </button>
-                    
-                </div>
-                <div className='more'>
-                    <button className='more-button'>
-                        More
-                    </button>
-                </div>
-                <div className='deleted-searches'>
+                    </div>
+                    <div className='deleted-searches'>
+                        <div className='info-heading'>
+                            <h2>Deleted Searches</h2>
+                        </div>
+                        <div className='deleted-searches-container'>
+                            {deletedProperties.map((data, i) => (
+                                <PropertySummary homeData={data} key={i}/>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='bidded-properties'>
+                        <div className='info-heading'>
+                            <h2>Bidded Properties</h2>
+                        </div>
+                    </div>
+                    <div className='loans-financing'>
                     <div className='info-heading'>
-                        Deleted Searches
+                        <h2>Loans & Financing</h2>
                     </div>
-                    <div className='deleted-searches-container'>
-                        {deletedProperties.map((data, i) => (
-                            <PropertySummary homeData={data} key={i}/>
-                        ))}
                     </div>
+                    <img src={GearsBig} className='gears-big' />
                 </div>
-                <div className='bidded-properties'>
-                	<div className='info-heading'>
-                    	Bidded Properties
-                  	</div>
-                </div>
-                <div className='loans-financing'>
-                <div className='info-heading'>
-                        Loans & Financing
-                    </div>
-                </div>
-                <img src={GearsBig} className='gears-big' />
-            </div>
+            </main>
             
             <Footer />
-        </div>
+        </>
     );
 };
 

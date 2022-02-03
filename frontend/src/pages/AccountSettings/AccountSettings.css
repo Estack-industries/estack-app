@@ -76,7 +76,6 @@
     margin: auto;
     margin-top: 60px;
     margin-bottom: 50px;
-    font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
@@ -104,6 +103,7 @@
 .info-container {
     width: 1247px;
     height: 2753px;
+    padding-top: 33px;
     margin: auto;
     margin-bottom: 62px;
     display: flex;
@@ -125,7 +125,6 @@
 .info-heading {
     width: 347px;
     height: 48px;
-    font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     margin-top: 32px;
@@ -139,7 +138,6 @@
     display: flex;
     justify-content: space-between;
 
-    font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     margin-top: 41px;
@@ -188,7 +186,6 @@ button:hover {
 }
 
 .more-button{
-    font-family: Open Sans;
     font-style: normal;
     font-weight: normal;
     font-size: 25px;
