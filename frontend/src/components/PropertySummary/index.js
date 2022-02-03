@@ -42,7 +42,7 @@ const HomeStatistics = function({text, icon, alt}) {
  *	return <PropertySummary homeData={homeData}/>
  */
 const PropertySummary = ({homeData}) => {
-	const {id, address, image, pr: price, new: newTag, beds, baths, sqft} = homeData;
+	const {id, address, image, price, new: newTag, beds, baths, sqft} = homeData;
 	return (
 		<a className={styles.favoritedHome} href={'/buy' + (id ? '/' + id : '')}>
 			<div className={styles.imageContainer}>
