@@ -101,34 +101,33 @@
 
 
 .info-container {
-    width: 1247px;
+    position: relative;
+    width: max(min(650px, 100%), min(1247px, 90%));
     height: 2753px;
-    padding-top: 33px;
+    padding: 33px 0px;
     margin: auto;
     margin-bottom: 62px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: center;
+    gap: 33px;
     
     background: rgba(203, 233, 255, 0.5);
 }
 
 .personal-information, .sign-in-security, .manage-account, .deleted-searches, .bidded-properties, .loans-financing {
-    width: 1184px;
+    width: calc(100% - 66px);
     height: max(376px, 100%);
     align-self: center;
-    margin-bottom: 33px;
     background: rgba(255, 255, 255, 0.5);    
 }
 
 .info-heading {
-    width: 347px;
-    height: 48px;
+    width: calc(100% - 62px);
     font-style: normal;
     font-weight: normal;
-    margin-top: 32px;
-    margin-left: 31px;
+    margin: 32px 0px 32px 32px;
     font-size: 35px;
     line-height: 48px;
     color: #000000;
@@ -143,7 +142,7 @@
     margin-top: 41px;
     font-size: 25px;
     line-height: 34px;
-    width: 1100px;
+    width: 100%;
 }
 
 button {
@@ -162,9 +161,7 @@ button:hover {
     font-size: 35px;
     line-height: 48px;
     color: #000000;
-    width: 1100px;
-    margin-left: 60px;
-    margin-bottom: 40px;
+    margin: 0em 60px 40px 60px;
 }
 
 .notifications-button {
@@ -202,10 +199,10 @@ button:hover {
 
 .gears-big {
     position: absolute;
-    width: 300px;
-    height: 300px;
-    left: 310px;
-    top: 2411px;
+    width: 25%;
+    aspect-ratio: 1 / 1;
+    left: 5%;
+    top: 80%;
     z-index: -1;
 }
 
@@ -214,4 +211,10 @@ button:hover {
     flex-wrap: wrap;
     margin: 1.5em 2em;
     gap: 1em;
+}
+
+@media screen and (max-width: 650px) {
+    .gears-big {
+        display: none;
+    }
 }
