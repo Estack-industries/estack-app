@@ -20,7 +20,9 @@
     "mysql": "^2.18.1",
     "mysql2": "^2.3.2",
     "node-geocoder": "^3.28.0",
-    "nodemon": "^2.0.15",
     "sequelize-cli": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
