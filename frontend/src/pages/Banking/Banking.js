@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Banking.css';
 import EStackLogo from './assets/e-stack-logo.svg';
 import DefaultUserIcon from './assets/default-user-icon.svg';
@@ -16,58 +16,14 @@ import VTBBank from './assets/VTBBank.png'
 import Star from './assets/GoldStar.png'
 
 import Footer from '../../components/Footer/Footer';
-
-function NavBar() {
-    return (
-        <div className="navbar-container">
-            <img
-                src={EStackLogo}
-                alt="estack-logo"
-                className="estack-logo"
-                onClick={() => console.log('clicked')}
-            />
-            <div className="navbar-options">
-                <a className="navbar-option white-color open-sans" href="#">
-                    Buy
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Sell
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Rent
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    About Us
-                </a>
-            </div>
-            <img
-                src={DefaultUserIcon}
-                alt="default-user-icon"
-                className="user-icon"
-                onClick={() => console.log('clicked')}
-            />
-        </div>
-    
-    );
-};
-
-function Background() {
-	return (
-		<>
-        	<img src={BankingVector1} alt="banking-vector-1" className="vector-1" />
-        	<img src={BankingVector2} alt="banking-vector-2" className="vector-2" />
-			<img src={BankingVector3} alt="banking-vector-3" className="vector-3" />
-            <img src={BankingVector4} alt="banking-vector-4" className="vector-4" />
-		</>
-	);
-}
-
+import Navbar from '../../components/Navbar/Navbar';
+import NavBackground from '../../components/NavBackground';
 
 const Banking = () => {
     return (
         <div>
-            <NavBar />
-            <Background />
+            <Navbar />
+            <NavBackground />
             <div className='heading'>
                 Which mortage is Right For You?
             </div>
@@ -139,16 +95,15 @@ const Banking = () => {
             </div>
 
             <div className='banks-container'>
-                <input type="checkbox" />
                 <div className='bank-of-georgia'>
-                    <div className='Georgia-Logo'>
+                    <div className='bank-logo'>
                         <img src={BankOfGeorgia} alt="bank-of-georgia-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Bank of Georgia
                         </div>
-                        <div className='georgia-rating'>
+                        <div className='bank-rating'>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
@@ -172,14 +127,14 @@ const Banking = () => {
                     </div>
                 </div>
                 <div className='bank-tbc'>
-                    <div className='tbc-logo'>
+                    <div className='bank-logo'>
                         <img src={TBCBank} alt="tbc-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             TBC Bank
                         </div>
-                        <div className='tbc-rating'>
+                        <div className='bank-rating'>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
@@ -203,14 +158,14 @@ const Banking = () => {
                     </div>
                 </div>
                 <div className='liberty-bank'>
-                    <div className='liberty-logo'>
+                    <div className='bank-logo'>
                         <img src={LibertyBank} alt="liberty-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Liberty Bank
                         </div>
-                        <div className='tbc-rating'>
+                        <div className='bank-rating'>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
@@ -234,14 +189,14 @@ const Banking = () => {
                     </div>
                 </div>
                 <div className='basis-bank'>
-                    <div className='basis-logo'>
+                    <div className='bank-logo'>
                         <img src={BasisBank} alt="basis-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             Basis Bank
                         </div>
-                        <div className='tbc-rating'>
+                        <div className='bank-rating'>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
@@ -265,14 +220,14 @@ const Banking = () => {
                     </div> 
                 </div>
                 <div className='vtb-bank'>
-                    <div className='vtb-logo'>
+                    <div className='bank-logo'>
                         <img src={VTBBank} alt="vtb-bank-logo"/>
                     </div>
                     <div className='rating-container'>
                         <div className='bank-name'>
                             VTB Bank
                         </div>
-                        <div className='tbc-rating'>
+                        <div className='bank-rating'>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
                             <img src={Star} alt="star-rating"/>
