@@ -14,6 +14,7 @@ import AccountMessages from './pages/Account/Messages';
 import UploadRent from './pages/Rent/Rent';
 import AccountSetting from './pages/AccountSettings/AccountSettings';
 import Banking from './pages/Banking/Banking';
+import Success from './pages/Rent/Success/success';
 
 function App() {
 	return (
@@ -45,6 +46,9 @@ function App() {
 				</Route>
 				<Route path="/upload/rent">
 					<UploadRent />
+				</Route>
+				<Route path="/rent/success">
+					<Success />
 				</Route>
 				<Route path="/banking">
 					<Banking />
