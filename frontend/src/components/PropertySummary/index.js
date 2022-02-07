@@ -1,5 +1,5 @@
 import styles from './index.module.css';
-import {moneyFormat} from '../../pages/Account/utils';
+import {moneyFormat} from '../../lib/utils';
 
 import houseBeds from './assets/house-beds.svg';
 import houseBaths from './assets/house-baths.svg'
@@ -44,7 +44,7 @@ const HomeStatistics = function({text, icon, alt}) {
 const PropertySummary = ({homeData}) => {
 	const {id, address, image, price, new: newTag, beds, baths, sqft} = homeData;
 	return (
-		<a className={styles.favoritedHome} href={'/buy' + (id ? '/' + id : '')}>
+		<a className={styles.favoritedHome} href={'/property' + (id ? '/' + id : '')}>
 			<div className={styles.imageContainer}>
 				{image && <img src={image} alt={'home at ' + address}/>}
 			</div>

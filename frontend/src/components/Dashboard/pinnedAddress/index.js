@@ -1,5 +1,5 @@
 import styles from './index.module.css'
-import { moneyFormat } from '../../../pages/Account/utils';
+import { moneyFormat } from '../../../lib/utils';
 
 /**
  * A panel where users can pin addresses to their account.

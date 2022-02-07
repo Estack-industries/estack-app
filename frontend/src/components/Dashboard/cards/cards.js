@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { moneyFormat, dateFormat } from '../../../pages/Account/utils';
+import { moneyFormat } from '../../../lib/utils';
 import styles from './cards.module.css';
 
 /**

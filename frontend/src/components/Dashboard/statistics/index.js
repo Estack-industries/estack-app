@@ -1,4 +1,4 @@
-import { moneyFormat } from '../../../pages/Account/utils';
+import { moneyFormat } from '../../../lib/utils';
 import styles from './index.module.css';
 
 import statCalendar from './stat-icons/calendar.svg';

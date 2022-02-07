@@ -2,7 +2,7 @@ import { useState, useEffect }from 'react';
 import styles from './messages.module.css';
 import { FetchingContacts, FetchingMessages } from '../dataFetching';
 import chatOptionsSvg from '../assets/chat-options.svg';
-import { timeFormat, dateFormat } from '../utils';
+import { timeFormat, dateFormat } from '../../../lib/utils';
 
 const Messages = ({userData}) => {
 	const [messages, setMessages] = useState();

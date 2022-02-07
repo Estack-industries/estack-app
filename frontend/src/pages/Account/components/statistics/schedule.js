@@ -1,4 +1,4 @@
-import { dateFormat, moneyFormat } from '../../utils';
+import { dateFormat, moneyFormat } from '../../../../lib/utils';
 import styles from './schedule.module.css';
 import parentStyles from './index.module.css';
 
