@@ -3,56 +3,41 @@
     margin: auto;
 }
 
-.vector-1 {
-    position: absolute;
-    width: 100%;
-    margin-top: -25px;
-    z-index: -1;
-}
-
-.vector-3 {
-    position: absolute;
-    width: 110%;
-    z-index: -2;
-}
-
-.vector-4 {
-    position: absolute;
-    width: 100%;
-    margin-top: 50px;
-    z-index: -3;
-}
-
-.blue-circle1 {
-    position: absolute;
-    width: 59.36px;
-    height: 56px;
-    left: 167.45px;
-    top: 140px;
-}
-
 .property-image {
-    margin-top: -150px;
-    margin-bottom: 30px;
+    position: relative;
+    width: 80%;
+    aspect-ratio: 16 / 9;
+    margin: 5em auto 1em auto;
+}
+
+.property-image > img {
+    position: absolute;
+    border-top-left-radius: 3em;
+    border-top-right-radius: 3em;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.image-nav {
     display: flex;
     justify-content: center;
-    align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+    gap: 0.7em;
 }
 
-.blue-circle2{
-    position: absolute;
-    width: 54.34px;
-    height: 55.83px;
-    left: 1621.25px;
-    top: 444px;
+.image-nav > div {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+    background-color: #c4c4c4b8;
 }
 
-.full-circle {
-    position: absolute;
-    width: 207px;
-    height: 207px;
-    left: -5px;
-    top: 730px;
+.image-nav > .active-image-nav {
+    background-color: hsl(0, 0%, 85%);
 }
 
 .heart-icon {
@@ -74,6 +59,13 @@
     gap: 30px;
 }
 
+.photo-container > img {
+    width: 5em;
+    aspect-ratio: 1 / 1;
+    border-top-right-radius: 1em;
+    object-fit: cover;
+}
+
 .help-button {
     position: absolute;
     width: 118px;
@@ -88,31 +80,32 @@
 }
 
 .property-information-container {
-    width: 1269px;
-    height: 145px;
-    top: 0px;
+    width: 80%;
     background: #FFFFFF;
-    box-sizing: border-box;
     border-radius: 15px;
-    margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin: 3em auto 4em auto;
+    padding: 2em 0em;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .information-top {
     display: flex;
     justify-content: space-around;
-    padding-top: 30px;
-    margin-right: 30px;
+}
+
+.information-top .price {
+    font-weight: bold;
+    font-size: 2.1em;
+}
+
+.information-top .address {
+    font-weight: bold;
 }
 
 .information-bottom {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 20px;
-    margin-right: 30px;
-
+    margin-top: 1em;
 }
 
 .bedrooms {
@@ -159,9 +152,7 @@
 .info-number {
     margin-left: 20px;
     margin-top: 2px;
-    font-family: Lato;
     font-size: 18px;
-    font-style: normal;
     font-weight: 500;
     line-height: 22px;
     letter-spacing: -0.42717939615249634px;
@@ -184,8 +175,6 @@
     justify-content: space-evenly;
     align-items: center;
     margin-right: 0;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 30px;
@@ -219,11 +208,9 @@
     justify-content: center;
     align-items: center;
     background: #0193FD;
-    font-family: DM Sans;
     height: 71px;
     margin-top: 20px;
 
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
@@ -267,8 +254,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 20px;
@@ -291,8 +276,6 @@
     justify-content: baseline;
     margin-left: 26.5px;
     margin-bottom: -5px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 20px;
@@ -356,8 +339,6 @@
     margin-top: 20px;
     gap: 20px;
     background: #0193FD;
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
@@ -382,8 +363,6 @@
 }
 
 .agent-name {
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
@@ -392,8 +371,6 @@
 }
 
 .profile {
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 18px;
@@ -412,8 +389,6 @@
     padding-left: 20px;
     width: 300.4px;
     height: 60.89px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 20px;
@@ -428,8 +403,6 @@
     padding-top: 20px;
     height: 101px;
     width: 324.4px;    
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 20px;
@@ -444,8 +417,6 @@
     align-items: center;
     align-self: center;
     margin-top: -10px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 30px;
@@ -501,8 +472,6 @@
     width: 268.87px;
     height: 32.86px;
     left: 110.8px;
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 31px;
@@ -520,30 +489,21 @@
     width: 554.6px;
     height: 270.87px;
     left: 107px;
-    top: calc(50% - 270.87px/2 - 348.06px);
-    font-family: Lato;
-    font-style: normal;
     font-weight: bold;
     font-size: 20px;
     line-height: 22px;
-    /* or 110% */
     color: #000000;
     mix-blend-mode: normal;
     opacity: 0.6;
 }
 
 .buy-button{
-    width: 577px;
-    height: 70px;
-    left: 98px;
-    top: calc(50% - 70px/2 - 129.5px);
-    margin: auto;
-    margin-top: 40px;
+    width: 100%;
+    margin-top: 1em;
+    padding: 0.8em 2em;
 
     background: #F4A523;
     border-radius: 18px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 33px;
@@ -561,8 +521,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 22px;
     line-height: 30px;
@@ -586,8 +544,6 @@
     right: 203px;
     top: 1312px;
 
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 36px;
     line-height: 49px;
@@ -625,15 +581,13 @@
 }
 
 .payment-calculator-container {
-    margin: auto;
+    margin: 2.5em auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 1282px;
+    width: 90%;
     height: 400px;
     background: #FFFFFF;
     border: 1px solid #A4D7FC;
@@ -650,8 +604,6 @@
     left: calc(50% - 337.13px/2 - 416.6px);
     top: calc(50% - 30.36px/2 - 14.86px);
 
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 31px;
@@ -661,8 +613,6 @@
 }
 .amount-per-month {
     display:flex;
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
@@ -677,7 +627,7 @@
     margin: auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    width: 1198.85px;
+    width: 90%;
 }
 
 .first-line {
@@ -699,11 +649,7 @@
 }
 
 .colors-legend{
-    display: flex;
-    flex-wrap: wrap;
     margin-bottom: 30px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -724,7 +670,8 @@
 
 .amount-details {
     display: flex;
-    width: 1198.85px;
+    width: 90%;
+    margin: 0em auto; 
  
     background: #FFFFFF;
     border: 1px solid rgba(168, 168, 168, 0.44);
@@ -737,7 +684,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 320.5px;
+    width: 25%;
     border-right: 1px solid #000000;
     
 }
@@ -750,8 +697,6 @@
 }
 
 .down-payment-button, .home-price-header, .loan-details-header {
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 17px;
     line-height: 20px;
@@ -768,8 +713,6 @@
 
 .down-payment-amount, .home-price-amount, .loan-details-amount {
     margin-top: 10px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: bold;
     font-size: 17px;
     line-height: 20px;
@@ -817,8 +760,6 @@
     align-items: center;
 }
 .down-payment-title {
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 24px;
     line-height: 31px;
@@ -838,8 +779,6 @@
     display: flex;
     height: 22px;
     margin-left: 34px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -896,8 +835,6 @@
     width: 139px;
     height: 23px;
     margin-left: 34px;
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 23px;
@@ -912,8 +849,6 @@
     margin-left: 34px;
     width: 418px;
     height: 39px;
-    font-family: Open Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
@@ -947,8 +882,6 @@
 .total-cash-text, .initial-down-text, .total-down-text {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -960,8 +893,6 @@
 .total-cash-number, .initial-down-number {
     margin-top: 10px;
     margin-bottom: 10px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -972,8 +903,6 @@
 
 .total-down-number {
     margin-top: 10px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
@@ -988,8 +917,6 @@
     display: flex;
     justify-content: space-around;
     height: 51px;
-    font-family: Lato;
-    font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
@@ -1001,7 +928,6 @@
     width: 220px;
     left: 35px;
     top: 517px;
-    border-radius: nullpx;
 }
 
 .learn-more-link{
@@ -1009,7 +935,7 @@
 }
 .map{
     margin: auto;
-    Width: 1282px;
+    Width: 90%;
     Height: 400px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
@@ -1034,9 +960,11 @@
 
 .similar-listings{
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 50px;
-    margin-bottom: 100px;
+    justify-content: flex-start;
+	margin: 3em 5% 5em 5%;
+    padding: 0.5em;
+    overflow-x: scroll;
+    gap: 2em;
 }
 
 .similar-listings-header {
@@ -1044,78 +972,10 @@
     display: flex;
     flex-direction: column;
     align-items:baseline;
-    font-family: DM Sans;
-    font-style: normal;
     font-weight: bold;
     font-size: 50px;
     line-height: 65px;
     letter-spacing: -1.25641px;
 
     color: #000000;
-}
-
-.listing-1, .listing-2, .listing-3, .listing-4{
-    width: 336px;
-    height: 417px;
-    left: 10px;
-    top: calc(50% - 417px/2 + 1067px);
-    
-    background: #FFFFFF;
-    border: 1px solid #A4D7FC;
-    box-sizing: border-box;
-    border-radius: 15px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    cursor: pointer;
-}
-
-.listing-location {
-    margin-top: 4%;
-    margin-left: 10%;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    line-height: 20px;
-    letter-spacing: -0.427179px;
-
-    color: #000000;
-}
-
-.listing-price {
-    margin-top: 4%;
-    margin-left: 10%;
-    margin-right: 10%;
-    
-    display: flex;
-    align-items: baseline;
-    font-family: Lato;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    line-height: 20px;
-    letter-spacing: -0.427179px;
-
-    color: #000000;
-}
-
-.new-listing {
-    display: flex;
-    margin-left: 14%;
-    padding-left: 10%;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 17px;
-    line-height: 22px;
-    letter-spacing: -0.427179px;
-    border-left: 1px solid #C4C4C4;
-    color: #38CD3E;
-}
-
-.listing-info {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 20px;
-    margin-right: 30px;
 }

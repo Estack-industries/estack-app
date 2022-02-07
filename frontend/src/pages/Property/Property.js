@@ -3,38 +3,18 @@ import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 import './Property.css';
 import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles';
-import {Link} from 'react-router-dom'
+import PropertySummary from '../../components/PropertySummary';
 
-import EStackLogo from './assets/e-stack-logo.svg';
-import DefaultUserIcon from './assets/default-user-icon.svg';
-import PropertyVector1 from './assets/PropertyVector1.svg';
-import PropertyVector2 from './assets/PropertyVector2.png';
-import PropertyVector3 from './assets/PropertyVector3.svg';
-import PropertyVector4 from './assets/PropertyVector4.svg';
-import BlueCircle1 from './assets/blueCircle1.png'
-import BlueCircle2 from './assets/blueCircle2.png'
-import Propertyimage from './assets/propertyimage.png';
-import FullCircle from './assets/fullCircle.png'
 import HeartIcon from './assets/heartIcon.png';
-import Smallimage1 from './assets/smallimage1.png';
-import Smallimage2 from './assets/smallimage2.png';
-import Smallimage3 from './assets/smallimage3.png';
-import Smallimage4 from './assets/smallimage4.png';
-import Smallimage5 from './assets/smallimage5.png';
-import Smallimage6 from './assets/smallimage6.png';
-import Smallimage7 from './assets/smallimage7.png';
 import YellowHelp from './assets/yellowHelp.png';
-import Address from './assets/address.png';
-import Price from './assets/price.png';
-import Bed from './assets/bed.PNG';
+import Bed from './assets/bed.png';
 import Bathroom from './assets/bath.png';
-import Sun from './assets/sun.PNG';
-import Garage from './assets/garage.PNG';
+import Sun from './assets/sun.png';
+import Garage from './assets/garage.png';
 import Calendar from './assets/calendar.png';
 import TourImage from './assets/tourImage.png';
 import ContactImage from './assets/contactImage.png';
 import LenderImage from './assets/lenderImage.png';
-import HalfCircle from './assets/halfCircle.png'
 import KayleyHall from './assets/KayleyHall.png'
 import GeogiaBankLogo from './assets/georgiaBankLogo.png';
 import TbcBankLogo from './assets/tbcBankLogo.png';
@@ -48,57 +28,10 @@ import GrayEllipse from './assets/grayEllipse.png';
 import Info from './assets/info.png';
 import LightBulb from './assets/lightBulb.png';
 import BlueLine from './assets/blueLine.png';
-import Similar1 from './assets/similar1.png';
-import Similar2 from './assets/similar2.png';
-import Similar3 from './assets/similar3.png';
-import Similar4 from './assets/similar4.png';
 import Footer from '../../components/Footer/Footer';
-
-function NavBar() {
-    return (
-        <div className="navbar-container">
-            <img
-                src={EStackLogo}
-                alt="estack-logo"
-                className="estack-logo"
-                onClick={() => console.log('clicked')}
-            />
-            <div className="navbar-options">
-                <a className="navbar-option white-color open-sans" href="#">
-                    Buy
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Sell
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Rent
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    About Us
-                </a>
-            </div>
-            <img
-                src={DefaultUserIcon}
-                alt="default-user-icon"
-                className="user-icon"
-                onClick={() => console.log('clicked')}
-            />
-        </div>
-    
-    );
-};
-
-function Background() {
-	return (
-		<>
-        	<img src={PropertyVector1} alt="property-vector-1" className="vector-1" />
-        	<img src={PropertyVector2} alt="property-vector-2" className="vector-2" />
-			<img src={PropertyVector3} alt="property-vector-3" className="vector-3" />
-            <img src={PropertyVector4} alt="property-vector-4" className="vector-4" />
-		</>
-	);
-}
-
+import Navbar from '../../components/Navbar/Navbar';
+import NavBackground from '../../components/NavBackground';
+import { FetchMainProperty } from './dataFetching';
 
 function AgentMenu ({agentIsShown, setAgentIsShown}) {
     const agentRef = useRef()
@@ -193,63 +126,68 @@ const PrettoSlider = styled(Slider)({
 });
 
 
-const Property = () =>  {
+const Property = (props) =>  {
     const [agentIsShown, setAgentIsShown] = useState(false)
     const [tourIsShown, setTourIsShown] = useState(false)
     const [downPaymetIsShown, setDownPaymentIsShown] = useState(false)
+    const [propertyData, setPropertyData] = useState({});
+    const [primaryImage, setPrimaryImage] = useState(0);
 
     const openAgent = () => {
         setAgentIsShown(prev => !prev)
     }
 
+    useState(() => {
+        FetchMainProperty(props.match.params.id).then(data => {
+            setPropertyData(data)
+        })
+    }, [])
+
+
+    if (Object.keys(propertyData).length === 0) return (
+        <div>
+            <Navbar />
+            <NavBackground />
+        </div>
+    )
     return (
         <div>
-            <Background />
-            <NavBar />
-            <div className='blue-circle1'>
-                <img src={BlueCircle1} />
-            </div>
+            <Navbar />
+            <NavBackground />
             {/* main image */}
-            <div className='property-image'>
-                <img
-                    className='main-image'
-                    src={Propertyimage}
-                    alt="property-image-1"
-                />
-            </div>
-            <div className='blue-circle2'>
-                <img src={BlueCircle2} />
-            </div>
-            <div className='full-circle'>
-                <img src={FullCircle} />
-            </div>
+            {propertyData.images && propertyData.images.length > 0 &&
+                <div className='property-image'>
+                    <img
+                        className='main-image'
+                        src={propertyData.images[primaryImage]}
+                        alt={'property preview ' + (primaryImage + 1)}
+                    />
+                    <div className='image-nav'>
+                        {propertyData.images.map((image, index) => (
+                            <div
+                                key={index}
+                                className={index === primaryImage ? 'active-image-nav' : ''}
+                                onClick={() => setPrimaryImage(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
+            }
             {/* like button */}
             <button className='heart-icon'>
                 <img src={HeartIcon} />
             </button>
             {/* tiny images under main image */}
             <div className='tiny-images-container'>
-                <div className="photo-container">
-                    <img src={Smallimage1} alt="small-property-1" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage2} alt="small-property-2" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage3} alt="small-property-3" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage4} alt="small-property-4" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage5} alt="small-property-5" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage6} alt="small-property-6" />
-                </div>
-                <div className="photo-container">
-                    <img src={Smallimage7} alt="small-property-7" />
-                </div>
+                {propertyData.images && propertyData.images.map((image, index) => (
+                    <div className="photo-container" key={index}>
+                        <img
+                            src={image}
+                            alt={"property preview " + (index + 1)}
+                            onClick={() => setPrimaryImage(index)}
+                        />
+                    </div>
+                ))}
             </div>
             {/* yellow help button */}
             <button className='help-button'>
@@ -259,34 +197,34 @@ const Property = () =>  {
             <div className='property-information-container'>
                 <div className='information-top'>
                     <div className='address'>
-                        <img src={Address} alt='property-address' />
+                        <p>27 Grand Street Brooklyn, New York</p>
                     </div>
                     <div className='price'>
-                        <img src={Price} alt='property-price' />
+                        <p>$500,000.00</p>
                     </div>
                 </div>
                 <div className='information-bottom'>
                     <div className='bedrooms'>
                         <img src={Bed} alt='bed-image' />
-                        <div className='info-number'>1</div>
+                        <div className='info-number'>{propertyData.numBedrooms}</div>
                     </div>
                     <div className='bathrooms'>
                         <img src={Bathroom} alt='sink-image' />
-                        <div className='info-number'>2</div>
+                        <div className='info-number'>{propertyData.numBathrooms}</div>
                     </div>
                     <div className='sun'>
                         <img src={Sun} alt='sun-image' />
-                        <div className='info-number'>2</div>
+                        <div className='info-number'>{propertyData.squareft}</div>
 
                     </div>
                     <div className='garage'>
                         <img src={Garage} alt='garage-image' />
-                        <div className='info-number'>1</div>
+                        <div className='info-number'>{propertyData.cars}</div>
 
                     </div>
                     <div className='calendar'>
                         <img src={Calendar} alt='calendar-image' />
-                        <div className='info-number'>2007</div>
+                        <div className='info-number'>{propertyData.yearBuilt}</div>
                     </div>
                 </div>
             </div>
@@ -342,9 +280,6 @@ const Property = () =>  {
                     <img src={LenderImage} alt='lender' />
                 </button>
             </div>
-            <div className='half-circle'>
-                <img src={HalfCircle} />
-            </div>
             <div className='description-lenders-container'>
                 <div className='description-column'>
                     {/* description box */}
@@ -353,15 +288,15 @@ const Property = () =>  {
                             Description
                         </div>
                         <div className='description-info'>
-                        <p>At vero eos et iusto odio dignissimos ducimus, qui haec putat, ut ipsi auctori huius disciplinae placet: constituam, quid sit numeranda nec me ab illo inventore veritatis et expedita distinctio nam libero tempore, cum memoriter, tum etiam ac ratione</p>
+                        <p>{propertyData.description}</p>
                         
                         <p>Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.</p>
                         </div>
                     </div>
                     {/* buy the property button */}
-                    <button className='buy-button'>
+                    <a className='buy-button' href='/banking'>
                         Buy the Property
-                    </button>
+                    </a>
                 </div>
                 {/* best lenders box */}
                 <div className='best-lenders-container'>
@@ -506,112 +441,9 @@ const Property = () =>  {
                     Similar Listings
                 </div>
                 <div className='similar-listings'>
-                    <div className='listing-1'>
-                        <img src={Similar1} alt='listing-1' />
-                        <div className='listing-location'>
-                            Ventura st. 2892, St louis
-                        </div>
-                        <div className='listing-price'>
-                            $600,000
-                            <div className='new-listing'>
-                            New
-                            </div>
-                        </div>
-                        
-                        <div className='listing-info'>
-                            <div className='bedrooms'>
-                                <img src={Bed} alt='bed' />
-                                <div className='info-number'>4</div>
-                            </div>
-                            <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink' />
-                                <div className='info-number'>2</div>
-                            </div>
-                            <div className='sun'>
-                                <img src={Sun} alt='sun' />
-                                <div className='info-number'>2</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='listing-2'>
-                        <img src={Similar2} alt='listing-2' />
-                        <div className='listing-location'>
-                            Ventura st. 2892, St louis
-                        </div>
-                        <div className='listing-price'>
-                            $600,000
-                            <div className='new-listing'>
-                                New
-                            </div>
-                        </div>
-                        <div className='listing-info'>
-                            <div className='bedrooms'>
-                                <img src={Bed} alt='bed' />
-                                <div className='info-number'>4</div>
-                            </div>
-                            <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink' />
-                                <div className='info-number'>2</div>
-                            </div>
-                            <div className='sun'>
-                                <img src={Sun} alt='sun' />
-                                <div className='info-number'>2</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='listing-3'>
-                        <img src={Similar3} alt='listing-3' />
-                        <div className='listing-location'>
-                            Ventura st. 2892, St louis
-                        </div>
-                        <div className='listing-price'>
-                            $600,000
-                            <div className='new-listing'>
-                            New
-                            </div>
-                        </div>
-                        <div className='listing-info'>
-                            <div className='bedrooms'>
-                                <img src={Bed} alt='bed' />
-                                <div className='info-number'>4</div>
-                            </div>
-                            <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink' />
-                                <div className='info-number'>2</div>
-                            </div>
-                            <div className='sun'>
-                                <img src={Sun} alt='sun' />
-                                <div className='info-number'>2</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='listing-4'>
-                        <img src={Similar4} alt='listing-4' />
-                        <div className='listing-location'>
-                            Ventura st. 2892, St louis
-                        </div>
-                        <div className='listing-price'>
-                            $600,000
-                            <div className='new-listing'>
-                            New
-                            </div>
-                        </div>
-                        
-                        <div className='listing-info'>
-                            <div className='bedrooms'>
-                                <img src={Bed} alt='bed' />
-                                <div className='info-number'>4</div>
-                            </div>
-                            <div className='bathrooms'>
-                                <img src={Bathroom} alt='sink' />
-                                <div className='info-number'>2</div>
-                            </div>
-                            <div className='sun'>
-                                <img src={Sun} alt='sun' />
-                                <div className='info-number'>2</div>
-                            </div>
-                        </div>
-                    </div>
+                    {propertyData.similarProperties?.map((listing, index) => (
+                        <PropertySummary homeData={listing} key={index} />
+                    ))}
                 </div>
             </div>
             <Footer/>

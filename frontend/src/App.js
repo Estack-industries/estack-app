@@ -14,6 +14,7 @@ import AccountMessages from './pages/Account/Messages';
 import UploadRent from './pages/Rent/Rent';
 import AccountSetting from './pages/AccountSettings/AccountSettings';
 import Banking from './pages/Banking/Banking';
+import Property from './pages/Property/Property';
 
 function App() {
 	return (
@@ -48,7 +49,8 @@ function App() {
 				</Route>
 				<Route path="/banking">
 					<Banking />
-				</Route>
+				</Route> 
+				<Route path="/property/:id" component={Property}/>
 			</Switch>
 		</Router>
 	);
