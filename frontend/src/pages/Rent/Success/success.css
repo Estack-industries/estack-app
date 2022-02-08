@@ -1,0 +1,47 @@
+.successicon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  margin-top: 15em;
+  margin-bottom: 10em;
+}
+
+.splash {
+  margin-top: 530px;
+  width: inherit;
+  height: inherit;
+}
+
+.cardNote {
+  border-radius: 30px;
+  background-color: #0193FD;
+color: white;
+position: flex;
+width: 50%;
+padding: 60px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.body {
+  text-align: center;
+font-size: xx-large;
+}
+
+.grid-container {
+  padding: 100px;
+}
+.grid-item {
+  background-color: #0193FD;
+  padding: 20px;
+  border-radius: 20px;
+  display: inline;
+  text-align: center;
+  float: left;
+ margin-left: 330px;
+}
+
+.direct {
+  color: white;
+}
