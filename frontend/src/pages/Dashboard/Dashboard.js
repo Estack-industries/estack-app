@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Axios from 'axios';
-import './Dashboard.css';
+import styles from './Dashboard.module.css';
 import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
@@ -59,7 +59,7 @@ const Dashboard = () => {
 		<div>
 			<Background src={backgroundImages} />
 			<Navbar />
-			<h1 className="title">Pick a <span className="highlight">Dashboard</span></h1>
+			<h1 className={styles.title}>Pick a <span className={styles.highlight}>Dashboard</span></h1>
 
 			<div className="large-space" />
 			<div className="large-space" />
@@ -69,47 +69,47 @@ const Dashboard = () => {
 			<div className="large-space" />
 			<div className="large-space" />
 
-			<div className="row">
-				<div className="column">
-					<img className="image" src={squareOne} alt="firstOpt" />
+			<div className={styles.row}>
+				<div className={styles.column}>
+					<img className={styles.image} src={squareOne} alt="firstOpt" />
 				</div>
-				<div className="column">
-					<img className="image" src={squareTwo} alt="secondOpt" />
+				<div className={styles.column}>
+					<img className={styles.image} src={squareTwo} alt="secondOpt" />
 				</div>
-				<div className="column">
-					<img className="image" src={squareThree} alt="thirdOpt" />
+				<div className={styles.column}>
+					<img className={styles.image} src={squareThree} alt="thirdOpt" />
 				</div>
 			</div>
-			<div className="row">
-				<div className="column">
-					<a className="btn" href="sellerdashboard" role="button">
+			<div className={styles.row}>
+				<div className={styles.column}>
+					<a className={styles.btn} href="sellerdashboard" role="button">
 						Sell Homes
 					</a>
 				</div>
-				<div className="column">
-					<a className="btn" href="#" role="button">
+				<div className={styles.column}>
+					<a className={styles.btn} href="#" role="button">
 						Be a Landlord
 					</a>
 				</div>
-				<div className="column">
-					<a className="btn" href="#" role="button">
+				<div className={styles.column}>
+					<a className={styles.btn} href="#" role="button">
 						Upgraded User
 					</a>
 				</div>
 			</div>
 			<div className="large-space" />
-			<div className="row">
-				<div className="column">
-					<img className="image" src={divider} alt="divide" />
+			<div className={styles.row}>
+				<div className={styles.column}>
+					<img className={styles.image} src={divider} alt="divide" />
 				</div>
-				<div className="column">
-					<img className="icon" src={middleIcon} alt="icon" />
+				<div className={styles.column}>
+					<img className={styles.icon} src={middleIcon} alt="icon" />
 				</div>
-				<div className="column">
-					<img className="image" src={divider} alt="divide" />
+				<div className={styles.column}>
+					<img className={styles.image} src={divider} alt="divide" />
 				</div>
 			</div>
-			<div className="info">
+			<div className={styles.info}>
 				<h3>Our Team Win's</h3>
 				<p>
 					Our clients get the best software to manage and control
@@ -120,14 +120,14 @@ const Dashboard = () => {
 					Good luck!
 				</p>
 				<div className="small-space" />
-				<p className="additional">
+				<p className={styles.additional}>
 					check above to find the resources available to start today
 				</p>
 			</div>
 
 			<div className="large-space" />
-			<img className="divide" src={smalldiv} alt="smallDivide" />
-			<h2 className="title2"> Rent Listings</h2>
+			<img className={styles.divide} src={smalldiv} alt="smallDivide" />
+			<h2 className={styles.title2}> Rent Listings</h2>
 			<div className="row row-cols-1 row-cols-md-3 g-4">
 				{listings.map((val) => {
 					return (
@@ -139,7 +139,7 @@ const Dashboard = () => {
 									alt="..."
 								/>
 								<div className="card-body">
-									<h5 className="card-title">
+									<h5 className={styles.cardtitle}>
 										{val.street}, {val.city}, {val.state}
 									</h5>
 									<p className="card-text">

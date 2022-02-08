@@ -18,7 +18,7 @@ img.icon {
   width: 70%;
   display: flex;
   position: relative;
-  top: -100px;
+  top: -90px;
   left: 50px;
 }
 
@@ -37,8 +37,14 @@ img.icon {
 .btn {
   background-color: #0193FD;;
   margin: 10px;
-  padding-top: 17px;
-  padding-bottom: 17px;
+  padding: 17px 8px;
+  color: hsl(0deg 0% 100%);
+	text-align: center;
+	margin: auto;
+	justify-content: center;
+	display: grid;
+	font-weight: bold;
+	border-radius: 10px;
 }
 
 .info {
@@ -67,7 +73,7 @@ img.icon {
   margin-bottom: 50px;
 }
 
-.card-title {
+.cardTitle {
   font-weight: bold;
   text-decoration: none;
 }
