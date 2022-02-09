@@ -13,6 +13,9 @@
   height: inherit;
 }
 
+.card-title {
+  text-decoration: none;
+}
 .cardNote {
   border-radius: 30px;
   background-color: #0193FD;
