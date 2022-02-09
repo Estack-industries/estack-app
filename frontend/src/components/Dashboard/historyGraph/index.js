@@ -21,9 +21,6 @@ const getOrdinalNumber = function(num) {
   }
 }
 
-/**
- * From {@link https://gist.github.com/nicholaswmin/c2661eb11cad5671d816}
- **/
 function calcSplinePoints(data, scalar = 1) {
 	let alpha = 1;
 
