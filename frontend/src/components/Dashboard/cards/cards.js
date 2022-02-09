@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { moneyFormat } from '../../../lib/utils';
+import { dateFormat, moneyFormat } from '../../../lib/utils';
 import styles from './cards.module.css';
 
 /**
@@ -73,7 +73,7 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 					<div className={styles.historyContent}>
 						<p>{payment.address}</p>
 						<div>
-							<p>{moneyFormat(payment.sell)}</p>
+							<p>{dateFormat(payment.date)}</p>
 							<p>{moneyFormat(payment.amount)}</p>
 						</div>
 					</div>
