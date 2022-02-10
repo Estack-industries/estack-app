@@ -44,7 +44,7 @@ const HomeStatistics = function({text, icon, alt}) {
 const PropertySummary = ({homeData}) => {
 	const {id, address, image, price, new: newTag, beds, baths, sqft} = homeData;
 	return (
-		<a className={styles.favoritedHome} href={'/property' + (id ? '/' + id : '')}>
+		<a className={styles.favoritedHome} href={`/property${id ? '/' + id : ''}`}>
 			<div className={styles.imageContainer}>
 				{image && <img src={image} alt={'home at ' + address}/>}
 			</div>

@@ -5,6 +5,7 @@ import { moneyFormat } from '../../../lib/utils';
  * A panel where users can pin addresses to their account.
  * @param {object} props
  * @param {object} props.address An address object of information about the house.
+ * @param {string} props.address.id The id of the house.
  * @param {string} props.address.address The address of the house.
  * @param {string} props.address.image An image of the house.
  * @param {string} props.address.cost The cost of the next rental payment of the house.
@@ -15,9 +16,13 @@ import { moneyFormat } from '../../../lib/utils';
 function PinnedAddresses({address, containerStyle=styles.box}) {
 	if (address === undefined) address = {};	
 	return (
-		<div className={containerStyle} style={{display: 'flex', gap: '0.5em', padding: '0.1em 0.5em'}}>
+		<a
+			className={containerStyle}
+			style={{display: 'flex', gap: '0.5em', padding: '0.1em 0.5em'}}
+			href={`/property${address.id ? '/' + address.id : ''}`}
+		>
 			<div className={styles.pinnedImageContainer}>
-				{address.image && <img src={address.image} alt='Pinned Address 1'/>}
+				{address.image && <img src={address.image} alt='Pinned Address'/>}
 			</div>
 			<div className={styles.pinnedText}>
 				<p className={styles.pinnedTextUpper}>{address.address ?? 'Address'}</p>
@@ -26,7 +31,7 @@ function PinnedAddresses({address, containerStyle=styles.box}) {
 					<p>{address.costInterval ?? 'Interval'}</p>
 				</div>
 			</div>
-		</div>
+		</a>
 	)
 }
 

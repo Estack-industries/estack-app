@@ -11,7 +11,7 @@ const Fetching = async (id) => {
 		sentMessagesToday: 10,
 		favoritedHomes: [
 			{
-			
+				id: 'example',
 				address: '26 Young Avenue East Elmhurst, NY 11369',
 				price: 600000000000000000000000000,
 				beds: 3,
@@ -20,7 +20,7 @@ const Fetching = async (id) => {
 				new: true,
 			},
 			{
-
+				id: 'example',
 				address: '8952 Glenholme Avenue Saugus, MA 01906',
 				price: 900000,
 				beds: 4,
@@ -29,7 +29,7 @@ const Fetching = async (id) => {
 				new: true,
 			},
 			{
-
+				id: 'example',
 				address: '56 Oak Valley Street Aberdeen, SD 57401',
 				price: 500000,
 				beds: 2,
@@ -137,16 +137,19 @@ const Fetching = async (id) => {
 		],
 		pinnedAddresses: [
 			{
+				id: 'example',
 				image: sampleHouse1,
 				address: 'Mandragora Mansion',
 				cost: 1000000,
 			},
 			{
+				id: 'example',
 				image: sampleHouse2,
 				address: 'Halbert Avenue',
 				cost: 700000,
 			},
 			{
+				id: 'example',
 				image: sampleHouse2,
 				address: 'Halbert Avenue',
 				cost: 700000,
