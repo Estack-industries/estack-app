@@ -17,6 +17,8 @@ Project Directory:
 4. please remember the address and port of the sql docker and use them to replace the corresponding placeholders in the project 
    1. (I'll label those placeholders using comments like "sql address/port")
 
+### Connect to Database via SQL Editor
+You can use SQL editor like MySQL workbench to set up a connection to the database like 'localhost:3306' with username : root, keyword: root. And then, you can run the SQL query file `estackdb.sql` to set up tables.
 ### Set up Dubbo and ZooKeeper
 Apache Dubbo is a distributed service framework.
 ZoomKeeper is a popular registry tool used in Apache Dubbo.
