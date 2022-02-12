@@ -7,10 +7,10 @@ import PropertySummary from '../../components/PropertySummary';
 
 import HeartIcon from './assets/heartIcon.png';
 import YellowHelp from './assets/yellowHelp.png';
-import Bed from './assets/bed.png';
+import Bed from './assets/bed.PNG';
 import Bathroom from './assets/bath.png';
-import Sun from './assets/sun.png';
-import Garage from './assets/garage.png';
+import Sun from './assets/sun.PNG';
+import Garage from './assets/garage.PNG';
 import Calendar from './assets/calendar.png';
 import TourImage from './assets/tourImage.png';
 import ContactImage from './assets/contactImage.png';

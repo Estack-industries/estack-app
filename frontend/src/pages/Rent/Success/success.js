@@ -25,18 +25,16 @@ export default function Success() {
 						Your Rental Property is Posted on Estack!
 					</div>
 				</div>
-		<div className="grid-container">
-			<div className="grid-item">
-				<button type="button" class="position-relative">
-					<a href="#" className="direct">Home </a>
-				</button>
-			</div>
-			<div className="grid-item">
-				<button type="button" class="position-relative">
-					<a href="#" className="direct">DashBoard</a>
-				</button>
-			</div>
-		</div>
+				<div class="row custom">
+					<div class="col-sm-12 text-center">
+						<button type="button" class="btn btn-lg custom">
+							Home
+						</button>
+						<button type="button" class="btn btn-lg custom">
+							DashBoard
+						</button>
+					</div>
+				</div>
 			</main>
 			<Footer />
 		</div>

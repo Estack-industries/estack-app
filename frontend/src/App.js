@@ -16,6 +16,7 @@ import AccountSetting from './pages/AccountSettings/AccountSettings';
 import Banking from './pages/Banking/Banking';
 import Property from './pages/Property/Property';
 import Success from './pages/Rent/Success/success';
+import SellSuccess from './pages/Dashboard/SellSuccess';
 
 function App() {
 	return (
@@ -35,6 +36,9 @@ function App() {
 				</Route>
 				<Route path="/sellerdashboard">
 					<SellerDB />
+				</Route>
+				<Route path="/seller/success">
+					<SellSuccess />
 				</Route>
 				<Route exact path="/account">
 					<Account />
