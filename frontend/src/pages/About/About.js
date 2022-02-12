@@ -2,11 +2,8 @@ import React from 'react';
 
 import './About.css';
 
-import EStackLogo from './assets/e-stack-logo.svg';
-import DefaultUserIcon from './assets/default-user-icon.svg';
 import Navbar from '../../components/Navbar/Navbar';
 import Background from '../../components/NavBackground';
-import Click from './assets/click.svg';
 import AboutPhoto1 from './assets/about-photo-1.png';
 import Divider from './assets/divider.svg';
 import FindAnAgent from './assets/find-an-agent.png';
@@ -26,62 +23,60 @@ function BlueDivider() {
 
 const About = () => {
 	return (
-		<div>
+		<>
 			<Background src={[{src: AboutMainImage, width: 64, left: 13}]}/>
 			<Navbar />
 
-			<div className="full-width" style={{marginTop: '3em'}}>
-				<p className="white-color extra-large-text blod-text dm-sans medium-padding-left">
+			<div className="full-width" style={{margin: '6em 0em'}}>
+				<p className="white-color extra-large-text bold-text dm-sans medium-padding-left">
 					About Us
 				</p>
 			</div>
 
 			<div className="full-width flex flex-end">
-				<div className="lato small-text half-width align-right flex column-flex blue-border-box medium-margin-horizontal">
-					<p className="medium-padding-horizontal medium-padding-vertical center-text">
+				<div className="lato small-text half-width align-right flex column-flex blue-border-box medium-margin-horizontal full-width-when-small">
+					<h2 className="medium-padding-horizontal medium-padding-vertical center-text bold-text">
 						E-Stack
-					</p>
+					</h2>
 					<p className="medium-padding-horizontal small-padding-vertical center-text">
-						We offer this complimetary service because we’re
+						We offer this complimetary service because we're
 						confident you are going to love E-Stack.
 					</p>
 					<p className="medium-padding-horizontal small-padding-vertical center-text">
-						There are no hidden fees and there’s never any
+						There are no hidden fees and there's never any
 						obligation to move foward
 					</p>
 				</div>
 			</div>
 
-			<div className="small-space" />
-
 			<div className="full-width flex small-padding-vertical">
-				<div className="half-width">
+				<div className="half-width full-width-when-small">
 					<p className="small-text center-text dm-sans">
 						Get a Free Estimate
 					</p>
 				</div>
 			</div>
 
-			<div className="full-width flex">
-				<div className="half-width flex column-flex">
-					<div className="full-width flex flex-center">
+			<div className="full-width flex wrap-column-when-small">
+				<div className="half-width flex column-flex full-width-when-small">
+					<div className="email-input-submit-button">
 						<input
 							className="email-input center-text"
 							placeholder="Enter your Email Address"
 							required
 						/>
+						<p
+							alt="click-button"
+							onClick={() => console.log('submit')}
+						>
+							Click
+						</p>
 					</div>
-					<img
-						className="email-input-sumbit-button"
-						src={Click}
-						alt="click-button"
-						onClick={() => console.log('submit')}
-					/>
 
 					<div className="large-space" />
 
 					<div className="full-width flex column-flex">
-						<p className="dm-sans medium-text blod-text center-text small-padding-vertical">
+						<p className="dm-sans medium-text bold-text center-text small-padding-vertical">
 							Why Join With Us?
 						</p>
 
@@ -104,12 +99,12 @@ const About = () => {
 								</p>
 								<p className="small-padding small-text">
 									Accompanied viewings whenever required.
-									Close communication – giving regular prompt
+									Close communication - giving regular prompt
 									feedback on viewing, updates on marketing
 									and general market conditions.
 								</p>
 								<p className="small-padding small-text large-padding-bottom">
-									Don’t wait around and call us today to
+									Don't wait around and call us today to
 									arrange a meeting. For our contact
 									information
 								</p>
@@ -118,7 +113,7 @@ const About = () => {
 					</div>
 				</div>
 
-				<div className="half-width flex flex-main-center">
+				<div className="half-width flex flex-main-center full-width-when-small">
 					<img
 						className="full-width medium-padding-horizontal about-photo-1"
 						src={AboutPhoto1}
@@ -142,15 +137,15 @@ const About = () => {
 					<div className="large-space" />
 
 					<div className="full-width flex photos-container">
-						<div className="photo-containter small-margin">
+						<a className="photo-containter small-margin" href='agent'>
 							<img src={FindAnAgent} alt="find-an-agent" />
-						</div>
-						<div className="photo-containter small-margin">
+						</a>
+						<a className="photo-containter small-margin" href='sell/upload'>
 							<img src={HelpSellHome} alt="help-sell-home" />
-						</div>
-						<div className="photo-containter small-margin">
-							<img src={FindApartments} alt="find-apartments" />
-						</div>
+						</a>
+						<a className="photo-containter small-margin">
+							<img src={FindApartments} alt="find-apartments" href='rent'/>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -183,13 +178,13 @@ const About = () => {
 				<div className="full-width flex column-flex flex-main-center small-margin-horizontal photos-container explore-our-options-background small-border-radius">
 					<div className="large-space" />
 					<div className="large-space" />
-					<div className="full-width flex column-flex flex-cross-center">
+					<div className="full-width flex column-flex flex-center">
 						<p className="dm-sans" style={{ fontSize: '30px' }}>
 							Enter your address to get an free estimation
 						</p>
 						<div className="small-space" />
 
-						<div className="full-width flex flex-main-center">
+						<div className="flex flex-main-center" style={{width: '55%', position: 'relative'}}>
 							<input
 								className="address-input"
 								placeholder="Address"
@@ -215,7 +210,7 @@ const About = () => {
 			</div>
 			<div className="large-space" />
 			<Footer />
-		</div>
+		</>
 	);
 };
 
