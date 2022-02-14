@@ -1,0 +1,89 @@
+.header {
+    color: #fff;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 4em;
+    text-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.25);
+    font-size: 3.5em;
+}
+
+.cardContainer {
+    display: flex;
+	justify-content: center;
+    position: relative;
+}
+
+.cardContainer > .label {
+    position: absolute;
+    width: auto;
+    top: -5%;
+    border-radius: 10px;
+    border-bottom-left-radius: 0em;
+    border-bottom-right-radius: 0em;
+    background-color:rgb(144, 201, 250);
+    padding: 10px;
+    text-align: center;
+    color: rgb(2, 57, 177);
+    font-weight: bold;
+    border: none;
+    box-shadow: 0px 4px 4px hsla(0, 0%, 0%, 0.25);
+    z-index: 1;
+}
+
+.card {
+    margin-left: 30px;
+    margin-right: 30px;
+    border-color: rgb(141, 189, 252);
+    border-radius: 1em;
+    padding: 1em;
+    width: 100%;
+    height: fit-content;
+}
+
+.card p {
+    display: inline;
+}
+
+.cardTitle {
+	text-decoration: underline;
+	text-align: center;
+}
+
+.cardPrice {
+	text-align: center;
+}
+
+.cardDetail {
+	text-align: center;
+	color: gray;
+}
+
+.card hr {
+    width: 35%;
+    margin: 1em auto 1em auto;
+}
+
+a {
+	color: blue;
+}
+
+span.check {
+	content: "\2713";
+	color: rgb(49, 211, 49);
+}
+
+.btn {
+	color: white;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.btn:hover {
+    color: white;
+}
