@@ -6,11 +6,15 @@ import Button from '@mui/material/Button';
 
 import './RequestForm.css';
 
-const RequestForm = ({ handleClick }) => {
-	const [name, setName] = useState(null);
-	const [email, setEmail] = useState(null);
-	const [date, setDate] = useState(null);
-	const [time, setTime] = useState(null);
+const RequestForm = ({
+
+	handleClick,
+	handleNameChange,
+	handleEmailChange,
+	handleDateChange,
+	handleTimeChange,
+	
+}) => {
 
 	return (
 		<div className="req-form-cont">
@@ -21,9 +25,8 @@ const RequestForm = ({ handleClick }) => {
 						fullWidth
 						label="Full Name"
 						variant="outlined"
-						value={name}
 						onChange={(e) => {
-							setName(e.target.value);
+							handleNameChange(e.target.value);
 						}}
 					/>
 				</div>
@@ -32,9 +35,8 @@ const RequestForm = ({ handleClick }) => {
 						fullWidth
 						label="Email"
 						variant="outlined"
-						value={email}
 						onChange={(e) => {
-							setEmail(e.target.value);
+							handleEmailChange(e.target.value);
 						}}
 					/>
 				</div>
@@ -46,6 +48,9 @@ const RequestForm = ({ handleClick }) => {
 						fullWidth
 						label="Date Available"
 						variant="outlined"
+						onChange={(e) => {
+							handleDateChange(e.target.value);
+						}}
 					/>
 				</div>
 				<div className="req-input">
@@ -53,9 +58,8 @@ const RequestForm = ({ handleClick }) => {
 						fullWidth
 						label="Time"
 						variant="outlined"
-						value={time}
 						onChange={(e) => {
-							setTime(e.target.value);
+							handleTimeChange(e.target.value);
 						}}
 					/>
 				</div>
