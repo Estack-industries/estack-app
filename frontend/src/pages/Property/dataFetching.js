@@ -22,6 +22,10 @@ const FetchMainProperty = async (id) => {
 		squareft: 2000,
 		cars: 2,
 		yearBuilt: 2007,
+		state: 'NY',
+		city: 'Brooklyn',
+		street: '27 Grand Street',
+		listingPrice: 500000,
 		images: [
 			sampleMainHouse1,
 			sampleMainHouse2,

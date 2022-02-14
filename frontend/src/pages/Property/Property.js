@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import './Property.css';
 import Slider from '@mui/material/Slider'
 import { styled } from '@mui/material/styles';
@@ -7,10 +7,10 @@ import PropertySummary from '../../components/PropertySummary';
 
 import HeartIcon from './assets/heartIcon.png';
 import YellowHelp from './assets/yellowHelp.png';
-import Bed from './assets/bed.PNG';
+import Bed from './assets/bed.png';
 import Bathroom from './assets/bath.png';
-import Sun from './assets/sun.PNG';
-import Garage from './assets/garage.PNG';
+import Sun from './assets/sun.png';
+import Garage from './assets/garage.png';
 import Calendar from './assets/calendar.png';
 import TourImage from './assets/tourImage.png';
 import ContactImage from './assets/contactImage.png';
@@ -21,17 +21,14 @@ import TbcBankLogo from './assets/tbcBankLogo.png';
 import FirstLine from './assets/firstLine.png';
 import SecondLine from './assets/secondLine.png';
 import ThirdLine from './assets/thirdLine.png';
-import TourquoiseEllipse from './assets/tourquoiseEllipse.png';
-import BlueEllipse from './assets/blueEllipse.png';
-import YellowEllipse from './assets/yellowEllipse.png';
-import GrayEllipse from './assets/grayEllipse.png';
 import Info from './assets/info.png';
 import LightBulb from './assets/lightBulb.png';
 import BlueLine from './assets/blueLine.png';
 import Footer from '../../components/Footer/Footer';
 import Navbar from '../../components/Navbar/Navbar';
 import NavBackground from '../../components/NavBackground';
-import { FetchMainProperty } from './dataFetching';
+import { FetchMainProperty, FetchSimilarProperties } from './dataFetching';
+import { moneyFormat } from '../../lib/utils';
 
 function AgentMenu ({agentIsShown, setAgentIsShown}) {
     const agentRef = useRef()
@@ -71,15 +68,34 @@ function AgentMenu ({agentIsShown, setAgentIsShown}) {
   };
 
 function Map() {
+    const { isLoaded } = useJsApiLoader({
+        id: 'google-map-script',
+        googleMapsApiKey: "AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q"
+    })
+
+    const [map, setMap] = React.useState(null)
+
+    const onLoad = React.useCallback(function callback(map) {
+        const bounds = new window.google.maps.LatLngBounds();
+        map.fitBounds(bounds);
+        setMap(map)
+    }, [])
+
+    const onUnmount = React.useCallback(function callback(map) {
+        setMap(null)
+    }, [])
+
+    if (!isLoaded) return <></>
     return (
         <GoogleMap
-        defalutZoom={8}
-        defalutCenter={{lat:44.465396, lng:39.719735}}
+            mapContainerStyle={{width: '100%', height: '100%'}}
+            defalutZoom={16}
+            defalutCenter={{lat: 39, lng: -77}}
+            onLoad={onLoad}
+            onUnmount={onUnmount}
         />
     )
-  }
-  const WrappedMap = withScriptjs(withGoogleMap(Map))
-
+}
 
 // slider
 const PrettoSlider = styled(Slider)({
@@ -131,6 +147,7 @@ const Property = (props) =>  {
     const [tourIsShown, setTourIsShown] = useState(false)
     const [downPaymetIsShown, setDownPaymentIsShown] = useState(false)
     const [propertyData, setPropertyData] = useState({});
+    const [similarProperties, setSimilarProperties] = useState([]);
     const [primaryImage, setPrimaryImage] = useState(0);
 
     const openAgent = () => {
@@ -140,6 +157,9 @@ const Property = (props) =>  {
     useState(() => {
         FetchMainProperty(props.match.params.id).then(data => {
             setPropertyData(data)
+            FetchSimilarProperties(data).then(data => {
+                setSimilarProperties(data);
+            });
         })
     }, [])
 
@@ -197,10 +217,11 @@ const Property = (props) =>  {
             <div className='property-information-container'>
                 <div className='information-top'>
                     <div className='address'>
-                        <p>27 Grand Street Brooklyn, New York</p>
+                        <p>{propertyData.street}</p>
+                        <p>{propertyData.city}, {propertyData.state}</p>
                     </div>
                     <div className='price'>
-                        <p>$500,000.00</p>
+                        <p>{moneyFormat(propertyData.listingPrice)}</p>
                     </div>
                 </div>
                 <div className='information-bottom'>
@@ -284,13 +305,11 @@ const Property = (props) =>  {
                 <div className='description-column'>
                     {/* description box */}
                     <div className='description-container'>
-                        <div className='description-header'>
+                        <h2 className='description-header'>
                             Description
-                        </div>
+                        </h2>
                         <div className='description-info'>
-                        <p>{propertyData.description}</p>
-                        
-                        <p>Omne animal, simul atque in sanguinem suum tam inportuno tamque crudeli; sin, ut earum motus et accusamus et argumentandum et dolore suo sanciret militaris imperii disciplinam exercitumque in liberos atque haec ratio late patet in quo pertineant non possim.</p>
+                            <p>{propertyData.description}</p>
                         </div>
                     </div>
                     {/* buy the property button */}
@@ -300,13 +319,13 @@ const Property = (props) =>  {
                 </div>
                 {/* best lenders box */}
                 <div className='best-lenders-container'>
-                    <div className='best-lenders-header'>
+                    <h2 className='best-lenders-header'>
                         The Best Lenders
-                    </div>
+                    </h2>
                     <img className='georgia-bank' src={GeogiaBankLogo} alt='georgia-bank-logo' />
-                    Bank of Georgia
+                    <p>Bank of Georgia</p>
                     <img className='tbc-bank' src={TbcBankLogo} alt='tbc-bank-logo' />
-                    TBC Bank
+                    <p>TBC Bank</p>
                 </div>
             </div>
             {/* Payment calculator box */}
@@ -318,30 +337,25 @@ const Property = (props) =>  {
                     $2689 per month
                 </div>
                 <div className='cost-breakdown-colors'>
-                <img src={FirstLine} className='first-line' />
+                    <img src={FirstLine} className='first-line' />
                     <img src={SecondLine} className='second-line' />
                     <img src={ThirdLine} className='third-line' />
                 </div>
                 <div className='colors-legend'>
-                    <div className='color-left'>
-                        <div className='principle-interest'>
-                            <img src={TourquoiseEllipse} className='tourquoise-ellipse' />
-                            principle and Interstate 
-                            $1550
-                        </div>
-                        <div className='Homeowners-Insurance'>
-                            <img src={BlueEllipse} className='blue-ellipse' />
-                            Homeowner's Insurance
-                            $150
-                        </div>
+                    <div className='principle-interest'>
+                        <div className='tourquoise-ellipse' style={{backgroundColor: '#59e0d0'}} />
+                        principle and Interstate 
+                        $1550
                     </div>
-                    <div className='color-right'>
-                        
-                        <div className='Property Taxes' >
-                            <img src={YellowEllipse} className='yellow-ellipse' />
-                            Property Taxes
-                            $895
-                        </div>
+                    <div className='Homeowners-Insurance'>
+                        <div className='blue-ellipse' style={{backgroundColor: '#77a2d0'}} />
+                        Homeowner's Insurance
+                        $150
+                    </div>                        
+                    <div className='Property Taxes' >
+                        <div className='yellow-ellipse' style={{backgroundColor: '#fadd77'}}/>
+                        Property Taxes
+                        $895
                     </div>
                 </div>
                 <div className='amount-details'>
@@ -370,9 +384,9 @@ const Property = (props) =>  {
                         </div>
                     </div>
                     <div className='extra'>
-                        <img src={GrayEllipse} className='gray-ellipse' />
-                        <img src={GrayEllipse} className='gray-ellipse' />
-                        <img src={GrayEllipse} className='gray-ellipse' />
+                        <div className='gray-ellipse' />
+                        <div className='gray-ellipse' />
+                        <div className='gray-ellipse' />
                     </div>
                 </div>
             </div>
@@ -428,11 +442,7 @@ const Property = (props) =>  {
             )}
             {/* map */}
             <div className='map'>
-                <WrappedMap googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q`}
-                loadingElement={<div style={{ height: `100%`, width: `100%` }} />}
-                containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%`, width: `100%` }} />}
-                />
+                <Map />
             </div>
             {/* similar listing cards */}
             <div className='similar-listings-conatiner'>
@@ -441,7 +451,7 @@ const Property = (props) =>  {
                     Similar Listings
                 </div>
                 <div className='similar-listings'>
-                    {propertyData.similarProperties?.map((listing, index) => (
+                    {similarProperties && similarProperties.map((listing, index) => (
                         <PropertySummary homeData={listing} key={index} />
                     ))}
                 </div>
