@@ -8,11 +8,32 @@ import ApprovedAlert from './ApprovedAlert/ApprovedAlert';
 import Footer from '../../components/Footer/Footer';
 
 const Appointment = () => {
+	const [name, setName] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [date, setDate] = useState(null);
+	const [time, setTime] = useState(null);
+
 	const [approved, setApproved] = useState(false);
+
+	const handleNameChange = (newName) => {
+		setName(newName);
+		console.log(name);
+	};
+	const handleEmailChange = (newEmail) => {
+		setEmail(newEmail);
+		console.log(email);
+	};
+	const handleDateChange = (newDate) => {
+		setDate(newDate);
+		console.log(date);
+	};
+	const handleTimeChange = (newTime) => {
+		setTime(newTime);
+		console.log(time);
+	};
 
 	const handleClick = () => {
 		setApproved(true);
-		// e.preventDefault();
 		console.log(approved);
 	};
 
@@ -35,7 +56,13 @@ const Appointment = () => {
 			/>
 
 			{!approved ? (
-				<RequestForm handleClick={handleClick.bind(this)} />
+				<RequestForm
+					handleClick={handleClick.bind(this)}
+					handleNameChange={handleNameChange.bind(this)}
+					handleEmailChange={handleEmailChange.bind(this)}
+					handleDateChange={handleDateChange.bind(this)}
+					handleTimeChange={handleTimeChange.bind(this)}
+				/>
 			) : (
 				<ApprovedAlert />
 			)}
