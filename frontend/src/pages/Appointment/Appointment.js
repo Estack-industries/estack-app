@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
 import Navbar from '../../components/Navbar/Navbar';
 import background from './background.png';
@@ -7,49 +7,68 @@ import RequestForm from './RequestForm/RequestForm';
 import ApprovedAlert from './ApprovedAlert/ApprovedAlert';
 import Footer from '../../components/Footer/Footer';
 
-class Appointment extends Component {
-	constructor(props) {
-		super(props);
-		this.handleClick = this.handleClick.bind(this);
-		this.state = {
-			approved: false,
-		};
-	}
+const Appointment = () => {
+	const [name, setName] = useState(null);
+	const [email, setEmail] = useState(null);
+	const [date, setDate] = useState(null);
+	const [time, setTime] = useState(null);
 
-	handleClick() {
-		this.setState({ approved: true });
-		// e.preventDefault();
-		console.log(this.state.approved);
-	}
+	const [approved, setApproved] = useState(false);
 
-	render() {
-		return (
-			<div>
-				<Navbar />
-				<h1
-					className="apt-header"
-					style={{
-						paddingBottom: '6em',
-						marginTop: '3em',
-						textAlign: 'center',
-					}}
-				>
-					We're Here To Help
-				</h1>
-				<NavBackground
-					src={[{ src: background, width: 60, left: 20, top: 10 }]}
-					opacity={0.9}
+	const handleNameChange = (newName) => {
+		setName(newName);
+		console.log(name);
+	};
+	const handleEmailChange = (newEmail) => {
+		setEmail(newEmail);
+		console.log(email);
+	};
+	const handleDateChange = (newDate) => {
+		setDate(newDate);
+		console.log(date);
+	};
+	const handleTimeChange = (newTime) => {
+		setTime(newTime);
+		console.log(time);
+	};
+
+	const handleClick = () => {
+		setApproved(true);
+		console.log(approved);
+	};
+
+	return (
+		<div>
+			<Navbar />
+			<h1
+				className="apt-header"
+				style={{
+					paddingBottom: '6em',
+					marginTop: '3em',
+					textAlign: 'center',
+				}}
+			>
+				We're Here To Help
+			</h1>
+			<NavBackground
+				src={[{ src: background, width: 60, left: 20, top: 10 }]}
+				opacity={0.9}
+			/>
+
+			{!approved ? (
+				<RequestForm
+					handleClick={handleClick.bind(this)}
+					handleNameChange={handleNameChange.bind(this)}
+					handleEmailChange={handleEmailChange.bind(this)}
+					handleDateChange={handleDateChange.bind(this)}
+					handleTimeChange={handleTimeChange.bind(this)}
 				/>
-
-				{!this.state.approved ? (
-					<RequestForm handleClick={this.handleClick.bind(this)} />
-				) : (
-					<ApprovedAlert />
-				)}
-				<Footer />
-			</div>
-		);
-	}
-}
+			) : (
+				<ApprovedAlert />
+			)}
+			<Footer />
+		</div>
+	);
+};
 
 export default Appointment;
