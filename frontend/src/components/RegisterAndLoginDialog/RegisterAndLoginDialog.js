@@ -15,6 +15,7 @@ import './RegisterAndLoginDialog.css';
 import AppleLogin from './assets/apple-login.svg';
 import FacebookLogin from './assets/facebook-login.svg';
 import GoogleLogin from './assets/google-login.svg';
+import RegisterWave from './assets/register-wave.png';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -133,35 +134,29 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 			<>
 				<div className="email-container">
 					<p>Email</p>
-					<div className="input-container shadow">
-						<TextField
-							fullWidth
-							variant="outlined"
-							placeholder="Enter your Email Address"
-							value={emailInput}
-							onChange={(event) => {
-								event.preventDefault();
-								setEmailInput(event.target.value);
-							}}
-						/>
-					</div>
+					<input
+						className='input-container'
+						placeholder="Enter your Email Address"
+						value={emailInput}
+						onChange={(event) => {
+							event.preventDefault();
+							setEmailInput(event.target.value);
+						}}
+					/>
 				</div>
 
 				<div className="password-container">
 					<p>Password</p>
-					<div className="input-container shadow" key="password">
-						<TextField
-							fullWidth
-							variant="outlined"
-							placeholder="Enter your Email Address"
-							value={passwordInput}
-							onChange={(event) => {
-								event.preventDefault();
-								setpasswordInput(event.target.value);
-							}}
-							type="password"
-						/>
-					</div>
+					<input
+						className='input-container'
+						placeholder="Enter your Password"
+						value={passwordInput}
+						onChange={(event) => {
+							event.preventDefault();
+							setpasswordInput(event.target.value);
+						}}
+						type="password"
+					/>
 				</div>
 			</>
 		);
@@ -175,11 +170,12 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 			maxWidth={'sm'}
 		>
 			<div className="dialog-window">
+				<img src={RegisterWave} alt=''/>
 				<div className="image-container">
 					{isRegister === 1 && (
 						<>
 							<p>Welcome to</p>
-							<p> E-Stack</p>
+							<p>E-Stack</p>
 						</>
 					)}
 					{isRegister === 0 && (
@@ -194,12 +190,12 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 				<div className="register-login-container">
 					<div className="welcome-text">
 						{isRegister === 1 && (
-							<p className="DMSans text-center large-text">
+							<p>
 								Welcome to E-Stack
 							</p>
 						)}
 						{isRegister === 0 && (
-							<p className="DMSans text-center large-text">
+							<p>
 								Welcome back!
 							</p>
 						)}
@@ -225,9 +221,11 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 						>
 							Sign In
 						</Button>
-						<Link underline="none" href="#">
-							forgot your password?
-						</Link>
+						<span style={{display: 'flex', justifyContent: 'center', margin: '1em 0em'}}>
+							<Link underline="none" href="#">
+								forgot your password?
+							</Link>
+						</span>
 
 						<Divider />
 						<ThirdPartiesLogin />
@@ -235,13 +233,13 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 
 					<TabPanel value={isRegister} index={1}>
 						<InputField />
-						<p className="small-text hint-text">
+						<p className="hint-text">
 							At least 8 characters
 						</p>
-						<p className="small-text hint-text">
+						<p className="hint-text">
 							At least 1 special character
 						</p>
-						<p className="small-text hint-text">
+						<p className="hint-text">
 							At least 1 lowercase letter and 1 upper case letter
 						</p>
 						<Button
@@ -251,7 +249,7 @@ const RegisterAndLoginDialog = ({ isOpened, onSwitch }) => {
 						>
 							Submit
 						</Button>
-						<p className="small-text hint-text">
+						<p className="hint-text" style={{textAlign: 'center'}}>
 							By submitting, I accept Estack’s{' '}
 							<Link underline="none" href="#">
 								terms of use
