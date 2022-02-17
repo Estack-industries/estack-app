@@ -20,6 +20,7 @@ import middleIcon from './assets/middleIcon.png';
 import rentOne from './assets/rentOne.png';
 import rentTwo from './assets/rentTwo.png';
 import rentThree from './assets/rentThree.png';
+import PropertySummary from '../../components/PropertySummary';
 
 /* 
 * Note:
@@ -48,10 +49,9 @@ const Dashboard = () => {
 		},
 		{
 			src: Handshake,
-			width: 25,
-			left: 70,
-			height: 9.5,
-			
+			width: 20,
+			left: 75,
+			bottom: 50
 		},
 	];
 
@@ -124,53 +124,19 @@ const Dashboard = () => {
 					check above to find the resources available to start today
 				</p>
 			</div>
-
 			<div className="large-space" />
-			<img className={styles.divide} src={smalldiv} alt="smallDivide" />
-			<h2 className={styles.title2}> Rent Listings</h2>
-			<div className="row row-cols-1 row-cols-md-3 g-4">
-				{listings.map((val) => {
-					return (
-						<div className="col">
-							<div className="card h-100">
-								<img
-									src={rentOne}
-									class="card-img-top"
-									alt="..."
-								/>
-								<div className="card-body">
-									<h5 className={styles.cardtitle}>
-										{val.street}, {val.city}, {val.state}
-									</h5>
-									<p className="card-text">
-										<span className="space">
-											&emsp;&emsp;
-										</span>
-										{val.listingPrice}${' '}
-										<span className="space">&emsp;</span>|{' '}
-										<span className="space">&emsp;</span>{' '}
-										<span className="new">New</span>
-									</p>
-									<div className="small-space" />
-									<span className="space">&emsp;</span>
-									<FontAwesomeIcon icon={faBed} />
-									<span className="space">&emsp;</span>
-									{val.numBedrooms}
-									<span className="space">&emsp;&emsp;</span>
-									<FontAwesomeIcon icon={faBath} />
-									<span className="space">&emsp;</span>
-									{val.numBathrooms}
-									<span className="space">&emsp;&emsp;</span>
-									<FontAwesomeIcon icon={faThLarge} />
-									<span className="space">&emsp;</span>
-									{val.sqaureft}
-								</div>
-							</div>
-						</div>
-					);
-				})}
-			</div>
-			<div className="large-space" />
+			{listings && listings.length > 0 && (
+				<>
+					<img className={styles.divide} src={smalldiv} alt="smallDivide" />
+					<h2 className={styles.title2}> Rent Listings</h2>
+					<div className="row row-cols-1 row-cols-md-3 g-4" style={{margin: '0em 2em', gap: '2em'}}>
+						{listings.map((val, i) => (
+							<PropertySummary key={i} homeData={val}/>
+						))}
+					</div>
+					<div className="large-space" />
+				</>
+			)}
 			<Footer />
 		</div>
 	);

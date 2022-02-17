@@ -70,25 +70,22 @@ function Carousel() {
 function MainPanel() {
 	return (
 		<div className="row row-cols-1 row-cols-md-4">
-			{Data.Panel.map((post) => {
-				return (
-					<div className="col">
-						<div className="card h-80 w-90">
-							<h3 className="card-title">{post.title}</h3>
-							<div className="small-space" />
-							<div className="card-block">
-								<div class="colIcon">
-									<img src={post.icon} alt="icon" />
-								</div>
-								<div class="colDetail">
-									<h5 className="detail">{post.detail}</h5>
-								</div>
+			{Data.Panel.map((post) => (
+				<div className="col">
+					<div className="seller-dashboard-card h-80 w-90">
+						<h3 className="card-title">{post.title}</h3>
+						<div className="card-block">
+							<div class="colIcon">
+								<img src={post.icon} alt="icon" />
 							</div>
-							<h6 className="detailTwo">{post.conclusion}</h6>
+							<div>
+								<h5 className="detail">{post.detail}</h5>
+								<h6 className="detailTwo">{post.conclusion}</h6>
+							</div>
 						</div>
 					</div>
-				);
-			})}
+				</div>
+			))}
 		</div>
 	);
 }
@@ -150,7 +147,7 @@ function SellerDB() {
 			<main>
 				<Carousel />
 				<MainPanel />
-				<img className="line" src={Line} />
+				<img className="line" alt='' src={Line} style={{marginTop: '4em'}} />
 				<h2 className="header">E-Stack Estimate For 30 Future St. </h2>
 				<MenuButtons />
 				<div class="section">
@@ -170,9 +167,8 @@ function SellerDB() {
 						<button className="btn-danger">Delete Listing</button>
 					</a>
 				</div>
-				<div className="map"></div>
-				<img className="line" src={Line} alt="line" />
 				<Map location={location} zoomLevel={17} />
+				<img className="line" src={Line} alt="line" />
 				<img className="line" src={Line} alt="line" />
 				<div className="visitstats">
 					<h2 className="head">Total Vists</h2>
@@ -217,28 +213,34 @@ function SellerDB() {
 								}}
 							></div>
 						</div>
-						<div
-							className="childOne"
-							style={{
-								margin: '2em auto',
-								width: 60,
-								height: '0.5em',
-								backgroundColor: '#25A2FD',
-								borderRadius: '0.5em',
-							}}
-						></div>{' '}
-						<p className="keyOne">Online</p>
-						<div
-							className="childTwo"
-							style={{
-								margin: '2em auto',
-								width: 60,
-								height: '0.5em',
-								backgroundColor: '#CBE9FF',
-								borderRadius: '0.5em',
-							}}
-						></div>{' '}
-						<p className="keyTwo">Offline</p>
+						<div style={{	display: 'flex', justifyContent: 'space-evenly'}}>
+							<div>
+								<div
+									className="childOne"
+									style={{
+										margin: '1em auto',
+										width: 60,
+										height: '0.5em',
+										backgroundColor: '#25A2FD',
+										borderRadius: '0.5em',
+									}}
+								/>{' '}
+								<p className="keyOne">Online</p>
+							</div>
+							<div>
+								<div
+									className="childTwo"
+									style={{
+										margin: '1em auto',
+										width: 60,
+										height: '0.5em',
+										backgroundColor: '#CBE9FF',
+										borderRadius: '0.5em',
+									}}
+								/>{' '}
+								<p className="keyTwo">Offline</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</main>

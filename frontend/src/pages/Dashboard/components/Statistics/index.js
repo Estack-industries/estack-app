@@ -24,7 +24,7 @@ function Statistics({userData}) {
 					<StatsPanel userData={userData}/>
 				</div>
 				<div className={styles.panel}>
-					<CardsPanel cards={userData.cards}/>
+					<CardsPanel cards={userData.cards} />
 				</div>
 			</div>
 		</div>

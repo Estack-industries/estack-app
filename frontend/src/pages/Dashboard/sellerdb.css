@@ -3,7 +3,9 @@
 .title {
 	text-align: center;
 	font-weight: bold;
-	text-shadow: 5px 3px #2c2c2c;
+	margin: 2em 0em 2em 0em;
+	color: #fff;
+	text-shadow: 0px 4px 4px #00000080;
 }
 
 .first {
@@ -23,7 +25,7 @@
 }
 
 .row {
-	margin: auto;
+	margin: 0.5em 0em;
 	display: flex;
 }
 
@@ -32,20 +34,33 @@
 	width: 25%;
 }
 
-.card-title {
-	padding-top: 20px;
-}
-
 .colIcon {
 	float: left;
-	padding-left: 30px;
+	width: 30%;
+	padding-left: 1.5em;
+}
+
+.seller-dashboard-card {
+	height: 100%;
+	border: 1px solid #a4d7fc;
+	border-radius: 1em;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
+}
+
+.seller-dashboard-card .card-title {
+	text-align: center;
+	font-size: 1.3em;
+	margin: 0.5em 0em 0.8em 0em;
+}
+
+.seller-dashboard-card .card-block > *:not(.colIcon) {
+	flex-grow: 1;
 }
 
 .detail {
-	float: left;
 	text-align: right;
-	margin-left: 70px;
-	padding-top: 30px;
+	padding-top: 0.5em;
+	margin-right: 1em;
 }
 
 .detailTwo {
@@ -53,20 +68,21 @@
 	padding-right: 10px;
 }
 
+.seller-dashboard-card
+
 .line {
 	padding: 80px 0px 30px 100px;
 }
 
 .header {
-	padding-left: 70px;
-	padding-bottom: 50px;
+	padding: 1em 0em 1em 2em;
 	font-weight: bold;
 }
 
 .btn-block {
 	background-color: white;
-	border-color: #a4d7fc;
-	border-width: 1px;
+	border: 1px solid #a4d7fc;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
 	border-radius: 20px;
 	display: flex;
 	padding: 20px 60px 20px 60px;
@@ -113,8 +129,9 @@ h2.heading::after {
 	border-radius: 20px;
 	padding: 10px 30px 10px 30px;
 	font-weight: bold;
-	margin: 10px;
-	border-color: red;
+	margin: 0em auto 2em auto;
+	border-color: #a4d7fc;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50);
 	font-size: 30px;
 }
 

@@ -8,9 +8,7 @@
 
 .google-map {
   width: 100%;
-  height: 50vh;
-  margin: auto;
-  
+  height: 100%;  
 }
 
 .pin {
@@ -29,12 +27,6 @@
 }
 
 @media screen and (min-width: 799px) {
-  .google-map {
-    height: 80vh;
-    padding: 70px;
-    
-  }
-
   .map-h2 {
     font-size: 1.3rem;
     font-weight: 400;

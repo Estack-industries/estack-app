@@ -30,6 +30,7 @@
 .pinnedText {
 	width: 100%;
 	margin: auto;
+	font-weight: normal;
 }
 
 .pinnedTextLower {
@@ -45,6 +46,7 @@
 	overflow: hidden;
 	height: 1.5em;
 	font-size: 0.9em;
+	color: #000000;
 }
 
 .pinnedAddress > div img {

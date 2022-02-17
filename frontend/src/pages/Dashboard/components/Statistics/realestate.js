@@ -9,21 +9,20 @@ import addStatistics from '../../assets/add-statistics.svg';
 function OwnedHomes() {
 	return (
 		<>
-			{Data.Homes.map((post) => {
-				return (
-          <div className="card">
-					<div className="row">
+			{Data.Homes.map((post) => (
+				<div
+					className={parentStyles.box}
+					style={{margin: '0.7em 0em'}}
+				>
+					<div className="row" style={{justifyContent: 'space-between'}}>
 						<div className="col">
 							<h6 className="card-title">{post.address}</h6>
-							<span className="h6">{post.cost}</span>
+							<span className="h6" style={{fontWeight: 'bold'}}>{post.cost}</span>
 						</div>
-						<div className="col-auto">
-							<img src={post.icon} alt="icon" />
-						</div>
+						<img src={post.icon} alt="icon" style={{flexGrow: '1', maxWidth: '35%'}}/>
 					</div>
-          </div>
-				);
-			})}
+				</div>
+			))}
 		</>
 	);
 }

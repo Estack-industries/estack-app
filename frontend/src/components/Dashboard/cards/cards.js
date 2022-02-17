@@ -62,6 +62,8 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 	const CardPayment = ({payment, index}) => {
 		
 		cardPurpose[index + 1] = payment.purpose;
+		let date = dateFormat(payment.date);
+		if (date === 'Invalid Date') date = undefined;
 
 		return (
 			<>
@@ -73,7 +75,7 @@ const CardsPanel = ({cards, containerStyle=styles.box}) => {
 					<div className={styles.historyContent}>
 						<p>{payment.address}</p>
 						<div>
-							<p>{dateFormat(payment.date)}</p>
+							{date && <p>{date}</p>}
 							<p>{moneyFormat(payment.amount)}</p>
 						</div>
 					</div>
