@@ -8,6 +8,12 @@ import ApprovedAlert from './ApprovedAlert/ApprovedAlert';
 import Footer from '../../components/Footer/Footer';
 
 const Appointment = () => {
+	const [req, setReq] = useState({
+		name: null,
+		email: null,
+		date: null,
+		time: null,
+	});
 	const [name, setName] = useState(null);
 	const [email, setEmail] = useState(null);
 	const [date, setDate] = useState(null);
@@ -15,24 +21,29 @@ const Appointment = () => {
 
 	const [approved, setApproved] = useState(false);
 
-	const handleNameChange = (newName) => {
-		setName(newName);
-		console.log(name);
-	};
-	const handleEmailChange = (newEmail) => {
-		setEmail(newEmail);
-		console.log(email);
-	};
-	const handleDateChange = (newDate) => {
-		setDate(newDate);
-		console.log(date);
-	};
-	const handleTimeChange = (newTime) => {
-		setTime(newTime);
-		console.log(time);
+	const handleChange = (prop, value) => {
+		setReq({ ...req, [prop]: value });
+		console.log(req);
 	};
 
-	const handleClick = () => {
+	// const handleNameChange = (newName) => {
+	// 	setName(newName);
+	// 	console.log(name);
+	// };
+	// const handleEmailChange = (newEmail) => {
+	// 	setEmail(newEmail);
+	// 	console.log(email);
+	// };
+	// const handleDateChange = (newDate) => {
+	// 	setDate(newDate);
+	// 	console.log(date);
+	// };
+	// const handleTimeChange = (newTime) => {
+	// 	setTime(newTime);
+	// 	console.log(time);
+	// };
+
+	const handleSubmit = () => {
 		setApproved(true);
 		console.log(approved);
 	};
@@ -57,11 +68,12 @@ const Appointment = () => {
 
 			{!approved ? (
 				<RequestForm
-					handleClick={handleClick.bind(this)}
-					handleNameChange={handleNameChange.bind(this)}
-					handleEmailChange={handleEmailChange.bind(this)}
-					handleDateChange={handleDateChange.bind(this)}
-					handleTimeChange={handleTimeChange.bind(this)}
+					handleChange={handleChange.bind(this)}
+					// handleNameChange={handleNameChange.bind(this)}
+					// handleEmailChange={handleEmailChange.bind(this)}
+					// handleDateChange={handleDateChange.bind(this)}
+					// handleTimeChange={handleTimeChange.bind(this)}
+					handleSubmit={handleSubmit.bind(this)}
 				/>
 			) : (
 				<ApprovedAlert />

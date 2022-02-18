@@ -7,15 +7,13 @@ import Button from '@mui/material/Button';
 import './RequestForm.css';
 
 const RequestForm = ({
-
-	handleClick,
-	handleNameChange,
-	handleEmailChange,
-	handleDateChange,
-	handleTimeChange,
-	
+	handleChange,
+	handleSubmit,
+	// handleNameChange,
+	// handleEmailChange,
+	// handleDateChange,
+	// handleTimeChange,
 }) => {
-
 	return (
 		<div className="req-form-cont">
 			<div className="req-form">
@@ -23,20 +21,22 @@ const RequestForm = ({
 				<div className="req-input">
 					<TextField
 						fullWidth
+						name="name"
 						label="Full Name"
 						variant="outlined"
 						onChange={(e) => {
-							handleNameChange(e.target.value);
+							handleChange(e.target.name, e.target.value);
 						}}
 					/>
 				</div>
 				<div className="req-input">
 					<TextField
 						fullWidth
+						name="email"
 						label="Email"
 						variant="outlined"
 						onChange={(e) => {
-							handleEmailChange(e.target.value);
+							handleChange(e.target.name, e.target.value);
 						}}
 					/>
 				</div>
@@ -44,22 +44,24 @@ const RequestForm = ({
 					<TextField
 						id="rent-dateAvailable"
 						type="date"
+						name="date"
 						defaultValue={new Date().toISOString().substr(0, 10)}
 						fullWidth
 						label="Date Available"
 						variant="outlined"
 						onChange={(e) => {
-							handleDateChange(e.target.value);
+							handleChange(e.target.name, e.target.value);
 						}}
 					/>
 				</div>
 				<div className="req-input">
 					<TextField
 						fullWidth
+						name="time"
 						label="Time"
 						variant="outlined"
 						onChange={(e) => {
-							handleTimeChange(e.target.value);
+							handleChange(e.target.name, e.target.value);
 						}}
 					/>
 				</div>
@@ -71,7 +73,7 @@ const RequestForm = ({
 							color: 'white',
 							borderColor: 'white',
 						}}
-						onClick={handleClick}
+						onClick={handleSubmit}
 					>
 						Submit
 					</Button>
