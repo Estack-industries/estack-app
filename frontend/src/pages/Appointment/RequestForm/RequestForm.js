@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -6,14 +6,7 @@ import Button from '@mui/material/Button';
 
 import './RequestForm.css';
 
-const RequestForm = ({
-	handleChange,
-	handleSubmit,
-	// handleNameChange,
-	// handleEmailChange,
-	// handleDateChange,
-	// handleTimeChange,
-}) => {
+const RequestForm = ({ handleChange, handleSubmit }) => {
 	return (
 		<div className="req-form-cont">
 			<div className="req-form">

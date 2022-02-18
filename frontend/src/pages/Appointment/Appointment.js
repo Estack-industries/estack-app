@@ -14,10 +14,6 @@ const Appointment = () => {
 		date: null,
 		time: null,
 	});
-	const [name, setName] = useState(null);
-	const [email, setEmail] = useState(null);
-	const [date, setDate] = useState(null);
-	const [time, setTime] = useState(null);
 
 	const [approved, setApproved] = useState(false);
 
@@ -25,23 +21,6 @@ const Appointment = () => {
 		setReq({ ...req, [prop]: value });
 		console.log(req);
 	};
-
-	// const handleNameChange = (newName) => {
-	// 	setName(newName);
-	// 	console.log(name);
-	// };
-	// const handleEmailChange = (newEmail) => {
-	// 	setEmail(newEmail);
-	// 	console.log(email);
-	// };
-	// const handleDateChange = (newDate) => {
-	// 	setDate(newDate);
-	// 	console.log(date);
-	// };
-	// const handleTimeChange = (newTime) => {
-	// 	setTime(newTime);
-	// 	console.log(time);
-	// };
 
 	const handleSubmit = () => {
 		setApproved(true);
@@ -69,10 +48,6 @@ const Appointment = () => {
 			{!approved ? (
 				<RequestForm
 					handleChange={handleChange.bind(this)}
-					// handleNameChange={handleNameChange.bind(this)}
-					// handleEmailChange={handleEmailChange.bind(this)}
-					// handleDateChange={handleDateChange.bind(this)}
-					// handleTimeChange={handleTimeChange.bind(this)}
 					handleSubmit={handleSubmit.bind(this)}
 				/>
 			) : (
