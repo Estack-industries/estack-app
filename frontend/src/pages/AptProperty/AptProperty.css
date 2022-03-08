@@ -1,0 +1,404 @@
+.navbar-container {
+    margin: auto;
+}
+
+.apt-property-vector-1{
+    position:absolute;
+    width: 100%;
+    top: 0%;
+    z-index: -2;
+}
+
+.main-apt-img {
+    display: flex;
+    margin: auto;
+    width: 7vw;
+    border: 3px solid #A4D7FC;
+    box-sizing: content-box;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    border-radius: 15px 15px 0px 0px;
+}
+
+.apt-info-box {
+    display: flex;
+    margin: auto;
+    margin-top: 5rem;
+    justify-content: space-between;
+    width: 73vw;
+    height: 24rem;
+    background: #FFFFFF;
+    border: 6px solid #0193FD;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px #FFD700;
+    border-radius: 15px;
+}
+
+.info-box-row{
+    display: flex;
+}
+
+.apt-address {
+    width: 200px;
+    height: 62px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    color: #000000;
+}
+
+.apt-info-col-1{
+    display: flex;
+    flex-direction: column;
+    float: left; 
+    width: 33.333%;
+    margin-top: 1rem;
+    margin-left: 3rem;
+    height: 123.43px;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 150%;
+    color: #000000;
+}
+
+.apt-info-header {
+    margin-top: 1rem;
+    width: 136px;
+    height: 27.43px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.apt-info-description {
+    margin-top: 1rem;
+}
+
+.show-or-hide{
+    color: #0193FD;
+    cursor: pointer;
+}
+
+.apt-info-col-2{
+    display: flex;
+    justify-content: space-between;
+    width: 33.333%;
+    margin-top: 7rem;
+    margin-left: 1rem;
+    margin-bottom: 5.5rem;
+}
+
+.breakdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left:2rem;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.427179px;
+    color: #000000;
+    border-left: 2px solid #3F51F4;
+}
+
+.breakdown-numbers{
+    display: flex;
+    text-align: right;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-right:2rem;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.427179px;
+    color: #000000;    
+    /* border-right: 2px solid #3F51F4; */
+}
+
+.apt-info-col-3{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    float: right; 
+    width: 33.333%;
+    margin-top: 7rem;
+    margin-bottom: 5.5rem;
+    border-left: 2px solid #3F51F4;
+
+
+}
+
+.features {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    height: 44px;
+    background: #FFFFFF;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
+    border-radius: 10px;
+}
+
+.mid-info-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.apt-agent-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 341px;
+    height: 527.74px;
+    background: #FFFFFF;
+    border: 4px solid #0193FD;
+    box-shadow: 0px 32px 34px rgba(0, 0, 0, 0.133714);
+    border-radius: 25px;
+}
+
+.agent-button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.apt-contact-button, .apt-tour-button {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 122px;
+    height: 32px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: -0.427179px;
+    color: #FFFFFF;
+    background: #0193FD;
+    border-radius: 6px 15px;
+
+}
+
+.apt-property-map {
+    display: flex;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+
+.apt-apply-button {
+    display: flex;
+    margin: auto;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+    width: 27.5625rem;
+    height: 6.25rem;
+    background: #0193FD;
+    border-radius: 20px; 
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 65px;
+    color: #FFFFFF;
+}
+
+.reviews-ratings-container {
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(17, 17, 26, 0.05), 0px 5px 15px rgba(255, 193, 59, 0.09);
+    border-radius: 15px;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.reviews-ratings-col-1 {
+    float: left;
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    margin-right: 2rem;
+    border-right: 2px solid #3F51F4;
+}
+
+.apt-rating {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.apt-rating-sub {
+    display: flex;
+    flex-direction: column;
+}
+
+.overall-rating-number {
+    font-size: 5rem;
+    font-weight: 1000;
+    color: #596574;
+}
+
+.overall-rating-text {
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 27px;
+    color: #596574;   
+}
+
+.rating-overall-star {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    gap: 1rem;
+}
+
+.apt-overall-star{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D5D8DC;
+    color:#FFFFFF;
+    font-size: 1.75em;
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.reviews-ratings-col-2 {
+    display: flex;
+    margin-left: 1rem;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.427179px;
+    margin-right: 2rem;
+    width: 30%; 
+    border-right: 2px solid #C4C4C4;
+}
+
+.ratings-breakdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: left;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #596574;
+    width: 80%;
+}
+
+.rating-breakdown-stars {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-right: 2rem;
+    flex-direction: column;
+    
+}
+
+.apt-star {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #D5D8DC;
+    color:#FFFFFF;
+    border-radius: 50%;
+    height: 1.5em;
+    width: 1.5em;
+}
+.checked {
+    background: #0193FD;
+}
+
+.agent-rating-stars, .landlord-rating-stars, .location-rating-stars {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.1rem;
+}
+
+.reviews-ratings-col-3 {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    /* align-items: center; */
+    align-content: center;
+    float: right; 
+    width: 50%;
+}
+
+.perks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* justify-content: space-evenly; */
+}
+
+.perk {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin: .3rem;
+    padding: 10px 21px; 
+    height: 44.87px;
+    background: #F6F6F7;
+    border-radius: 12px;    
+}
+
+.apt-similar-links {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.apt-city-vibes, .apt-low-cost, .apt-most-popular {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 24px;
+    gap: 2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,258 @@
+.navbar-container {
+    margin: auto;
+}
+
+.navbar-options {
+    padding-bottom: 4rem;
+}
+
+.vector-1 {
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    z-index: -2;
+}
+.clouds {
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    top: 0%;
+    z-index: -1;
+}
+
+.background-1 {
+    position: absolute;
+    top:15%;
+    z-index: -1;
+}
+
+.background-2 {
+    position: absolute;
+    top: 15%;
+    right: 0%;
+    z-index: -1;
+}
+
+.search-bar-container {
+    display: flex;
+    align-self: center;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 112px;
+    width: 80%;
+    background: #A4D7FC;
+    border-radius: 20px;
+}
+
+.map-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 58px;
+    width: 30%;
+    background: #FFFFFF;
+    border: 3px solid #0193FD;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+}
+
+.map-search-info {
+    text-align: center;
+    width: 250px;
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    outline: none;
+}
+
+.map-search-button {
+    margin-right: -.1rem;
+    width: 161px;
+    height: 53px;
+    background: #FFFFFF;
+    border: 1px solid #0193FD;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    border-radius: 5px 18px 18px 5px;
+    color: #2F64F7;
+    cursor: pointer;
+}
+
+.search-category {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 58px;
+    background: #FFFFFF;
+    border: 3px solid #0193FD;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 23px;
+    letter-spacing: -0.427179px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.map-h2 {
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding-left: 10px;
+    text-align: center;
+  }
+  
+  .google-map {
+    width: 100%;
+    height: 50vh;
+    margin: auto;    
+  }
+  
+  .pin {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    color: var(--main-blue);
+  }
+  
+  .pin-icon {
+    font-size: 4rem;
+  }
+  
+  .pin-text {
+    font-size: 1.3em;
+  }
+  
+  @media screen and (min-width: 799px) {
+    .google-map {
+      height: 80vh;
+      padding: 70px;
+      
+    }
+  
+    .map-h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+  
+    .pin {
+      width: 10vw;
+    }
+  
+    .pin-icon {
+      font-size: 3vw;
+    }
+}
+
+.apt-search-map {
+    margin: auto;
+    width: 1109px;
+    height: 549px;
+    margin-bottom: 15rem;
+    
+
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5rem;
+    margin-left: 15rem;
+    margin-bottom: 5rem;
+}
+
+.search-filters {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 38px;
+    letter-spacing: -0.305274px;
+    color: #000000;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.search-filters:hover {
+    color:#0193FD;
+}
+
+.slider {
+    margin: auto;
+    margin-bottom: 5rem;
+    width: 93vw;
+}
+
+.arrow {
+    position: absolute;
+    color: #0193FD ;
+    font-size: 5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+  
+.nextArrow {
+    top: 7rem;
+    right: -2.8125rem;
+}
+
+.prevArrow {
+    top: 7rem;
+    left: -2.8125rem;
+}
+
+.apt-carousel-card {
+    width: 15.313rem;
+    height: 21.875rem;    
+    margin-left: 5rem;
+    background: #FFFFFF;
+    border: 3px solid #FFD700;
+    border-radius: 15px;
+    cursor: pointer;
+}
+.card-img {
+    margin: auto;
+}
+
+.apt-carousel-listing-location {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.427179px;
+    color: #000000; 
+}
+
+.apt-carousel-listing-price {
+    display: flex;
+    align-items: baseline;
+}
+
+
+.apartments-near-you-header {
+    display: flex;
+    margin-left: 15rem;
+    margin-top: 15rem;
+    margin-bottom: 3rem;
+    width: 17.5rem;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.311421px;
+    color: #000000;
+    border-bottom: 4px solid #FFD700;
+}

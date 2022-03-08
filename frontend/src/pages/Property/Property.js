@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import './Property.css';
 import Slider from '@mui/material/Slider'
@@ -73,15 +73,15 @@ function Map() {
         googleMapsApiKey: "AIzaSyBo7kfRFsqKcS1OHupln94oNfBY7RJJS5Q"
     })
 
-    const [map, setMap] = React.useState(null)
+    const [map, setMap] = useState(null)
 
-    const onLoad = React.useCallback(function callback(map) {
+    const onLoad = useCallback(function callback(map) {
         const bounds = new window.google.maps.LatLngBounds();
         map.fitBounds(bounds);
         setMap(map)
     }, [])
 
-    const onUnmount = React.useCallback(function callback(map) {
+    const onUnmount = useCallback(function callback(map) {
         setMap(null)
     }, [])
 

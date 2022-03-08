@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 
 import './App.css';
@@ -17,6 +16,9 @@ import Banking from './pages/Banking/Banking';
 import Property from './pages/Property/Property';
 import Success from './pages/Rent/Success/success';
 import SellSuccess from './pages/Dashboard/SellSuccess';
+import SearchHome from './pages/SearchHome/SearchHome';
+import AptProperty from './pages/AptProperty/AptProperty'
+import SearchApt from './pages/SearchApt/SearchApt';
 
 function App() {
 	return (
@@ -59,6 +61,13 @@ function App() {
 					<Banking />
 				</Route> 
 				<Route path="/property/:id" component={Property}/>
+				<Route path="/apartmentproperty/:id" component={AptProperty} />
+				<Route path="/homesearch">
+					<SearchHome />
+				</Route>
+				<Route path="/apartmentsearch">
+					<SearchApt />
+				</Route>
 			</Switch>
 		</Router>
 	);
