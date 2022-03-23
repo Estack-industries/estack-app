@@ -15,6 +15,8 @@ const Appointment = () => {
 		time: null,
 	});
 
+	const [error, setError] = useState('');
+
 	const [approved, setApproved] = useState(false);
 
 	const handleChange = (prop, value) => {
@@ -23,6 +25,14 @@ const Appointment = () => {
 	};
 
 	const handleSubmit = () => {
+		//Check for null values in object
+		for (const prop in req) {
+			if (req[prop] === null) {  
+				setError('Please fill out all the fields');
+				return console.log(error);
+			}
+		}
+		//Make post request to backend
 		setApproved(true);
 		console.log(approved);
 	};
@@ -49,6 +59,7 @@ const Appointment = () => {
 				<RequestForm
 					handleChange={handleChange.bind(this)}
 					handleSubmit={handleSubmit.bind(this)}
+					error={error}
 				/>
 			) : (
 				<ApprovedAlert />

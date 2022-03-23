@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Axios from "axios";
-import "bootstrap/dist/css/bootstrap.css";
+import Axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.css';
 
 import './App.css';
 import Landing from './pages/Landing/Landing';
@@ -12,6 +12,7 @@ import SellerDB from './pages/Dashboard/SellerDB';
 import Account from './pages/Account';
 import AccountMessages from './pages/Account/Messages';
 import UploadRent from './pages/Rent/Rent';
+import Appointment from './pages/Appointment/Appointment';
 import AccountSetting from './pages/AccountSettings/AccountSettings';
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
 				</Route>
 				<Route path="/upload/rent">
 					<UploadRent />
+				</Route>
+				<Route path="/upload/appointment">
+					<Appointment />
 				</Route>
 			</Switch>
 		</Router>

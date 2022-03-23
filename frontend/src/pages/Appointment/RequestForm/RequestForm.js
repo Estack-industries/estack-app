@@ -6,11 +6,12 @@ import Button from '@mui/material/Button';
 
 import './RequestForm.css';
 
-const RequestForm = ({ handleChange, handleSubmit }) => {
+const RequestForm = ({ handleChange, handleSubmit, error }) => {
 	return (
 		<div className="req-form-cont">
 			<div className="req-form">
 				<h1>Request An Appointment</h1>
+				<h2>{error}</h2>
 				<div className="req-input">
 					<TextField
 						fullWidth
