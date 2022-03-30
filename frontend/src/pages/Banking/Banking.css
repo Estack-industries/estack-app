@@ -163,3 +163,24 @@
     height: 50px;
 }
 
+@media screen and (max-width:800px){
+    .images {
+        display: none;
+    }
+    .bank-logo{
+        display: none;
+    }
+    .bank-name{
+        text-align: center;
+    }
+    .gray-lettering{
+        font-size: small;
+    }
+    .apr-percent {
+        font-size: larger;
+    }
+    .monthly-fees{
+        font-size: small;
+    }
+
+}

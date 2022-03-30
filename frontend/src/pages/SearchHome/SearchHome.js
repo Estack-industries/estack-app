@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Icon } from '@iconify/react'
 import { googleMap, useLoadScript, Marker, InfoWindow, GoogleMap } from '@react-google-maps/api'
 import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete';
@@ -25,13 +25,12 @@ import Sun from './assets/sun.PNG';
 import Navbar from '../../components/Navbar/Navbar';
 import NavBackground from '../../components/NavBackground';
 import Footer from '../../components/Footer/Footer';
-import { useState } from 'react';
 
 
 
 const libraries = ["places"]
 const mapContainerStyle = {
-    width: '1109px',
+    width: '80%',
     height: '549px',
     border: '6px solid #0193FD',
     borderRadius: '15px'
@@ -65,8 +64,8 @@ function Map () {
     if(!isLoaded) return "Loading Maps";
 
     return(
-        <div className="map">
-            <div className="google-map">
+        <div>
+            <div className="home-google-map">
                 <GoogleMap 
                     mapContainerStyle={mapContainerStyle} 
                     zoom={8} 
@@ -161,6 +160,22 @@ const sliderSettings = {
     swipeToSlide: true,
     infinite: true,
     draggable:true,
+    responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+    ]
 }
 
 
@@ -186,13 +201,17 @@ const SearchHome = () => {
     <div>
         <Navbar />
         <NavBackground />
-        <div className="search-bar-container">
-            <div className='map-search-container'>
-                <Search panTo={panTo} />
-                <button className='map-search-button'>search</button>
+        <div className="home-search-bar-container">
+            <div className='home-map-search-container'>
+                {/* <Search panTo={panTo} /> */}
+                <input 
+                    className='search-input'  
+                    placeholder='Enter an address, or ZIP code'
+                />
+                <button className='home-map-search-button'>search</button>
             </div>
             <form>
-                <select className='search-category'>
+                <select className='home-search-category'>
                     <option>Price</option>
                     <option value=''>$100,000-$200,000</option>
                     <option value=''>$100,000-$200,000</option>
@@ -200,7 +219,7 @@ const SearchHome = () => {
                 </select>
             </form>
             <form>
-                <select className='search-category'>
+                <select className='home-search-category'>
                     <option>Beds & Baths</option>
                     <option value=''>$100,000-$200,000</option>
                     <option value=''>$100,000-$200,000</option>
@@ -208,7 +227,7 @@ const SearchHome = () => {
                 </select>
             </form>
             <form>
-                <select className='search-category'>
+                <select className='home-search-category'>
                     <option>Home Type</option>
                     <option value=''>$100,000-$200,000</option>
                     <option value=''>$100,000-$200,000</option>
@@ -216,7 +235,7 @@ const SearchHome = () => {
                 </select>
             </form>
             <form>
-                <select className='search-category'>
+                <select className='home-search-category'>
                     <option>More</option>
                     <option value=''>$100,000-$200,000</option>
                     <option value=''>$100,000-$200,000</option>
@@ -229,9 +248,9 @@ const SearchHome = () => {
             <Map />
         </div>
 
-        <div className='search-filter-container'>
+        <div className='home-search-filter-container'>
         <button className='search-filters'>All</button>
-        <button className='search-filters'>Home for you</button>
+        <button className='search-filters'>Homes for you</button>
         <button className='search-filters'>Closest to you</button>
         <button className='search-filters'>Newest</button>
 
@@ -242,13 +261,14 @@ const SearchHome = () => {
             nextArrow={<Arrow type="next" />}
             prevArrow={<Arrow type="prev" />}>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img  src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'> 
+                                    <div>
                                     Ventura st. 2892, St louis
-                                </div>
+                                    </div>
                                 </Card.Header>
                                 <Card.Text>
                             <div className='carousel-listing-price'>
@@ -258,7 +278,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -273,14 +293,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -288,11 +310,11 @@ const SearchHome = () => {
                             <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
-                                New
+                                    New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'> 
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -302,19 +324,21 @@ const SearchHome = () => {
                                     <div className='info-number'>2</div>
                                     </div>
                                     <div className='space'>
-                                        <img src={Sun} alt='sun'/>
+                                        <img src={Sun} alt='space'/>
                                         <div className='info-number'>2</div>
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -326,7 +350,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -341,14 +365,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -360,7 +386,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -375,14 +401,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -394,7 +422,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -409,14 +437,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -428,7 +458,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -443,14 +473,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -462,7 +494,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -477,6 +509,7 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
@@ -491,11 +524,12 @@ const SearchHome = () => {
             prevArrow={<Arrow type="prev" />}
             >
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -507,7 +541,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -522,14 +556,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -541,7 +577,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -556,14 +592,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -575,7 +613,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -590,14 +628,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -609,7 +649,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -624,14 +664,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -643,7 +685,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -658,14 +700,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -677,7 +721,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -692,14 +736,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -711,7 +757,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -726,6 +772,7 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
@@ -736,11 +783,12 @@ const SearchHome = () => {
             prevArrow={<Arrow type="prev" />}
             >
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -752,7 +800,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -767,14 +815,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -786,7 +836,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -801,14 +851,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -820,7 +872,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -835,14 +887,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -854,7 +908,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -869,14 +923,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -888,7 +944,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -903,14 +959,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -922,7 +980,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -937,14 +995,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -956,7 +1016,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -971,6 +1031,7 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
@@ -981,11 +1042,12 @@ const SearchHome = () => {
             prevArrow={<Arrow type="prev" />}
             >
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -997,7 +1059,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1012,14 +1074,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1031,7 +1095,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1046,14 +1110,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1065,7 +1131,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1080,14 +1146,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1099,7 +1167,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1114,14 +1182,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1133,7 +1203,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1148,14 +1218,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1167,7 +1239,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1182,14 +1254,16 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='carousel-card'>
+                <Card className='search-carousel-card'>
+                    <a className='card-link' href='/property/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
@@ -1201,7 +1275,7 @@ const SearchHome = () => {
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1216,6 +1290,7 @@ const SearchHome = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>

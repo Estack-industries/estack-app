@@ -102,7 +102,7 @@
     font-weight: bold;
 }
 
-.information-bottom {
+.property-information-bottom {
     display: flex;
     justify-content: space-evenly;
     margin-top: 1em;
@@ -121,24 +121,21 @@
     display: flex;
     height: 25px;
     width: 25px;
-    left: 0px;
-    top: 0px;
+
 }
 
-.sun {
+.space {
     display: flex;
     height: 25px;
     width: 25px;
-    left: 0px;
-    top: 0px;
+
 }
 
 .garage {
     display: flex;
     height: 25px;
     width: 25px;
-    left: 0px;
-    top: 0px;
+
 }
 
 .calendar {
@@ -167,9 +164,10 @@
 
 .button-layout {
     display: flex;
-    justify-content: center;
-    gap: 140px;
+    justify-content: space-evenly;
+    /* gap: 140px; */
 }
+
 .tour-button, .agent-button, .lender-button {
     display: flex;
     justify-content: space-evenly;
@@ -204,7 +202,6 @@
     margin: auto;
     margin-top: 20px;
     width: 341px;
-    height: 527.74px;
     background: #FFFFFF;
     border: 4px solid #0193FD;
     box-shadow: 0px 32px 34px rgba(0, 0, 0, 0.133714);
@@ -233,6 +230,7 @@
 .top-form {
     display: flex;
     flex-direction: column;
+    margin-top: 2rem;
     justify-content: space-evenly;
     gap: 30px;
     margin-bottom: 30px;
@@ -261,6 +259,7 @@
 .bottom-form{
     display: flex;
     flex-direction: column;
+    margin-bottom: 2rem;
     gap: 10px;
     font-weight: normal;
     font-size: 15px;
@@ -277,6 +276,9 @@
     top: 278px;
     border: 1px solid #C4C4C4;
     border-radius: 4px;
+}
+.tour-button-menu {
+    margin-bottom: 1rem;
 }
 
 .label {
@@ -456,16 +458,16 @@
 .description-column {
     display: flex;
     flex-direction: column;
+    width: 30%;
     justify-content:space-between
 }
 
 .description-container {
     display: flex;
     flex-direction: column;
-    width: 607px;
-    left: 85px;
-    top: calc(50% - 374px/2 - 387.5px);
-
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
     background: #FFFFFF;
     border: 3px solid #0193FD;
     box-sizing: border-box;
@@ -493,8 +495,6 @@
     align-items: center;
     justify-content: space-evenly;
     margin: 1em auto 2em auto;
-    width: 554.6px;
-    left: 107px;
     font-weight: bold;
     font-size: 20px;
     line-height: 22px;
@@ -534,12 +534,9 @@
     font-weight: bold;
     font-size: 22px;
     line-height: 30px;
-    /* identical to box height */
-
     letter-spacing: -0.427179px;
-
     color: #FFFFFF;
-    width: 566px;
+    width: 40%;
     height: 444px;
     background: #0193FD;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -612,7 +609,6 @@
     height: 30.36px;
     left: calc(50% - 337.13px/2 - 416.6px);
     top: calc(50% - 30.36px/2 - 14.86px);
-
     font-weight: bold;
     font-size: 24px;
     line-height: 31px;
@@ -627,7 +623,7 @@
     font-size: 18px;
     line-height: 23px;
     letter-spacing: -0.427179px;
-    
+
     color: #000000;
 }
 
@@ -728,11 +724,12 @@
 }
 
 .down-payment-amount, .home-price-amount, .loan-details-amount {
+    display: flex;
+    text-align: center;
     margin-top: 10px;
     font-weight: bold;
     font-size: 17px;
     line-height: 20px;
-
     color: #000000;
 }
 
@@ -742,8 +739,6 @@
     align-items: center;
     margin: auto;
     gap: 5px;
-    width: 320.5px;
-    height: 78.35px;
 }
 .gray-ellipse {
     width: 0.8em;
@@ -760,7 +755,6 @@
     align-content: center;
     width: 487px;
     height: 580px;
-    margin-left: 19%;
     margin-bottom: 30px;
     background: #FFFFFF;
     border: 3px solid #F4A523;
@@ -996,4 +990,91 @@
     letter-spacing: -1.25641px;
 
     color: #000000;
+}
+
+@media screen and (max-width:800px){
+    .button-layout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:3rem;
+
+    }
+    .tiny-images-container{
+        display: none;
+    }
+    .help-button{
+        top: 50%;
+    }
+    .description-column {
+        width: 60%;
+    }
+
+    .description-lenders-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .best-lenders-container{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+    .best-lenders-header {
+        font-size: 30px;
+    }
+
+    .payment-calculator-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .payment-calculator-header, .home-price-header, .loan-details-header, .amount-per-month{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-left: 0%;
+    }
+    .principle-interest, .homeowners-insurance, .property-taxes {
+        display: flex;
+        justify-content: center;
+
+    }
+    
+}
+
+@media screen and (max-width:412px){
+    .image-nav > div{
+        gap: 12em;
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+    .heart-icon{
+        display: flex;
+        margin-bottom: 3rem;
+        justify-content: center;
+    }
+    .tiny-images-container{
+        display: none;
+    }
+    .help-button{
+        top: 45%
+    }
+
+    .property-information-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+    .property-information-bottom {
+        display: flex; 
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .info-number{
+        margin-left: .5rem;
+    }
 }

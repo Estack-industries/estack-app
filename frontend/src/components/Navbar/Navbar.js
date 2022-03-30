@@ -33,7 +33,7 @@ const Navbar = () => {
 							<a
 								className="nav-link"
 								aria-current="page"
-								href="buy"
+								href="/homesearch"
 							>
 								Buy
 							</a>
@@ -44,7 +44,7 @@ const Navbar = () => {
 							</a>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="rent">
+							<a className="nav-link" href="/apartmentsearch">
 								Rent
 							</a>
 						</li>

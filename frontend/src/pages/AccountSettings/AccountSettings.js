@@ -231,6 +231,9 @@ const AccountSetting = () => {
                         <div className='info-heading'>
                             <h2>Bidded Properties</h2>
                         </div>
+                        <div className='deleted-searches-container'>
+                            
+                        </div>
                     </div>
                     <div className='loans-financing'>
                     <div className='info-heading'>

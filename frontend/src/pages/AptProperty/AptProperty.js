@@ -115,7 +115,7 @@ const AptProperty = (props) => {
                         src={propertyData.images[primaryImage]}
                         alt={'property preview ' + (primaryImage + 1)}
                     />
-                    <div className='image-nav'>
+                    <div className='apt-image-nav'>
                         {propertyData.images.map((image, index) => (
                             <div
                                 key={index}
@@ -143,7 +143,7 @@ const AptProperty = (props) => {
                 ))}
             </div>
             {/* yellow help button */}
-            <button className='help-button'>
+            <button className='apt-help-button'>
                 <img className='yellow-help' src={YellowHelp} />
             </button>
             <div className='apt-info-box'>
@@ -235,7 +235,7 @@ const AptProperty = (props) => {
                     </div>
                     <div className='rating-overall-star'>
                             <span className='apt-overall-star checked'>★</span><span className='apt-overall-star checked'>★</span><span className='apt-overall-star checked'>★</span><span className='apt-overall-star checked'>★</span><span className='apt-overall-star checked'>★</span>
-                        </div>
+                    </div>
                 </div>
                 <div className='reviews-ratings-col-2'>
                     <div className='ratings-breakdown'>

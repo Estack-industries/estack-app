@@ -32,7 +32,7 @@ import { moneyFormat } from '../../lib/utils';
 
 function AgentMenu ({agentIsShown, setAgentIsShown}) {
     const agentRef = useRef()
-  
+
     const closeAgent = e => {
       if(agentRef.current === e.target) {
         setAgentIsShown(false)
@@ -57,15 +57,125 @@ function AgentMenu ({agentIsShown, setAgentIsShown}) {
                         <textarea id='msg' className='user-message' placeholder='Hello, I am intered in...'></textarea>
                     </form>
                     <button class='agent-button-menu'>
-                        Contact Agent
+                         Contact Agent
                         <img src={ContactImage} alt='agent' />
                     </button>
                 </div>
             </div>
-      </div>
-      ): null}
+        </div>
+        ): null}
     </>
-  };
+};
+
+function TourMenu ({tourIsShown, setTourIsShown}) {
+    const tourRef = useRef()
+    
+    const closeTour = e => {
+      if(tourRef.current === e.target) {
+        setTourIsShown(false)
+      }
+    }
+
+    return <>{tourIsShown ? ( 
+        <div className='popup' ref={tourRef} onClick={closeTour}>
+            <div className='tour-menu'>
+                <div className='tour-header'>
+                    Request a Tour
+                </div>
+                <form action="request-tour-form" method="post" className='tour-form'>
+                    <div className='top-form'>
+                        <div className='tour-date'>
+                            <label for='appointment'>When</label>
+                            <input type='date' id='appointment' className='appointment' />
+                        </div>
+                        <div className='tour-time'>
+                            <label for='appointment-time'>What Time</label>
+                            <input type='time' id='appointment-time' className='appointment' />
+                        </div>
+                    </div>
+                    <div className='bottom-form'>
+                        <label for='name' className='label'>First Name & Last Name</label>
+                        <input type='text' id='name' className='tour-name' />
+                        <label for='email' className='label'>Email</label>     
+                        <input type='email' id='mail' className='tour-email' />
+                    </div>
+                </form>
+                <button class='tour-button-menu'>
+                    Request a Tour
+                    <img src={TourImage} alt='agent' />
+                </button>
+            </div>
+        </div>
+        ): null}
+    </>
+};
+
+function DownPaymentMenu ({downPaymentIsShown, setDownPaymentIsShown}) {
+    const downPaymentRef = useRef()
+    
+    const closeDownPayment = e => {
+      if(downPaymentRef.current === e.target) {
+        setDownPaymentIsShown(false)
+      }
+    }
+
+    return <>{downPaymentIsShown ? ( 
+        <div className='popup' ref={downPaymentRef} onClick={closeDownPayment}>
+            <div className='down-payment-menu'>
+                <div className='down-payment-calculator-header'>
+                  <div className='down-payment-title'>Down Payment</div>
+                  <button className='close-button' onClick={() => setDownPaymentIsShown(false)} >&times;</button>
+                </div>
+                <div className='down-payment-sub-title'>
+                    <div className='cash'>Cash</div>
+                    <button className='info-button'>
+                        <img src={Info} />
+                    </button>
+                </div>
+                <div className='amounts'>
+                    <input type='text' id='amount' className='loan-amount-money' placeholder='$150,000' />
+                    <input type='text' id='amount' className='loan-amount-percent' placeholder='20%' />
+                </div>
+                <PrettoSlider
+                    valueLabelDisplay="auto"
+                    aria-label="pretto slider"
+                    defaultValue={50}
+                    className='slider'
+                />
+                <div className='buy-now-title'>
+                    Want to Buy Now?
+                </div>
+                    <button className='buy-now-button'>Buy</button>
+                <div className='amount-breakdown'>
+                    <div className='cash-container'>
+                        <div className='total-cash-text'>Cash</div>
+                        <div className='total-cash-number'>$105,00.00</div>
+                    </div>
+                    <div className='initial-down-container'>
+                        <div className='initial-down-text'>Down Payment</div>
+                        <div className='initial-down-number'>$15,000.00</div>
+                    </div>
+                    <div className='total-down-container'>
+                        <div className='total-down-text'>Total Down</div>
+                        <div className='total-down-number'>$15,000 (20%)</div>
+                    </div>
+                </div>
+                <div className='down-payment-footer'>
+                    <div className='down-payment-text'>
+                        Down payment assistacne programs may loewr the up-front cost of buying. 
+                        <a className='learn-more-link' href="#"> Learn More.</a>
+                    </div>
+                    <img src={LightBulb} alt='light-bulb-img' />
+                </div>
+            </div>
+        </div>
+        ): null}
+    </>
+};
+
+
+
+
 
 function Map() {
     const { isLoaded } = useJsApiLoader({
@@ -145,13 +255,21 @@ const PrettoSlider = styled(Slider)({
 const Property = (props) =>  {
     const [agentIsShown, setAgentIsShown] = useState(false)
     const [tourIsShown, setTourIsShown] = useState(false)
-    const [downPaymetIsShown, setDownPaymentIsShown] = useState(false)
+    const [downPaymentIsShown, setDownPaymentIsShown] = useState(false)
     const [propertyData, setPropertyData] = useState({});
     const [similarProperties, setSimilarProperties] = useState([]);
     const [primaryImage, setPrimaryImage] = useState(0);
 
     const openAgent = () => {
         setAgentIsShown(prev => !prev)
+    }
+
+    const openTour = () => {
+        setTourIsShown(prev => !prev)
+    }
+
+    const openDownPayment = () => {
+        setDownPaymentIsShown(prev => !prev)
     }
 
     useState(() => {
@@ -224,7 +342,7 @@ const Property = (props) =>  {
                         <p>{moneyFormat(propertyData.listingPrice)}</p>
                     </div>
                 </div>
-                <div className='information-bottom'>
+                <div className='property-information-bottom'>
                     <div className='bedrooms'>
                         <img src={Bed} alt='bed-image' />
                         <div className='info-number'>{propertyData.numBedrooms}</div>
@@ -233,7 +351,7 @@ const Property = (props) =>  {
                         <img src={Bathroom} alt='sink-image' />
                         <div className='info-number'>{propertyData.numBathrooms}</div>
                     </div>
-                    <div className='sun'>
+                    <div className='space'>
                         <img src={Sun} alt='sun-image' />
                         <div className='info-number'>{propertyData.squareft}</div>
 
@@ -251,42 +369,14 @@ const Property = (props) =>  {
             </div>
             {/* three blue buttons */}
             <div className='button-layout'>
-                <div className='tour-dropdown' onMouseEnter={() => setTourIsShown(true)} onClick={() => setTourIsShown(false)}>
+                <div className='tour-dropdown' onClick={openTour}>
                     <button className="tour-button">
                         Request a Tour
                         <img src={TourImage} alt='tour' />
                     </button>
                     {/* hidden request a tour menu */}
-                    {tourIsShown && (
-                    <div className='tour-menu'>
-                        <div className='tour-header'>
-                            Request a Tour
-                        </div>
-                    <form action="request-tour-form" method="post" className='tour-form'>
-                    <div className='top-form'>
-                        <div className='tour-date'>
-                            <label for='appointment'>When</label>
-                            <input type='date' id='appointment' className='appointment' />
-                        </div>
-                        <div className='tour-time'>
-                            <label for='appointment-time'>What Time</label>
-                            <input type='time' id='appointment-time' className='appointment' />
-                        </div>
-                    </div>
-                    <div className='bottom-form'>
-                        <label for='name' className='label'>First Name & Last Name</label>
-                        <input type='text' id='name' className='tour-name' />
-                        <label for='email' className='label'>Email</label>     
-                        <input type='email' id='mail' className='tour-email' />
-                    </div>
-                </form>
-                <button class='tour-button-menu'>
-                    Request a Tour
-                    <img src={TourImage} alt='agent' />
-                </button>
                 </div>
-                )}
-                </div>
+                <TourMenu tourIsShown={tourIsShown} setTourIsShown={setTourIsShown} />
 
                 <div className='agent-dropdown' onClick={openAgent} >
                     <button id='agent-button' className="agent-button">
@@ -347,19 +437,19 @@ const Property = (props) =>  {
                         principle and Interstate 
                         $1550
                     </div>
-                    <div className='Homeowners-Insurance'>
+                    <div className='homeowners-insurance'>
                         <div className='blue-ellipse' style={{backgroundColor: '#77a2d0'}} />
                         Homeowner's Insurance
                         $150
                     </div>                        
-                    <div className='Property Taxes' >
+                    <div className='property-taxes' >
                         <div className='yellow-ellipse' style={{backgroundColor: '#fadd77'}}/>
                         Property Taxes
                         $895
                     </div>
                 </div>
                 <div className='amount-details'>
-                    <div className='down-payment-dropdown' onMouseEnter={() => setDownPaymentIsShown(true)}>
+                    <div className='down-payment-dropdown' onClick={openDownPayment}>
                         <button className='down-payment-button'>
                             Down Payment
                         </button>
@@ -391,55 +481,7 @@ const Property = (props) =>  {
                 </div>
             </div>
             {/* down payment hidden menu */}
-            { downPaymetIsShown && (
-            <div className='down-payment-menu'>
-                <div className='down-payment-calculator-header'>
-                  <div className='down-payment-title'>Down Payment</div>
-                  <button className='close-button' onClick={() => setDownPaymentIsShown(false)} >&times;</button>
-                </div>
-                <div className='down-payment-sub-title'>
-                    <div className='cash'>Cash</div>
-                    <button className='info-button'>
-                        <img src={Info} />
-                    </button>
-                </div>
-                <div className='amounts'>
-                    <input type='text' id='amount' className='loan-amount-money' placeholder='$150,000' />
-                    <input type='text' id='amount' className='loan-amount-percent' placeholder='20%' />
-                </div>
-                <PrettoSlider
-                    valueLabelDisplay="auto"
-                    aria-label="pretto slider"
-                    defaultValue={50}
-                    className='slider'
-                />
-                <div className='buy-now-title'>
-                    Want to Buy Now?
-                </div>
-                    <button className='buy-now-button'>Buy</button>
-                <div className='amount-breakdown'>
-                    <div className='cash-container'>
-                        <div className='total-cash-text'>Cash</div>
-                        <div className='total-cash-number'>$105,00.00</div>
-                    </div>
-                    <div className='initial-down-container'>
-                        <div className='initial-down-text'>Down Payment</div>
-                        <div className='initial-down-number'>$15,000.00</div>
-                    </div>
-                    <div className='total-down-container'>
-                        <div className='total-down-text'>Total Down</div>
-                        <div className='total-down-number'>$15,000 (20%)</div>
-                    </div>
-                </div>
-                <div className='down-payment-footer'>
-                    <div className='down-payment-text'>
-                        Down payment assistacne programs may loewr the up-front cost of buying. 
-                        <a className='learn-more-link' href="#"> Learn More.</a>
-                    </div>
-                    <img src={LightBulb} alt='light-bulb-img' />
-                </div>
-            </div>
-            )}
+            <DownPaymentMenu downPaymentIsShown={downPaymentIsShown} setDownPaymentIsShown={setDownPaymentIsShown} />
             {/* map */}
             <div className='map'>
                 <Map />

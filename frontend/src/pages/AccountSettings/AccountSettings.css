@@ -103,7 +103,6 @@
 .info-container {
     position: relative;
     width: max(min(650px, 100%), min(1247px, 90%));
-    height: 2753px;
     padding: 33px 0px;
     margin: auto;
     margin-bottom: 62px;

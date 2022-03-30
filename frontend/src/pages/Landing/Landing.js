@@ -72,8 +72,8 @@ function Landing() {
 					</div>
 
 					<div className="section">
-						<ShadowContainerImage src={Buy} text="Buy" href='buy'/>
-						<ShadowContainerImage src={Rent} text="Rent" href='rent'/>
+						<ShadowContainerImage src={Buy} text="Buy" href='/homesearch'/>
+						<ShadowContainerImage src={Rent} text="Rent" href='/apartmentsearch'/>
 						<ShadowContainerImage src={Sell} text="Sell" href='sell'/>
 					</div>
 				</div>

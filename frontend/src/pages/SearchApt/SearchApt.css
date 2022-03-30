@@ -33,7 +33,7 @@
     z-index: -1;
 }
 
-.search-bar-container {
+.apt-search-bar-container {
     display: flex;
     align-self: center;
     margin: auto;
@@ -45,7 +45,7 @@
     border-radius: 20px;
 }
 
-.map-search-container {
+.apt-map-search-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -66,9 +66,10 @@
     outline: none;
 }
 
-.map-search-button {
+.apt-map-search-button {
     margin-right: -.1rem;
-    width: 161px;
+    padding-left: 2rem;
+    padding-right: 2rem;
     height: 53px;
     background: #FFFFFF;
     border: 1px solid #0193FD;
@@ -110,28 +111,31 @@
     font-size: 1rem;
     padding-left: 10px;
     text-align: center;
-  }
+}
   
-  .google-map {
+.apt-google-map {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 50vh;
-    margin: auto;    
-  }
+    margin-top: 5rem;
+    margin-bottom: 12rem;
+}
   
-  .pin {
+.pin {
     display: flex;
     align-items: center;
     width: 180px;
     color: var(--main-blue);
-  }
+}
   
-  .pin-icon {
+.pin-icon {
     font-size: 4rem;
-  }
+}
   
-  .pin-text {
+.pin-text {
     font-size: 1.3em;
-  }
+}
   
   @media screen and (min-width: 799px) {
     .google-map {
@@ -154,20 +158,14 @@
     }
 }
 
-.apt-search-map {
-    margin: auto;
-    width: 1109px;
-    height: 549px;
-    margin-bottom: 15rem;
-    
 
-}
 
-.search-filter-container {
+.apt-search-filter-container {
     display: flex;
     justify-content: flex-start;
-    gap: 5rem;
-    margin-left: 15rem;
+    gap: 3%;
+    margin-top: 15rem;
+    margin-left: 10%;
     margin-bottom: 5rem;
 }
 
@@ -221,9 +219,6 @@
     border-radius: 15px;
     cursor: pointer;
 }
-.card-img {
-    margin: auto;
-}
 
 .apt-carousel-listing-location {
     font-family: Lato;
@@ -240,10 +235,18 @@
     align-items: baseline;
 }
 
+.card-link {
+    color: #000000;
+    text-decoration: none;
+}
+.card-link:hover {
+    color: #000000;
+}
+
 
 .apartments-near-you-header {
     display: flex;
-    margin-left: 15rem;
+    margin-left: 10%;
     margin-top: 15rem;
     margin-bottom: 3rem;
     width: 17.5rem;
@@ -255,4 +258,100 @@
     letter-spacing: -0.311421px;
     color: #000000;
     border-bottom: 4px solid #FFD700;
+}
+
+
+@media screen and (max-width:1024px){
+    .apt-map-search-container{
+        margin-right: 2%;
+    }
+
+    .apt-map-search-button{
+        padding: 0%;
+        width: auto;
+    }
+    .apt-search-category{
+        display: flex;
+        margin-left: 3%;
+    }
+
+    .prevArrow {
+        margin-left: 5%;
+    }
+    .nextArrow {
+        margin-right: 5%;
+    }
+}
+
+@media screen and (max-width:800px){
+    .apt-search-bar-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: 15rem;
+        margin-bottom: 3rem;
+    }
+    .apt-map-search-button{
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+
+    .apt-map-search-container{
+        width: 20rem;    
+    }
+
+    .apt-search-filter-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    .apts-around-you-header {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5rem;
+    }
+    .search-carousel-card{
+        display: flex;
+        margin: auto;
+    }
+    
+    .prevArrow {
+        margin-left: 5%;
+    }
+    .nextArrow {
+        margin-right: 5%;
+    }
+}
+
+@media screen and (max-width:412px){
+    .apt-search-bar-container{
+        display: flex;
+        height: 30rem;
+    }
+    .apt-map-search-container{
+        display: flex;
+        width: 15rem;
+        
+    }
+    .search-input{
+        display: flex;
+        width: 15rem;
+    }
+    .apt-map-search-button{
+        display: none;
+    }
+
+    .apt-search-category{
+        margin: auto;
+    }
+    .prevArrow {
+        margin-left: 10%;
+    }
+    .nextArrow {
+        margin-right: 10%;
+    }
 }

@@ -1,8 +1,10 @@
-import React from 'react';
-import Slider from 'react-slick'
-import GoogleMapReact from 'google-map-react'
+import React, { useState, useRef, useCallback } from 'react';
 import { Icon } from '@iconify/react'
+import { googleMap, useLoadScript, Marker, InfoWindow, GoogleMap } from '@react-google-maps/api'
+import usePlacesAutocomplete, {getGeocode, getLatLng} from 'use-places-autocomplete';
+import {Combobox, ComboboxInput, ComboboxPopover, ComboboxList,  ComboboxOption, } from '@reach/combobox'
 import locationIcon from '@iconify/icons-mdi/map-marker'
+import Slider from 'react-slick'
 
 import Card from 'react-bootstrap/card'
 import 'slick-carousel/slick/slick.css'
@@ -10,8 +12,8 @@ import 'slick-carousel/slick/slick-theme.css'
 import './SearchApt.css';
 
 
-import EStackLogo from './assets/e-stack-logo.svg';
-import DefaultUserIcon from './assets/default-user-icon.svg';
+import Navbar from '../../components/Navbar/Navbar';
+import NavBackground from '../../components/NavBackground';
 
 import Clouds from './assets/aptClouds.png'
 import SearchAptVector1 from './assets/SearchAptVector1.svg'
@@ -44,55 +46,6 @@ import Sun from './assets/sun.PNG';
 import Footer from '../../components/Footer/Footer';
 
 
-function NavBar() {
-    return (
-        <div className="navbar-container">
-            <img
-                src={EStackLogo}
-                alt="estack-logo"
-                className="estack-logo"
-                onClick={() => console.log('clicked')}
-            />
-            <div className="navbar-options">
-                <a className="navbar-option white-color open-sans" href="#">
-                    Buy
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Sell
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    Rent
-                </a>
-                <a className="navbar-option white-color open-sans" href="#">
-                    About Us
-                </a>
-            </div>
-            <img
-                src={DefaultUserIcon}
-                alt="default-user-icon"
-                className="user-icon"
-                onClick={() => console.log('clicked')}
-            />
-        </div>
-    
-    );
-};
-
-function Background() {
-	return (
-		<>
-            <img src={Clouds} alt="clouds" className='clouds' />
-      		<img src={SearchAptVector1} alt="search-home-vector-1" className="vector-1" />
-            {/* <img src={SearchHomeVector3} alt="search-home-vector-3" className="vector-3" /> */}
-            {/* <img src={SearchHomeVector4} alt="search-home-vector-4" className="vector-4" /> */}
-            <img src={Background1} alt='background-1' className='background-1'/>
-            <img src={Background2} alt='background-2' className='background-2'/>
-
-		</>
-	);
-}
-
-
 
 const LocationPin = () => (
     <div className="pin">
@@ -100,23 +53,67 @@ const LocationPin = () => (
     </div>
 )
   
-const Map = ({ location, zoomLevel }) => (
-<div className="map">
-    <div className="google-map">
-    <GoogleMapReact
-        bootstrapURLKeys={{ key: '' }}
-        defaultCenter={location}
-        defaultZoom={zoomLevel}
-    >
-        <LocationPin
-        lat={location.lat}
-        lng={location.lng}
-        text={location.address}
-        />
-    </GoogleMapReact>
-    </div>
-</div>
-)
+const libraries = ["places"]
+const mapContainerStyle = {
+    width: '80%',
+    height: '549px',
+    border: '6px solid #34E718',
+    borderRadius: '15px'
+}
+const center = {
+    lat: 33.9535,
+	lng: -118.3390,
+}
+
+
+function Map () {
+    const {isLoaded, loadError} = useLoadScript({
+        googleMapsApiKey: "",
+        libraries
+    })
+    const [markers, setmMarkers] = useState([]);
+    const [selected, setSelected] = useState(null)
+
+    const mapRef = useRef();
+    const onMapLoad = useCallback((map) => {
+        mapRef.current = map;
+      }, [],);
+
+    const panTo = useCallback(({lat, lng}) => {
+        mapRef.current.panTo({lat,lng});
+        mapRef.current.setZoom(14)
+    },[])
+    
+
+    if(loadError) return "Error loading maps";
+    if(!isLoaded) return "Loading Maps";
+
+    return(
+        <div>
+            <div className="apt-google-map">
+                <GoogleMap 
+                    mapContainerStyle={mapContainerStyle} 
+                    zoom={8} 
+                    center={center}
+                    onLoad={onMapLoad}
+                >
+                    {markers.map((marker) => (
+                        <Marker
+                            key={marker.time.toISOString()}
+                            position={{ lat: marker.lat, lng: marker.lng}}
+                            onClick={() => {setSelected(marker)}}
+                        />
+                    ))}
+                    {selected ? (<InfoWindow>
+                        
+                    </InfoWindow>) : null}
+                </GoogleMap>
+            </div>
+        </div>
+    )
+
+}
+
 
 function Arrow(props) {
     let className = props.type === "next" ? "nextArrow" : "prevArrow";
@@ -137,6 +134,22 @@ const sliderSettings = {
     swipeToSlide: true,
     infinite: true,
     draggable:true,
+    responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+    ]
 }
 
 
@@ -149,16 +162,16 @@ const location = {
 const SearchApt = () => {
     return (
     <div>
-        <NavBar/>
-        <Background />
-        <div className="search-bar-container">
-            <div className='map-search-container'>
+        <Navbar/>
+        <NavBackground />
+        <div className="apt-search-bar-container">
+            <div className='apt-map-search-container'>
                 <input
-                    className='map-search-info'
+                    className='search-input'
                     type="text"
                     placeholder="Enter an address, or ZIP code"
                 />
-                <button className='map-search-button'>search</button>
+                <button className='apt-map-search-button'>search</button>
             </div>
             <form>
                 <select className='search-category'>
@@ -198,7 +211,7 @@ const SearchApt = () => {
             <Map location={location} zoomLevel={17} />
         </div>
 
-        <div className='search-filter-container'>
+        <div className='apt-search-filter-container'>
         <button className='search-filters'>All</button>
         <button className='search-filters'>Apartments for you</button>
         <button className='search-filters'>Closest to you</button>
@@ -212,22 +225,23 @@ const SearchApt = () => {
             prevArrow={<Arrow type="prev" />}>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -242,26 +256,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -276,26 +292,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -310,26 +328,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -344,26 +364,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -378,26 +400,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
-                <Card className='apt-carousel-card'>
+                <Card className='apt-carousel-card'> 
+                <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -412,26 +436,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -446,26 +472,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame8} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -480,11 +508,12 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
         </div>
-        <div className='homes-around-you-container'>
+        <div className='apts-around-you-container'>
             <div className='apartments-near-you-header'>
                 Apartments Near You
             </div>
@@ -495,22 +524,23 @@ const SearchApt = () => {
             >
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame8} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -525,26 +555,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame9} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -559,26 +591,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame10} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -593,26 +627,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -627,26 +663,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -661,26 +699,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -695,26 +735,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -729,6 +771,7 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
@@ -740,22 +783,23 @@ const SearchApt = () => {
             >
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -770,26 +814,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -804,26 +850,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -838,26 +886,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -872,26 +922,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -906,26 +958,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -940,26 +994,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -974,6 +1030,7 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
@@ -985,22 +1042,23 @@ const SearchApt = () => {
             >
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame1} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1015,26 +1073,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame2} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1049,26 +1109,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame3} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1083,26 +1145,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame4} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1117,26 +1181,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame5} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1151,26 +1217,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame6} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1185,26 +1253,28 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
                 <div>
                 <Card className='apt-carousel-card'>
+                    <a className='card-link' href='/apartmentproperty/example'>
                             <Card.Img src={Frame7} />
                             <Card.Body>
-                                <Card.Header>
-                                <div className='apt-carousel-listing-location'>
+                                <Card.Header className='search-carousel-listing-location'>
+                                <div>
                                     Ventura st. 2892, St louis
                                 </div>
                                 </Card.Header>
                                 <Card.Text>
-                            <div className='apt-carousel-listing-price'>
+                            <div className='carousel-listing-price'>
                                 $600,000
                                 <div className='new-listing'>
                                 New
                                 </div>
                             </div>
                                 </Card.Text>
-                                <Card.Footer>
+                                <Card.Footer className='carousel-footer'>
                                     <div className='bedrooms'>
                                         <img src={Bed} alt='bed'/>
                                         <div className='info-number'> 4</div>
@@ -1219,6 +1289,7 @@ const SearchApt = () => {
                                     </div>
                                 </Card.Footer>
                             </Card.Body>
+                            </a>
                         </Card>
                 </div>
             </Slider>
