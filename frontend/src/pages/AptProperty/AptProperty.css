@@ -241,6 +241,7 @@
 .apt-property-map {
     display: flex;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    border-radius: 15px;
 }
 
 .apt-apply-button {
@@ -476,7 +477,7 @@
         height: auto;
     }
     .apt-help-button {
-        top:65%;
+        top:25%;
     }
 
     .info-box-row {
@@ -534,6 +535,7 @@
 
     .apt-property-map{
         width: 80vw;
+        margin-bottom: 2rem;
     }
 
     .apt-agent-menu{
@@ -563,13 +565,14 @@
     }
 
 }
-@media screen and (max-width:412px){
+@media screen and (max-width:512px){
     .apt-image-nav > div{
         gap: 12em;
         width: 1.2rem;
         height: 1.2rem;
     }
     .apt-help-button {
-        top: 45%;
+        top: 60%;
     }
+   
 }

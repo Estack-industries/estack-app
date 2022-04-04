@@ -1004,7 +1004,7 @@
         display: none;
     }
     .help-button{
-        top: 50%;
+        top: 55%;
     }
     .description-column {
         width: 60%;
@@ -1045,7 +1045,7 @@
     
 }
 
-@media screen and (max-width:412px){
+@media screen and (max-width:512px){
     .image-nav > div{
         gap: 12em;
         width: 1.2rem;
@@ -1060,18 +1060,19 @@
         display: none;
     }
     .help-button{
-        top: 45%
+        top: 58%
     }
 
     .property-information-container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
+        height: 80%;
     }
+
     .property-information-bottom {
         display: flex; 
-        justify-content: space-around;
+        justify-content: center;
+        width: 90%;
+        /* height: 2rem; */
+        gap:3.2rem;
         flex-wrap: wrap;
     }
     .info-number{

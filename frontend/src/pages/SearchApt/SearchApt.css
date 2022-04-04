@@ -200,7 +200,7 @@
     cursor: pointer;
 }
   
-.nextArrow {
+/* .nextArrow {
     top: 7rem;
     right: -2.8125rem;
 }
@@ -208,7 +208,7 @@
 .prevArrow {
     top: 7rem;
     left: -2.8125rem;
-}
+} */
 
 .apt-carousel-card {
     width: 15.313rem;
@@ -244,7 +244,7 @@
 }
 
 
-.apartments-near-you-header {
+.apts-near-you-header {
     display: flex;
     margin-left: 10%;
     margin-top: 15rem;
@@ -275,12 +275,12 @@
         margin-left: 3%;
     }
 
-    .prevArrow {
+    /* .prevArrow {
         margin-left: 5%;
     }
     .nextArrow {
         margin-right: 5%;
-    }
+    } */
 }
 
 @media screen and (max-width:800px){
@@ -306,25 +306,23 @@
         justify-content: center;
         flex-wrap: wrap;
         margin: auto;
+        margin-top: 15rem;
         margin-bottom: 2rem;
     }
 
-    .apts-around-you-header {
+    .apts-near-you-header {
         display: flex;
         justify-content: center;
-        margin-bottom: 5rem;
+        margin: auto;
+        margin-bottom: 3rem;
     }
     .search-carousel-card{
         display: flex;
         margin: auto;
+        
     }
     
-    .prevArrow {
-        margin-left: 5%;
-    }
-    .nextArrow {
-        margin-right: 5%;
-    }
+    
 }
 
 @media screen and (max-width:412px){
@@ -348,10 +346,10 @@
     .apt-search-category{
         margin: auto;
     }
-    .prevArrow {
+    /* .prevArrow {
         margin-left: 10%;
     }
     .nextArrow {
         margin-right: 10%;
-    }
+    } */
 }

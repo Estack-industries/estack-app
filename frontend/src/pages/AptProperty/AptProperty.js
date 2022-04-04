@@ -35,6 +35,7 @@ import { moneyFormat } from '../../lib/utils';
 const mapContainerStyle = {
     width: '709px',
     height: '528px',
+    borderRadius: '15px'
 }
 const center = {
     lat: 33.9535,

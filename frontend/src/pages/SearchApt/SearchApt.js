@@ -514,7 +514,7 @@ const SearchApt = () => {
             </Slider>
         </div>
         <div className='apts-around-you-container'>
-            <div className='apartments-near-you-header'>
+            <div className='apts-near-you-header'>
                 Apartments Near You
             </div>
             <div className='slider'>
